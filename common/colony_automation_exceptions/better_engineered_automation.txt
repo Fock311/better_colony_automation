@@ -1,0 +1,25 @@
+automate_engineered_autobuild = {
+	category = "planet_automation_engineered"
+	
+    emergency = yes
+	available = {
+		owner = {
+            has_ascension_perk = ap_engineered_evolution
+		}
+	}
+
+	buildings = {
+        # 基因组研究所
+		0 = {
+			building = building_genomic_facility
+		}
+        # 医疗中心
+        1 = {
+            building = building_medical_1
+        }
+        # 老登医院
+        2 = {
+            building = building_fe_clinic_1
+        }
+	}
+}
