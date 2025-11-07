@@ -1,3 +1,5 @@
 l_english:
-  planet_automation_engineered: "engineered evolution"
-  planet_automation_engineered_desc: "after engineered evolution auto build $building_genomic_facility$,$building_medical_1$ and $building_fe_clinic_1$"
+ planet_automation_engineered: "engineered evolution"
+ planet_automation_engineered_desc: "after engineered evolution auto build $building_genomic_facility$,$building_medical_1$ and $building_fe_clinic_1$"
+ planet_automation_monument: "$building_autochthon_monument$"
+ planet_automation_monument_desc: "auto build $building_autochthon_monument$" 

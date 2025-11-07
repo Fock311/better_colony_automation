@@ -1,0 +1,99 @@
+automate_monument_autobuild = {
+	category = "planet_automation_monument"
+	
+    emergency = yes
+	available = {
+		exists = owner
+		owner = {
+            has_technology = tech_cultural_heritage
+        }
+	}
+	
+
+	buildings = {
+		0 = {
+			building = building_autochthon_monument
+		}
+        1 = {
+            building = building_corporate_monument
+        }
+        2 = {
+            building = building_simulation_1
+        }
+        3 = {
+            building = building_galactic_memorial_1
+        }
+        4 = {
+            building = building_sensorium_1
+        }
+        5 = {
+            building = building_corporate_monument
+        }
+        6 = {
+            building = building_simulation_1
+        }
+        7 = {
+            building = building_galactic_memorial_1
+        }
+        8 = {
+            building = building_sensorium_1
+        }
+        9 = {
+            building = building_lifecrypt_1
+        }
+        10 = {
+            building = building_lifecrypt_machine_1
+        }
+        11 = {
+            building = building_lifecrypt_hive_mind_1
+        }
+        12 = {
+            building = building_lifecrypt_corporate_1
+        }
+        13 = {
+            building = building_avatar_chamber_1
+        }
+        14 = {
+            building = building_lifecrypt_1
+        }
+        15 = {
+            building = building_lifecrypt_machine_1
+        }
+        16 = {
+            building = building_lifecrypt_hive_mind_1
+        }
+        17 = {
+            building = building_lifecrypt_corporate_1
+        }
+        18 = {
+            building = building_avatar_chamber_1
+        }
+	}
+}
+
+automate_engineered_autobuild = {
+	category = "planet_automation_engineered"
+	
+    emergency = yes
+	available = {
+		owner = {
+            has_ascension_perk = ap_engineered_evolution
+		}
+	}
+	
+	buildings = {
+        # 基因组研究所
+		0 = {
+			building = building_genomic_facility
+		}
+        # 医疗中心
+        1 = {
+            building = building_medical_1
+        }
+        # 老登医院
+        2 = {
+            building = building_fe_clinic_1
+        }
+	}
+}
+

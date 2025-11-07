@@ -8,3 +8,12 @@ planet_automation_engineered = {
 	}
 }
 
+# 纪念碑
+planet_automation_monument = {
+	available = {
+		exists = owner
+		owner = {
+            has_technology = tech_cultural_heritage
+        }
+	}
+}
