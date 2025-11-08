@@ -1,0 +1,45 @@
+# 仓库 - 电区划
+automate_silo_autobuild_1 = {
+	category = "planet_automation_silo"
+	
+    emergency = yes
+	available = {
+        num_districts = { type = district_generator value < 1 }
+        num_districts = { type = district_hab_energy value < 1 }
+	}
+
+	prio_districts = {
+		district_generator
+		district_hab_energy
+    }
+}
+
+# 仓库 - 矿区划
+automate_silo_autobuild_2 = {
+	category = "planet_automation_silo"
+	
+    emergency = yes
+	available = {
+        num_districts = { type = district_mining value < 1 }
+        num_districts = { type = district_hab_mining value < 1 }
+	}
+
+	prio_districts = {
+		district_mining
+		district_hab_mining
+    }
+}
+
+# 仓库 - 农区划
+automate_farming_autobuild = {
+	category = "planet_automation_silo"
+	
+    emergency = yes
+	available = {
+        num_districts = { type = district_farming value < 1 }
+	}
+
+	prio_districts = {
+		district_farming
+    }
+}

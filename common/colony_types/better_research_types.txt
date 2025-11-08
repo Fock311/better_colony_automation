@@ -1,0 +1,295 @@
+# # 科研星球
+# col_research = {
+# 	icon = GFX_colony_type_research
+# 
+# 	potential = {
+# 		exists = owner_or_space_owner
+# 		NOR = {
+# 			uses_district_set = city_world
+# 			uses_district_set = ring_world
+# 			uses_district_set = habitat
+# 			uses_district_set = cosmogenesis_world
+# 		}
+# 		is_special_colony_type = no
+# 		is_capital = no
+# 		owner_or_space_owner = { is_wilderness_empire = no }
+# 		NOT = { is_planet_class = pc_nanotech }
+# 	}
+# 
+# 	planet_modifier = {
+# 		planet_building_research_lab_1_build_speed_mult = 0.25
+# 		planet_researchers_upkeep_mult = -0.2
+# 	}
+# 
+# 	triggered_planet_modifier = {
+# 		potential = {
+# 			exists = owner_or_space_owner
+# 			owner_or_space_owner = { has_tradition = tr_adaptability_finish }
+# 		}
+# 		modifier = {
+# 			planet_researchers_produces_mult = 0.05
+# 		}
+# 	}
+# 
+# 	weight_modifier = {
+# 		modifier = {
+# 			add = @stickiness
+# 			has_designation = col_research
+# 		}
+# 		modifier = {
+# 			OR = {
+# 				num_zones = {
+# 					type = zone_research
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_engineering
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_physics
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_society
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_unity
+# 					value > 0
+# 				}
+# 			}
+# 
+# 			add = @zone_urban
+# 		}
+# 		inline_script = {
+# 			script = colony_types/shared_weights_research
+# 		}
+# 		inline_script = {
+# 			script = colony_types/shared_weights_urban
+# 		}
+# 	}
+# }
+# 
+# # 科研站
+# col_habitat_research = {
+# 	icon = GFX_colony_type_habitat_research
+# 
+# 	potential = {
+# 		uses_district_set = habitat
+# 		exists = owner_or_space_owner
+# 		check_modifier_value = {
+# 			modifier = district_hab_science_max_add
+# 			value > 0
+# 		}
+# 		is_capital = no
+# 	}
+# 
+# 	planet_modifier = {
+# 		planet_district_hab_science_build_speed_mult = 0.25
+# 		planet_researchers_produces_mult = 0.1
+# 	}
+# 
+# 	weight_modifier = {
+# 		modifier = {
+# 			add = @stickiness
+# 			has_designation = col_habitat_research
+# 		}
+# 		modifier = {
+# 			OR = {
+# 				num_zones = {
+# 					type = zone_research
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_engineering
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_physics
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_society
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_unity
+# 					value > 0
+# 				}
+# 			}
+# 
+# 			add = @zone_urban
+# 		}
+# 		complex_trigger_modifier = {
+# 			trigger = num_districts
+# 			parameters = {
+# 				type = district_hab_science
+# 			}
+# 			mode = add
+# 		}
+# 		complex_trigger_modifier = {
+# 			trigger = num_free_districts
+# 			parameters = {
+# 				type = district_hab_science
+# 			}
+# 			mode = add
+# 		}
+# 		modifier = {
+# 			add = 10
+# 			has_deposit = d_payback_habitat_research
+# 		}
+# 		inline_script = {
+# 			script = colony_types/shared_weights_research
+# 		}
+# 	}
+# }
+# 
+# # 科研环
+# col_ring_research = {
+# 	icon = GFX_colony_type_research
+# 
+# 	potential = {
+# 		uses_district_set = ring_world
+# 		is_capital = no
+# 	}
+# 
+# 	planet_modifier = {
+# 		planet_jobs_engineering_research_produces_mult = 0.15
+# 		planet_jobs_physics_research_produces_mult = 0.15
+# 		planet_jobs_society_research_produces_mult = 0.15
+# 		logistic_growth_mult = 0.1
+# 		planet_pop_assembly_mult = 0.1
+# 		bonus_pop_growth_mult = 0.1
+# 	}
+# 
+# 	weight_modifier = {
+# 		modifier = {
+# 			add = @stickiness
+# 			has_designation = col_ring_research
+# 		}
+# 		modifier = {
+# 			OR = {
+# 				num_zones = {
+# 					type = zone_research
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_engineering
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_physics
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_society
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_unity
+# 					value > 0
+# 				}
+# 			}
+# 
+# 			add = @zone_urban
+# 		}
+# 		complex_trigger_modifier = {
+# 			trigger = num_districts
+# 			parameters = {
+# 				type = district_rw_science
+# 			}
+# 			mode = add
+# 			mult = 10
+# 		}
+# 		inline_script = {
+# 			script = colony_types/shared_weights_research
+# 		}
+# 	}
+# }
+# 
+# # 科研理想城
+# col_ecu_research = {
+# 	icon = GFX_colony_type_research
+# 
+# 	potential = {
+# 		uses_district_set = city_world
+# 		is_capital = no
+# 	}
+# 
+# 
+# 	planet_modifier = {
+# 		planet_building_research_lab_1_build_speed_mult = 0.25
+# 		planet_researchers_upkeep_mult = -0.2
+# 	}
+# 
+# 	weight_modifier = {
+# 		modifier = {
+# 			add = @stickiness
+# 			has_designation = col_ecu_research
+# 		}
+# 		modifier = {
+# 			OR = {
+# 				num_zones = {
+# 					type = zone_research
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_engineering
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_physics
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_society
+# 					value > 0
+# 				}
+# 				num_zones = {
+# 					type = zone_research_unity
+# 					value > 0
+# 				}
+# 			}
+# 
+# 			add = @zone_urban
+# 		}
+# 		inline_script = {
+# 			script = colony_types/shared_weights_research
+# 		}
+# 	}
+# }
+# 
+# # 荒野科研球
+# col_wilderness_tech = {
+# 	icon = GFX_colony_type_research
+# 
+# 	potential = {
+# 		exists = owner_or_space_owner
+# 		owner_or_space_owner = { is_wilderness_empire = yes }
+# 		is_special_colony_type = no
+# 		is_capital = no
+# 	}
+# 
+# 	planet_modifier = {
+# 		planet_building_brain_node_1_build_speed_mult = 0.25
+# 		planet_researchers_upkeep_mult = -0.2
+# 	}
+# 
+# 	triggered_planet_modifier = {
+# 		potential = {
+# 			exists = owner_or_space_owner
+# 			owner_or_space_owner = { has_tradition = tr_adaptability_finish }
+# 		}
+# 		modifier = {
+# 			planet_researchers_produces_mult = 0.05
+# 		}
+# 	}
+# 
+# 	weight_modifier = {
+# 		modifier = {
+# 			add = @stickiness
+# 			has_designation = col_wilderness_tech
+# 		}
+# 	}
+# }

@@ -17,3 +17,10 @@ planet_automation_monument = {
         }
 	}
 }
+
+# 仓库
+planet_automation_silo = {
+	available = {
+		exists = owner
+	}
+}

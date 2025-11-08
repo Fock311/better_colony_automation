@@ -1,0 +1,19 @@
+automate_silo_building_autobuild = {
+	category = "planet_automation_silo"
+	
+    emergency = yes
+	available = {
+	}
+	
+	buildings = {
+        # 老登仓库
+		0 = {
+			building = building_fe_silo_1
+		}
+        # 资源仓库
+        1 = {
+            building = building_resource_silo
+        }
+	}
+}
+

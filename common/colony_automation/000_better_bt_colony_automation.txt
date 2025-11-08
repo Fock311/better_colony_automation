@@ -13,4 +13,15 @@
 #         zone_trade_hive
 #     }
 # }
-# 
+
+automate_silo = {
+ 	category = "planet_automation_better_colony"
+
+ 	available = {
+    }
+    prio_zones = {
+		zone_energy
+		zone_minerals
+		zone_food
+    }
+}

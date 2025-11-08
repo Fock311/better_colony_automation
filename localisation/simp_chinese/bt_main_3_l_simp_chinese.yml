@@ -3,3 +3,5 @@
  planet_automation_engineered_desc: "在选择了基因飞升后自动建造基因组研究所、医院和堕落医院"
  planet_automation_monument: "纪念碑"
  planet_automation_monument_desc: "自动修纪念碑" 
+ planet_automation_silo: "仓库"
+ planet_automation_silo_desc: "自动修仓库，在所有的可以有一产区划的殖民地都修仓库，优先老登仓库"

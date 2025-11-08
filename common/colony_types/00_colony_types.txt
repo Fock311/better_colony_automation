@@ -987,7 +987,7 @@ col_bureau_machine = {
 }
 
 # Research Planet
-# 科技星球
+# 科研星球
 col_research = {
 	icon = GFX_colony_type_research
 
