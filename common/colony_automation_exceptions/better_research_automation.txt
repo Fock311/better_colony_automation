@@ -1,9 +1,12 @@
-automate_research_planet = {
+# 科研球
+
+# 物理特化
+automate_research_planet_physics = {
 	category = "planet_automation_designation_construction"
 
 	emergency = yes
 	available = {
-		has_research_designation = yes
+		has_physics_designation = yes
         any_owned_pop_group = {
 			OR = {
 				is_pop_category = civilian
@@ -21,46 +24,241 @@ automate_research_planet = {
 		district_hab_science
 		district_hab_housing # habitats can specialize both, and should if they run out of science "rural" slots
 	}
-	
-	prio_zones = {
-		zone_research
-	}
+
+	# prio_zones = {
+	# 	zone_research
+	# }
 
 	buildings = {
-		1 = {
-			building = building_vultaum_reality_computer
-		}
-		
+
+        # 星界漏斗
+        1 = {
+            building = building_astral_siphon_1
+        }
+        
+        # 研究中心
 		2 = {
 			building = building_institute
 		}
-
 		3 = {
 			building = building_supercomputer
 		}
-		
-		4 = {
-			building = building_archaeostudies_faculty
-		}
-		
-		5 = {
-			building = building_research_efficiency_1
-		}
-		
-		6 = {
-			building = building_research_upkeep_1
-		}
 
-		7 = {
-			building = building_engineering_facility_1
-		}
-		
-		8 = {
+        # 沃陶姆计算机
+        4 = {
+            building = building_vultaum_reality_computer
+        }
+
+        # 数据驱动理论研究所
+        5 = {
+            building = building_research_efficiency_1
+        }
+
+        # 场动力学中心
+		6 = {
 			building = building_physics_lab_1
 		}
-		
-		9 = {
-			building = building_biolab_1
-		}
+
+        # 老登研究所
+        7 = {
+            building = building_fe_lab_1
+        }
+
+        8 = {
+            building = building_research_lab_1
+        }
 	}
 }
+
+# 社会特化
+automate_research_planet_policy = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_policy_designation = yes
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_districts = {
+		district_city
+		district_hive
+		district_nexus
+		district_arcology_housing
+		district_rw_city
+		district_hab_science
+		district_hab_housing # habitats can specialize both, and should if they run out of science "rural" slots
+	}
+
+	# prio_zones = {
+	# 	zone_research
+	# }
+
+	buildings = {
+
+        # 远古学院
+        1 = {
+            building = building_archaeostudies_faculty
+        }
+        
+        # 研究中心
+		2 = {
+			building = building_institute
+		}
+		3 = {
+			building = building_supercomputer
+		}
+
+        # 数据驱动理论研究所
+        4 = {
+            building = building_research_efficiency_1
+        }
+
+        # 异星生物实验室
+		5 = {
+			building = building_biolab_1
+		}
+
+        # 老登研究所
+        6 = {
+            building = building_fe_lab_1
+        }
+
+        7 = {
+            building = building_research_lab_1
+        }
+	}
+}
+
+# 工程特化
+automate_research_planet_engineering = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_engineering_designation = yes
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_districts = {
+		district_city
+		district_hive
+		district_nexus
+		district_arcology_housing
+		district_rw_city
+		district_hab_science
+		district_hab_housing # habitats can specialize both, and should if they run out of science "rural" slots
+	}
+
+	# prio_zones = {
+	# 	zone_research
+	# }
+
+	buildings = {
+
+        # 研究中心
+		2 = {
+			building = building_institute
+		}
+		3 = {
+			building = building_supercomputer
+		}
+
+        # 数据驱动理论研究所
+        5 = {
+            building = building_research_efficiency_1
+        }
+
+        # 材料学工坊
+		6 = {
+			building = building_engineering_facility_1
+		}
+
+        # 老登研究所
+        7 = {
+            building = building_fe_lab_1
+        }
+
+        8 = {
+            building = building_research_lab_1
+        }
+	}
+}
+
+
+# automate_research_planet = {
+# 	category = "planet_automation_designation_construction"
+# 
+# 	emergency = yes
+# 	available = {
+# 		has_research_designation = yes
+#         any_owned_pop_group = {
+# 			OR = {
+# 				is_pop_category = civilian
+# 				is_pop_category = maintenance_drone
+# 			}
+#         }
+# 	}
+# 
+# 	prio_districts = {
+# 		district_city
+# 		district_hive
+# 		district_nexus
+# 		district_arcology_housing
+# 		district_rw_city
+# 		district_hab_science
+# 		district_hab_housing # habitats can specialize both, and should if they run out of science "rural" slots
+# 	}
+# 	
+# 	prio_zones = {
+# 		zone_research
+# 	}
+# 
+# 	buildings = {
+# 		1 = {
+# 			building = building_vultaum_reality_computer
+# 		}
+# 		
+# 		2 = {
+# 			building = building_institute
+# 		}
+# 
+# 		3 = {
+# 			building = building_supercomputer
+# 		}
+# 		
+# 		4 = {
+# 			building = building_archaeostudies_faculty
+# 		}
+# 		
+# 		5 = {
+# 			building = building_research_efficiency_1
+# 		}
+# 		
+# 		6 = {
+# 			building = building_research_upkeep_1
+# 		}
+# 
+# 		7 = {
+# 			building = building_engineering_facility_1
+# 		}
+# 		
+# 		8 = {
+# 			building = building_physics_lab_1
+# 		}
+# 		
+# 		9 = {
+# 			building = building_biolab_1
+# 		}
+# 	}
+# }

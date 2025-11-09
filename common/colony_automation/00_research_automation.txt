@@ -1,1 +1,143 @@
+# 物理学
+better_automate_research_planet_physics_1 = {
+	category = "planet_automation_designation_construction"
 
+	emergency = yes
+	available = {
+		has_physics_designation = yes
+		has_bt_trade_designation = no
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_zones = {
+        zone_research_physics
+        zone_research_physics_arcology
+        zone_research_physics_ring_world
+        zone_research_physics_nexus
+        zone_research_physics_hive
+
+        zone_habitat_research_unity
+	}
+}
+
+#物理学带贸易
+better_automate_research_planet_physics_2 = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_physics_designation = yes
+		has_bt_trade_designation = yes
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_zones = {
+        zone_research_physics
+	}
+}
+
+#社会学
+better_automate_research_planet_policy_1 = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_policy_designation = yes
+		has_bt_trade_designation = no
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_zones = {
+        zone_research_policy
+        zone_research_policy_arcology
+        zone_research_policy_ring_world
+        zone_research_policy_nexus
+        zone_research_policy_hive
+
+        zone_habitat_research_unity
+	}
+}
+
+# 社会学带贸易
+better_automate_research_planet_policy_2 = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_policy_designation = yes
+		has_bt_trade_designation = yes
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_zones = {
+        zone_research_policy
+	}
+}
+
+# 工程学
+better_automate_research_planet_engineering_1 = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_engineering_designation = yes
+		has_bt_trade_designation = no
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_zones = {
+        zone_research_engineering
+        zone_research_engineering_arcology
+        zone_research_engineering_ring_world
+        zone_research_engineering_nexus
+        zone_research_engineering_hive
+
+        zone_habitat_research_unity
+	}
+}
+
+#工程学带贸易
+better_automate_research_planet_engineering_2 = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_engineering_designation = yes
+		has_bt_trade_designation = yes
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_zones = {
+        zone_research_engineering
+	}
+}

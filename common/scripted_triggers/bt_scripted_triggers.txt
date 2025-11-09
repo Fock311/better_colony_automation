@@ -6,6 +6,15 @@ has_bt_trade_designation = {
 		has_designation = col_foundry_trade
 		has_designation = col_factory_trade
 
+        has_designation = col_research_physics_trade
+        has_designation = col_research_policy_trade
+        has_designation = col_research_engineering_trade
+        has_designation = col_ring_research_physics_trade
+        has_designation = col_ring_research_policy_trade
+        has_designation = col_ring_research_engineering_trade
+        has_designation = col_ecu_research_physics_trade
+        has_designation = col_ecu_research_policy_trade
+        has_designation = col_ecu_research_engineering_trade
     }
 }
 
@@ -36,4 +45,46 @@ has_foundry_designation = {
 		has_designation = col_ecu_foundry_trade
 		has_designation = col_foundry_trade
 	}
+}
+
+# 物理学类型
+has_physics_designation = {
+    OR = {
+        has_designation = col_research_physics
+        has_designation = col_research_physics_trade
+        has_designation = col_habitat_research_physics
+        has_designation = col_ring_research_physics
+        has_designation = col_ring_research_physics_trade
+        has_designation = col_ecu_research_physics
+        has_designation = col_ecu_research_physics_trade
+        has_designation = col_wilderness_tech_physics
+    }
+}
+
+# 社会学类型
+has_policy_designation = {
+    OR = {
+        has_designation = col_research_policy
+        has_designation = col_research_policy_trade
+        has_designation = col_habitat_research_policy
+        has_designation = col_ring_research_policy
+        has_designation = col_ring_research_policy_trade
+        has_designation = col_ecu_research_policy
+        has_designation = col_ecu_research_policy_trade
+        has_designation = col_wilderness_tech_policy
+    }
+}
+
+# 工程学类型
+has_engineering_designation = {
+    OR = {
+        has_designation = col_research_engineering
+        has_designation = col_research_engineering_trade
+        has_designation = col_habitat_research_engineering
+        has_designation = col_ring_research_engineering
+        has_designation = col_ring_research_engineering_trade
+        has_designation = col_ecu_research_engineering
+        has_designation = col_ecu_research_engineering_trade
+        has_designation = col_wilderness_tech_engineering
+    }
 }
