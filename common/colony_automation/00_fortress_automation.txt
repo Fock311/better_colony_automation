@@ -1,1 +1,42 @@
+better_automate_fortress_planet_1 = {
+	category = "planet_automation_designation_construction"
 
+	emergency = yes
+	available = {
+		has_fortress_designation = yes
+		has_bt_trade_designation = no
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+	prio_zones = {
+		zone_fortress
+        zone_fortress_arcology
+        zone_fortress_ring_world
+        zone_fortress_nexus
+        zone_fortress_hive
+	}
+}
+
+better_automate_fortress_planet_2 = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		has_fortress_designation = yes
+		has_bt_trade_designation = yes 
+        any_owned_pop_group = {
+			OR = {
+				is_pop_category = civilian
+				is_pop_category = maintenance_drone
+			}
+        }
+	}
+
+	prio_zones = {
+		zone_fortress
+	}
+}

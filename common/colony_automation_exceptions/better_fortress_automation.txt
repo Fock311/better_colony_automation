@@ -21,9 +21,9 @@ automate_fortress_planet = {
 		district_hab_housing
 	}
 	
-	prio_zones = {
-		zone_fortress
-	}
+	# prio_zones = {
+	# 	zone_fortress
+	# }
 
 	buildings = {
 		1 = {
@@ -36,9 +36,14 @@ automate_fortress_planet = {
 			available = { owner = { NOT = { has_valid_civic = civic_reanimated_armies } } }
 		}
 
-		3 = {
-			building = building_planetary_shield_generator
-		}
+
+        3 = {
+            building = building_fe_fortress
+        }
+
+		# 3 = {
+		# 	building = building_planetary_shield_generator
+		# }
 
 		4 = {
 			building = building_stronghold

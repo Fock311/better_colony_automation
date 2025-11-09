@@ -39,3 +39,5 @@ l_english:
  col_wilderness_tech_physics: "$col_research_physics$"
  col_wilderness_tech_policy: "$col_research_policy$"
  col_wilderness_tech_engineering: "$col_research_engineering$"
+ 
+ col_fortress_trade: "fortress with trade"

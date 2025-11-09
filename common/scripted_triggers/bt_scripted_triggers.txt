@@ -15,6 +15,10 @@ has_bt_trade_designation = {
         has_designation = col_ecu_research_physics_trade
         has_designation = col_ecu_research_policy_trade
         has_designation = col_ecu_research_engineering_trade
+
+        has_designation = col_wilderness_nest
+
+        has_designation = col_fortress_trade
     }
 }
 
@@ -41,6 +45,8 @@ has_foundry_designation = {
 		has_designation = col_habitat_foundry
 		has_designation = col_mac_foundry
 		has_designation = col_hiv_foundry
+        
+        has_designation = col_wilderness_forge
 
 		has_designation = col_ecu_foundry_trade
 		has_designation = col_foundry_trade
@@ -87,4 +93,14 @@ has_engineering_designation = {
         has_designation = col_ecu_research_engineering_trade
         has_designation = col_wilderness_tech_engineering
     }
+}
+
+
+# 堡垒类型
+has_fortress_designation = {
+	or = {
+		has_designation = col_fortress
+		has_designation = col_habitat_fortress
+        has_designation = col_wilderness_fortress
+	}
 }
