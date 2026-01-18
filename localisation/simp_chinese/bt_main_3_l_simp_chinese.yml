@@ -5,3 +5,7 @@
  planet_automation_monument_desc: "自动修纪念碑" 
  planet_automation_silo: "仓库"
  planet_automation_silo_desc: "自动修仓库，在所有的可以有一产区划的殖民地都修仓库，优先老登仓库"
+ planet_pre_construction: "提前建造"
+ planet_pre_construction_desc: "在殖民地人口增长前提前建造建筑物"
+ decision_enable_pre_construction: "启用提前建造"
+ decision_disable_pre_construction: "禁用提前建造"

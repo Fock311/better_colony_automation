@@ -4,12 +4,7 @@ automate_slave_planet = {
 	emergency = yes
 	available = {
 		has_designation = col_slave
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_districts = {

@@ -8,6 +8,7 @@ automate_bt_colony_trade = {
             has_trade_designation = yes
             has_bt_trade_designation = yes
         }
+        requires_more_job = yes
     }
 
     prio_zones = {

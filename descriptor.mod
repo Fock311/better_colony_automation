@@ -4,5 +4,5 @@ tags={
 }
 picture="thumbnail.png"
 name="better_autobuild 更好的自动建造"
-supported_version="v4.1.7"
+supported_version="v4.1.*"
 remote_file_id="3601183337"

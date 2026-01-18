@@ -1,0 +1,14 @@
+any_owned_pop_group = {
+	OR = {
+		is_pop_category = civilian
+		is_pop_category = maintenance_drone
+	}
+}
+
+
+requires_more_job = {
+	OR = {
+		has_modifier = planet_pre_construction
+		free_jobs <= 0
+	}
+}

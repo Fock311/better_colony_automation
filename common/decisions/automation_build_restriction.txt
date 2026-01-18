@@ -1,0 +1,35 @@
+decision_enable_pre_construction = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		NOT = { has_modifier = planet_pre_construction }
+	}
+
+	effect = {
+		add_modifier = { modifier = "planet_pre_construction" days = -1 }
+	}
+}
+
+decision_disable_pre_construction = {
+	owned_planets_only = yes
+	sound = event_administrative_work
+	icon = decision_politics
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		has_modifier = planet_pre_construction
+	}
+
+	effect = {
+		remove_modifier = "planet_pre_construction"
+	}
+}

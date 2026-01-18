@@ -5,12 +5,7 @@ automate_foundry_planet = {
 	emergency = yes
 	available = {
 		has_foundry_designation = yes
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_districts = {

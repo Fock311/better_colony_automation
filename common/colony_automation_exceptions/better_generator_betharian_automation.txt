@@ -7,12 +7,7 @@ automate_generator_betharian_planet = {
 		exists = owner
 		owner = { has_technology = tech_mine_betharian }
 		has_deposit = d_betharian_deposit
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_districts = {

@@ -6,12 +6,7 @@ better_automate_research_planet_physics_1 = {
 	available = {
 		has_physics_designation = yes
 		has_bt_trade_designation = no
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_zones = {
@@ -33,12 +28,7 @@ better_automate_research_planet_physics_2 = {
 	available = {
 		has_physics_designation = yes
 		has_bt_trade_designation = yes
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_zones = {
@@ -54,12 +44,7 @@ better_automate_research_planet_policy_1 = {
 	available = {
 		has_policy_designation = yes
 		has_bt_trade_designation = no
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_zones = {
@@ -81,12 +66,7 @@ better_automate_research_planet_policy_2 = {
 	available = {
 		has_policy_designation = yes
 		has_bt_trade_designation = yes
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_zones = {
@@ -102,12 +82,7 @@ better_automate_research_planet_engineering_1 = {
 	available = {
 		has_engineering_designation = yes
 		has_bt_trade_designation = no
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_zones = {
@@ -129,12 +104,7 @@ better_automate_research_planet_engineering_2 = {
 	available = {
 		has_engineering_designation = yes
 		has_bt_trade_designation = yes
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_zones = {

@@ -7,12 +7,7 @@ automate_research_planet_physics = {
 	emergency = yes
 	available = {
 		has_physics_designation = yes
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_districts = {
@@ -77,12 +72,7 @@ automate_research_planet_policy = {
 	emergency = yes
 	available = {
 		has_policy_designation = yes
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_districts = {
@@ -142,12 +132,7 @@ automate_research_planet_engineering = {
 	emergency = yes
 	available = {
 		has_engineering_designation = yes
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_districts = {
@@ -202,12 +187,7 @@ automate_research_planet_engineering = {
 # 	emergency = yes
 # 	available = {
 # 		has_research_designation = yes
-#         any_owned_pop_group = {
-# 			OR = {
-# 				is_pop_category = civilian
-# 				is_pop_category = maintenance_drone
-# 			}
-#         }
+#         requires_more_job = yes
 # 	}
 # 
 # 	prio_districts = {

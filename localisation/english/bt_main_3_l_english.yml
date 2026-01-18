@@ -5,3 +5,7 @@ l_english:
  planet_automation_monument_desc: "auto build $building_autochthon_monument$" 
  planet_automation_silo: "resource silo"
  planet_automation_silo_desc: "auto build $building_resource_silo$"
+ planet_pre_construction: "pre-construction"
+ planet_pre_construction_desc: "auto build buildings before population growth"
+ decision_enable_pre_construction: "enable pre-construction"
+ decision_disable_pre_construction: "disable pre-construction"

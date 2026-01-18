@@ -5,12 +5,7 @@ better_automate_fortress_planet_1 = {
 	available = {
 		has_fortress_designation = yes
 		has_bt_trade_designation = no
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 	prio_zones = {
 		zone_fortress
@@ -28,12 +23,7 @@ better_automate_fortress_planet_2 = {
 	available = {
 		has_fortress_designation = yes
 		has_bt_trade_designation = yes 
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 
 	prio_zones = {

@@ -8,12 +8,7 @@ automate_urban_planet = {
 			has_designation = col_hive
 			has_designation = col_nexus
 		}
-        any_owned_pop_group = {
-			OR = {
-				is_pop_category = civilian
-				is_pop_category = maintenance_drone
-			}
-        }
+        requires_more_job = yes
 	}
 	prio_districts = {
 		district_city
