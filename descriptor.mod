@@ -1,8 +1,8 @@
-version="0.1.1"
+version="0.1"
 tags={
-	"Events"
+	"Economy"
+	"Overhaul"
+	"Gameplay"
 }
-picture="thumbnail.png"
-name="better_autobuild 更好的自动建造"
-supported_version="v4.1.*"
-remote_file_id="3601183337"
+name="better colony automation"
+supported_version="v4.2.*"
