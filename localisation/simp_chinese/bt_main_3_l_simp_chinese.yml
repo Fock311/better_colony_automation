@@ -26,5 +26,4 @@
  reserve_minerals_amount: "预留矿物数量"
 
  decision_colony_transform: "去城市化"
- decision_colony_transform_tt: "难道我是个很坏的人吗？"
- decision_colony_transform_desc: "移除当前星球上的所有建筑，但保留区划"
+ decision_colony_transform_desc: "难道我是个很坏的人吗？"
