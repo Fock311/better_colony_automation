@@ -41,3 +41,6 @@ l_english:
  col_wilderness_tech_engineering: "$col_research_engineering$"
  
  col_fortress_trade: "fortress with trade"
+
+ col_research_tt: "This planet is a beacon of scientific research and technological advancement. Note: This automation will not build district specializations, manual construction is required."
+ col_research_desc: "Increase §Hlaboratory construction speed§! and reduce £research£§H researcher upkeep§!. Note: This automation will not build district specializations, manual construction is required."

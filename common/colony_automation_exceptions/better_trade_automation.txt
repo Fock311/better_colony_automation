@@ -25,7 +25,15 @@ automate_trade_planet = {
             building = building_fe_market_1
         }
 
+		2 = {
+			building = building_galactic_stock_exchange
+		}
+		
 		3 = {
+			building = building_commercial_megaplex
+		}
+
+		4 = {
 			building = building_commercial_zone
 		}
 	}

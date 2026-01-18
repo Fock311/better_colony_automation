@@ -16,6 +16,7 @@ automate_generator_planet = {
 		district_generator
 		district_hab_energy
 		district_rw_urban_1
+		district_geothermal
 	}
 
 	prio_zones = {

@@ -3,8 +3,17 @@ planet_automation_engineered = {
 	available = {
 		exists = owner
 		owner = {
-            has_ascension_perk = ap_engineered_evolution
+			has_ascension_perk = ap_engineered_evolution
         }
+	}
+}
+
+planet_automation_fe_clinic = {
+	available = {
+		exists = owner
+		owner = {
+			has_ascension_perk = ap_engineered_evolution
+		}
 	}
 }
 

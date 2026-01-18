@@ -10,6 +10,7 @@ automate_mining_planet = {
 	prio_districts = {
 		district_mining
 		district_hab_mining
+		district_melting
 	}
 
 	prio_zones = {

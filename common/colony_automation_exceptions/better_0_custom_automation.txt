@@ -93,6 +93,28 @@ automate_engineered_autobuild = {
         # 老登医院
         2 = {
             building = building_fe_clinic_1
+            available = {
+                NOT = { has_building = building_fe_clinic_1 }
+                NOT = { has_building = building_fe_clinic_2 }
+            }
+        }
+	}
+}
+
+automate_fe_clinic_autobuild = {
+	category = "planet_automation_fe_clinic"
+	
+    emergency = yes
+	available = {
+		owner = {
+			has_country_flag = fe_clinic_1_can_build
+		}
+	}
+	
+	buildings = {
+        # 老登医院
+        0 = {
+            building = building_fe_clinic_1
         }
 	}
 }

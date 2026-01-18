@@ -1,6 +1,8 @@
 ﻿l_simp_chinese:
  planet_automation_engineered: "基因飞升"
- planet_automation_engineered_desc: "在选择了基因飞升后自动建造基因组研究所、医院和堕落医院"
+ planet_automation_engineered_desc: "在选择了基因飞升后自动建造基因组研究所、医院和$building_fe_clinic_1$"
+ planet_automation_fe_clinic: "$building_fe_clinic_1$"
+ planet_automation_fe_clinic_desc: "无限制建$building_fe_clinic_1$"
  planet_automation_monument: "纪念碑"
  planet_automation_monument_desc: "自动修纪念碑" 
  planet_automation_silo: "仓库"
