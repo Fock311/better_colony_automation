@@ -1,0 +1,29 @@
+non_reasearch_colony_destruction = {
+	AND = {
+		has_policy_flag = automation_building_destruction
+		has_any_research_designation = no
+	}
+}
+
+non_factory_colony_destruction = {
+	AND = {
+		has_policy_flag = automation_building_destruction
+		has_factory_designation = no
+		has_industrial_designation = no
+	}
+}
+
+non_foundry_colony_destruction = {
+	AND = {
+		has_policy_flag = automation_building_destruction
+		has_foundry_designation = no
+		has_industrial_designation = no
+	}
+}
+
+non_trade_colony_destruction = {
+	AND = {
+		has_policy_flag = automation_building_destruction
+		has_bt_trade_designation = no
+	}
+}

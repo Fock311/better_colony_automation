@@ -73,7 +73,7 @@ automate_research_planet_policy = {
 
 	emergency = yes
 	available = {
-		has_policy_designation = yes
+		has_sociology_designation = yes
         requires_more_job = yes
         has_minerals_to_build = yes
 

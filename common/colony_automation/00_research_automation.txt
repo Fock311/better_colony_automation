@@ -46,7 +46,7 @@ better_automate_research_planet_policy_1 = {
 
 	emergency = yes
 	available = {
-		has_policy_designation = yes
+		has_sociology_designation = yes
 		has_bt_trade_designation = no
         requires_more_job = yes
         has_minerals_to_build = yes
@@ -54,11 +54,11 @@ better_automate_research_planet_policy_1 = {
 	}
 
 	prio_zones = {
-        zone_research_policy
-        zone_research_policy_arcology
-        zone_research_policy_ring_world
-        zone_research_policy_nexus
-        zone_research_policy_hive
+        zone_research_sociology
+        zone_research_sociology_arcology
+        zone_research_sociology_ring_world
+        zone_research_sociology_nexus
+        zone_research_sociology_hive
 
         zone_habitat_research_unity
 	}
@@ -70,7 +70,7 @@ better_automate_research_planet_policy_2 = {
 
 	emergency = yes
 	available = {
-		has_policy_designation = yes
+		has_sociology_designation = yes
 		has_bt_trade_designation = yes
         requires_more_job = yes
         has_minerals_to_build = yes
@@ -78,7 +78,7 @@ better_automate_research_planet_policy_2 = {
 	}
 
 	prio_zones = {
-        zone_research_policy
+        zone_research_sociology
 	}
 }
 

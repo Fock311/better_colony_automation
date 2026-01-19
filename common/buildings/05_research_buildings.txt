@@ -52,13 +52,8 @@ building_research_lab_1 = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
 			has_modifier = penal_colony
-		}
-	
-		NOR = {
-			has_physics_designation = yes
-			has_policy_designation = yes
-			has_engineering_designation = yes
-			has_research_designation = yes
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -111,6 +106,8 @@ building_research_lab_2 = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
 			has_modifier = penal_colony
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -167,6 +164,8 @@ building_research_lab_3 = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
 			has_modifier = penal_colony
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -222,6 +221,8 @@ building_institute = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_regular_empire = no }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -330,6 +331,8 @@ building_supercomputer = {
 			has_modifier = penal_colony
 			owner = { is_regular_empire = yes }
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -430,6 +433,8 @@ building_shroud_observatory_1 = {
 			NOT = { exists = owner }
 			owner = { NOT = { has_origin = origin_shroud_forged } }
 			NOT = { has_deposit = d_shroud_rift_deposit }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -482,6 +487,8 @@ building_shroud_observatory_2 = {
 			NOT = { exists = owner }
 			owner = { NOT = { has_origin = origin_shroud_forged } }
 			NOT = { has_deposit = d_shroud_rift_deposit }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -549,6 +556,8 @@ building_shroud_observatory_3 = {
 			NOT = { exists = owner }
 			owner = { NOT = { has_origin = origin_shroud_forged } }
 			NOT = { has_deposit = d_shroud_rift_deposit }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -619,6 +628,8 @@ building_archaeostudies_faculty = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -789,6 +800,8 @@ building_vultaum_reality_computer = {
 			has_modifier = resort_colony
 			has_modifier = slave_colony
 			has_modifier = penal_colony
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -893,6 +906,8 @@ building_physics_lab_1 = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -962,6 +977,8 @@ building_physics_lab_2 = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -1033,6 +1050,8 @@ building_physics_lab_3 = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -1114,6 +1133,8 @@ building_biolab_1 = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -1188,6 +1209,8 @@ building_biolab_2 = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -1259,6 +1282,8 @@ building_biolab_3 = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -1340,6 +1365,8 @@ building_engineering_facility_1 = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -1409,6 +1436,8 @@ building_engineering_facility_2 = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -1479,6 +1508,8 @@ building_engineering_facility_3 = {
 			has_modifier = slave_colony
 			has_modifier = penal_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -1568,6 +1599,8 @@ building_ranger_lodge = {
 			is_planet_class = pc_hive
 			is_planet_class = pc_machine
 			is_planet_class = pc_relic
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -1693,6 +1726,8 @@ building_research_upkeep_1 = {
 		OR = {
 			has_modifier = resort_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 
@@ -1784,6 +1819,8 @@ building_research_efficiency_1 = {
 		OR = {
 			has_modifier = resort_colony
 			owner = { is_wilderness_empire = yes }
+		
+			non_reasearch_colony_destruction = yes
 		}
 	}
 

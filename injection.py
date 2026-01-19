@@ -63,45 +63,93 @@ def parse_injection_file(content: str) -> List[InjectionDirective]:
 	directives: List[InjectionDirective] = []
 	i = 0
 	while i < len(content):
-		# Find next '=' that starts a directive
-		eq_idx = content.find('=', i)
-		if eq_idx == -1:
+		# Skip whitespace
+		while i < len(content) and content[i].isspace():
+			i += 1
+		if i >= len(content):
 			break
-		# Extract key path left of '='
-		# Go back to start of the line and strip spaces
-		line_start = content.rfind('\n', 0, eq_idx)
-		if line_start == -1:
-			line_start = 0
+		
+		# Check if we're at a multi-object list [obj1 obj2 ...]
+		objects = []
+		if content[i] == '[':
+			# Find matching ]
+			bracket_open = i
+			j = i + 1
+			while j < len(content) and content[j] != ']':
+				j += 1
+			if j >= len(content):
+				# Malformed, skip
+				i += 1
+				continue
+			# Extract list content, handling multiple lines
+			list_content = content[bracket_open + 1:j]
+			# Split by whitespace to get objects
+			objects = list_content.split()
+			i = j + 1  # Skip past ]
 		else:
-			line_start += 1
-		key_str = content[line_start:eq_idx].strip()
-		# After '=', allow optional spaces and operation word
-		j = eq_idx + 1
-		while j < len(content) and content[j].isspace():
-			j += 1
-		op = "override"  # default behavior when not specified
-		if content.startswith("append", j):
-			op = "append"
-			j += len("append")
-		elif content.startswith("override", j):
-			op = "override"
-			j += len("override")
-		# Skip spaces to the opening brace
-		while j < len(content) and content[j].isspace():
-			j += 1
-		if j >= len(content) or content[j] != '{':
-			# Not a block directive; skip this line
-			i = eq_idx + 1
+			# Single object - read until . or =
+			obj_start = i
+			while i < len(content) and content[i] not in '.=\n':
+				i += 1
+			single_obj = content[obj_start:i].strip()
+			if single_obj:
+				objects = [single_obj]
+		
+		if not objects:
 			continue
-		body_start = j + 1
-		body_end_brace = find_matching_brace(content, j)
-		if body_end_brace == -1:
-			# malformed; abort
+		
+		# Skip whitespace and optional dot
+		while i < len(content) and content[i].isspace():
+			i += 1
+		if i < len(content) and content[i] == '.':
+			i += 1
+		
+		# Parse property path until =
+		path_start = i
+		while i < len(content) and content[i] != '=':
+			i += 1
+		if i >= len(content):
 			break
-		body = content[body_start:body_end_brace]
-		path = [p.strip() for p in key_str.split('.') if p.strip()]
-		directives.append(InjectionDirective(path, op, body))
-		i = body_end_brace + 1
+		property_path = content[path_start:i].strip()
+		
+		# Skip = and spaces
+		i += 1
+		while i < len(content) and content[i].isspace():
+			i += 1
+		
+		# Determine operation
+		op = "override"
+		if content.startswith("append", i):
+			op = "append"
+			i += len("append")
+		elif content.startswith("override", i):
+			op = "override"
+			i += len("override")
+		elif content.startswith("wrap", i):
+			op = "wrap"
+			i += len("wrap")
+		
+		# Skip spaces to opening brace
+		while i < len(content) and content[i].isspace():
+			i += 1
+		if i >= len(content) or content[i] != '{':
+			continue
+		
+		# Find matching brace
+		brace_open = i
+		brace_close = find_matching_brace(content, i)
+		if brace_close == -1:
+			break
+		body = content[brace_open + 1:brace_close]
+		i = brace_close + 1
+		
+		# Create directives for each object
+		for obj in objects:
+			obj = obj.strip()
+			if obj:
+				path = [obj] + [p.strip() for p in property_path.split('.') if p.strip()]
+				directives.append(InjectionDirective(path, op, body))
+	
 	return directives
 
 
@@ -209,6 +257,87 @@ def apply_override(text: str, prop_open: int, prop_close: int, body: str, newlin
 	return text[:prop_open + 1] + replacement + text[prop_close:]
 
 
+def apply_wrap(text: str, prop_open: int, prop_close: int, template: str, newline: str, indent_unit: str) -> str:
+	# Wrap existing content with template containing [wrapped] placeholder
+	# Extract original content
+	original_content = text[prop_open + 1:prop_close]
+	
+	# Determine indentation context
+	line_start = text.rfind('\n', 0, prop_open)
+	if line_start == -1:
+		line_start = 0
+	else:
+		line_start += 1
+	leading_ws = re.match(r"\s*", text[line_start:prop_open]).group(0)
+	inner_indent = leading_ws + indent_unit
+	
+	# Process template and replace [wrapped] with original content
+	template_lines = template.splitlines()
+	result_lines = []
+	
+	for line in template_lines:
+		stripped = line.strip()
+		if '[wrapped]' in stripped:
+			# Replace [wrapped] with original content
+			# Preserve indentation of [wrapped] line for the inserted content
+			wrapped_indent_match = re.match(r'(\s*)\[wrapped\]', line)
+			if wrapped_indent_match:
+				wrapped_line_indent = wrapped_indent_match.group(1)
+				# Insert original content directly, preserving its structure
+				for orig_line in original_content.splitlines():
+					# Keep original line as-is, will be re-indented by indent_body
+					result_lines.append(wrapped_line_indent + orig_line.strip() if orig_line.strip() else orig_line)
+		else:
+			result_lines.append(line)
+	
+	# Join template without applying base indentation yet
+	wrapped_body = newline.join(result_lines)
+	
+	# Now apply proper indentation to the entire wrapped structure
+	# But first need to handle original content's relative indentation
+	# Extract original lines and dedent them uniformly
+	orig_lines = original_content.splitlines()
+	orig_non_empty = [l for l in orig_lines if l.strip()]
+	if orig_non_empty:
+		min_indent = min(len(re.match(r'\s*', l).group(0)) for l in orig_non_empty)
+		dedented_orig = [l[min_indent:] if len(l) > min_indent and l.strip() else l for l in orig_lines]
+	else:
+		dedented_orig = orig_lines
+	
+	# Rebuild template with dedented original content
+	result_lines_final = []
+	for line in template_lines:
+		if '[wrapped]' in line.strip():
+			wrapped_indent_match = re.match(r'(\s*)\[wrapped\]', line)
+			if wrapped_indent_match:
+				wrapped_line_indent = wrapped_indent_match.group(1)
+				for orig_line in dedented_orig:
+					if orig_line.strip():
+						result_lines_final.append(wrapped_line_indent + orig_line)
+					else:
+						result_lines_final.append('')
+		else:
+			result_lines_final.append(line)
+	
+	wrapped_body = newline.join(result_lines_final)
+	injected = indent_body(wrapped_body, newline, inner_indent)
+	
+	# Capture closing brace indentation
+	close_line_start = text.rfind('\n', 0, prop_close)
+	if close_line_start == -1:
+		close_line_start = 0
+	else:
+		close_line_start += 1
+	closing_indent = re.match(r"\s*", text[close_line_start:prop_close]).group(0)
+	
+	if injected:
+		replacement = newline + injected + newline + closing_indent
+	else:
+		replacement = ""
+	
+	return text[:prop_open + 1] + replacement + text[prop_close:]
+
+
 def add_new_property(text: str, obj_open: int, obj_close: int, key: str, body: str, newline: str, indent_unit: str) -> Tuple[str, int]:
 	# Insert before obj_close
 	# Determine indentation of entries inside object
@@ -233,35 +362,44 @@ def add_new_property(text: str, obj_open: int, obj_close: int, key: str, body: s
 
 
 def apply_one_directive(text: str, directive: InjectionDirective, newline: str, indent_unit: str) -> str:
-	# Currently support path of length 2: top.object_property
+	# Support multi-level path: top.level1.level2.level3...
 	if not directive.target_path:
 		return text
+	
+	# Find top-level object
 	top = directive.target_path[0]
-	sub = directive.target_path[1] if len(directive.target_path) > 1 else None
 	found = find_top_object(text, top)
 	if not found:
 		return text  # Not found in this file
-	_, obj_open, obj_close = found
-	if sub is None:
-		# If sub not provided, override whole object body (advanced use-case)
-		if directive.operation == "append":
-			# Append at end of object
-			text, _ = add_new_property(text, obj_open, obj_close, "__injected__", directive.body, newline, indent_unit)
-			return text
+	
+	_, current_open, current_close = found
+	
+	# Navigate through nested path (skip first element which is top)
+	for i in range(1, len(directive.target_path)):
+		key = directive.target_path[i]
+		subblk = find_sub_block(text, current_open, current_close, key)
+		
+		if subblk:
+			# Found the sub-block, continue deeper
+			_, current_open, current_close = subblk
 		else:
-			# Replace entire object content between braces
-			return apply_override(text, obj_open, obj_close, directive.body, newline, indent_unit)
-	# Find sub block
-	subblk = find_sub_block(text, obj_open, obj_close, sub)
-	if subblk:
-		_, prop_open, prop_close = subblk
-		if directive.operation == "append":
-			return apply_append(text, prop_open, prop_close, directive.body, newline, indent_unit)
-		else:
-			return apply_override(text, prop_open, prop_close, directive.body, newline, indent_unit)
-	# Sub not found; create new property
-	text, _ = add_new_property(text, obj_open, obj_close, sub, directive.body, newline, indent_unit)
-	return text
+			# Sub-block not found
+			if i == len(directive.target_path) - 1:
+				# This is the final key - create it with the body
+				text, _ = add_new_property(text, current_open, current_close, key, directive.body, newline, indent_unit)
+				return text
+			else:
+				# Intermediate key missing - cannot proceed deeper
+				# For now, skip this directive
+				return text
+	
+	# Reached the target block - apply the operation
+	if directive.operation == "append":
+		return apply_append(text, current_open, current_close, directive.body, newline, indent_unit)
+	elif directive.operation == "wrap":
+		return apply_wrap(text, current_open, current_close, directive.body, newline, indent_unit)
+	else:
+		return apply_override(text, current_open, current_close, directive.body, newline, indent_unit)
 
 
 def load_directives_for_category(category_dir: str) -> List[InjectionDirective]:
@@ -308,23 +446,37 @@ def group_directives_by_top(directives: List[InjectionDirective]) -> dict:
 def apply_directives_to_files(vanilla_dir: str, common_dir: str, directives: List[InjectionDirective]) -> None:
 	if not directives:
 		return
-	by_top = group_directives_by_top(directives)
-	# For each top id, locate source file(s) and apply directives
-	for top, dirs in by_top.items():
+	
+	# Group directives by source file to avoid re-reading and overwriting
+	files_to_process = {}  # {source_file_path: [directives]}
+	
+	# For each directive, find its source file and collect all directives for that file
+	for directive in directives:
+		if not directive.target_path:
+			continue
+		top = directive.target_path[0]
 		source_files = find_source_files_for_top(vanilla_dir, top)
 		if not source_files:
-			# Not found; skip
 			continue
 		for src in source_files:
-			text = read_text(src)
-			newline = detect_newline(text)
-			indent_unit = detect_indentation_unit(text)
-			for d in dirs:
-				text = apply_one_directive(text, d, newline, indent_unit)
-			# Write to common path preserving relative
-			rel = os.path.relpath(src, vanilla_dir)
-			out_path = os.path.join(common_dir, rel)
-			write_text(out_path, text)
+			if src not in files_to_process:
+				files_to_process[src] = []
+			files_to_process[src].append(directive)
+	
+	# Process each source file once, applying all its directives
+	for src, directives_for_file in files_to_process.items():
+		text = read_text(src)
+		newline = detect_newline(text)
+		indent_unit = detect_indentation_unit(text)
+		
+		# Apply all directives for this file sequentially
+		for d in directives_for_file:
+			text = apply_one_directive(text, d, newline, indent_unit)
+		
+		# Write to common path preserving relative
+		rel = os.path.relpath(src, vanilla_dir)
+		out_path = os.path.join(common_dir, rel)
+		write_text(out_path, text)
 
 
 def main():

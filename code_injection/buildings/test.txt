@@ -1,11 +1,32 @@
 
-building_research_lab_1.destroy_trigger = append{
-	NOR = {
-		has_physics_designation = yes
-		has_policy_designation = yes
-		has_engineering_designation = yes
-		has_research_designation = yes
-	}
+[building_research_lab_1
+ building_research_lab_2 
+ building_research_lab_3
+ building_institute 
+ building_supercomputer
+ building_shroud_observatory_1 
+ building_shroud_observatory_2 
+ building_shroud_observatory_3
+ building_archaeostudies_faculty 
+ building_vultaum_reality_computer
+ building_physics_lab_1 
+ building_physics_lab_2 
+ building_physics_lab_3
+ building_biolab_1 
+ building_biolab_2 
+ building_biolab_3
+ building_engineering_facility_1 
+ building_engineering_facility_2 
+ building_engineering_facility_3
+ building_ranger_lodge
+ building_research_upkeep_1
+ building_research_efficiency_1].destroy_trigger.OR = append{
+	non_reasearch_colony_destruction = yes
+}
+
+
+[building_fe_lab_1 building_fe_lab_2].destroy_trigger = override{
+ 	non_reasearch_colony_destruction = yes
 }
 
 
