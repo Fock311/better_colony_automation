@@ -1,12 +1,11 @@
 better_automate_fortress_planet_1 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
-		has_fortress_designation = yes
-		bca_has_mixed_trade_designation = no
         requires_more_job = yes
         bca_has_minerals_to_build = yes
+		has_fortress_designation = yes
+		bca_has_mixed_trade_designation = no
 
 	}
 	prio_zones = {
@@ -21,12 +20,11 @@ better_automate_fortress_planet_1 = {
 better_automate_fortress_planet_2 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
-		has_fortress_designation = yes
-		bca_has_mixed_trade_designation = yes 
         requires_more_job = yes
         bca_has_minerals_to_build = yes
+		has_fortress_designation = yes
+		bca_has_mixed_trade_designation = yes 
 
 	}
 

@@ -1,0 +1,23 @@
+automate_generator_planet = {
+	category = "planet_automation_housing"
+
+	emergency = yes
+	available = {
+		free_housing < 0
+		bca_has_minerals_to_build = yes
+		has_generator_designation = yes
+		NAND = {
+			exists = owner
+			owner = { has_technology = tech_mine_betharian }
+			has_deposit = d_betharian_deposit
+		}
+	}
+
+	prio_districts = {
+		district_generator
+		district_hab_energy
+		district_geothermal
+		district_rw_urban_1
+	}
+
+}

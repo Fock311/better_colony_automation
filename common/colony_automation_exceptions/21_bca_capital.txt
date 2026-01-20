@@ -4,14 +4,13 @@ automate_capital_planet = {
 	
 	emergency = yes
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		OR = {
 			has_designation = col_capital
 			has_designation = col_capital_hive
 			has_designation = col_capital_machine
 		}
-        requires_more_job = yes
-        bca_has_minerals_to_build = yes
-
 	}
 
 	prio_districts = {

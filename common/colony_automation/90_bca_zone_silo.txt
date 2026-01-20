@@ -2,6 +2,7 @@ automate_silo = {
  	category = "planet_automation_silo"
 
  	available = {
+        bca_has_minerals_to_build = yes
     }
     prio_zones = {
 		zone_minerals

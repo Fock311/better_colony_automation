@@ -1,7 +1,6 @@
 better_automate_factory_planet_1 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
 		has_factory_designation = yes
 		bca_has_mixed_trade_designation = no
@@ -23,7 +22,6 @@ better_automate_factory_planet_1 = {
 better_automate_factory_planet_2 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
 		has_factory_designation = yes
 		bca_has_mixed_trade_designation = yes
@@ -40,7 +38,6 @@ better_automate_factory_planet_2 = {
 better_automate_foundry_planet_1 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
 		has_foundry_designation = yes
 		bca_has_mixed_trade_designation = no
@@ -62,7 +59,6 @@ better_automate_foundry_planet_1 = {
 better_automate_foundry_planet_2 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
 		has_foundry_designation = yes
 		bca_has_mixed_trade_designation = yes 

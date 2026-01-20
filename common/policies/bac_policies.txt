@@ -146,3 +146,36 @@ bac_zone_destroy = {
     }
 
 }
+
+
+bac_remove_pop_assemble_buildings = {
+    allow = { always = yes }
+    potential = { always = yes }
+    option = {
+        name = "disable_bac_remove_pop_assemble_buildings"
+        on_enabled = {
+            remove_country_flag = bac_remove_pop_assemble_buildings
+        }
+        ai_weight = {
+            factor = 0
+            modifier = {
+                factor = 1
+                is_ai = yes
+            }
+        }
+    }
+    option = {
+        name = "enable_bac_remove_pop_assemble_buildings"
+        on_enabled = {
+            set_country_flag = bac_remove_pop_assemble_buildings
+        }
+        ai_weight = {
+            factor = 1
+            modifier = {
+                factor = 0
+                is_ai = yes
+            }
+        }
+    }
+
+}

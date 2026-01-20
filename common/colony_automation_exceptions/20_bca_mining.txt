@@ -3,20 +3,15 @@ automate_mining_planet = {
 
 	emergency = yes
 	available = {
-		has_mining_designation = yes
-        requires_more_job = yes
+		requires_more_job = yes
         bca_has_minerals_to_build = yes
-
+		has_mining_designation = yes
 	}
 
 	prio_districts = {
 		district_mining
 		district_hab_mining
 		district_melting
-	}
-
-	prio_zones = {
-		zone_minerals
 	}
 
 	buildings = {

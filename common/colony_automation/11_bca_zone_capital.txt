@@ -1,0 +1,23 @@
+automate_capital_planet = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
+		OR = {
+			has_designation = col_capital
+			has_designation = col_capital_hive
+			has_designation = col_capital_machine
+		}
+	}
+	
+	prio_zones = {
+		zone_industrial
+		zone_research_unity
+		zone_foundry
+		zone_energy
+		zone_food
+		zone_minerals
+	}
+	
+}

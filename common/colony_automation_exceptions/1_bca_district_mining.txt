@@ -1,0 +1,30 @@
+automate_mining_planet = {
+	category = "planet_automation_housing"
+
+	emergency = yes
+	available = {
+		free_housing < 0
+        bca_has_minerals_to_build = yes
+		has_mining_designation = yes
+	}
+
+	prio_districts = {
+		district_mining
+		district_hab_mining
+		district_melting
+	}
+
+	buildings = {
+		1 = {
+			building = building_crystal_mines
+		}
+
+		2 = {
+			building = building_mineral_purification_plant
+		}
+
+		3 = {
+			building = building_mining_districts_1
+		}
+	}
+}

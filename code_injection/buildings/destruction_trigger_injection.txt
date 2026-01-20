@@ -76,3 +76,23 @@ building_production_center.destroy_trigger = wrap{
  building_commercial_zone].destroy_trigger.OR = append{
 	bca_can_remove_building_trade = yes
  }
+
+[building_robot_assembly_plant
+ building_robot_assembly_complex
+ building_machine_assembly_plant
+ building_machine_assembly_complex
+ building_clone_vats
+ building_posthumous_employment_center].destroy_trigger.OR = append{
+	bca_can_remove_pop_assemble = yes
+}
+ 
+[building_spawning_pool
+ building_offspring_nest].destroy_trigger = wrap{
+	OR = {
+		AND = {
+			[wrapped]
+		}
+		bca_can_remove_district_generator = yes
+	}
+}
+

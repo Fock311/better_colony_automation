@@ -9,6 +9,16 @@ remove_zone_if_found = {
 	}
 }
 
+replace_zone_in_district = {
+	add_zone = {
+		district = $district$
+		zone = $zone$
+		zone_slot = 1
+		replace = yes
+	}
+}
+
+
 remove_district_if = {
 	if = {
 		limit = {
@@ -18,3 +28,4 @@ remove_district_if = {
 		remove_district = $district$
 	}
 }
+

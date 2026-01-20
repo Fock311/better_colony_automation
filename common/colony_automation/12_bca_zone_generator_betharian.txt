@@ -1,0 +1,16 @@
+automate_generator_betharian_planet = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+		has_generator_designation = yes
+		exists = owner
+		owner = { has_technology = tech_mine_betharian }
+		has_deposit = d_betharian_deposit
+	}
+
+	prio_zones = {
+		zone_betharian
+		zone_energy
+		zone_energy_ring_world
+	}
+}

@@ -1,0 +1,14 @@
+automate_penal_planet = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
+		has_designation = col_penal
+	}
+
+	prio_zones = {
+		zone_industrial
+		zone_foundry
+	}
+}

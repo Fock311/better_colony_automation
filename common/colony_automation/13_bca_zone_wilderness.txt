@@ -1,12 +1,10 @@
 automate_wilderness_capital = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_capital
-        requires_more_job = yes
-        bca_has_minerals_to_build = yes
-
 	}
 
 	prio_districts = {
@@ -39,6 +37,8 @@ automate_wilderness_generator = {
 	category = "planet_automation_designation_construction"
 
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_generator
 	}
 
@@ -68,6 +68,8 @@ automate_wilderness_mining = {
 	category = "planet_automation_designation_construction"
 
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_mining
 	}
 
@@ -97,6 +99,8 @@ automate_wilderness_farming = {
 	category = "planet_automation_designation_construction"
 
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_farming
 	}
 
@@ -126,6 +130,8 @@ automate_wilderness_fortress = {
 	category = "planet_automation_designation_construction"
 
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_fortress
 	}
 
@@ -155,6 +161,8 @@ automate_wilderness_tech = {
 	category = "planet_automation_designation_construction"
 
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_tech
 	}
 
@@ -184,6 +192,8 @@ automate_wilderness_nest = {
 	category = "planet_automation_designation_construction"
 
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_nest
 	}
 
@@ -216,6 +226,8 @@ automate_wilderness_refinery = {
 	category = "planet_automation_designation_construction"
 
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_refinery
 	}
 
@@ -254,6 +266,8 @@ automate_wilderness_forge = {
 	category = "planet_automation_designation_construction"
 
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_forge
 	}
 
@@ -283,6 +297,8 @@ automate_wilderness_unification = {
 	category = "planet_automation_designation_construction"
 
 	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_unification
 	}
 

@@ -1,0 +1,19 @@
+automate_farming_planet = {
+	category = "planet_automation_housing"
+
+	emergency = yes
+	available = {
+		free_housing < 0
+		bca_has_minerals_to_build = yes
+		has_farming_designation = yes
+		NOT = {
+			uses_district_set = habitat
+		}
+	}
+
+	prio_districts = {
+		district_farming
+		district_rw_urban_1
+	}
+
+}

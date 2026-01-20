@@ -1,14 +1,27 @@
+automate_research_planet = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+		requires_more_job = yes
+		bca_has_minerals_to_build = yes
+		has_research_designation = yes
+	}
+
+	prio_zones = {
+		zone_research
+	}
+
+}
+
 # 物理学
 better_automate_research_planet_physics_1 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
-		has_physics_designation = yes
-		bca_has_mixed_trade_designation = no
         requires_more_job = yes
         bca_has_minerals_to_build = yes
-
+		has_physics_designation = yes
+		bca_has_mixed_trade_designation = no
 	}
 
 	prio_zones = {
@@ -26,13 +39,11 @@ better_automate_research_planet_physics_1 = {
 better_automate_research_planet_physics_2 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
-		has_physics_designation = yes
-		bca_has_mixed_trade_designation = yes
         requires_more_job = yes
         bca_has_minerals_to_build = yes
-
+		has_physics_designation = yes
+		bca_has_mixed_trade_designation = yes
 	}
 
 	prio_zones = {
@@ -44,12 +55,11 @@ better_automate_research_planet_physics_2 = {
 better_automate_research_planet_policy_1 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
-		has_sociology_designation = yes
-		bca_has_mixed_trade_designation = no
         requires_more_job = yes
         bca_has_minerals_to_build = yes
+		has_sociology_designation = yes
+		bca_has_mixed_trade_designation = no
 
 	}
 
@@ -68,13 +78,11 @@ better_automate_research_planet_policy_1 = {
 better_automate_research_planet_policy_2 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
-		has_sociology_designation = yes
-		bca_has_mixed_trade_designation = yes
         requires_more_job = yes
         bca_has_minerals_to_build = yes
-
+		has_sociology_designation = yes
+		bca_has_mixed_trade_designation = yes
 	}
 
 	prio_zones = {
@@ -86,12 +94,11 @@ better_automate_research_planet_policy_2 = {
 better_automate_research_planet_engineering_1 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
-		has_engineering_designation = yes
-		bca_has_mixed_trade_designation = no
         requires_more_job = yes
         bca_has_minerals_to_build = yes
+		has_engineering_designation = yes
+		bca_has_mixed_trade_designation = no
 
 	}
 
@@ -110,13 +117,11 @@ better_automate_research_planet_engineering_1 = {
 better_automate_research_planet_engineering_2 = {
 	category = "planet_automation_designation_construction"
 
-	emergency = yes
 	available = {
-		has_engineering_designation = yes
-		bca_has_mixed_trade_designation = yes
         requires_more_job = yes
         bca_has_minerals_to_build = yes
-
+		has_engineering_designation = yes
+		bca_has_mixed_trade_designation = yes
 	}
 
 	prio_zones = {

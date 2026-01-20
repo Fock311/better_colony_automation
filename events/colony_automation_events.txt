@@ -29,54 +29,33 @@ country_event = {
 					limit = {
 						free_district_slots = 0
 					}
-					if = {
-						limit = {
-							num_districts = { type = district_generator value > 0 }
-							bca_can_remove_district_generator = yes
-						}
-						remove_district = district_generator
+					remove_district_if = {
+						cond = bca_can_remove_district_generator
+						district = district_generator
 					}
-					if = {
-						limit = {
-							num_districts = { type = district_geothermal value > 0 }
-							bca_can_remove_district_generator = yes
-						}
-						remove_district = district_geothermal
+					remove_district_if = {
+						cond = bca_can_remove_district_generator
+						district = district_geothermal
 					}
-					if = {
-						limit = {
-							num_districts = { type = district_rw_generator value > 0 }
-							bca_can_remove_district_generator = yes
-						}
-						remove_district = district_rw_generator
+					remove_district_if = {
+						cond = bca_can_remove_district_generator
+						district = district_rw_generator
 					}
-					if = {
-						limit = {
-							num_districts = { type = district_mining value > 0 }
-							bca_can_remove_district_mining = yes
-						}
-						remove_district = district_mining
+					remove_district_if = {
+						cond = bca_can_remove_district_mining
+						district = district_mining
 					}
-					if = {
-						limit = {
-							num_districts = { type = district_melting value > 0 }
-							bca_can_remove_district_mining = yes
-						}
-						remove_district = district_melting
+					remove_district_if = {
+						cond = bca_can_remove_district_mining
+						district = district_melting
 					}
-					if = {
-						limit = {
-							num_districts = { type = district_farming value > 0 }
-							bca_can_remove_district_farming = yes
-						}
-						remove_district = district_farming
+					remove_district_if = {
+						cond = bca_can_remove_district_farming
+						district = district_farming
 					}
-					if = {
-						limit = {
-							num_districts = { type = district_rw_farming value > 0 }
-							bca_can_remove_district_farming = yes
-						}
-						remove_district = district_rw_farming
+					remove_district_if = {
+						cond = bca_can_remove_district_farming
+						district = district_rw_farming
 					}
 					# 城市区块
 					if = {

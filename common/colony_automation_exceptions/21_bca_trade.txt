@@ -3,10 +3,9 @@ automate_trade_planet = {
 
 	emergency = yes
 	available = {
-		has_trade_designation = yes
-        requires_more_job = yes
+		requires_more_job = yes
         bca_has_minerals_to_build = yes
-
+		has_trade_designation = yes
 	}
 
 	prio_districts = {
