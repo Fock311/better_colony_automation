@@ -8,3 +8,13 @@ remove_zone_if_found = {
 		}
 	}
 }
+
+remove_district_if = {
+	if = {
+		limit = {
+			num_districts = { type = $district$ value > 0 }
+			$cond$ = yes
+		}
+		remove_district = $district$
+	}
+}

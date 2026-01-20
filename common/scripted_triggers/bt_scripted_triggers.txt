@@ -1,5 +1,5 @@
 # 添加的下面修贸易区划的
-has_bt_trade_designation = {
+bca_has_mixed_trade_designation = {
     OR = {
 		has_designation = col_ecu_foundry_trade
 		has_designation = col_ecu_factory_trade
@@ -19,6 +19,13 @@ has_bt_trade_designation = {
         has_designation = col_wilderness_nest
 
         has_designation = col_fortress_trade
+    }
+}
+
+bca_has_any_trade_designation = {
+    OR = {
+        has_trade_designation = yes
+        bca_has_mixed_trade_designation = yes
     }
 }
 

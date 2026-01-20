@@ -1,4 +1,4 @@
-non_reasearch_colony_destruction = {
+bca_can_remove_building_reasearch = {
 	AND = {
 		owner = { has_country_flag = bac_building_destroy }
 		free_building_slots = 0
@@ -6,7 +6,7 @@ non_reasearch_colony_destruction = {
 	}
 }
 
-non_factory_colony_destruction = {
+bca_can_remove_building_factory = {
 	AND = {
 		owner = { has_country_flag = bac_building_destroy }
 		free_building_slots = 0
@@ -15,7 +15,7 @@ non_factory_colony_destruction = {
 	}
 }
 
-non_foundry_colony_destruction = {
+bca_can_remove_building_foundry = {
 	AND = {
 		owner = { has_country_flag = bac_building_destroy }
 		free_building_slots = 0
@@ -24,11 +24,19 @@ non_foundry_colony_destruction = {
 	}
 }
 
-non_trade_colony_destruction = {
+bca_can_remove_building_industry = {
 	AND = {
 		owner = { has_country_flag = bac_building_destroy }
 		free_building_slots = 0
-		has_bt_trade_designation = no
+		has_any_industrial_designation = no
+	}
+}
+
+bca_can_remove_building_trade = {
+	AND = {
+		owner = { has_country_flag = bac_building_destroy }
+		free_building_slots = 0
+		bca_has_any_trade_designation = no
 	}
 }
 

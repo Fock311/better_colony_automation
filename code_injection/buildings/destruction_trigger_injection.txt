@@ -21,12 +21,58 @@
  building_ranger_lodge
  building_research_upkeep_1
  building_research_efficiency_1].destroy_trigger.OR = append{
-	non_reasearch_colony_destruction = yes
+	bca_can_remove_building_reasearch = yes
 }
 
 
 [building_fe_lab_1 building_fe_lab_2].destroy_trigger = override{
- 	non_reasearch_colony_destruction = yes
+ 	bca_can_remove_building_reasearch = yes
+}
+
+[building_factory_1
+ building_factory_2
+ building_factory_3
+ building_factory_upkeep_1
+ building_factory_efficiency_1].destroy_trigger.OR = append{
+	bca_can_remove_building_factory = yes
+}
+
+[building_affluence_emporium
+ building_affluence_center].destroy_trigger = override{
+ 	bca_can_remove_building_factory = yes
+}
+
+[building_foundry_1
+ building_foundry_2
+ building_foundry_3
+ building_foundry_efficiency_1
+ building_foundry_upkeep_1].destroy_trigger.OR = append{
+	bca_can_remove_building_foundry = yes
+}
+
+[building_micro_forge 
+ building_nano_forge].destroy_trigger = override{
+ 	bca_can_remove_building_foundry = yes
+}
+
+building_ministry_production.OR = append{
+	bca_can_remove_building_industry = yes
+}
+
+building_production_center.destroy_trigger = wrap{
+	OR = {
+		AND = {
+			[wrapped]
+		}
+		bca_can_remove_building_industry = yes
+	}
 }
 
 
+[building_fe_market_1
+ building_fe_market_2
+ building_galactic_stock_exchange
+ building_commercial_megaplex
+ building_commercial_zone].destroy_trigger.OR = append{
+	bca_can_remove_building_trade = yes
+ }

@@ -7,12 +7,9 @@ country_event = {
 
 	trigger = {
 		is_ai = no
-		owner = {
-			OR = {
-				has_country_flag = bac_district_destroy
-				has_country_flag = bac_zone_destroy
-			}
-			
+		OR = {
+			has_country_flag = bac_district_destroy
+			has_country_flag = bac_zone_destroy
 		}
 		bca_has_minerals_to_build = yes
 	}
@@ -26,13 +23,12 @@ country_event = {
 			# 自动区划移除
 			if = {
 				limit = {
-					NOT = { owner = {has_country_flag = bac_district_destroy} }
+					owner = {has_country_flag = bac_district_destroy}
 				}
 				if = {
 					limit = {
 						free_district_slots = 0
 					}
-					# 一产区块
 					if = {
 						limit = {
 							num_districts = { type = district_generator value > 0 }
@@ -46,6 +42,13 @@ country_event = {
 							bca_can_remove_district_generator = yes
 						}
 						remove_district = district_geothermal
+					}
+					if = {
+						limit = {
+							num_districts = { type = district_rw_generator value > 0 }
+							bca_can_remove_district_generator = yes
+						}
+						remove_district = district_rw_generator
 					}
 					if = {
 						limit = {
@@ -67,6 +70,13 @@ country_event = {
 							bca_can_remove_district_farming = yes
 						}
 						remove_district = district_farming
+					}
+					if = {
+						limit = {
+							num_districts = { type = district_rw_farming value > 0 }
+							bca_can_remove_district_farming = yes
+						}
+						remove_district = district_rw_farming
 					}
 					# 城市区块
 					if = {
@@ -167,7 +177,7 @@ country_event = {
 			# 区划特化移除
 			if = {
 				limit = {
-					NOT = { owner = {has_country_flag = bac_zone_destroy} }
+					owner = {has_country_flag = bac_zone_destroy}
 				}
 				# 移除研究特化
 				if = {
@@ -207,7 +217,7 @@ country_event = {
 				#移除贸易特化
 				if = {
 					limit = {
-						has_bt_trade_designation = no
+						bca_has_mixed_trade_designation = no
 						has_trade_designation = no
 					}
 					remove_zone_if_found = { zone = zone_trade }

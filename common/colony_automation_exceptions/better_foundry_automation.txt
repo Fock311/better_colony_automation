@@ -28,7 +28,7 @@ automate_foundry_planet = {
 			building = building_ministry_production
 		}
 
-        # 资源处理中心（完全不知道的建筑）
+        # 资源处理中心
 		2 = {
 			building = building_production_center
 		}

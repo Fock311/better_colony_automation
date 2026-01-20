@@ -60,10 +60,10 @@ bac_building_destroy = {
             remove_country_flag = bac_building_destroy
         }
         ai_weight = {
-            factor = 1
+            factor = 0
             modifier = {
-                factor = 0
-                is_ai = no
+                factor = 1
+                is_ai = yes
             }
 		}
     }
@@ -73,10 +73,10 @@ bac_building_destroy = {
             set_country_flag = bac_building_destroy
         }
         ai_weight = {
-            factor = 0
+            factor = 1
             modifier = {
-                factor = 1
-                is_ai = no
+                factor = 0
+                is_ai = yes
             }
         }
     }
@@ -92,10 +92,10 @@ bac_district_destroy = {
             remove_country_flag = bac_district_destroy
         }
         ai_weight = {
-            factor = 1
+            factor = 0
             modifier = {
-                factor = 0
-                is_ai = no
+                factor = 1
+                is_ai = yes
             }
         }
     }
@@ -105,10 +105,10 @@ bac_district_destroy = {
             set_country_flag = bac_district_destroy
         }
         ai_weight = {
-            factor = 0
+            factor = 1
             modifier = {
-                factor = 1
-                is_ai = no
+                factor = 0
+                is_ai = yes
             }
         }
     }
@@ -124,10 +124,10 @@ bac_zone_destroy = {
             remove_country_flag = bac_zone_destroy
         }
         ai_weight = {
-            factor = 1
+            factor = 0
             modifier = {
-                factor = 0
-                is_ai = no
+                factor = 1
+                is_ai = yes
             }
         }
     }
@@ -137,10 +137,10 @@ bac_zone_destroy = {
             set_country_flag = bac_zone_destroy
         }
         ai_weight = {
-            factor = 0
+            factor = 1
             modifier = {
-                factor = 1
-                is_ai = no
+                factor = 0
+                is_ai = yes
             }
         }
     }
