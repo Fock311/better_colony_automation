@@ -73,3 +73,8 @@
 
  decision_colony_transform: "去城市化"
  decision_colony_transform_desc: "难道我是个很坏的人吗？"
+
+ decision_enable_build_extra_zones_for_storage: "允许为仓库建造额外区划及特化"
+ decision_enable_build_extra_zones_for_storage_desc: "当前：禁止"
+ decision_disable_build_extra_zones_for_storage: "禁止为仓库建造额外区划及特化"
+ decision_disable_build_extra_zones_for_storage_desc: "当前：允许"

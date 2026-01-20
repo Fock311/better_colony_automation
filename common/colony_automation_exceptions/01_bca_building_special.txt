@@ -99,6 +99,7 @@ automate_engineered_autobuild = {
             }
         }
 	}
+
 }
 automate_medical_autobuild = {
     category = "planet_automation_medical"
@@ -128,7 +129,9 @@ automate_fe_clinic_autobuild = {
 	available = {
 		owner = {
 			has_country_flag = fe_clinic_1_can_build
+            has_country_flag = bac_advanced_automation_category_enabled
 		}
+        bca_has_minerals_to_build = yes
 	}
 	
 	buildings = {

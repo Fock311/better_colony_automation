@@ -179,3 +179,4 @@ bac_remove_pop_assemble_buildings = {
     }
 
 }
+

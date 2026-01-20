@@ -71,6 +71,42 @@ decision_enable_auto_destruction = {
 	}
 }
 
+decision_enable_build_extra_zones_for_storage = {
+	sound = event_administrative_work
+	icon = decision_resources
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		exists = owner
+		NOT = { has_planet_flag = bca_can_build_extra_zones_for_storage }
+	}
+
+	effect = {
+		set_planet_flag = bca_can_build_extra_zones_for_storage
+	}
+}
+
+decision_disable_build_extra_zones_for_storage = {
+	sound = event_administrative_work
+	icon = decision_resources
+
+	resources = {
+		category = decisions
+	}
+
+	potential = {
+		exists = owner
+		has_planet_flag = bca_can_build_extra_zones_for_storage
+	}
+
+	effect = {
+		remove_planet_flag = bca_can_build_extra_zones_for_storage
+	}
+}
+
 
 # decision_test = {
 # 	sound = event_administrative_work
