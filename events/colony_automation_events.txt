@@ -8,7 +8,7 @@ country_event = {
 	trigger = {
 		is_ai = no
 		OR = {
-			has_country_flag = bac_district_destroy
+			has_country_flag = bac_allow_district_destruction
 			has_country_flag = bac_zone_destroy
 		}
 		bca_has_minerals_to_build = yes
@@ -25,7 +25,7 @@ country_event = {
 			# 自动区划移除
 			if = {
 				limit = {
-					owner = {has_country_flag = bac_district_destroy}
+					owner = {has_country_flag = bac_allow_district_destruction}
 				}
 				if = {
 					limit = {
@@ -59,100 +59,35 @@ country_event = {
 						cond = bca_can_remove_district_farming
 						district = district_rw_farming
 					}
-					# 城市区块
-					if = {
-						limit = {
-							num_districts = { type = district_city value > 0 }
-							free_housing > 700
-							OR = {
-								bca_require_district_generator = yes
-								bca_require_district_mining = yes
-								bca_require_district_farming = yes
-							}
-						}
-						remove_district = district_city
+					remove_district_if = {
+						cond = bca_can_remove_district_city
+						district = district_city
 					}
-					# 蜂巢区块
-					if = {
-						limit = {
-							num_districts = { type = district_hive value > 0 }
-							free_housing > 700
-							OR = {
-								bca_require_district_generator = yes
-								bca_require_district_mining = yes
-								bca_require_district_farming = yes
-							}
-						}
-						remove_district = district_hive
+					remove_district_if = {
+						cond = bca_can_remove_district_city
+						district = district_hive
 					}
-					# 中枢区块
-					if = {
-						limit = {
-							num_districts = { type = district_nexus value > 0 }
-							free_housing > 700
-							OR = {
-								bca_require_district_generator = yes
-							}
-						}
-						remove_district = district_nexus
+					remove_district_if = {
+						cond = bca_can_remove_district_city
+						district = district_nexus
 					}
-					# 居住站居住区块
-					if = {
-						limit = {
-							num_districts = { type = district_hab_housing value > 0 }
-							free_housing > 700
-							OR = {
-								AND = {
-									has_generator_designation = yes
-									num_free_districts = { type = district_hab_energy value = 0 }
-								}
-								AND = {
-									has_mining_designation = yes
-									num_free_districts = { type = district_hab_mining value = 0 }
-								}
-								AND = {
-									has_any_research_designation = yes
-									num_free_districts = { type = district_hab_science value = 0 }
-								}
-							}
-						}
-						remove_district = district_hab_housing
+					remove_district_if = {
+						cond = bca_can_remove_district_hab_housing
+						district = district_hab_housing
 					}
-					# 环世界城市区块
-					if = {
-						limit = {
-							num_districts = { type = district_rw_city value > 0 }
-							free_housing > 1500
-							OR = {
-								bca_require_district_rw_farming = yes
-								bca_require_district_rw_generator = yes
-							}
-						}
-						remove_district = district_rw_city
+					remove_district_if = {
+						cond = bca_can_remove_district_rw_city
+						district = district_rw_city
 					}
-					# 环世界蜂巢区块
-					if = {
-						limit = {
-							num_districts = { type = district_rw_hive value > 0 }
-							free_housing > 1500
-							OR = {
-								bca_require_district_rw_farming = yes
-								bca_require_district_rw_generator = yes
-							}
-						}
-						remove_district = district_rw_hive
+					remove_district_if = {
+						cond = bca_can_remove_district_rw_city
+						district = district_rw_hive
 					}
-					# 环世界中枢区块
-					if = {
-						limit = {
-							num_districts = { type = district_rw_nexus value > 0 }
-							free_housing > 1500
-							OR = {
-								bca_require_district_rw_generator = yes
-							}
-						}
-						remove_district = district_rw_nexus
+					remove_district_if = {
+						cond = bca_can_remove_district_rw_city
+						district = district_rw_nexus
 					}
+					
 				}
 			}
 			# 区划特化移除

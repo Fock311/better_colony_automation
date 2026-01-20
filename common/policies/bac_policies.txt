@@ -83,13 +83,13 @@ bac_building_destroy = {
 
 }
 
-bac_district_destroy = {
+bac_allow_district_destruction = {
     allow = { always = yes }
     potential = { always = yes }
     option = {
-        name = "disable_bac_district_destroy"
+        name = "disable_bac_allow_district_destruction"
         on_enabled = {
-            remove_country_flag = bac_district_destroy
+            remove_country_flag = bac_allow_district_destruction
         }
         ai_weight = {
             factor = 0
@@ -100,9 +100,9 @@ bac_district_destroy = {
         }
     }
     option = {
-        name = "enable_bac_district_destroy"
+        name = "enable_bac_allow_district_destruction"
         on_enabled = {
-            set_country_flag = bac_district_destroy
+            set_country_flag = bac_allow_district_destruction
         }
         ai_weight = {
             factor = 1

@@ -5,9 +5,10 @@ bca_can_remove_building = {
 	}
 }
 
+
 bca_can_remove_building_reasearch = {
 	AND = {
-		bca_can_remove_building
+		bca_can_remove_building = yes
 		free_building_slots = 0
 		has_any_research_designation = no
 	}
@@ -15,7 +16,7 @@ bca_can_remove_building_reasearch = {
 
 bca_can_remove_building_factory = {
 	AND = {
-		bca_can_remove_building
+		bca_can_remove_building = yes
 		free_building_slots = 0
 		has_factory_designation = no
 		has_industrial_designation = no
@@ -24,7 +25,7 @@ bca_can_remove_building_factory = {
 
 bca_can_remove_building_foundry = {
 	AND = {
-		bca_can_remove_building
+		bca_can_remove_building = yes
 		free_building_slots = 0
 		has_foundry_designation = no
 		has_industrial_designation = no
@@ -33,7 +34,7 @@ bca_can_remove_building_foundry = {
 
 bca_can_remove_building_industry = {
 	AND = {
-		bca_can_remove_building
+		bca_can_remove_building = yes
 		free_building_slots = 0
 		has_any_industrial_designation = no
 	}
@@ -41,7 +42,7 @@ bca_can_remove_building_industry = {
 
 bca_can_remove_building_trade = {
 	AND = {
-		bca_can_remove_building
+		bca_can_remove_building = yes
 		free_building_slots = 0
 		bca_has_any_trade_designation = no
 	}
@@ -49,7 +50,7 @@ bca_can_remove_building_trade = {
 
 bca_can_remove_pop_assemble = {
 	AND = {
-		bca_can_remove_building
+		bca_can_remove_building = yes
 		owner = { has_country_flag = bac_remove_pop_assemble_buildings }
 		free_district_slots = 0
 		free_building_slots = 0
@@ -60,7 +61,6 @@ bca_can_remove_pop_assemble = {
 
 bca_can_remove_district_generator = {
 	AND = {
-		bca_can_remove_building
 		free_district_slots = 0
 		has_trade_designation = yes
 	}
@@ -68,7 +68,6 @@ bca_can_remove_district_generator = {
 
 bca_can_remove_district_mining = {
 	AND = {
-		bca_can_remove_building
 		free_district_slots = 0
 		has_trade_designation = yes
 	}
@@ -76,9 +75,52 @@ bca_can_remove_district_mining = {
 
 bca_can_remove_district_farming = {
 	AND = {
-		bca_can_remove_building
 		free_district_slots = 0
 		has_trade_designation = yes
+	}
+}
+
+bca_can_remove_district_city = {
+	AND = {
+		free_district_slots = 0
+		free_housing > 700
+		OR = {
+			bca_require_district_generator = yes
+			bca_require_district_mining = yes
+			bca_require_district_farming = yes
+		}
+	}
+}
+
+bca_can_remove_district_hab_housing = {
+	AND = {
+		free_district_slots = 0
+		free_housing > 700
+		OR = {
+			AND = {
+				has_generator_designation = yes
+				num_free_districts = { type = district_hab_energy value = 0 }
+			}
+			AND = {
+				has_mining_designation = yes
+				num_free_districts = { type = district_hab_mining value = 0 }
+			}
+			AND = {
+				has_any_research_designation = yes
+				num_free_districts = { type = district_hab_science value = 0 }
+			}
+		}
+	}
+}
+
+bca_can_remove_district_rw_city = {
+	AND = {
+		free_district_slots = 0
+		free_housing > 1500
+		OR = {
+			bca_require_district_rw_farming = yes
+			bca_require_district_rw_generator = yes
+		}
 	}
 }
 
