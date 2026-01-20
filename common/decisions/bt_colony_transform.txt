@@ -12,8 +12,9 @@ decision_colony_transform = {
 	}
 
 	effect = {
-
         remove_all_buildings = yes
+		remove_all_districts = yes
+		remove_zone = {all = yes}
 		add_building = building_capital
 	}
 	ai_weight = {

@@ -1,25 +1,3 @@
-automate_bt_colony_trade = {
-	category = "planet_automation_designation_construction"
-	
-    emergency = yes
-
-	available = {
-        OR = {
-            has_trade_designation = yes
-            has_bt_trade_designation = yes
-        }
-        requires_more_job = yes
-        bca_has_minerals_to_build = yes
-    }
-
-    prio_zones = {
-        zone_trade_arcology
-        zone_trade_ring_world
-        zone_trade_nexus
-        zone_trade_hive
-    }
-}
-
 automate_silo = {
  	category = "planet_automation_silo"
 
