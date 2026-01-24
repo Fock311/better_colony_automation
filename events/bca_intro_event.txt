@@ -6,7 +6,12 @@ event = {
 	is_triggered_only = yes
 	hide_window = yes
 
+	trigger = {
+		NOT = { has_global_flag = bca_intro_shown }
+	}
+
 	immediate = {
+		set_global_flag = bca_intro_shown
 		every_playable_country = {
             limit = { is_ai = no }
             create_message = {
