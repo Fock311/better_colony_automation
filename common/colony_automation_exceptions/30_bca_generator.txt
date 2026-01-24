@@ -25,10 +25,6 @@ automate_generator_planet = {
 			building = building_energy_grid
 		}
 
-		2 = {
-			building = building_mote_harvesters
-		}
-
 		3 = {
 			building = building_generator_districts_1
 		}
