@@ -95,6 +95,15 @@ country_event = {
 				limit = {
 					owner = {has_country_flag = bac_zone_destroy}
 				}
+				# 移除一产特化
+				if = {
+					limit = {
+						has_any_resource_designation = no
+					}
+					remove_zone_if_found = { zone = zone_urban_energy }
+					remove_zone_if_found = { zone = zone_urban_minerals }
+					remove_zone_if_found = { zone = zone_urban_food }
+				}
 				# 移除研究特化
 				if = {
 					limit = {

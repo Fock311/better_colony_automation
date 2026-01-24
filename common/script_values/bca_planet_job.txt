@@ -1,0 +1,133 @@
+bca_base_energy = {
+	base = 6
+	modifier = {
+		add = 2
+		owner = { is_robot_empire = yes }
+	}
+}
+
+cba_planet_energy_job_mult = {
+	base = 1
+	add = modifier:planet_jobs_produces_mult
+	add = modifier:planet_jobs_productive_produces_mult
+	add = modifier:planet_jobs_worker_produces_mult
+
+	add = modifier:planet_jobs_energy_produces_mult
+	add = modifier:planet_technician_produces_mult
+	add = modifier:planet_technician_energy_produces_mult
+
+	add = modifier:planet_jobs_simple_drone_produces_mult
+	add = modifier:planet_jobs_complex_and_simple_drone_produces_mult
+	modifier = {
+		add = modifier:habitat_jobs_produces_mult
+		is_planet_class = pc_habitat
+	}
+}
+
+bca_jobs_for_energy = {
+	add = modifier:job_technician_add
+	add = modifier:job_technician_drone_add
+}
+
+bca_unit_energy_production = {
+	add = value:bca_base_energy
+	add = modifier:planet_technician_energy_produces_add
+	multiply = value:cba_planet_energy_job_mult
+}
+
+bca_protential_energy_production = {
+	add = value:bca_jobs_for_energy
+	divide = 100
+	mult = value:bca_unit_energy_production
+}
+
+bca_base_minerals = {
+	base = 4
+}
+
+bca_jobs_for_minerals = {
+	add = modifier:job_miner_add
+	add = modifier:job_scrap_miner_add
+	add = modifier:job_mining_drone_add
+	add = modifier:job_scrap_miner_drone_add
+	add = modifier:job_cave_cleaner_add
+	add = modifier:job_cave_cleaner_gestalt_add
+	add = modifier:job_turtle_miner_add
+	add = modifier:job_turtle_miner_gestalt_add
+}
+
+cba_planet_energy_job_mult = {
+	base = 1
+	add = modifier:planet_jobs_produces_mult
+	add = modifier:planet_jobs_productive_produces_mult
+	add = modifier:planet_jobs_worker_produces_mult
+	
+	add = modifier:planet_jobs_minerals_produces_mult
+	add = modifier:planet_miners_produces_mult
+	add = modifier:planet_miners_minerals_produces_mult
+
+	add = modifier:planet_jobs_simple_drone_produces_mult
+	add = modifier:planet_jobs_complex_and_simple_drone_produces_mult
+	modifier = {
+		add = modifier:habitat_jobs_produces_mult
+		is_planet_class = pc_habitat
+	}
+}
+
+bca_unit_mineral_production = {
+	add = value:bca_base_minerals
+	add = modifier:planet_miners_produces_add
+	mult = value:cba_planet_energy_job_mult
+}
+
+bca_protential_mineral_production = {
+	set = value:bca_jobs_for_minerals
+	divide = 100
+	mult = value:bca_unit_mineral_production
+}
+
+bca_base_food = {
+	base = 6
+	modifier = {
+		subtract = 1
+		owner = { is_robot_empire = yes }
+	}
+}
+
+bca_jobs_for_food = {
+	add = modifier:job_farmer_add
+	add = modifier:job_agri_drone_add
+	add = modifier:job_angler_add
+	add = modifier:job_titan_hunter_add
+}
+bca_planet_food_job_mult = {
+	base = 1
+	add = modifier:planet_jobs_produces_mult
+	add = modifier:planet_jobs_productive_produces_mult
+	add = modifier:planet_jobs_worker_produces_mult
+
+	add = modifier:planet_jobs_food_produces_mult
+	add = modifier:planet_farmers_produces_mult
+	add = modifier:planet_farmers_food_produces_mult
+
+	add = modifier:planet_jobs_simple_drone_produces_mult
+	add = modifier:planet_jobs_complex_and_simple_drone_produces_mult
+	modifier = {
+		add = modifier:habitat_jobs_produces_mult
+		is_planet_class = pc_habitat
+	}
+}
+
+bca_unit_food_production = {
+	add = value:bca_base_food
+	add = modifier:planet_farmers_produces_add
+	mult = value:bca_planet_food_job_mult
+}
+
+bca_protential_food_production = {
+	set = value:bca_jobs_for_food
+	divide = 100
+	mult = value:bca_unit_food_production
+}
+
+

@@ -1,0 +1,17 @@
+message_type = {
+    key = MESSAGE_BCA_STARTUP
+    icon = "GFX_message_pending_insight_tech"
+    name = MESSAGE_BCA_STARTUP
+    sound = no_sound
+    ping = ping_notification_yellow
+    category = other
+}
+
+message_type = {
+    key = MESSAGE_BCA_UPDATE
+    icon = "GFX_message_pending_insight_tech"
+    name = MESSAGE_BCA_UPDATE
+    sound = no_sound
+    ping = ping_notification_red
+    category = other
+}

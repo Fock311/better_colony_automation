@@ -1,3 +1,23 @@
+automate_mining_planet_districts_city = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_require_district_city = yes
+		bca_has_minerals_to_build = yes
+		has_mining_designation = yes
+	}
+
+	prio_districts = {
+		district_city
+		district_hive
+		district_nexus
+		district_hab_housing
+	}
+
+}
+
+
 automate_mining_planet_districts = {
 	category = "planet_automation_housing"
 

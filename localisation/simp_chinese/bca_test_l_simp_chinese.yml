@@ -1,0 +1,2 @@
+﻿l_simp_chinese:
+ test_event.1.desc: "energy_job [This.bca_test_energy_job]\n unit_production [bca_test_bca_unit_energy_production]\nproduction [This.bca_test_energy_production]"

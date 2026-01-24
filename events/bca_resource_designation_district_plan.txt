@@ -1,0 +1,146 @@
+namespace = colony_automation_event
+
+country_event = {
+	id = colony_automation_event.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+		bca_has_minerals_to_build = yes
+	}
+
+	immediate = {
+		# 遍历该国家拥有的所有星球
+		every_owned_planet = {
+			limit = {
+				has_building_construction = no
+			}
+			if = {
+				limit = {
+					free_district_slots = 0 #replace district
+				}
+				if = {
+					limit = {
+						has_planet_flag = bca_pf_district_balanced
+					}
+					add_variable = {
+						which = bca_district_balanced_test_counter
+						value = 1
+					}
+					if = {
+						limit = { 
+							check_variable = {
+								which = bca_district_balanced_test_counter
+								value >= 12
+							} 
+						}
+						bca_test_district_to_replace_entry = yes #check by year
+						set_variable = {
+							which = bca_district_balanced_test_counter
+							value = 0
+						}
+					}
+				}
+				else = {
+					if = {
+						limit = {
+							NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+						}
+						set_planet_flag = bca_pf_previous_has_district_remove_plan_clear
+					}
+
+					bca_test_district_to_replace_entry = yes #check by month
+
+					if = {
+						limit = {
+							has_planet_flag = bca_pf_previous_has_district_remove_plan_clear
+							NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+						}
+						set_planet_flag = bca_pf_district_balanced
+					}
+					remove_planet_flag = bca_pf_previous_has_district_remove_plan_clear
+				}
+			}
+			else = {
+				remove_planet_flag = bca_pf_district_balanced
+				bca_test_district_to_build_entry = yes
+				bca_test_zone_to_build_entry = yes
+			}
+		}
+	}
+}
+
+
+# trigger by on_district_complete
+# remove district flag if construction completed
+planet_event = {
+	id = colony_automation_event.11
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = {
+			is_ai = no
+		}
+	}
+	immediate = {
+		remove_planet_flag = bca_pf_has_district_build_plan
+		remove_planet_flag = bca_pf_plan_build_district_city
+		remove_planet_flag = bca_pf_plan_build_district_hive
+		remove_planet_flag = bca_pf_plan_build_district_nexus
+		remove_planet_flag = bca_pf_plan_build_district_generator
+		remove_planet_flag = bca_pf_plan_build_district_geothermal
+		remove_planet_flag = bca_pf_plan_build_district_mining
+		remove_planet_flag = bca_pf_plan_build_district_melting
+		remove_planet_flag = bca_pf_plan_build_district_farming
+	}
+}
+
+planet_event = {
+	id = colony_automation_event.410
+	is_triggered_only = yes
+	title = "Warning: BCA Mod Failure [This.GetName]"
+	desc = "bca_test_district_to_build value identical. possible invalid script value"
+}
+
+planet_event = {
+	id = colony_automation_event.501
+	is_triggered_only = yes
+	title = "flag 1"
+	desc = "flag 1 set"
+}
+
+planet_event = {
+	id = colony_automation_event.502
+	is_triggered_only = yes
+	title = "flag 2"
+	desc = "flag 2 set"
+}
+
+planet_event = {
+	id = colony_automation_event.503
+	is_triggered_only = yes
+	title = "503"
+	desc = "503"
+}
+
+planet_event = {
+	id = colony_automation_event.504
+	is_triggered_only = yes
+	title = "504"
+	desc = "504"
+}
+
+planet_event = {
+	id = colony_automation_event.505
+	is_triggered_only = yes
+	title = "505"
+	desc = "505"
+}
+
+planet_event = {
+	id = colony_automation_event.506
+	is_triggered_only = yes
+	title = "506"
+	desc = "506"
+}

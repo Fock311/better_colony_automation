@@ -1,7 +1,16 @@
 # 推荐使用每两月一次的脉冲，平衡性能和实时性
 on_monthly_pulse_country = {
 	events = {
+		colony_automation_event.10  # 资源特化区块自动规划
 		colony_automation_event.1  # 自动拆除区块与特化
 		colony_automation_event.2  # 自动理想城计划
+	}
+}
+
+
+
+on_district_complete = {
+	events = {
+		colony_automation_event.11  # 完成区块建设后移除规划标记
 	}
 }

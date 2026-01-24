@@ -1,0 +1,500 @@
+namespace = test_event
+
+planet_event = {
+	id = test_event.1
+
+	is_triggered_only = yes
+	title = "Test Event for Scripted Triggers"
+	desc = test_event.1.desc
+
+
+	option = {
+		name = "add pop"
+		create_pop_group = { size = 1000  species = owner_main_species }
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "remove generator"
+		remove_district = district_generator
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "remove city"
+		remove_district = district_city
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "add generator"
+		add_district = {
+			district_type = district_generator
+		}
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	 option = {
+		name = "add city"
+		add_district = {
+			district_type = district_city
+		}
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "replace to generator"
+		remove_district = district_city
+		add_district = {
+			district_type = district_generator
+		}
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "replace to city"
+		remove_district = district_generator
+		add_district = {
+			district_type = district_city
+		}
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	immediate = {
+		set_variable = {
+			which = bca_test_energy_job
+			value = value:bca_jobs_for_energy
+		}
+		set_variable = {
+			which = bca_test_bca_unit_energy_production
+			value = value:bca_unit_energy_production
+		}
+		set_variable = {
+			which = bca_test_energy_production
+			value = value:bca_protential_energy_production
+		}
+		set_variable = {
+			which = bca_test_district_metric_1_d
+			value = bca_test_district_metric_1
+		}
+		set_variable = {
+			which = bca_test_district_metric_2_d
+			value = bca_test_district_metric_2
+		}
+	}
+
+	option = {
+		name = "var_test"
+		set_variable = {
+			which = bca_unit_energy_production
+			value = value:bca_unit_energy_production
+		}
+		set_variable = {
+			which = bca_jobs_for_energy
+			value = value:bca_jobs_for_energy
+		}
+		set_variable = {
+			which = bca_test_energy_production
+			value = value:bca_protential_energy_production
+		}
+		set_variable = {
+			which = bca_test_district_metric_1_d
+			value = bca_test_district_metric_1
+		}
+		set_variable = {
+			which = bca_test_district_metric_2_d
+			value = bca_test_district_metric_2
+		}
+	}
+
+	option = {
+		name = "modifier check"
+		allow = {
+			num_districts = { type = district_generator value > 0 }
+			NOT = { 
+				bca_district_reach_planet_max = {
+					type = district_city
+				}
+			}
+		}
+	}
+
+	option = {
+		name = "trigger check event"
+		owner = {
+			country_event = {
+				id = colony_automation_event.10
+			}
+		}
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "build check"
+		bca_test_district_to_build_district_1_checked = {
+			district_1 = district_city
+			district_2 = district_generator
+			metric_value = value:bca_protential_energy_production
+		}
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "build check 1"
+		bca_test_district_to_build = {
+			district_1 = district_city
+			district_2 = district_generator
+			metric_value = value:bca_protential_energy_production
+		}
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "build check 2"
+		add_district = { district_type = district_city }
+		set_variable = {
+			which = bca_test_district_metric_1
+			value = $metric_value$
+		}
+		remove_district = district_city
+		add_district = { district_type = district_generator }
+		set_variable = {
+			which = bca_test_district_metric_2
+			value = $metric_value$
+		}
+		remove_district = district_generator
+		if = {
+			limit = {
+				check_variable = {
+					which = bca_test_district_metric_1
+					value >= bca_test_district_metric_2
+				}
+			}
+			set_planet_flag = bca_pf_has_district_build_plan
+			set_planet_flag = bca_pf_plan_build_district_city
+		}
+		else = {
+			set_planet_flag = bca_pf_has_district_build_plan
+			set_planet_flag = bca_pf_plan_build_district_generator
+		}
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "replace check"
+		bca_test_district_to_replace_city_bidirectional = {
+			district_2 = district_generator
+			metric_value = value:bca_protential_energy_production
+		}
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "bca_pf_has_district_build_plan"
+		allow = {
+			has_planet_flag = bca_pf_has_district_build_plan
+		}
+		remove_planet_flag = bca_pf_has_district_build_plan
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "bca_pf_plan_build_district_generator"
+		allow = {
+			has_planet_flag = bca_pf_plan_build_district_generator
+		}
+		remove_planet_flag = bca_pf_plan_build_district_generator
+		planet_event = {
+			id = test_event.1
+		}
+	}
+	option = {
+		name = "bca_pf_plan_build_district_city"
+		allow = {
+			has_planet_flag = bca_pf_plan_build_district_city
+		}
+		remove_planet_flag = bca_pf_plan_build_district_city
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "bca_pf_plan_remove_district_generator"
+		allow = {
+			has_planet_flag = bca_pf_plan_remove_district_generator
+		}
+		remove_planet_flag = bca_pf_plan_remove_district_generator
+		planet_event = {
+			id = test_event.1
+		}
+	}
+
+	option = {
+		name = "bca_pf_plan_remove_district_city"
+		allow = {
+			has_planet_flag = bca_pf_plan_remove_district_city
+		}
+		remove_planet_flag = bca_pf_plan_remove_district_city
+		planet_event = {
+			id = test_event.1
+		}
+	}
+}
+
+
+planet_event = {
+	id = test_event.2
+
+	is_triggered_only = yes
+	title = "Test Event for Scripted Triggers"
+	desc = test_event.1.desc
+
+
+	option = {
+		name = "add pop"
+		create_pop_group = { size = 1000  species = owner_main_species }
+		planet_event = {
+			id = test_event.2
+		}
+	}
+
+	option = {
+		name = "bca_pf_district_balanced"
+		allow = {
+			has_planet_flag = bca_pf_district_balanced
+		}
+	}
+
+
+	immediate = {
+		set_variable = {
+			which = bca_test_energy_job
+			value = value:bca_jobs_for_minerals
+		}
+		set_variable = {
+			which = bca_test_bca_unit_energy_production
+			value = value:bca_unit_energy_production
+		}
+		set_variable = {
+			which = bca_test_minerals_production
+			value = value:bca_protential_mineral_production
+		}
+		set_variable = {
+			which = bca_test_food_production
+			value = value:bca_protential_food_production
+		}
+		set_variable = {
+			which = bca_test_district_metric_1_d
+			value = bca_test_district_metric_1
+		}
+		set_variable = {
+			which = bca_test_district_metric_2_d
+			value = bca_test_district_metric_2
+		}
+	}
+
+	option = {
+		name = "var_test"
+		set_variable = {
+			which = bca_unit_minerals_production
+			value = value:bca_unit_minerals_production
+		}
+		set_variable = {
+			which = bca_jobs_for_minerals
+			value = value:bca_jobs_for_minerals
+		}
+		set_variable = {
+			which = bca_test_energy_production
+			value = value:bca_protential_energy_production
+		}
+		set_variable = {
+			which = bca_test_minerals_production
+			value = value:bca_protential_mineral_production
+		}
+		set_variable = {
+			which = bca_test_food_production
+			value = value:bca_protential_food_production
+		}
+		set_variable = {
+			which = bca_test_district_metric_1_d
+			value = bca_test_district_metric_1
+		}
+		set_variable = {
+			which = bca_test_district_metric_2_d
+			value = bca_test_district_metric_2
+		}
+		set_variable = {
+			which = bca_district_balanced_test_counter_t
+			value = bca_district_balanced_test_counter
+		}
+	}
+
+	option = {
+		name = "trigger check event"
+		owner = {
+			country_event = {
+				id = colony_automation_event.10
+			}
+		}
+		planet_event = {
+			id = test_event.2
+		}
+	}
+
+	option = {
+		name = "build check district mining"
+		bca_test_district_to_build_district_1_checked = {
+			district_1 = district_city
+			district_2 = district_mining
+			metric_value = value:bca_protential_mineral_production
+		}
+		planet_event = {
+			id = test_event.2
+		}
+	}
+
+	option = {
+		name = "replace check district mining"
+		bca_test_district_to_replace_city_bidirectional = {
+			district_2 = district_mining
+			metric_value = value:bca_protential_mineral_production
+		}
+		planet_event = {
+			id = test_event.2
+		}
+	}
+
+	option = {
+		name = "build check district generator"
+		bca_test_district_to_build_district_1_checked = {
+			district_1 = district_city
+			district_2 = district_generator
+			metric_value = value:bca_protential_energy_production
+		}
+		planet_event = { id = test_event.2 }
+	}
+
+	option = {
+		name = "replace check district generator"
+		bca_test_district_to_replace_city_bidirectional = {
+			district_2 = district_generator
+			metric_value = value:bca_protential_energy_production
+		}
+		planet_event = { id = test_event.2 }
+	}
+
+	option = {
+		name = "build check district farming"
+		bca_test_district_to_build_district_1_checked = {
+			district_1 = district_city
+			district_2 = district_farming
+			metric_value = value:bca_protential_food_production
+		}
+		planet_event = { id = test_event.2 }
+	}
+
+	option = {
+		name = "replace check district farming"
+		bca_test_district_to_replace_city_bidirectional = {
+			district_2 = district_farming
+			metric_value = value:bca_protential_food_production
+		}
+		planet_event = { id = test_event.2 }
+	}
+
+	option = {
+		name = "bca_pf_has_district_build_plan"
+		allow = {
+			has_planet_flag = bca_pf_has_district_build_plan
+		}
+		remove_planet_flag = bca_pf_has_district_build_plan
+		planet_event = {
+			id = test_event.2
+		}
+	}
+	
+	option = {
+		name = "bca_pf_has_district_build_plan"
+		allow = {
+			has_planet_flag = bca_pf_has_district_remove_plan
+		}
+		remove_planet_flag = bca_pf_has_district_remove_plan
+		planet_event = {
+			id = test_event.2
+		}
+	}
+
+	option = {
+		name = "bca_pf_plan_build_district_city"
+		allow = {
+			has_planet_flag = bca_pf_plan_build_district_city
+		}
+		remove_planet_flag = bca_pf_plan_build_district_city
+		planet_event = {
+			id = test_event.2
+		}
+	}
+
+	option = {
+		name = "bca_pf_plan_build_district_generator"
+		allow = {
+			has_planet_flag = bca_pf_plan_build_district_generator
+		}
+		remove_planet_flag = bca_pf_plan_build_district_generator
+		planet_event = {
+			id = test_event.2
+		}
+	}
+
+	option = {
+		name = "bca_pf_plan_build_district_mining"
+		allow = {
+			has_planet_flag = bca_pf_plan_build_district_mining
+		}
+		remove_planet_flag = bca_pf_plan_build_district_mining
+		planet_event = {
+			id = test_event.2
+		}
+	}
+
+	option = {
+		name = "bca_pf_plan_build_district_farming"
+		allow = {
+			has_planet_flag = bca_pf_plan_build_district_farming
+		}
+		remove_planet_flag = bca_pf_plan_build_district_farming
+		planet_event = {
+			id = test_event.2
+		}
+	}
+
+
+
+}

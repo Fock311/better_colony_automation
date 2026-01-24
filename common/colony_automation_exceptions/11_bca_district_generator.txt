@@ -1,3 +1,27 @@
+automate_generator_planet_districts_city = {
+	category = "planet_automation_designation_construction"
+
+	emergency = yes
+	available = {
+		bca_require_district_city = yes
+		bca_has_minerals_to_build = yes
+		has_generator_designation = yes
+		NAND = {
+			exists = owner
+			owner = { has_technology = tech_mine_betharian }
+			has_deposit = d_betharian_deposit
+		}
+	}
+
+	prio_districts = {
+		district_city
+		district_hive
+		district_nexus
+	}
+
+}
+
+
 automate_generator_planet_districts = {
 	category = "planet_automation_housing"
 

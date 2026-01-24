@@ -60,37 +60,36 @@ bca_can_remove_pop_assemble = {
 }
 
 bca_can_remove_district_generator = {
-	AND = {
-		free_district_slots = 0
-		has_modifier = bca_pm_arcology_project_candidate
+	OR = {
+		AND = {
+			free_district_slots = 0
+			has_modifier = bca_pm_arcology_project_candidate
+		}
+		has_planet_flag = bca_pf_plan_remove_district_generator
 	}
 }
 
 bca_can_remove_district_mining = {
-	AND = {
-		free_district_slots = 0
-		has_modifier = bca_pm_arcology_project_candidate
+	OR = {
+		AND = {
+			free_district_slots = 0
+			has_modifier = bca_pm_arcology_project_candidate
+		}
+		has_planet_flag = bca_pf_plan_remove_district_mining
 	}
 }
 
 bca_can_remove_district_farming = {
-	AND = {
-		free_district_slots = 0
-		has_modifier = bca_pm_arcology_project_candidate
+	OR = {
+		AND = {
+			free_district_slots = 0
+			has_modifier = bca_pm_arcology_project_candidate
+		}
+		has_planet_flag = bca_pf_plan_remove_district_farming
 	}
 }
 
-bca_can_remove_district_city = {
-	AND = {
-		free_district_slots = 0
-		free_housing > 700
-		OR = {
-			bca_require_district_generator = yes
-			bca_require_district_mining = yes
-			bca_require_district_farming = yes
-		}
-	}
-}
+
 
 bca_can_remove_district_hab_housing = {
 	AND = {
@@ -113,42 +112,44 @@ bca_can_remove_district_hab_housing = {
 	}
 }
 
-bca_can_remove_district_rw_city = {
-	AND = {
-		free_district_slots = 0
-		free_housing > 1500
-		OR = {
-			bca_require_district_rw_farming = yes
-			bca_require_district_rw_generator = yes
-		}
+
+
+bca_district_reach_planet_max = {
+	check_modifier_value = {
+		modifier = $type$_max_add
+		value = value:bca_num_districts_value|TYPE|$type$|
 	}
 }
-
 
 bca_require_district_generator = {
-	AND = {
-		has_generator_designation = yes
-		OR = {
-			num_districts = { type = district_generator value = 0 }
-			num_districts = { type = district_geothermal value = 0 }
-		}
-	}
+	has_planet_flag = bca_pf_plan_build_district_generator
 }
 bca_require_district_mining = {
-	AND = {
-		has_mining_designation = yes
-		OR = {
-			num_districts = { type = district_mining value = 0 }
-			num_districts = { type = district_melting value = 0 }
-		}
-	}
+	has_planet_flag = bca_pf_plan_build_district_mining
 }
+
 bca_require_district_farming = {
-	AND = {
-		has_farming_designation = yes
-		num_districts = { type = district_farming value = 0 }
+	has_planet_flag = bca_pf_plan_build_district_farming
+}
+
+
+bca_can_remove_district_city = {
+	OR = {
+		has_planet_flag = bca_pf_plan_remove_district_city
+		has_planet_flag = bca_pf_plan_remove_district_hive
+		has_planet_flag = bca_pf_plan_remove_district_nexus
 	}
 }
+
+bca_require_district_city = {
+	has_planet_flag = bca_pf_has_district_build_plan
+	OR = {
+		has_planet_flag = bca_pf_plan_build_district_city
+		has_planet_flag = bca_pf_plan_build_district_hive
+		has_planet_flag = bca_pf_plan_build_district_nexus
+	}
+}
+
 bca_require_district_rw_farming = {
 	AND = {
 		has_designation = col_ring_farming
@@ -161,3 +162,15 @@ bca_require_district_rw_generator = {
 		num_districts = { type = district_rw_generator value = 0 }
 	}
 }
+
+bca_can_remove_district_rw_city = {
+	AND = {
+		free_district_slots = 0
+		free_housing > 1500
+		OR = {
+			bca_require_district_rw_farming = yes
+			bca_require_district_rw_generator = yes
+		}
+	}
+}
+

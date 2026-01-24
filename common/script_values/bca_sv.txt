@@ -1,0 +1,63 @@
+bca_value_add = {
+	add = $VALUE$
+	add = $ADD$
+}
+
+bca_value_subtract = {
+	add = $VALUE$
+	subtract = $SUBTRACT$
+}
+
+
+
+bca_num_districts_value = {
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = $TYPE$
+		}
+		mode = set
+	}
+}
+
+bca_num_zone_value = {
+	complex_trigger_modifier = {
+		trigger = num_zones
+		parameters = {
+			type = $TYPE$
+		}
+		mode = set
+	}
+}
+
+@resource_designation_city_base_ratio = 0.2
+
+bca_num_require_city_district_for_energy_boost = {
+	inline_script = {
+		script = bca_num_require_city_district_for_boost
+		RESOURCE_DISTRICT_1 = district_generator
+		RESOURCE_DISTRICT_2 = district_geothermal
+		BASE_RATIO = @resource_designation_city_base_ratio
+		URBAN_RESOURCE_ZONE = urban_energy_zone
+	}
+}
+
+bca_num_require_city_district_for_mineral_boost = {
+	inline_script = {
+		script = bca_num_require_city_district_for_boost
+		RESOURCE_DISTRICT_1 = district_mining
+		RESOURCE_DISTRICT_2 = district_melting
+		BASE_RATIO = @resource_designation_city_base_ratio
+		URBAN_RESOURCE_ZONE = urban_mineral_zone
+	}
+}
+
+bca_num_require_city_district_for_food_boost = {
+	inline_script = {
+		script = bca_num_require_city_district_for_boost
+		RESOURCE_DISTRICT_1 = district_farming
+		RESOURCE_DISTRICT_2 = none
+		BASE_RATIO = @resource_designation_city_base_ratio
+		URBAN_RESOURCE_ZONE = urban_food_zone
+	}
+}

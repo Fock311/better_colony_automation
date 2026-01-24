@@ -12,6 +12,7 @@ automate_farming_planet = {
 	prio_zones = {
 		zone_food
 		zone_food_ring_world
+		zone_urban_food
 	}
 }
 
@@ -31,6 +32,7 @@ automate_generator_planet = {
 	prio_zones = {
 		zone_energy
 		zone_energy_ring_world
+		zone_urban_energy
 	}
 
 }
@@ -45,6 +47,7 @@ automate_mining_planet = {
 
 	prio_zones = {
 		zone_minerals
+		zone_urban_minerals
 	}
 
 }

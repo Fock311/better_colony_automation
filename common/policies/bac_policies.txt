@@ -4,33 +4,57 @@ cba_reserve_minerals = {
     option = {
         name = "RESERVE_MINERALS_0"
         on_enabled = {
-            set_variable = { which = reserve_minerals_amount value = 0 }
+            set_variable = { which = bca_reserve_minerals_amount value = 0 }
         }
     }
     option = {
         name = "RESERVE_MINERALS_5k"
         on_enabled = {
-            set_variable = { which = reserve_minerals_amount value = 5000 }
+            set_variable = { which = bca_reserve_minerals_amount value = 5000 }
         }
     }
     option = {
         name = "RESERVE_MINERALS_10k"
         on_enabled = {
-            set_variable = { which = reserve_minerals_amount value = 10000 }
+            set_variable = { which = bca_reserve_minerals_amount value = 10000 }
         }
     }
 	option = {
         name = "RESERVE_MINERALS_20k"
         on_enabled = {
-            set_variable = { which = reserve_minerals_amount value = 20000 }
+            set_variable = { which = bca_reserve_minerals_amount value = 20000 }
         }
     }
 }
 
-# bac_advanced_automation_category = {
-#     allow = { always = yes }
-# 	potential = { always = yes }
-#     option = {
+bca_reserve_influence = {
+    allow = { always = yes }
+	potential = { always = yes }
+    option = {
+        name = "RESERVE_INFLUENCE_0"
+        on_enabled = {
+            set_variable = { which = bca_reserve_influence_amount value = 0 }
+        }
+    }
+    option = {
+        name = "RESERVE_INFLUENCE_100"
+        on_enabled = {
+            set_variable = { which = bca_reserve_influence_amount value = 100 }
+        }
+    }
+    option = {
+        name = "RESERVE_INFLUENCE_300"
+        on_enabled = {
+            set_variable = { which = bca_reserve_influence_amount value = 300 }
+        }
+    }
+	option = {
+        name = "RESERVE_INFLUENCE_500"
+        on_enabled = {
+            set_variable = { which = bca_reserve_influence_amount value = 500 }
+        }
+    }
+}
 #         name = "disable_bac_advanced_automation_category"
 #         on_enabled = {
 #             remove_country_flag = bac_advanced_automation_category_enabled

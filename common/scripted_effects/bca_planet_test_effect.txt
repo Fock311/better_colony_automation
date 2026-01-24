@@ -1,0 +1,221 @@
+
+bca_set_district_build_flag ={
+	set_planet_flag = bca_pf_has_district_build_plan
+	set_planet_flag = bca_pf_plan_build_$type$
+}
+bca_set_district_remove_flag ={
+	set_planet_flag = bca_pf_has_district_remove_plan
+	set_planet_flag = bca_pf_plan_remove_$type$
+}
+
+# test which district to build based on metric value comparison
+# make shure that district_1 and district_2 can be added
+# district_1 is preferred if metric_value is equal
+bca_test_district_to_build = {
+	add_district = { district_type = $district_1$ }
+	set_variable = {
+		which = bca_test_district_metric_1
+		value = $metric_value$
+	}
+	remove_district = $district_1$
+	add_district = { district_type = $district_2$ }
+	set_variable = {
+		which = bca_test_district_metric_2
+		value = $metric_value$
+	}
+	remove_district = $district_2$
+	if = {
+		limit = {
+			check_variable = {
+				which = bca_test_district_metric_1
+				value >= bca_test_district_metric_2
+			}
+		}
+		bca_set_district_build_flag = {
+			type = $district_1$
+		}
+	}
+	else = {
+		bca_set_district_build_flag = {
+			type = $district_2$
+		}
+	}
+
+}
+
+
+
+bca_test_district_to_build_district_1_checked = {
+	if = {
+		limit = {
+			has_district = $district_1$
+			free_district_slots > 0
+		}
+		if = {
+			limit = { 
+				num_free_districts = { type = $district_2$ value = 0 }
+				num_free_districts = { type = $district_1$ value > 0 } 
+			}
+			bca_set_district_build_flag = {
+				type = $district_1$
+			}
+		}
+		else_if = {
+			limit = { 
+				num_free_districts = { type = $district_1$ value = 0 }
+				num_free_districts = { type = $district_2$ value > 0 }
+			}	 
+			bca_set_district_build_flag = {
+				type = $district_2$
+			}
+		}
+		else_if = {
+			limit = {
+				num_free_districts = { type = $district_1$ value > 0 }
+				num_free_districts = { type = $district_2$ value > 0 }
+			}
+			bca_test_district_to_build = {
+				district_1 = $district_1$
+				district_2 = $district_2$
+				metric_value = $metric_value$
+			}
+		}
+	}
+}
+
+bca_test_district_to_build_district_city_checked = {
+	bca_test_district_to_build_district_1_checked = {
+		district_1 = district_city
+		district_2 = $district_2$
+		metric_value = $metric_value$
+	}
+	bca_test_district_to_build_district_1_checked = {
+		district_1 = district_hive
+		district_2 = $district_2$
+		metric_value = $metric_value$
+	}
+	bca_test_district_to_build_district_1_checked = {
+		district_1 = district_nexus
+		district_2 = $district_2$
+		metric_value = $metric_value$
+	}
+}
+
+
+bca_test_district_to_replace = {
+	if = {
+		limit = {
+			num_districts = { type = $district_replace_from$ value > $min_district_rf$ }
+			NOT = { 
+				bca_district_reach_planet_max = {
+					type = $district_replace_to$
+				}
+			}
+		}
+		set_variable = {
+			which = bca_test_district_metric_1
+			value = $metric_value$
+		}
+		remove_district = $district_replace_from$
+		add_district = { district_type = $district_replace_to$ }
+		set_variable = {
+			which = bca_test_district_metric_2
+			value = $metric_value$
+		}
+		remove_district = $district_replace_to$
+		add_district = { district_type = $district_replace_from$ }
+		if = {
+			limit = {
+				check_variable = {
+					which = bca_test_district_metric_2
+					[[is_priority_district] value >= bca_test_district_metric_1 ]
+					[[!is_priority_district] value > bca_test_district_metric_1 ]
+				}
+			}
+			bca_set_district_remove_flag = {
+				type = $district_replace_from$
+			}
+			bca_set_district_build_flag = {
+				type = $district_replace_to$
+			}
+		}
+		if = {limit = {always = $is_priority_district$}}
+	}
+}
+
+
+
+
+# Scope = Planet
+bca_test_district_to_replace_city_bidirectional = {
+
+	bca_test_district_to_replace = {
+		district_replace_from = district_city
+		min_district_rf = 1
+		district_replace_to = $district_2$
+		metric_value = $metric_value$
+	}
+	bca_test_district_to_replace = {
+		district_replace_from = $district_2$
+		min_district_rf = 0
+		district_replace_to = district_city
+		metric_value = $metric_value$
+		is_priority_district = yes
+	}
+	bca_test_district_to_replace = {
+		district_replace_from = district_hive
+		min_district_rf = 1
+		district_replace_to = $district_2$
+		metric_value = $metric_value$
+	}
+	bca_test_district_to_replace = {
+		district_replace_from = $district_2$
+		min_district_rf = 0
+		district_replace_to = district_hive
+		metric_value = $metric_value$
+		is_priority_district = yes
+	}
+	bca_test_district_to_replace = {
+		district_replace_from = district_nexus
+		min_district_rf = 1
+		district_replace_to = $district_2$
+		metric_value = $metric_value$
+	}
+	bca_test_district_to_replace = {
+		district_replace_from = $district_2$
+		min_district_rf = 0
+		district_replace_to = district_nexus
+		metric_value = $metric_value$
+		is_priority_district = yes
+	}
+}
+
+# Scope = Planet
+bca_test_district_to_replace_city_bidirectional_nexus_excluded = {
+	bca_test_district_to_replace = {
+		district_replace_from = district_city
+		min_district_rf = 1
+		district_replace_to = $district_2$
+		metric_value = $metric_value$
+	}
+	bca_test_district_to_replace = {
+		district_replace_from = $district_2$
+		min_district_rf = 0
+		district_replace_to = district_city
+		metric_value = $metric_value$
+		is_priority_district = yes
+	}
+	bca_test_district_to_replace = {
+		district_replace_from = district_hive
+		min_district_rf = 1
+		district_replace_to = $district_2$
+		metric_value = $metric_value$
+	}
+	bca_test_district_to_replace = {
+		district_replace_from = $district_2$
+		min_district_rf = 0
+		district_replace_to = district_hive
+		metric_value = $metric_value$
+		is_priority_district = yes
+	}
+}

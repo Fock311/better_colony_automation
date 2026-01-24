@@ -1,6 +1,0 @@
-bca_reserve_minerals_plus_20k = {
-	base = reserve_minerals_amount
-	modifier = {
-		add = 20000
-	}
-}

@@ -89,3 +89,8 @@ Since Paradox has yet to fix the broken planetary automation bugs following the 
 - Improved Silo/FE Clinic construction logic to avoid "spamming" unless intended.
 - Fixed Trade specialization conflicts on Hive/Machine worlds.
 - General priority and bug fixes for agriculture specializations.
+
+哇噗 **26-01-23 - v0.5**：
+- **Intro & Updates**: Added a welcome window on game start and update log notifications for existing saves to keep players informed.
+- **Basic Resource Logic**: Completely reworked the logic for Mining, Energy, and Farming specializations to fix conflicts between City and Resource districts.
+- **Dynamic Balancing**: The mod now automatically calculates and maintains the optimal ratio of City Districts to Resource Districts on basic resource worlds.

@@ -1,0 +1,44 @@
+namespace = bca_intro_event
+
+event = {
+	id = bca_intro_event.1
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	immediate = {
+		every_playable_country = {
+            limit = { is_ai = no }
+            create_message = {
+                type = MESSAGE_BCA_STARTUP
+                days = -1
+                localization = MESSAGE_BCA_STARTUP_desc
+            }
+        }
+	}
+}
+
+event = {
+	id = bca_intro_event.2
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		NOT = { has_global_flag = bca_update_v0_5_shown }
+	}
+
+
+	immediate = {
+		set_global_flag = bca_update_v0_5_shown 
+		every_playable_country = {
+			limit = { is_ai = no }
+            create_message = {
+				type = MESSAGE_BCA_UPDATE
+                days = -1
+                localization = MESSAGE_BCA_UPDATE_desc
+            }
+        }
+	}
+}
+
