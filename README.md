@@ -125,3 +125,5 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 Contribute support for additional mod buildings and districts by visiting:
 
 https://github.com/StellarWarp/better_colony_automation
+
+This project is under the GNU GPLv3 license.
