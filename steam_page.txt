@@ -73,16 +73,15 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 [h2]最近更新日志[/h2]
 
-哇噗 [b]26-01-24 - v0.5[/b]：
+哇噗 [b]26-01-25 - v0.5.4[/b]：
+[b]·[/b] 增加稀有资源建筑建设调整的决策。
+[b]·[/b] 调整决策的文本和图案，使之更加易读。
+[b]·[/b] 修复人口组装建筑在拆除的条件下依然被建造的问题；人口组装建筑现在需要在有多于一个建筑槽位且有空闲职位时才会被建造。
 
-[b]·[/b] [b]引导与提示[/b]：新增了模组介绍弹窗（新开局触发）和更新日志提示，方便玩家了解模组功能变更。
-[b]·[/b] [b]一产逻辑重构[/b]：修复了一产（矿物、能量、食物）专精星球上，城市区划与资源区划相互抢占地块导致建设停滞的问题。并且一产专精星球现在会修建资源增益区划特化
-[b]·[/b] [b]动态比例平衡[/b]：现在一产专精会自动计算并维持最优的城市/资源区划比例，以最大化星球产出，无需玩家手动调整。
-
-哇噗 [b]26-01-24 - v0.5.1[/b]：
-
-[b]·[/b] 修复电能产出的计算错误，导致城市比例偏低的问题
-[b]·[/b] 修复了一产区间进行转换时增益特化不进行拆除的问题
+哇噗 [b]26-01-25 - v0.5.5[/b]：
+[b]·[/b] 调整决策文本，增加可读性，并且同一决策的启用与禁用位置不再发生变化。添加了几个定制的决策图标以提升视觉效果。
+[b]·[/b] 稀有资源建设调整：稀有资源决策将只会在工业特化星球上显示；对于一产区划，除非关闭建设稀有资源建筑建设，会优先建设相关建筑，无其他限制。（因为这类建筑纯属增益建筑，且需要特定的行星地貌才能建设）
+[b]·[/b] 修复了一些建筑没有矿物预留约束的问题。
 
 [hr][/hr]
 
@@ -94,3 +93,5 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 Contribute support for additional mod buildings and districts by visiting:
 
 https://github.com/StellarWarp/better_colony_automation
+
+This project is under the GNU GPLv3 license.

@@ -95,3 +95,25 @@ Since Paradox has yet to fix the broken planetary automation bugs following the 
 - **Intro & Updates**: Added a welcome window on game start and update log notifications for existing saves to keep players informed.
 - **Basic Resource Logic**: Completely reworked the logic for Mining, Energy, and Farming specializations to fix conflicts between City and Resource districts.
 - **Dynamic Balancing**: The mod now automatically calculates and maintains the optimal ratio of City Districts to Resource Districts on basic resource worlds.
+
+哇噗 **26-01-24 - v0.5.1**：
+- Fixed energy output calculation error that caused city district ratio to be too low.
+- Fixed issue where boost specializations were not removed when switching between basic resource designations.
+
+哇噗 **26-01-25 - v0.5.2**：
+- Fixed and improved rare resource building automation logic: After building an Ancient Refinery, no other rare resource buildings will be constructed.
+- Fixed issue where Robot Assembly options were still displayed when robots were disabled or Gene Ascension was chosen.
+
+哇噗 **26-01-25 - v0.5.3**：
+- Fixed energy output calculation error caused by an accidental naming error.
+
+哇噗 **26-01-25 - v0.5.4**：
+- Added decision to adjust rare resource building construction.
+- Adjusted decision text and icons for better readability.
+- Fixed issue where Pop Assembly buildings were still being built under demolition conditions; Pop Assembly buildings now require more than one building slot and available jobs to be built.
+
+哇噗 **26-01-25 - v0.5.5**：
+- Adjusted decision text for better readability, and the enable/disable positions for the same decision no longer change. Added several custom decision icons to enhance visual appeal.
+- Rare Resource Construction Adjustment: Rare resource decisions will only appear on Industrial specialized planets; For basic resource districts, unless rare resource building construction is disabled, related buildings will be prioritized with no other restrictions. (Since these buildings are purely beneficial and require specific planetary terrain to build)
+- Fixed issue where some buildings were not subject to mineral reserve constraints.
+
