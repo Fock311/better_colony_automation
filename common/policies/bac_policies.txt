@@ -204,3 +204,30 @@ bac_remove_pop_assemble_buildings = {
 
 }
 
+# bac_allow_deurbanization = {
+#     allow = { always = yes }
+#     potential = { always = yes }
+#     option = {
+#         name = "disable_bac_allow_deurbanization"
+#         on_enabled = {
+#             remove_country_flag = bac_allow_deurbanization
+#         }
+#         ai_weight = {
+#             factor = 1
+#         }
+#     }
+#     option = {
+#         name = "enable_bac_allow_deurbanization"
+#         on_enabled = {
+#             set_country_flag = bac_allow_deurbanization
+#         }
+#         ai_weight = {
+#             factor = 0
+#         }
+#     }
+
+# }
+
+
+
+

@@ -31,3 +31,12 @@ bca_has_resource_for_arcology_project = {
 		}
 	}
 }
+
+
+bca_has_build_plan = {
+	has_planet_flag = bca_pf_plan_build_$type$
+}
+
+has_free_building_slot_leq = {
+	has_planet_flag = bca_free_$type$_slots_leq_$leq$
+}

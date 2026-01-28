@@ -6,21 +6,16 @@ automate_mining_planet = {
 		requires_more_job = yes
         bca_has_minerals_to_build = yes
 		has_mining_designation = yes
+		OR = {
+			bca_has_build_plan = { type = district_mining }
+			bca_has_build_plan = { type = district_melting }
+			bca_has_build_plan = { type = district_hab_mining }
+		}
 	}
 
 	prio_districts = {
 		district_mining
-		district_hab_mining
 		district_melting
-	}
-
-	buildings = {
-		1 = {
-			building = building_mineral_purification_plant
-		}
-		
-		3 = {
-			building = building_mining_districts_1
-		}
+		district_hab_mining
 	}
 }

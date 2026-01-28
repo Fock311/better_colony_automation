@@ -1,7 +1,6 @@
-bca_pop_bonus_workforce_mult = {
-	base = 1
-	add = modifier:planet_jobs_workforce_mult
-}
+#--------------------------
+# Energy
+#--------------------------
 
 bca_base_energy = {
 	base = 6
@@ -11,22 +10,41 @@ bca_base_energy = {
 	}
 }
 
-cba_planet_energy_job_mult = {
-	base = 1
-	add = modifier:planet_jobs_produces_mult
-	add = modifier:planet_jobs_productive_produces_mult
-	add = modifier:planet_jobs_worker_produces_mult
+inline_script = {
+	script = bca_modifier_planet_job_mult
+	RESOURCE = energy
+	JOB = technician
+	CLASS_NORMAL = worker
+	CLASS_GESTALT = simple_drone
+}
 
-	add = modifier:planet_jobs_energy_produces_mult
-	add = modifier:planet_technician_produces_mult
-	add = modifier:planet_technician_energy_produces_mult
+# bca_planet_energy_job_mult = {
+# 	base = 1
+# 	add = modifier:planet_jobs_produces_mult
+# 	add = modifier:planet_jobs_productive_produces_mult
+# 	add = modifier:planet_jobs_worker_produces_mult
 
-	add = modifier:planet_jobs_simple_drone_produces_mult
-	add = modifier:planet_jobs_complex_and_simple_drone_produces_mult
-	modifier = {
-		add = modifier:habitat_jobs_produces_mult
-		is_planet_class = pc_habitat
-	}
+# 	add = modifier:planet_jobs_energy_produces_mult
+# 	add = modifier:planet_technician_produces_mult
+# 	add = modifier:planet_technician_energy_produces_mult
+
+# 	add = modifier:planet_jobs_simple_drone_produces_mult
+# 	add = modifier:planet_jobs_complex_and_simple_drone_produces_mult
+# 	modifier = {
+# 		add = modifier:habitat_jobs_produces_mult
+# 		is_planet_class = pc_habitat
+# 	}
+# 	[[INC_MULT]
+# 		add = $INC_MULT$
+# 	]
+# }
+
+bca_planet_energy_job_add = {
+	add = value:bca_base_energy
+	add = modifier:planet_technician_energy_produces_add
+	[[INC_ADD]
+		add = $INC_ADD$
+	]
 }
 
 bca_jobs_for_energy = {
@@ -37,15 +55,30 @@ bca_jobs_for_energy = {
 bca_unit_energy_production = {
 	add = value:bca_base_energy
 	add = modifier:planet_technician_energy_produces_add
-	multiply = value:cba_planet_energy_job_mult
+	mult = value:bca_planet_energy_job_mult
 }
 
-bca_protential_standard_energy_production = {
+bca_potential_standard_energy_production = {
 	add = value:bca_jobs_for_energy
+	[[INC_JOB] add = $INC_JOB$ ]
 	divide = 100
-	mult = value:bca_unit_energy_production
+	[[INC_ADD]
+		mult = value:bca_planet_energy_job_add|INC_ADD|$INC_ADD$|
+	]
+	[[!INC_ADD]
+		mult = value:bca_planet_energy_job_add
+	]
+	[[INC_MULT]
+		mult = value:bca_planet_energy_job_mult|INC_MULT|$INC_MULT$|
+	]
+	[[!INC_MULT]
+		mult = value:bca_planet_energy_job_mult
+	]
 }
 
+#--------------------------
+# Minerals
+#--------------------------
 
 bca_base_minerals = {
 	base = 4
@@ -62,7 +95,15 @@ bca_jobs_for_minerals = {
 	add = modifier:job_turtle_miner_gestalt_add
 }
 
-bca_planet_mineral_job_mult = {
+bca_planet_minerals_job_add = {
+	add = value:bca_base_minerals
+	add = modifier:planet_miners_produces_add
+	[[INC_ADD]
+		add = $INC_ADD$
+	]
+}
+
+bca_planet_minerals_job_mult = {
 	base = 1
 	add = modifier:planet_jobs_produces_mult
 	add = modifier:planet_jobs_productive_produces_mult
@@ -78,19 +119,37 @@ bca_planet_mineral_job_mult = {
 		add = modifier:habitat_jobs_produces_mult
 		is_planet_class = pc_habitat
 	}
+	[[INC_MULT]
+		add = $INC_MULT$
+	]
 }
 
 bca_unit_mineral_production = {
-	add = value:bca_base_minerals
-	add = modifier:planet_miners_produces_add
-	mult = value:bca_planet_mineral_job_mult
+	add = value:bca_planet_minerals_job_add
+	mult = value:bca_planet_minerals_job_mult
 }
 
-bca_protential_standard_mineral_production = {
-	set = value:bca_jobs_for_minerals
+bca_potential_standard_mineral_production = {
+	add = value:bca_jobs_for_minerals
+	[[INC_JOB] add = $INC_JOB$ ]
 	divide = 100
-	mult = value:bca_unit_mineral_production
+	[[INC_ADD]
+		mult = value:bca_planet_minerals_job_add|INC_ADD|$INC_ADD$|
+	]
+	[[!INC_ADD]
+		mult = value:bca_planet_minerals_job_add
+	]
+	[[INC_MULT]
+		mult = value:bca_planet_minerals_job_mult|INC_MULT|$INC_MULT$|
+	]
+	[[!INC_MULT]
+		mult = value:bca_planet_minerals_job_mult
+	]
 }
+
+#--------------------------
+# Food
+#--------------------------
 
 bca_base_food = {
 	base = 6
@@ -106,6 +165,15 @@ bca_jobs_for_food = {
 	add = modifier:job_angler_add
 	add = modifier:job_titan_hunter_add
 }
+
+bca_planet_food_job_add = {
+	add = value:bca_base_food
+	add = modifier:planet_farmers_produces_add
+	[[INC_ADD]
+		add = $INC_ADD$
+	]
+}
+
 bca_planet_food_job_mult = {
 	base = 1
 	add = modifier:planet_jobs_produces_mult
@@ -122,18 +190,83 @@ bca_planet_food_job_mult = {
 		add = modifier:habitat_jobs_produces_mult
 		is_planet_class = pc_habitat
 	}
+	[[INC_MULT]
+		add = $INC_MULT$
+	]
 }
 
 bca_unit_food_production = {
-	add = value:bca_base_food
-	add = modifier:planet_farmers_produces_add
+	add = value:bca_planet_food_job_add
 	mult = value:bca_planet_food_job_mult
 }
 
-bca_protential_standard_food_production = {
-	set = value:bca_jobs_for_food
+bca_potential_standard_food_production = {
+	add = value:bca_jobs_for_food
+	[[INC_JOB] add = $INC_JOB$ ]
 	divide = 100
-	mult = value:bca_unit_food_production
+	[[INC_ADD]
+		mult = value:bca_planet_food_job_add|INC_ADD|$INC_ADD$|
+	]
+	[[!INC_ADD]
+		mult = value:bca_planet_food_job_add
+	]
+	[[INC_MULT]
+		mult = value:bca_planet_food_job_mult|INC_MULT|$INC_MULT$|
+	]
+	[[!INC_MULT]
+		mult = value:bca_planet_food_job_mult
+	]
 }
 
 
+#--------------------------
+# Alloys
+#--------------------------
+bca_base_alloys = {
+	base = 3
+	modifier = {
+		add = 1
+		owner = {
+			is_machine_empire = yes
+			is_catalytic_empire = no
+		}
+	}
+}
+
+
+bca_jobs_for_alloys = {
+	add = modifier:job_foundry_add
+	add = modifier:job_fabricator_add
+	add = modifier:job_alloy_drone_add
+	add = modifier:job_catalytic_technician_add
+	add = modifier:job_catalytic_drone_add
+}
+
+bca_planet_alloys_job_add = {
+	add = value:bca_base_alloys
+	add = modifier:planet_jobs_alloys_produces_add
+	[[INC_ADD]
+		add = $INC_ADD$
+	]
+}
+
+bca_planet_alloys_job_mult = {
+	base = 1
+	add = modifier:planet_jobs_produces_mult
+	add = modifier:planet_jobs_productive_produces_mult
+	add = modifier:planet_jobs_specialist_produces_mult
+
+	add = modifier:planet_jobs_alloys_produces_mult
+	add = modifier:planet_metallurgists_produces_mult
+	add = modifier:planet_metallurgists_alloys_produces_add
+
+	add = modifier:planet_jobs_complex_drone_produces_mult
+	add = modifier:planet_jobs_complex_and_simple_drone_produces_mult
+	modifier = {
+		add = modifier:habitat_jobs_produces_mult
+		is_planet_class = pc_habitat
+	}
+	[[INC_MULT]
+		add = $INC_MULT$
+	]
+}

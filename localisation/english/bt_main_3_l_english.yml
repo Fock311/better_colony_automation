@@ -67,6 +67,13 @@ l_english:
  enable_bac_remove_pop_assemble_buildings: "Enable Auto Remove Pop Assembly Buildings"
  enable_bac_remove_pop_assemble_buildings_desc: "Enable auto remove pop assembly buildings."
 
+ policy_bac_allow_deurbanization: "De-urbanization Policy"
+ policy_bac_allow_deurbanization_desc: "Allow usage of De-urbanization decision which removes all buildings and districts.(For testing purposes)"
+ disable_bac_allow_deurbanization: "Disable De-urbanization"
+ disable_bac_allow_deurbanization_desc: "Disable the decision."
+ enable_bac_allow_deurbanization: "Enable De-urbanization"
+ enable_bac_allow_deurbanization_desc: "Enable the decision."
+
  decision_colony_transform: "!BCA!: De-Urbanize"
  decision_colony_transform_desc: "Remove all buildings and districts on the current planet."
 

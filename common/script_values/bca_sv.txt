@@ -8,7 +8,33 @@ bca_value_subtract = {
 	subtract = $SUBTRACT$
 }
 
+bca_value_mult = {
+	add = $VALUE$
+	mult = $MULT$
+}
+bca_value_divide = {
+	add = $VALUE$
+	divide = $DIVIDE$
+}
 
+
+# must ensure that no on going district construction is happening when using this script
+bca_planet_max_districts= {
+	complex_trigger_modifier = {
+		trigger = num_districts
+		parameters = {
+			type = any
+		}
+		mode = set
+	}
+	complex_trigger_modifier = {
+		trigger = num_free_districts
+		parameters = {
+			type = any
+		}
+		mode = add
+	}
+}
 
 bca_num_districts_value = {
 	complex_trigger_modifier = {
@@ -30,34 +56,6 @@ bca_num_zone_value = {
 	}
 }
 
-@resource_designation_city_base_ratio = 0.2
-
-bca_num_require_city_district_for_energy_boost = {
-	inline_script = {
-		script = bca_num_require_city_district_for_boost
-		RESOURCE_DISTRICT_1 = district_generator
-		RESOURCE_DISTRICT_2 = district_geothermal
-		BASE_RATIO = @resource_designation_city_base_ratio
-		URBAN_RESOURCE_ZONE = urban_energy_zone
-	}
-}
-
-bca_num_require_city_district_for_mineral_boost = {
-	inline_script = {
-		script = bca_num_require_city_district_for_boost
-		RESOURCE_DISTRICT_1 = district_mining
-		RESOURCE_DISTRICT_2 = district_melting
-		BASE_RATIO = @resource_designation_city_base_ratio
-		URBAN_RESOURCE_ZONE = urban_mineral_zone
-	}
-}
-
-bca_num_require_city_district_for_food_boost = {
-	inline_script = {
-		script = bca_num_require_city_district_for_boost
-		RESOURCE_DISTRICT_1 = district_farming
-		RESOURCE_DISTRICT_2 = none
-		BASE_RATIO = @resource_designation_city_base_ratio
-		URBAN_RESOURCE_ZONE = urban_food_zone
-	}
+test_inline_math = {
+	add = @\[ $p1$ + $p2$ + $p3$]
 }

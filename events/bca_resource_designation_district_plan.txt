@@ -64,8 +64,14 @@ country_event = {
 			}
 			else = {
 				remove_planet_flag = bca_pf_district_balanced
-				bca_test_district_to_build_entry = yes
-				bca_test_zone_to_build_entry = yes
+			}
+			if = {
+				limit = {
+					NOT = { 
+						has_planet_flag = bca_pf_fully_constructed 
+					}
+				}
+				inline_script = bca_test_construction_entry
 			}
 		}
 	}
@@ -96,11 +102,42 @@ planet_event = {
 	}
 }
 
+# trigger by on_zone_complete
+# remove zone flag if construction completed
 planet_event = {
-	id = colony_automation_event.410
+	id = colony_automation_event.12
 	is_triggered_only = yes
-	title = "Warning: BCA Mod Failure [This.GetName]"
-	desc = "bca_test_district_to_build value identical. possible invalid script value"
+	hide_window = yes
+	trigger = {
+		owner = {
+			is_ai = no
+		}
+	}
+	immediate = {
+		remove_planet_flag = bca_pf_has_zone_build_plan
+		remove_planet_flag = bca_pf_plan_build_zone_urban_energy
+		remove_planet_flag = bca_pf_plan_build_zone_urban_minerals
+		remove_planet_flag = bca_pf_plan_build_zone_urban_food
+	}
+}
+
+# trigger by on_building_complete
+# remove building flag if construction completed
+planet_event = {
+	id = colony_automation_event.13
+	is_triggered_only = yes
+	hide_window = yes
+	trigger = {
+		owner = {
+			is_ai = no
+		}
+	}
+	immediate = {
+		remove_planet_flag = bca_pf_has_building_build_plan
+		remove_planet_flag = bca_pf_plan_build_building_energy_grid
+		remove_planet_flag = bca_pf_plan_build_building_mineral_purification_plant
+		remove_planet_flag = bca_pf_plan_build_building_food_processing_facility
+	}
 }
 
 planet_event = {

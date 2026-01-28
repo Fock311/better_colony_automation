@@ -32,10 +32,3 @@ remove_district_if = {
 	}
 }
 
-debug_print_all_planet_flags = {
-    log = "[Root.GetName] Planet ID: [Root.ID] - Starting flag dump"
-    every_planet_flag = {     # 循环所有 flags（3.0+ 支持）
-        log = "Flag: [This.GetValue]"  # This 是当前 flag
-    }
-    log = "Flag dump complete. Total flags: [Root.num_planet_flags]"
-}

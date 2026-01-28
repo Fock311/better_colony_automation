@@ -1,0 +1,106 @@
+
+try_construct_district = {
+	if = {
+		limit = { check_variable = { which = bca_selected_index value = $index$ } }
+		bca_set_district_build_flag = {
+			district = $district$
+		}
+	}
+	else_if = {
+		limit = { 
+			check_variable = { which = bca_selected_index value = -1 }
+			num_free_districts = { type = $district$ value > 0 }
+			num_districts = {
+				type = $district$
+				value < $district_max$
+			}
+		}
+		add_district = { district_type = $district$ }
+		bca_test_update_construction_metric_max_with_cost = {
+			production = $production$
+			cost = $cost$
+			priority_shift = $priority_shift$
+			index = $index$
+		}
+		remove_district = $district$
+	}
+}
+
+try_construct_district_city = {
+	try_construct_district = {
+		district = district_city
+		district_max = $district_max$
+		production = $production$
+		cost = 480
+		priority_shift = $priority_shift$
+		index = $index$
+	}
+	try_construct_district = {
+		district = district_hive
+		district_max = $district_max$
+		production = $production$
+		cost = 480
+		priority_shift = $priority_shift$
+		index = $index$
+	}
+	try_construct_district = {
+		district = district_nexus
+		district_max = $district_max$
+		production = $production$
+		cost = 480
+		priority_shift = $priority_shift$
+		index = $index$
+	}
+}
+
+try_construct_building = {
+	if = {
+		limit = { check_variable = { which = bca_selected_index value = $index$ } }
+		bca_set_building_build_flag = {
+			building = $building$
+		}
+	}
+	else_if = {
+		limit = { 
+			check_variable = { which = bca_selected_index value = -1 } 
+		}
+		bca_test_update_construction_metric_max_with_cost = {
+			production = value:$standard_production$|INC_JOB|$INC_JOB$|INC_ADD|$INC_ADD$|INC_MULT|$INC_MULT$|
+			cost = $cost$
+			priority_shift = $priority_shift$
+			index = $index$
+		}
+	}
+}
+
+
+try_construct_zone_city = {
+	if = {
+		limit = { check_variable = { which = bca_selected_index value = $index$ } }
+		bca_set_zone_build_flag = {
+			zone = $zone$
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = bca_selected_index value = -1 } }
+		bac_get_num_free_city_zones = yes
+
+		if = {
+			limit = { 
+				check_variable = {
+					which = bca_num_free_city_zones
+					value > 0
+				}
+			}
+
+			bca_test_update_construction_metric_max_with_cost = {
+				production = $production$
+				cost = $cost$
+				priority_shift = $priority_shift$
+				index = $index$
+			}
+		}
+
+
+	}
+}

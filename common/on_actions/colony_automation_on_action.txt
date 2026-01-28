@@ -14,3 +14,15 @@ on_district_complete = {
 		colony_automation_event.11  # 完成区块建设后移除规划标记
 	}
 }
+
+on_zone_complete = {
+	events = {
+		colony_automation_event.12  # 完成区划建设后测试建造
+	}
+}
+
+on_building_complete = {
+	events = {
+		colony_automation_event.13  # 完成建筑建设后测试建造
+	}
+}

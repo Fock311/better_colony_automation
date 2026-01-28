@@ -72,8 +72,15 @@
  enable_bac_remove_pop_assemble_buildings: "启用自动移除人口组装建筑"
  enable_bac_remove_pop_assemble_buildings_desc: "启用自动移除人口组装建筑"
 
- decision_colony_transform: "!BCA!:去城市化"
- decision_colony_transform_desc: "难道我是个很坏的人吗？"
+ policy_bac_allow_deurbanization: "去城市化"
+ policy_bac_allow_deurbanization_desc: "城市是邪恶的根源，应该彻底去除它们！"
+ disable_bac_allow_deurbanization: "保留文明火种"
+ disable_bac_allow_deurbanization_desc: "我们还是不要做得那么绝。"
+ enable_bac_allow_deurbanization: "敌人越是反对我，越说明我做对了"
+ enable_bac_allow_deurbanization_desc: "连敌人都支持我，更说明我做对了"
+
+ decision_colony_transform: "§R~BCA~:去城市化§!"
+ decision_colony_transform_desc: "§R难道我是个很坏的人吗？§!"
 
 
  bca_pm_planet_pre_construction: "提前建造"
@@ -117,3 +124,5 @@
  colony_automation_event.3.desc: "[Root.GetName] 已经具备建设理想城的条件。我们是否现在开始理想城计划？"
  colony_automation_event.3.a: "开始理想城计划"
  colony_automation_event.3.b: "也许晚些时候"
+
+

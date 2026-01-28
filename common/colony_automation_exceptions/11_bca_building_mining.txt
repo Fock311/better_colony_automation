@@ -1,18 +1,25 @@
-automate_mining_planet_districts_city = {
+automate_mining_planet_building = {
 	category = "planet_automation_designation_construction"
 
 	emergency = yes
 	available = {
-		bca_require_district_city = yes
 		bca_has_minerals_to_build = yes
 		has_mining_designation = yes
 	}
 
-	prio_districts = {
-		district_city
-		district_hive
-		district_nexus
-		district_hab_housing
+	buildings = {
+		1 = {
+			building = building_mining_districts_1
+			available = {
+				num_free_districts = { type = district_generator value <= 1 }
+			}
+		}
+		2 = {
+			building = building_mineral_purification_plant
+			available = {
+				bca_has_build_plan = { type = building_mineral_purification_plant }
+			}
+		}
 	}
 
 }
@@ -26,6 +33,10 @@ automate_mining_planet_districts = {
 		free_housing < 0
         bca_has_minerals_to_build = yes
 		has_mining_designation = yes
+		num_districts = {
+			type = district_mining
+			value < bca_opti_count_district_mining
+		}
 	}
 
 	prio_districts = {

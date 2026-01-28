@@ -1,11 +1,31 @@
-
 bca_set_district_build_flag ={
 	set_planet_flag = bca_pf_has_district_build_plan
-	set_planet_flag = bca_pf_plan_build_$type$
+	set_planet_flag = bca_pf_plan_build_$district$
 }
 bca_set_district_remove_flag ={
 	set_planet_flag = bca_pf_has_district_remove_plan
-	set_planet_flag = bca_pf_plan_remove_$type$
+	set_planet_flag = bca_pf_plan_remove_$district$
+}
+
+
+bca_set_building_build_flag ={
+	set_planet_flag = bca_pf_has_building_build_plan
+	set_planet_flag = bca_pf_plan_build_$building$
+}
+
+bca_set_building_remove_flag ={
+	set_planet_flag = bca_pf_has_building_remove_plan
+	set_planet_flag = bca_pf_plan_remove_$building$
+}
+
+bca_set_zone_build_flag ={
+	set_planet_flag = bca_pf_has_zone_build_plan
+	set_planet_flag = bca_pf_plan_build_$zone$
+}
+
+bca_set_zone_remove_flag ={
+	set_planet_flag = bca_pf_has_zone_remove_plan
+	set_planet_flag = bca_pf_plan_remove_$zone$
 }
 
 # test which district to build based on metric value comparison
@@ -32,12 +52,12 @@ bca_test_district_to_build = {
 			}
 		}
 		bca_set_district_build_flag = {
-			type = $district_1$
+			district = $district_1$
 		}
 	}
 	else = {
 		bca_set_district_build_flag = {
-			type = $district_2$
+			district = $district_2$
 		}
 	}
 
@@ -57,7 +77,7 @@ bca_test_district_to_build_district_1_checked = {
 				num_free_districts = { type = $district_1$ value > 0 } 
 			}
 			bca_set_district_build_flag = {
-				type = $district_1$
+				district = $district_1$
 			}
 		}
 		else_if = {
@@ -66,7 +86,7 @@ bca_test_district_to_build_district_1_checked = {
 				num_free_districts = { type = $district_2$ value > 0 }
 			}	 
 			bca_set_district_build_flag = {
-				type = $district_2$
+				district = $district_2$
 			}
 		}
 		else_if = {
@@ -133,10 +153,10 @@ bca_test_district_to_replace = {
 				}
 			}
 			bca_set_district_remove_flag = {
-				type = $district_replace_from$
+				district = $district_replace_from$
 			}
 			bca_set_district_build_flag = {
-				type = $district_replace_to$
+				district = $district_replace_to$
 			}
 		}
 		if = {limit = {always = $is_priority_district$}}
@@ -217,5 +237,306 @@ bca_test_district_to_replace_city_bidirectional_nexus_excluded = {
 		district_replace_to = district_hive
 		metric_value = $metric_value$
 		is_priority_district = yes
+	}
+}
+
+bca_test_update_construction_metric_max_with_cost = {
+	if = {
+		limit = { 
+			check_variable_arithmetic = {
+				which = $production$
+				subtract = bca_current_production
+				divide = $cost$
+				add = $priority_shift$
+				value > bca_test_construction_metric_max
+			}
+		}
+		set_variable = {
+			which = bca_test_construction_metric_max
+			value = $production$
+		}
+		subtract_variable = {
+			which = bca_test_construction_metric_max
+			value = bca_current_production
+		}
+		divide_variable = {
+			which = bca_test_construction_metric_max
+			value = $cost$
+		}
+		add_variable = {
+			which = bca_test_construction_metric_max
+			value = $priority_shift$
+		}
+		set_variable = {
+			which = bca_test_construction_metric_max_index
+			value = $index$
+		}
+	}
+}
+
+
+
+# bac_test_building_to_add = {
+# 	export_trigger_value_to_variable = {
+# 		trigger = num_buildings
+# 		parameters = {
+# 			type = any
+# 		}
+# 		variable = bca_test_counter_1
+# 	}
+
+# 	add_building = {
+# 		building = $building$
+# 	}
+
+# 	export_trigger_value_to_variable = {
+# 		trigger = num_buildings
+# 		parameters = {
+# 			type = any
+# 		}
+# 		variable = bca_test_counter_2
+# 	}
+# 	if = {
+# 		limit = {
+# 			check_variable = { which = bca_test_counter_1 value = bca_test_counter_2 }
+# 		}
+# 		set_planet_flag = bca_pf_failed_to_add
+# 		set_planet_flag = bca_pf_failed_to_add_$building$
+# 	}
+# 	else = {
+# 		bca_test_update_construction_metric_max_with_cost = {
+# 			production = $production$
+# 			cost = $cost$
+# 			index = $index$
+# 		}
+# 		remove_building = $building$
+# 	}
+# }
+
+bac_get_num_free_building_slots_leq = {
+	while = {
+		count = @\[ $leq$ + 1 ]
+		add_building = building_bca_test_$type$_slots
+	}
+	
+	if = {
+		limit = {
+			num_buildings = { 
+				type = building_bca_test_$type$_slots  
+				value != @\[ $leq$ + 1 ]
+			}
+		}
+		set_planet_flag = bca_free_$type$_slots_leq_$leq$
+	}
+	else = {
+		remove_planet_flag = bca_free_$type$_slots_leq_$leq$
+	}
+
+	while = {
+		count = @\[ $leq$ + 1 ]
+		remove_building = building_bca_test_$type$_slots
+	}
+}
+
+bac_get_num_free_foundry_building_slots_leq_2 = {
+	while = {
+		count = 3
+		add_building = building_bca_test_foundry_slots
+	}
+	
+	if = {
+		limit = {
+			num_buildings = { 
+				type = building_bca_test_foundry_slots  
+				value != 3
+			}
+		}
+		set_planet_flag = bca_free_foundry_slots_leq_2
+	}
+	else = {
+		remove_planet_flag = bca_free_foundry_slots_leq_2
+	}
+
+	while = {
+		count = 3
+		remove_building = building_bca_test_foundry_slots
+	}
+}
+
+
+
+bac_get_num_free_city_zones = {
+	add_zone = {
+		zone = zone_bca_test
+	}
+	add_zone = {
+		zone = zone_bca_test
+	}
+
+	export_trigger_value_to_variable = {
+		trigger = num_zones
+		parameters = {
+			type = zone_bca_test
+		}
+		variable = bca_num_free_city_zones
+	}
+
+	remove_zone = {
+		zone = zone_bca_test
+	}
+	remove_zone = {
+		zone = zone_bca_test
+	}
+}
+
+
+
+bac_test_zone_to_add = {
+	export_trigger_value_to_variable = {
+		trigger = num_zones
+		parameters = {
+			type = $zone$
+		}
+		variable = bca_test_counter_1
+	}
+
+	add_zone = {
+		district = $district$
+		zone = $zone$
+		zone_slot = $zone_slot$
+	}
+
+	export_trigger_value_to_variable = {
+		trigger = num_zones
+		parameters = {
+			type = $zone$
+		}
+		variable = bca_test_counter_2
+	}
+
+	if = {
+		limit = {
+			check_variable = { which = bca_test_counter_1 value = bca_test_counter_2 }
+		}
+		set_planet_flag = bca_pf_failed_to_add_$zone$
+	}
+	else = {
+		bca_test_update_construction_metric_max_with_cost = {
+			production = $production$
+			cost = $cost$
+			priority_shift = $priority_shift$
+			index = $index$
+		}
+
+		remove_zone = {
+			district = $district$
+			zone = $zone$
+			zone_slot = $zone_slot$
+		}
+	}
+}
+
+bac_test_zone_to_add_checked = {
+	if = {
+		limit = { has_district = $district$ }
+		bac_test_zone_to_add = {
+			district = $district$
+			zone = $zone$
+			zone_slot = $zone_slot$
+			production = $production$
+			cost = $cost$
+			priority_shift = $priority_shift$
+			index = $index$
+		}
+	}
+}
+
+bac_test_zone_to_add_main_district = {
+	if = {
+		limit = { has_district = $district$ }
+		bac_test_zone_to_add = {
+			district = $district$
+			zone = $zone$
+			zone_slot = 1
+			production = $production$
+			cost = $cost$
+			priority_shift = $priority_shift$
+			index = $index$
+		}
+		# test secondary slot only if primary slot failed
+		if = {
+			limit = { 
+				has_planet_flag = bca_pf_failed_to_add_$zone$
+			}
+			bac_test_zone_to_add = {
+				district = $district$
+				zone = $zone$
+				zone_slot = 2
+				production = $production$
+				cost = $cost$
+				priority_shift = $priority_shift$
+				index = $index$
+			}
+		}
+		remove_planet_flag = bca_pf_failed_to_add_$zone$
+	}
+}
+
+# estimate final number of generator districts to be built
+# assume only 2 district types: generator and city
+# other district types are not considered
+bca_opti_estimate_num_district_generator = {
+	inline_script = {
+		script = bca_num_destrict_ratio_estimate
+		DISTRICT = district_generator
+		FACTOR_JOB_ADD = bca_planet_energy_job_add
+		FACTOR_JOB_MULT = bca_planet_energy_job_mult
+		PRODUCTION_ESTIMATION = bca_potential_standard_energy_production_estimate
+		PROTENTIAL_DISTRICT_MAX = bca_potential_district_generator_max_add
+	}
+}
+
+bca_opti_estimate_num_district_geothermal = {
+	inline_script = {
+		script = bca_num_destrict_ratio_estimate
+		DISTRICT = district_geothermal
+		FACTOR_JOB_ADD = bca_planet_energy_job_add
+		FACTOR_JOB_MULT = bca_planet_energy_job_mult
+		PRODUCTION_ESTIMATION = bca_potential_standard_energy_production_estimate
+		PROTENTIAL_DISTRICT_MAX = bca_potential_district_geothermal_max_add
+	}
+}
+
+bca_opti_estimate_num_district_mining = {
+	inline_script = {
+		script = bca_num_destrict_ratio_estimate
+		DISTRICT = district_mining
+		FACTOR_JOB_ADD = bca_planet_minerals_job_add
+		FACTOR_JOB_MULT = bca_planet_minerals_job_mult
+		PRODUCTION_ESTIMATION = bca_potential_standard_minerals_production_estimate
+		PROTENTIAL_DISTRICT_MAX = bca_potential_district_mining_max_add
+	}
+}
+
+bca_opti_estimate_num_district_melting = {
+	inline_script = {
+		script = bca_num_destrict_ratio_estimate
+		DISTRICT = district_melting
+		FACTOR_JOB_ADD = bca_planet_minerals_job_add
+		FACTOR_JOB_MULT = bca_planet_minerals_job_mult
+		PRODUCTION_ESTIMATION = bca_potential_standard_minerals_production_estimate
+		PROTENTIAL_DISTRICT_MAX = bca_potential_district_melting_max_add
+	}
+}
+
+
+bca_opti_estimate_num_district_farming = {
+	inline_script = {
+		script = bca_num_destrict_ratio_estimate
+		DISTRICT = district_farming
+		FACTOR_JOB_ADD = bca_planet_food_job_add
+		FACTOR_JOB_MULT = bca_planet_food_job_mult
+		PRODUCTION_ESTIMATION = bca_potential_standard_food_production_estimate
+		PROTENTIAL_DISTRICT_MAX = bca_potential_district_farming_max_add
 	}
 }

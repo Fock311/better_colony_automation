@@ -11,22 +11,18 @@ automate_generator_planet = {
 			owner = { has_technology = tech_mine_betharian }
 			has_deposit = d_betharian_deposit
 		}
+		OR = {
+			bca_has_build_plan = { type = district_generator }
+			bca_has_build_plan = { type = district_hab_energy }
+			bca_has_build_plan = { type = district_rw_urban_1 }
+			bca_has_build_plan = { type = district_geothermal }
+		}
 	}
 
 	prio_districts = {
 		district_generator
+		district_geothermal
 		district_hab_energy
 		district_rw_urban_1
-		district_geothermal
-	}
-
-	buildings = {
-		1 = {
-			building = building_energy_grid
-		}
-
-		3 = {
-			building = building_generator_districts_1
-		}
 	}
 }

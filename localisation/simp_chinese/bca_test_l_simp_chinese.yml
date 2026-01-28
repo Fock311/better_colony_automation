@@ -1,2 +1,2 @@
 ﻿l_simp_chinese:
- test_event.1.desc: "energy_job [This.bca_test_energy_job]\n unit_production [bca_test_bca_unit_energy_production]\nproduction [This.bca_test_energy_production]"
+ test_event.1.desc: "bca_current_production [This.bca_current_production]\nopti_cond_planet_modifier_job_add [This.opti_cond_planet_modifier_job_add]\nbca_test_construction_metric_max [This.bca_test_construction_metric_max]\nbca_opti_count_district_generator [This.bca_opti_count_district_generator]\nbca_opti_count_district_city [bca_opti_count_district_city]\n"
