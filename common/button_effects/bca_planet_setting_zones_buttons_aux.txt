@@ -2041,7 +2041,10 @@ bca_planet_setting_primary_district_count_dec = {
         bca_allow_manual_district_manage = yes
     }
     effect = {
-        bca_set_district_plan_dec_1 = yes
+        hidden_effect = {
+            bca_set_district_plan_dec_1 = yes
+        }
+
     }
 }
 
@@ -2059,6 +2062,8 @@ bca_planet_setting_primary_district_count_inc = {
         bca_allow_manual_district_manage = yes
     }
     effect = {
-        bca_set_district_plan_inc_1 = yes
+        hidden_effect = {
+            bca_set_district_plan_inc_1 = yes
+        }
     }
 }

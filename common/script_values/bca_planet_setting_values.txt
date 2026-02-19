@@ -29,7 +29,7 @@ bca_num_free_secondary_districts_plan = {
 
 bca_num_free_primary_districts_plan = {
     set = value:bca_potential_max_districts
-    subtract = value:num_secondary_district
+    subtract = value:bca_num_secondary_districts_plan
 }
 
 bca_num_primary_districts_plan = {
