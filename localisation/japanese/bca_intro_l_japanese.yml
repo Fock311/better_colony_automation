@@ -1,12 +1,14 @@
 ﻿l_japanese:
  MESSAGE_BCA_STARTUP: "Better Colony Automation 通知"
- MESSAGE_BCA_STARTUP_desc: "§YBetter Colony Automation§! by 哇噗 & 红尘渡者\n\nこのMODは植民地の自動化を修正・改善します。['concept_colony']の['concept_planet_automation']、惑星['concept_decision']、帝国['concept_policies']から動作を設定できます。\n\n§H主な機能:§!\n- §Yスマート計画:§! 惑星の指定に基づいて、目標収量を最大化するよう自動的に区域を計画・建設します\n- §Y自動解体:§! 必要に応じて不要な£building£['concept_buildings']、£district£['concept_district']、£zone£['concept_district_specialization']を自動的に削除します\n- §Yその他:§! 詳細はワークショップページをご覧ください。\n\n§H注意§!: §Y自動解体§!は['concept_planet_automation']とは独立しており、デフォルトで有効です。惑星['concept_decision']と帝国['concept_policies']で制御できます（ゲームは自動化が有効かどうかを検出する公式インターフェースを提供していません）\n\nMOD作者はバニラ市民権以外の政府でのプレイ経験が限られています。フィードバックとバグ報告を歓迎します！"
+ MESSAGE_BCA_STARTUP_desc: "§YBetter Colony Automation§! by 哇噗 & 红塵渡者\n\nこのMODは植民地の自動化を修正・改善します。['concept_colony']の['concept_planet_automation']、惑星['concept_decision']、帝国['concept_policies']から動作を設定できます。\n\n§H主な機能:§!\n- §Yスマート計画:§! 惑星の指定に基づいて、目標収量を最大化するよう自動的に区画を計画・建設します\n- §Y自動解体:§! 必要に応じて不要な£building£['concept_buildings']、£district£['concept_district']、£zone£['concept_district_specialization']を自動的に削除します\n- §Yその他:§! 詳細はワークショップページをご覧ください。\n\n§H注意§!: §Y自動解体§!は['concept_planet_automation']とは独立しており、デフォルトで有効です。UIから切り替えることができます。\n\nMOD作者はバニラ市民権以外の政府でのプレイ経験が限られています。フィードバックとバグ報告を歓迎します！"
 
  MESSAGE_BCA_UPDATE: "Better Colony Automation アップデート"
- MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n§H注意§!: このMODは最近多くのアップデートを受けています。詳細はワークショップページをご覧ください。\n$MESSAGE_BCA_STARTUP_desc_log$"
- MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§!がv0.5にアップデートされました"
+ MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n$MESSAGE_BCA_UPDATE_desc_important$\n$MESSAGE_BCA_STARTUP_desc_log$"
+ MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§!がv1.0にアップデートされました"
+ MESSAGE_BCA_UPDATE_desc_important: "£community_in_breach£ このMODのワークショップ購読は§K4.2§!バージョン用として保持されます。今後の更新は新しいワークショップのリンクを購読してください（このMODのワークショップページにリダイレクトリンクがあります）\n§H注意§!: このMODは最近多くのアップデートを受けています。詳細はワークショップページをご覧ください。\n§R注意§!: このMODは現在 §1UI Overhaul Dynamic§! を前提MODとして必要とします。"
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
 
- MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v055$\n$MESSAGE_BCA_STARTUP_desc_log_v054$\n$MESSAGE_BCA_STARTUP_desc_log_v053$\n$MESSAGE_BCA_STARTUP_desc_log_v052$\n$MESSAGE_BCA_STARTUP_desc_log_v051$\n$MESSAGE_BCA_STARTUP_desc_log_v05$"
+ MESSAGE_BCA_STARTUP_desc_log_v100: "\n§Y2026-2-20 - v1.0§!: \n\t§Y主な更新§!:\n\t- ハイブリッド計画と区画建設を設定するGUIを作成し、以前のハイブリッド計画惑星タイプを削除しました。\n\t- ハイブリッド計画の惑星は区画の自動建設/置換および対応する建造物の建設を行います。\n\t- ブースト建造物の建設ロジックを最適化し、空き職がある場合でも建設されるようになりました。\n\t- 主要特化惑星の建造ロジックを再実装しました。主要特化は建設収益に基づいて最適な建設オプションを自動的に選択するようになり、ほとんどすべてのタイプの惑星をサポートします。"
 
  MESSAGE_BCA_STARTUP_desc_log_v055: "\n§Y2026-1-25 - v0.5.5§!: \n\t読みやすさのために決定テキストを調整し、同じ決定の有効/無効の位置が変わらないようにしました。視覚効果を高めるためにいくつかのカスタム決定アイコンを追加しました; \n\tレア資源建設の調整: レア資源決定は工業指定惑星にのみ表示されるようになり、農村区域では、レア資源建造物が建設可能な場合、他の制限なしで関連建造物が優先されます。\n\t一部の建造物に鉱物確保制約がない問題を修正しました。"
  MESSAGE_BCA_STARTUP_desc_log_v054: "\n§Y2026-1-25 - v0.5.4§!: \n\tレア資源建造物建設調整の決定を追加; \n\t読みやすさのために決定テキストとアイコンを調整しました; 解体条件下でもPOP組立建造物が建設される問題を修正しました。POP組立建造物は1つ以上の建造物スロットと空き仕事を必要とするようになりました"
@@ -14,3 +16,6 @@
  MESSAGE_BCA_STARTUP_desc_log_v052: "\n§Y2026-1-25 - v0.5.2§!: \n\tレア資源建造物の自動化ロジックを修正・改善：考古学精製所の建設後、他のレア資源建造物は建設されなくなります。 \n\tロボットが違法化されている場合や遺伝子進化が取得されている場合でも、ロボット組立オプションが表示される問題を修正しました。"
  MESSAGE_BCA_STARTUP_desc_log_v051: "\n§Y2026-1-25 - v0.5.1§!: \n\tエネルギー出力計算のエラーを修正し、都市区域の比率が低すぎる問題を解決しました。 \n\tブースト区域変換時にブースト特化が削除されない問題を修正しました。"
  MESSAGE_BCA_STARTUP_desc_log_v05: "\n§Y2026-1-24 - v0.5§!: \n\t§H農村区域の建設と解体§!ロジックを書き直しました。農村ブースト特化が存在する場合、MODは都市区域と農村区域を自動的に再バランスして出力を最大化します"
+
+ concept_bca_prev_update_log: "以前の更新ログ"
+ concept_bca_prev_update_log_desc: "$MESSAGE_BCA_STARTUP_desc_log_v055$\n$MESSAGE_BCA_STARTUP_desc_log_v054$\n$MESSAGE_BCA_STARTUP_desc_log_v053$\n$MESSAGE_BCA_STARTUP_desc_log_v052$\n$MESSAGE_BCA_STARTUP_desc_log_v051$\n$MESSAGE_BCA_STARTUP_desc_log_v05$"

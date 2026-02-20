@@ -339,7 +339,7 @@ automate_mixed_zone_unity_building_job = {
 
 	emergency = yes
 	available = {
-	    really_requires_more_job = yes
+        requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_unity
@@ -428,7 +428,7 @@ automate_mixed_zone_fortress_building_job = {
 
 	emergency = yes
 	available = {
-	    really_requires_more_job = yes
+        requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_fortress
@@ -467,7 +467,7 @@ automate_mixed_zone_wilderness_foundry_building_job = {
 
 	emergency = yes
 	available = {
-	    really_requires_more_job = yes
+        requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_foundry
@@ -499,7 +499,7 @@ automate_mixed_zone_wilderness_research_building_job = {
 
 	emergency = yes
 	available = {
-	    really_requires_more_job = yes
+        requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_research
@@ -531,7 +531,7 @@ automate_mixed_zone_wilderness_unity_building_job = {
 
 	emergency = yes
 	available = {
-	    really_requires_more_job = yes
+        requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_unity
@@ -563,7 +563,7 @@ automate_mixed_zone_wilderness_trade_building_job = {
 
 	emergency = yes
 	available = {
-	    really_requires_more_job = yes
+        requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_trade
@@ -599,7 +599,7 @@ automate_mixed_zone_wilderness_fortress_building_job = {
 
 	emergency = yes
 	available = {
-	    really_requires_more_job = yes
+        requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_fortress
@@ -631,7 +631,7 @@ automate_mixed_zone_wilderness_minerals_building_job = {
 
 	emergency = yes
 	available = {
-	    really_requires_more_job = yes
+        requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_minerals
@@ -663,7 +663,7 @@ automate_mixed_zone_wilderness_energy_building_job = {
 
 	emergency = yes
 	available = {
-	    really_requires_more_job = yes
+        requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_energy
@@ -695,7 +695,7 @@ automate_mixed_zone_wilderness_food_building_job = {
 
 	emergency = yes
 	available = {
-	    really_requires_more_job = yes
+        requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		OR = {
 	        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_food

@@ -128,18 +128,6 @@ bca_opti_district_estimation_energy = {
             }
         }
 
-        set_variable = {
-            which = debug_max_production
-            value = max_production
-        }
-        set_variable = {
-            which = debug_job_mult_estimate
-            value = value:bca_planet_energy_job_mult_estimate|num_district_city|sim_district_city_count|
-        }
-        set_variable = {
-            which = debug_job_add_estimate
-            value = value:bca_planet_energy_job_add_estimate
-        }
 
 
 
@@ -277,18 +265,6 @@ bca_opti_district_estimation_minerals = {
             }
         }
 
-        set_variable = {
-            which = debug_max_production
-            value = max_production
-        }
-        set_variable = {
-            which = debug_job_mult_estimate
-            value = value:bca_planet_energy_job_mult_estimate|num_district_city|sim_district_city_count|
-        }
-        set_variable = {
-            which = debug_job_add_estimate
-            value = value:bca_planet_energy_job_add_estimate
-        }
 
 
 
@@ -426,18 +402,6 @@ bca_opti_district_estimation_food = {
             }
         }
 
-        set_variable = {
-            which = debug_max_production
-            value = max_production
-        }
-        set_variable = {
-            which = debug_job_mult_estimate
-            value = value:bca_planet_energy_job_mult_estimate|num_district_city|sim_district_city_count|
-        }
-        set_variable = {
-            which = debug_job_add_estimate
-            value = value:bca_planet_energy_job_add_estimate
-        }
 
 
 

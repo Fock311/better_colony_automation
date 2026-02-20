@@ -31,7 +31,7 @@ def markdown_to_steam(md_content):
     return content
 
 
-def keep_latest_changelog_entries(md_content, keep=2, section_title="## 最近更新日志"):
+def keep_latest_changelog_entries(md_content, keep=1, section_title="## 最近更新日志"):
     """在指定更新日志章节中仅保留最新的若干条。
 
     - 通过标题截取更新日志区域
@@ -60,7 +60,7 @@ def keep_latest_changelog_entries(md_content, keep=2, section_title="## 最近�
     return prefix + rebuilt_section + suffix
 
 def generate_steam_page():
-    root_path = r'c:\Users\Estelle\Documents\Paradox Interactive\Stellaris\mod\better_colony_manage'
+    root_path = os.path.dirname(os.path.abspath(__file__))
     zh_path = os.path.join(root_path, 'README.md')
     output_path = os.path.join(root_path, 'steam_page.txt')
 

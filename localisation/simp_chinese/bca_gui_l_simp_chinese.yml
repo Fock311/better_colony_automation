@@ -32,7 +32,6 @@
  BCA_DISTRICT_PLAN_COUNT_z4: "[This.BCA_DISTRICT_PLAN_COUNT_z4_script]|$BCA_DISTRICT_PLAN_FREE_COUNT$"
  BCA_DISTRICT_PLAN_COUNT_z5: "[This.BCA_DISTRICT_PLAN_COUNT_z5_script]|$BCA_DISTRICT_PLAN_FREE_COUNT$"
  BCA_SETTING_DISTRICT_COUNT_TOOLTIP: "计划的区划建设数量"
- BCA_SETTING_DISTRICT_COUNT_DESC: "点击重置该区划计划建设数量。"
 
  BCA_ZONE_SELECTION_MAINTAIN_SETTINGS_ON_DESIGNATION_CHANGED: "§Y保持设置不变§!"
  BCA_ZONE_SELECTION_RESET_SETTINGS_ON_DESIGNATION_CHANGED: "§Y根据规划类型重置设置§!"
@@ -50,3 +49,7 @@
  BCA_PLANET_SETTING_AUTO_DISTRICT_MANAGEMENT: "[This.BCA_PLANET_SETTING_AUTO_DISTRICT_MANAGEMENT_script]"
  BCA_PLANET_SETTING_AUTO_DISTRICT_MANAGEMENT_DESC: "自动管理区划的建设与替换以最大化资源产出\n"
  BCA_MAIN_DISTRICT_RATIO_DISPLAY: "§B[This.bca_num_primary_district]/[This.bca_num_primary_district_plan]§! | §C[This.bca_num_secondary_district]/[this.bca_num_secondary_districts_plan]§!"
+
+
+BCA_BUG_REPORT: "£click_to_edit£"
+BCA_BUG_REPORT_DESC: "如果遇到了任何问题，或者有任何建议，欢迎前来交流 QQ:§Y153870310§!\n或者你可以在§1Github§!上提交问题以及你的修复。"

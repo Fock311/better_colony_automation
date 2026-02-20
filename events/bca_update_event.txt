@@ -1,0 +1,67 @@
+namespace = bca_update_event
+
+
+event = {
+	id = bca_update_event.1
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		NOT = { has_global_flag = bca_update_v1_0_0_updated_patch }
+	}
+
+
+	immediate = {
+		set_global_flag = bca_update_v1_0_0_updated_patch
+		every_playable_country = {
+			limit = { is_ai = no }
+            every_owned_planet = {
+				limit = { always = yes }
+				if = {
+					limit = {
+						has_modifier = bca_pm_planet_pre_construction
+					}
+					remove_modifier = "bca_pm_planet_pre_construction"
+					set_planet_flag = bca_pf_planet_pre_construction
+				}
+				if = {
+					limit = {
+						has_modifier = bca_pm_disable_planet_auto_destruction
+					}
+					remove_modifier = "bca_pm_disable_planet_auto_destruction"
+					set_planet_flag = bca_pf_disable_planet_auto_destruction_building
+					set_planet_flag = bca_pf_disable_planet_auto_destruction_district
+					set_planet_flag = bca_pf_disable_planet_auto_destruction_zone
+				}
+
+			}
+        }
+	}
+}
+
+#initalization
+event = {
+	id = bca_update_event.2
+
+	is_triggered_only = yes
+	hide_window = yes
+
+	trigger = {
+		always = yes
+	}
+
+	immediate = {
+		every_playable_country = {
+			limit = { is_ai = no }
+            every_owned_planet = {
+				limit = {
+					NOT = {
+				    has_planet_flag = bca_pf_ps_initialized
+              		}
+				}
+				planet_event = { id = colony_automation_event.26 }
+			}
+        }
+	}
+}

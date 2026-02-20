@@ -64,6 +64,7 @@ country_event = {
                         }
                     }
                     set_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(type) }}
+                    set_planet_flag = bac_plan_build_new_zone
                 }
                 {% endif %}
             {% endfor %}
@@ -80,7 +81,6 @@ country_event = {
 	trigger = {
 		is_ai = no
 		bca_has_minerals_to_build = yes
-		has_country_flag = bac_zone_destroy
 	}
 
 	immediate = {
@@ -93,26 +93,23 @@ country_event = {
 			}
 
             {# remove zones #}
-            if = {
-                limit = {
-                    owner = {has_country_flag = bac_zone_destroy}
-                }
-                {% for item in zones_info %}
-                    {% set first = loop.first %}
-                    {% set type = item.type %}
-                    {% for zone in item.zones %}
-                {{ "if" if loop.first else "else_if" }} = {
-                    limit = {
-                        check_variable_arithmetic = {
-                            which = value:num_zones_of_{{ zone }}
-                            value > value:num_zone_plan_of_{{ zone }}
+
+            {% for item in zones_info %}
+                {% set first = loop.first %}
+                {% set type = item.type %}
+                {% for zone in item.zones %}
+                    {{ "if" if loop.first and first else "else_if" }} = {
+                        limit = {
+                            check_variable_arithmetic = {
+                                which = value:num_zones_of_{{ zone }}
+                                value > value:num_zone_plan_of_{{ zone }}
+                            }
                         }
+                        remove_zone = { zone = {{ zone }} }
                     }
-                    remove_zone = { zone = {{ zone }} }
-                }
-                    {% endfor %}
                 {% endfor %}
-            }
+            {% endfor %}
+
         }
     }
 }

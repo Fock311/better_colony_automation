@@ -1,18 +1,22 @@
 ﻿l_simp_chinese:
  MESSAGE_BCA_STARTUP: "Better Colony Automation 通知"
- MESSAGE_BCA_STARTUP_desc: "§YBetter Colony Automation§! by 哇噗 & 红尘渡者\n\n本模组对自动托管功能进行了修复与改良。你可以通过['concept_colony']上的['concept_planet_automation']设置以及行星['concept_decision']与国家['concept_policies']来配置模组的具体行为。\n\n§H主要功能：§!\n- §Y智能规划：§! 根据星球特化方向自动规划和建造区块。最大化目标产出\n- §Y自动拆除：§! 必要时自动拆除不需要的 £building£ ['concept_buildings']、£district£ ['concept_district'] 与 £zone£ ['concept_district_specialization']\n- §Y更多§!：访问创意工坊以查看详情。\n\n§H注意§! ：§Y自动拆除§!是独立于['concept_planet_automation']的功能，默认开启，可通过行星['concept_decision']与国家['concept_policies']控制行为（官方未提供检测自动化是否开启的接口）\n\n当前模组作者对普政以外的国家游玩较少，欢迎反馈问题与意见！"
+ MESSAGE_BCA_STARTUP_desc: "§YBetter Colony Automation§! by 哇噗 & 红尘渡者\n\n本模组对自动托管功能进行了修复与改良。你可以通过['concept_colony']上的['concept_planet_automation']设置以及行星['concept_decision']与国家['concept_policies']来配置模组的具体行为。\n\n§H主要功能：§!\n- §Y智能规划：§! 根据星球特化方向自动规划和建造区块。最大化目标产出\n- §Y自动拆除：§! 必要时自动拆除不需要的 £building£ ['concept_buildings']、£district£ ['concept_district'] 与 £zone£ ['concept_district_specialization']\n- §Y更多§!：访问创意工坊以查看详情。\n\n§H注意§! ：§Y自动拆除§!是独立于['concept_planet_automation']的功能，默认开启，可通UI选择是否开启\n\n当前模组作者对普政以外的国家游玩较少，欢迎反馈问题与意见！"
 
  
  MESSAGE_BCA_UPDATE: "Better Colony Automation 更新推送"
- MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n§H注意§!：本模组近期进行了大量更新，可访问创意工坊页面了解详情。\n$MESSAGE_BCA_STARTUP_desc_log$"
+ MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n$MESSAGE_BCA_UPDATE_desc_important$\n$MESSAGE_BCA_STARTUP_desc_log$"
  MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§! 更新到 v1.0 ！"
+ MESSAGE_BCA_UPDATE_desc_important: "£community_in_breach£  此MOD订阅会作为§K4.2版本的保留MOD§!，后继更新请在工坊订阅新的链接（本MOD的工坊中有链接转跳）\n§H注意§!：本模组近期进行了大量更新，可访问创意工坊页面了解详情。\n§R注意§!: 此MOD现在需要§1UI Overhaul Dynamic§!作为前置MOD。"
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
 
-MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v100$\n$MESSAGE_BCA_STARTUP_desc_log_v055$\n$MESSAGE_BCA_STARTUP_desc_log_v054$\n$MESSAGE_BCA_STARTUP_desc_log_v053$\n$MESSAGE_BCA_STARTUP_desc_log_v052$\n$MESSAGE_BCA_STARTUP_desc_log_v051$\n$MESSAGE_BCA_STARTUP_desc_log_v05$"
+ MESSAGE_BCA_STARTUP_desc_log_v100: "\n§Y2026-2-20 - v1.0§!：\n\t§Y重大更新§!:\n- 制作了GUI界面来设置混合规划和区划建造，移除了之前的混合规划星球类型。\n- 混合规划星球可自动建造/替换区划以及建造对应建筑。\n- 优化增益建筑的建造逻辑，其在存在岗位空余时也会被建造。\n- 重写一产专精星球的建筑建设逻辑。现在一产专精会根据建造收益自动选择最优建造选项。并且几乎支持了所有类型星球。"
 
- MESSAGE_BCA_STARTUP_desc_log_v100: "\n§Y2026-2-19 - v1.0§!：\n\t重大更新：为行星自动化配置制作了UI，几乎重新所有自动化逻辑，详细更新内容请访问创意工坊页面。"
-MESSAGE_BCA_STARTUP_desc_log_v055: "\n§Y2026-1-25 - v0.5.5§!：\n\t调整决策文本，增加可读性，并且同一决策的启用与禁用位置不再发生变化。添加了几个定制的决策图标以提升视觉效果；\n\t稀有资源建设调整：稀有资源决策将只会在工业特化星球上显示，对于一产区划，如果可以建设稀有资源建筑则会优先建设相关建筑，没有其他限制；\n\t修复了一些建筑没有矿物预留约束的问题。"
-MESSAGE_BCA_STARTUP_desc_log_v054: "\n§Y2026-1-25 - v0.5.4§!：\n\t增加稀有资源建筑建设调整的决策；\n\t调整决策的文本和图案，使之更加易读；\n\t修复人口组装建筑在拆除的条件下依然被建造的问题，人口组装建筑现在需要在有多于一个建筑槽位且有空闲职位时才会被建造"
-MESSAGE_BCA_STARTUP_desc_log_v053: "\n§Y2026-1-25 - v0.5.3§!：\n\t修复了由意外的命名错误导致的电能产出计算错误"
-MESSAGE_BCA_STARTUP_desc_log_v052: "\n§Y2026-1-25 - v0.5.2§!：\n\t修复并改良了稀有资源建筑的自动化逻辑：建造远古精炼厂后不会再建造其他稀有资源建筑。\n\t修复了在机器人被禁用或选择了基因进化时仍然显示机器人组装选项的问题。"
-MESSAGE_BCA_STARTUP_desc_log_v051: "\n§Y2026-1-14 - v0.5.1§!： \n\t修复电能产出的计算错误，导致城市比例偏低的问题。\n\t修复了一产区间进行转换时增益特化不进行拆除的问题"
-MESSAGE_BCA_STARTUP_desc_log_v05: "\n§Y2026-1-24 - v0.5§!：\n\t重写§H一产区划建设与拆除§!逻辑，在§H存在一产增益特化§!时将自动调配城市区划与一产区划的比例以最大化产出，并且会自动建设一产增益特化"
+
+ concept_bca_prev_update_log: "之前的更新日志"
+ concept_bca_prev_update_log_desc: "$MESSAGE_BCA_STARTUP_desc_log_v055$\n$MESSAGE_BCA_STARTUP_desc_log_v054$\n$MESSAGE_BCA_STARTUP_desc_log_v053$\n$MESSAGE_BCA_STARTUP_desc_log_v052$\n$MESSAGE_BCA_STARTUP_desc_log_v051$\n$MESSAGE_BCA_STARTUP_desc_log_v05$"
+ MESSAGE_BCA_STARTUP_desc_log_v055: "\n§Y2026-1-25 - v0.5.5§!：\n\t调整决策文本，增加可读性，并且同一决策的启用与禁用位置不再发生变化。添加了几个定制的决策图标以提升视觉效果；\n\t稀有资源建设调整：稀有资源决策将只会在工业特化星球上显示，对于一产区划，如果可以建设稀有资源建筑则会优先建设相关建筑，没有其他限制；\n\t修复了一些建筑没有矿物预留约束的问题。"
+ MESSAGE_BCA_STARTUP_desc_log_v054: "\n§Y2026-1-25 - v0.5.4§!：\n\t增加稀有资源建筑建设调整的决策；\n\t调整决策的文本和图案，使之更加易读；\n\t修复人口组装建筑在拆除的条件下依然被建造的问题，人口组装建筑现在需要在有多于一个建筑槽位且有空闲职位时才会被建造"
+ MESSAGE_BCA_STARTUP_desc_log_v053: "\n§Y2026-1-25 - v0.5.3§!：\n\t修复了由意外的命名错误导致的电能产出计算错误"
+ MESSAGE_BCA_STARTUP_desc_log_v052: "\n§Y2026-1-25 - v0.5.2§!：\n\t修复并改良了稀有资源建筑的自动化逻辑：建造远古精炼厂后不会再建造其他稀有资源建筑。\n\t修复了在机器人被禁用或选择了基因进化时仍然显示机器人组装选项的问题。"
+ MESSAGE_BCA_STARTUP_desc_log_v051: "\n§Y2026-1-14 - v0.5.1§!： \n\t修复电能产出的计算错误，导致城市比例偏低的问题。\n\t修复了一产区间进行转换时增益特化不进行拆除的问题"
+ MESSAGE_BCA_STARTUP_desc_log_v05: "\n§Y2026-1-24 - v0.5§!：\n\t重写§H一产区划建设与拆除§!逻辑，在§H存在一产增益特化§!时将自动调配城市区划与一产区划的比例以最大化产出，并且会自动建设一产增益特化"

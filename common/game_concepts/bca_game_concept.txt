@@ -1,0 +1,3 @@
+concept_bca_prev_update_log = {
+	alias = { concept_bca_prev_update_log }
+}

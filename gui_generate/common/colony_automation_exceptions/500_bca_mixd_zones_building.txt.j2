@@ -21,7 +21,11 @@ automate_mixed_zone_{{ item.types[0] }}_building_job = {
 
 	emergency = yes
 	available = {
+	    {% if item.always %}
 	    really_requires_more_job = yes
+	    {% else %}
+        requires_more_job = yes
+        {% endif %}
 		bca_has_minerals_to_build = yes
 {#		NOT = { has_planet_flag = bca_pf_advance_controller_order }#}
 		OR = {

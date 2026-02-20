@@ -195,13 +195,6 @@ bca_resource_planet_controller = {
         {{ construction_list(resource,zone_type_set) }}
     }
 
-{#    clear_variable = bca_selected_index#}
-{#    clear_variable = bca_non_job_provider_priority_shift#}
-{#    clear_variable = bca_current_production#}
-{#    clear_variable = bca_test_construction_metric_max#}
-{#    clear_variable = bca_test_construction_metric_max_index#}
-
-    remove_planet_flag = bca_pf_advance_controller_order
     if = {
         limit = {
             check_variable = {
@@ -211,6 +204,13 @@ bca_resource_planet_controller = {
         }
         set_planet_flag = bca_pf_advance_controller_order
     }
+    clear_variable = bca_selected_index
+    clear_variable = bca_non_job_provider_priority_shift
+    clear_variable = bca_current_production
+    clear_variable = bca_test_construction_metric_max
+    clear_variable = bca_test_construction_metric_max_index
+    clear_variable = bca_num_free_city_zones
+
 }
 
 {% endfor %}

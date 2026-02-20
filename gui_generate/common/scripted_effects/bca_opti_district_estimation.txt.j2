@@ -148,18 +148,18 @@ bca_opti_district_estimation_{{ resource }} = {
             }
         }
 
-        set_variable = {
-            which = debug_max_production
-            value = max_production
-        }
-        set_variable = {
-            which = debug_job_mult_estimate
-            value = value:bca_planet_energy_job_mult_estimate|num_district_city|sim_district_city_count|
-        }
-        set_variable = {
-            which = debug_job_add_estimate
-            value = value:bca_planet_energy_job_add_estimate
-        }
+{#        set_variable = {#}
+{#            which = debug_max_production#}
+{#            value = max_production#}
+{#        }#}
+{#        set_variable = {#}
+{#            which = debug_job_mult_estimate#}
+{#            value = value:bca_planet_energy_job_mult_estimate|num_district_city|sim_district_city_count|#}
+{#        }#}
+{#        set_variable = {#}
+{#            which = debug_job_add_estimate#}
+{#            value = value:bca_planet_energy_job_add_estimate#}
+{#        }#}
 
 {#        {% for zone_slot in ['z3','z4','z5'] %}#}
 {#        {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}#}

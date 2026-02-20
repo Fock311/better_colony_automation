@@ -1,72 +1,90 @@
+# English
+
+https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
+
 # Better Colony Automation (BCA) - Colony Automation Overhaul
 
-Since Paradox has yet to fix the broken planetary automation bugs following the 4.0 update, the mid-to-late game experience has become increasingly frustrating. I decided to take matters into my own hands and fix these issues myself.
+Since Paradox never fixed planetary automation bugs after the 4.0 update, late-game automation has been frustrating. This mod fixes many of those automation issues and adds improved controls.
+
+Feedback / Contact: QQ 153870310
+
+Quick link: [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825)
 
 ## Quick Start
 
-1. **Global Settings**: Set the **Mineral Reserve Policy** in [Policies].
-2. **Enable Automation**: Toggle [Planetary Automation] in the planet interface and configure the relevant automation categories.
-3. **Fine-tuning**: Use [Planetary Decisions] to enable specific behaviors like **Build extra districts for Silos** or **Arcology Project Candidate** (only visible when eligible).
+1. **Global Settings**: Set the **Mineral Reserve Policy** in the \[Policies\] menu.
+2. **Enable Automation**: Toggle \[Planetary Automation\] on the planet UI and configure automation categories.
+3. **Hybrid Planning & District Build Settings**: A GUI is now provided to configure hybrid planning and district build preferences.
+4. **Misc Settings**: Some options (e.g., Revitalization spamming) are still controlled via Planetary Decisions.
 
-## Overview
+## Overview (v1.0 released!)
 
 ### Construction Features
 
 #### Smart Construction Logic
-- **Build on Demand**: Construction is only triggered when there are insufficient jobs (`requires_more_job`) and no other ongoing construction. You can bypass this via Planetary Decisions to force early construction.
-- **Special Buildings**: Population growth-related buildings (Clinics, Clone Vats, Revitalization Centers, Gene Clinics) will also be constructed when there are available jobs.
-- **Mineral Reserve**: Added a national **Mineral Reserve Policy**. You can set a threshold; if minerals fall below this limit, automation will pause to prevent economic collapse.
+- **Build on Demand**: Construction triggers only when there are insufficient jobs and no other ongoing construction. This can be bypassed via decisions to force early building.
+- **Special Buildings**: Population growth buildings (Clinics, Clone Vats, Revitalization Centers, Gene Clinics) and beneficial auxiliary buildings will also be built when jobs are available.
+- **Mineral Reserve**: Added a national **Mineral Reserve Policy**. If minerals fall below the threshold, automation pauses to prevent economic collapse.
 
-#### Enhanced Automation Options
-- **Medical**: Supports construction of Medical Clinics, Gene Clinics, and Cyto-Revitalization Centers.
-- **Cultural Monuments**: Automatically builds and upgrades Unity-producing monument buildings.
-- **Resource Silos**: Automatically builds Resource Silos.
-- **Pop Assembly Management**: Non-machine empires can independently manage the automatic construction of Robot Assembly Plants.
-- **Optimized UI**: Removed the "Avoid Deficit" option from vanilla, which often froze construction due to scripting edge cases.
+#### Expanded Automation Options
+- **Medical**: Supports basic clinics, gene clinics, and cyto-revitalization centers.
+- **Unity Monuments**: Automatically builds and upgrades unity-producing monuments.
+- **Resource Silos**: Automatically builds resource silos.
+- **Pop Assembly Management**: Non-machine empires can independently manage Robot Assembly Plant construction.
+- Removed the vanilla "Avoid Deficit" option because it often blocks construction.
 
-#### New Designations
-- Added specialized research worlds (Physics/Society/Engineering) and hybrid specializations like "Research + Trade" or "Industry + Trade."
-- *Note: Hybrid types are currently in a "beta" state, primarily intended for Ecumenopoleis, Ring Worlds, Hive Worlds, and Machine Worlds. Trade hybrid types do not currently build trade buildings; this is planned for a future update.*
+#### Hybrid Planning Management
+- Previous hybrid planet types were removed; a GUI now allows hybrid planning settings.
+- Note: Secondary hybrid settings may not match actual specialized slots on some special planets (Ecumenopoleis, Ring Worlds, Hive, Machine Worlds). Manual adjustment may be required.
 
 #### Building Construction
-- **Priority Logic**: Auxiliary buildings (Clinics, Clone Vats, Monuments, Production Centers) are prioritized to boost planetary efficiency. Main production buildings are constructed after these are completed.
-- Heavily improved vanilla logic for various planet types and fixed rare resource building construction logic.
-- **Silo Construction**: By default, only one Silo is built. This limit can be lifted via Planetary Decision, which will also automatically build basic resource districts to house them.
-- **Revitalization Centers**: By default, only one is built. Use Planetary Decisions to allow "Spamming" mode.
+- Priority is given to auxiliary buildings (Clinics, Clone Vats, Monuments, Production Centers) to boost planet efficiency. Main production buildings are built after auxiliaries.
+- Greatly improved vanilla logic for many planet types and fixed rare resource building logic.
+- **Silos**: Default builds only one Silo. GUI can lift the limit and will auto-build basic resource districts to house them.
+- **Revitalization Centers**: Default builds only one; a Planetary Decision enables spamming mode.
 
 #### District Construction
-- **General Logic**: City districts are built when there is a shortage of jobs or housing.
-- **Basic Resource Optimization**: On basic resource worlds (Energy/Mining/Farming), if there are resource boost zones available, the mod automatically adjusts the ratio of City to Resource districts for optimal output.
-- **Specialized Worlds**: On Ecus/Ring Worlds/Hive/Machine worlds, the mod builds one of each non-specialized district first to unlock building slots.
+- GUI-configurable build plans; the mod will automatically build districts per plan.
+- For basic resource worlds (Energy/Mining/Farming), the mod dynamically balances City vs Resource district ratio for optimal output.
+- Specialized worlds (Ecumenopoleis/Ring/Hive/Machine) build one of each non-specialized district first to unlock buildings.
 
 ### Demolition & Cleanup
 
 #### Building Demolition
-- **Mismatched Designation Removal**: When building slots are full and a building does not match the planet's current specialization, it will be automatically removed (e.g., removing a factory on a research world to make room for a lab).
-- **Pop Assembly Cleanup**: When a planet is completely full (no housing, no jobs, no slots), assembly buildings (Robot Plants/Clone Vats) are removed to make room for higher-tier production. This can be toggled via policy.
+- **Mismatched Function Removal**: If slots are full and buildings don't match the planet's specialization, the mod will remove them (e.g., factory removed on a research planet to make room for a lab).
+- **Pop Assembly Cleanup**: When a planet is completely full (no housing, no jobs, no slots), assembly buildings will be removed to free space for higher-tier production. This is toggleable by policy.
 
 #### District Demolition
-- **Basic Resource Cleanup**: Enabling the "Arcology Project Candidate" decision will remove all basic resource districts (Energy/Mining/Farming) when no slots are left, paving the way for the project.
-- **Housing Optimization**: Automatically removes excess city districts if the planet has extreme surplus housing and needs space for other districts.
+- In automated district management, the mod will remove and rebuild districts to maximize output.
+- **Arcology Candidate**: Enabling the Arcology candidate decision will remove basic resource districts when preparing for the project.
 
 #### Specialization (Zone) Demolition
-- When manually changing a planet's designation (e.g., Research to Trade), the mod automatically removes obsolete specializations (Zones). Switching between research sub-types (e.g., Society to Physics) does not trigger removal.
+- Any specialization not included in the GUI planning will be removed when managing specializations.
 
-### Others
+### Advanced Build Plans
+- Supports advanced planning for basic resource planets:
+  1. **Optimal Build**: Chooses buildings/districts/specializations that maximize output in the shortest time.
+  2. **District Replacement**: If replacing a district increases output, the mod will perform demolition & construction.
+- District management for advanced plans is toggleable via GUI.
 
-- **Arcology Candidate Decision**: A planetary decision that automates the cleanup of Tier 1 districts and notifies the player when the planet is ready for the Arcology Project.
-- **De-urbanization Decision**: Primarily used for testing; removes all buildings and districts. Not required for normal planetary transitions.
-- **Policy Control**: Globally toggle different tiers of automatic demolition via the Policy menu.
+### Other
+- **Arcology Candidate Decision**: Prepares a planet for the Arcology Project by removing resource districts and notifies the player when ready.
+- **De-urbanization Decision**: For testing; removes all buildings and districts.
+- **Policy Control**: Global policies to toggle demolition tiers and other behaviors.
 
 ## Compatibility
 
-- **Building Demolition**: This feature modifies vanilla building files. It may conflict with mods that change the same buildings. If you prefer to keep other building mods, place BCA higher in the load order (though you will lose auto-demolition).
-- **AI Mods**: Mods modifying AI behavior may conflict. It is recommended to place BCA at the bottom of your load order.
-- **Supported Content**: Currently only supports vanilla buildings and districts.
+- **Building Demolition** modifies vanilla building files and may conflict with other mods that change the same files. If you prefer other building mods, place BCA earlier in load order (you will lose auto-demolition).
+- Mods that change AI behavior may conflict; placing BCA last in load order is recommended.
+- Currently supports only vanilla buildings and districts.
+
+## Compatible Mods
+
+- [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825)
 
 ## Changelog
 
-红尘渡者 **previous - v0.1**
+红尘渡者 previous - v0.1
 
 哇噗 **26-01-18 - v0.2**
 - Construction now triggers only on job shortage (unless bypassed by decision).
@@ -104,16 +122,18 @@ Since Paradox has yet to fix the broken planetary automation bugs following the 
 - Fixed and improved rare resource building automation logic: After building an Ancient Refinery, no other rare resource buildings will be constructed.
 - Fixed issue where Robot Assembly options were still displayed when robots were disabled or Gene Ascension was chosen.
 
-哇噗 **26-01-25 - v0.5.3**：
-- Fixed energy output calculation error caused by an accidental naming error.
+哇噗 26-02-20 - v1.0.0
+- Added GUI for hybrid planning and district build settings; removed old hybrid planet types.
+- Hybrid-planned planets can auto-build/replace districts and build corresponding buildings.
+- Auxiliary/gain buildings will be built when jobs are available.
+- Rewrote basic resource planet building logic; now selects optimal build choices based on benefit and supports nearly all planet types.
 
-哇噗 **26-01-25 - v0.5.4**：
-- Added decision to adjust rare resource building construction.
-- Adjusted decision text and icons for better readability.
-- Fixed issue where Pop Assembly buildings were still being built under demolition conditions; Pop Assembly buildings now require more than one building slot and available jobs to be built.
+---
 
-哇噗 **26-01-25 - v0.5.5**：
-- Adjusted decision text for better readability, and the enable/disable positions for the same decision no longer change. Added several custom decision icons to enhance visual appeal.
-- Rare Resource Construction Adjustment: Rare resource decisions will only appear on Industrial specialized planets; For basic resource districts, unless rare resource building construction is disabled, related buildings will be prioritized with no other restrictions. (Since these buildings are purely beneficial and require specific planetary terrain to build)
-- Fixed issue where some buildings were not subject to mineral reserve constraints.
+## Contribute
 
+This mod currently supports common vanilla buildings and districts. To add support for other modded buildings/districts, contribute via:
+
+https://github.com/StellarWarp/better_colony_automation
+
+This project is licensed under GNU GPLv3.

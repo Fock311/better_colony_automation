@@ -591,7 +591,7 @@ building_spawning_pool = {
 				}
 
 			}
-			bca_can_remove_district_generator = yes
+			bca_can_remove_pop_assemble = yes
 		}
 	}
 
@@ -689,7 +689,7 @@ building_offspring_nest = {
 				owner = { NOT = { has_origin = origin_progenitor_hive } }
 
 			}
-			bca_can_remove_district_generator = yes
+			bca_can_remove_pop_assemble = yes
 		}
 	}
 

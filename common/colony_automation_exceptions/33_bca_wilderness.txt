@@ -8,11 +8,6 @@ automate_wilderness_capital = {
 		has_designation = col_wilderness_capital
 	}
 
-	prio_districts = {
-		district_craglands
-	}
-
-
 	buildings = {
 		1 = {
 			building = building_cradle_of_rebirth
@@ -40,10 +35,6 @@ automate_wilderness_generator = {
 		has_designation = col_wilderness_generator
 	}
 
-	prio_districts = {
-		district_photosynthesis_fields
-	}
-
 	buildings = {
 		1 = {
 			building = building_cradle_of_rebirth
@@ -66,10 +57,6 @@ automate_wilderness_mining = {
 		requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_mining
-	}
-
-	prio_districts = {
-		district_hollow_mountains
 	}
 
 	prio_zones = {
@@ -100,13 +87,6 @@ automate_wilderness_farming = {
 		has_designation = col_wilderness_farming
 	}
 
-	prio_districts = {
-		district_orchard_forests
-	}
-
-	prio_zones = {
-		zone_food_wilderness
-	}
 
 	buildings = {
 		1 = {
@@ -130,14 +110,6 @@ automate_wilderness_fortress = {
 		requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_fortress
-	}
-
-	prio_districts = {
-		district_craglands
-	}
-
-	prio_zones = {
-		zone_fortress_wilderness
 	}
 
 	buildings = {
@@ -164,14 +136,6 @@ automate_wilderness_tech = {
 		has_designation = col_wilderness_tech
 	}
 
-	prio_districts = {
-		district_craglands
-	}
-
-	prio_zones = {
-		zone_research_wilderness
-	}
-
 	buildings = {
 		1 = {
 			building = building_cradle_of_rebirth
@@ -194,14 +158,6 @@ automate_wilderness_nest = {
 		requires_more_job = yes
 		bca_has_minerals_to_build = yes
 		has_designation = col_wilderness_nest
-	}
-
-	prio_districts = {
-		district_craglands
-	}
-
-	prio_zones = {
-		zone_trade_wilderness
 	}
 
 	buildings = {
@@ -233,10 +189,6 @@ automate_wilderness_refinery = {
 
 	prio_districts = {
 		district_craglands
-	}
-
-	prio_zones = {
-		zone_urban_wilderness
 	}
 
 	buildings = {
@@ -276,10 +228,6 @@ automate_wilderness_forge = {
 		district_craglands
 	}
 
-	prio_zones = {
-		zone_foundry_wilderness
-	}
-
 	buildings = {
 		1 = {
 			building = building_cradle_of_rebirth
@@ -306,10 +254,6 @@ automate_wilderness_unification = {
 
 	prio_districts = {
 		district_craglands
-	}
-
-	prio_zones = {
-		zone_unity_wilderness
 	}
 
 	buildings = {

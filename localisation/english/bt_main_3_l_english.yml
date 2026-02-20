@@ -1,4 +1,4 @@
-l_english:
+﻿l_english:
  planet_automation_robot_assembly: "Robot Assembly Automation"
  planet_automation_robot_assembly_desc: "Auto build $building_robot_assembly_plant$."
  planet_automation_medical: "Medical Automation"
@@ -8,7 +8,7 @@ l_english:
  planet_automation_fe_clinic: "$building_fe_clinic_1$"
  planet_automation_fe_clinic_desc: "Default build one. Build limit can be lifted by related decisions."
  planet_automation_monument: "Monument"
- planet_automation_monument_desc: "Auto build monument." 
+ planet_automation_monument_desc: "Auto build monument."
  planet_automation_silo: "Resource Silo"
  planet_automation_silo_desc: "Auto build silo, default build one. Build limit can be lifted by related decisions."
 
@@ -25,7 +25,7 @@ l_english:
  bca_reserve_minerals_amount: "Reserved Minerals Amount"
 
  policy_bca_reserve_influence: "Auto Reserve Influence"
- policy_bca_reserve_influence_desc: "Reserved influence amount for construction that requires influence."
+ policy_bca_reserve_influence_desc: "Amount of influence reserved for constructions that require influence."
  RESERVE_INFLUENCE_0: "Disable"
  RESERVE_INFLUENCE_0_desc: "Do not reserve influence."
  RESERVE_INFLUENCE_100: "100"
@@ -36,66 +36,43 @@ l_english:
  RESERVE_INFLUENCE_500_desc: "Reserve 500 influence."
  bca_reserve_influence_amount: "Reserved Influence Amount"
 
- policy_bac_advanced_automation_category: "Advanced Automation Category"
- policy_bac_advanced_automation_category_desc: "Enable more automation options including fill $building_fe_clinic_1$ and silo filling. Note that these options should be manually disabled after enabling, otherwise it will affect normal automation behavior."
- disable_bac_advanced_automation_category: "Disable Advanced Automation Category"
- disable_bac_advanced_automation_category_desc: "Disable advanced automation category."
- enable_bac_advanced_automation_category: "Enable Advanced Automation Category"
- enable_bac_advanced_automation_category_desc: "Note that new options should be manually set to disabled by default after enabling."
  policy_bac_building_destroy: "Auto Building Destroy"
- policy_bac_building_destroy_desc: "Buildings that do not meet planet plan will be automatically destroyed when there are no available building slots."
+ policy_bac_building_destroy_desc: "Buildings that do not meet the planet plan will be automatically destroyed when there are no available building slots."
  disable_bac_building_destroy: "Disable Auto Building Destroy"
  disable_bac_building_destroy_desc: "Disable auto building destroy."
  enable_bac_building_destroy: "Enable Auto Building Destroy"
  enable_bac_building_destroy_desc: "Enable auto building destroy."
+
  policy_bac_allow_district_destruction: "Auto District Destroy"
- policy_bac_allow_district_destruction_desc: "Districts that do not meet planet plan will be automatically destroyed when there are no available district slots."
+ policy_bac_allow_district_destruction_desc: "Districts that do not meet the planet plan will be automatically destroyed when there are no available district slots."
  disable_bac_allow_district_destruction: "Disable Auto District Destroy"
  disable_bac_allow_district_destruction_desc: "Disable auto district destroy."
  enable_bac_allow_district_destruction: "Enable Auto District Destroy"
  enable_bac_allow_district_destruction_desc: "Enable auto district destroy."
+
  policy_bac_zone_destroy: "Auto District Zone Destroy"
- policy_bac_zone_destroy_desc: "District zones that do not meet planet plan will be automatically destroyed."
+ policy_bac_zone_destroy_desc: "District zones that do not meet the planet plan will be automatically destroyed."
  disable_bac_zone_destroy: "Disable Auto District Zone Destroy"
  disable_bac_zone_destroy_desc: "Disable auto district zone destroy."
  enable_bac_zone_destroy: "Enable Auto District Zone Destroy"
  enable_bac_zone_destroy_desc: "Enable auto district zone destroy."
+
  policy_bac_remove_pop_assemble_buildings: "Auto Remove Pop Assembly Buildings"
- policy_bac_remove_pop_assemble_buildings_desc: "Automatically remove pop assembly buildings when no longer needed to free up building slots."
+ policy_bac_remove_pop_assemble_buildings_desc: "Automatically remove pop assembly buildings when they are no longer needed to free up building slots."
  disable_bac_remove_pop_assemble_buildings: "Disable Auto Remove Pop Assembly Buildings"
- disable_bac_remove_pop_assemble_buildings_desc: "Disable auto remove pop assembly buildings."
+ disable_bac_remove_pop_assemble_buildings_desc: "Disable auto removal of pop assembly buildings."
  enable_bac_remove_pop_assemble_buildings: "Enable Auto Remove Pop Assembly Buildings"
- enable_bac_remove_pop_assemble_buildings_desc: "Enable auto remove pop assembly buildings."
+ enable_bac_remove_pop_assemble_buildings_desc: "Enable auto removal of pop assembly buildings."
 
  policy_bac_allow_deurbanization: "De-urbanization Policy"
- policy_bac_allow_deurbanization_desc: "Allow usage of De-urbanization decision which removes all buildings and districts.(For testing purposes)"
+ policy_bac_allow_deurbanization_desc: "Allow use of the De-urbanization decision which removes all buildings and districts on a planet. §RFor testing purposes§!"
  disable_bac_allow_deurbanization: "Disable De-urbanization"
- disable_bac_allow_deurbanization_desc: "Disable the decision."
+ disable_bac_allow_deurbanization_desc: "Disable the De-urbanization decision."
  enable_bac_allow_deurbanization: "Enable De-urbanization"
- enable_bac_allow_deurbanization_desc: "Enable the decision."
+ enable_bac_allow_deurbanization_desc: "Enable the De-urbanization decision."
 
  decision_colony_transform: "!BCA!: De-Urbanize"
  decision_colony_transform_desc: "Remove all buildings and districts on the current planet."
-
-
- bca_pm_planet_pre_construction: "Early Construction"
- bca_pm_planet_pre_construction_desc: "Auto build buildings before population growth on colonies."
- decision_enable_pre_construction: "£district£ £zone£ £building£ §rDisabled§!: Early Construction"
- decision_enable_pre_construction_desc: "Auto build buildings before population growth on colonies. Current: §HDisabled§!"
- decision_disable_pre_construction: "£district£ £zone£ £building£ §GEnabled§!: Early Construction"
- decision_disable_pre_construction_desc: "Auto build buildings before population growth on colonies. Current: §HEnabled§!"
-
- bca_pm_disable_planet_auto_destruction: "Disable Auto Destruction"
- bca_pm_disable_planet_auto_destruction_desc: "Disable automatic destruction of buildings, districts and district specializations."
- decision_disable_auto_destruction: "£district£ £zone£ £building£ §GEnabled§!: Auto Destruction"
- decision_disable_auto_destruction_desc: "Automatic destruction of buildings, districts and district specializations. Current: §HEnabled§!"
- decision_enable_auto_destruction: "£district£ £zone£ £building£ §rDisabled§!: Auto Destruction"
- decision_enable_auto_destruction_desc: "Enable automatic destruction of buildings, districts and district specializations. Current: §HDisabled§!"
-
- decision_enable_build_extra_zones_for_storage: "£district£ £zone£ £building£ §rDisabled§!: Storage World"
- decision_enable_build_extra_zones_for_storage_desc: "Build extra districts and specializations for storage silos, removing building limits. Current: §HDisabled§!"
- decision_disable_build_extra_zones_for_storage: "£district£ £zone£ £building£ §GEnabled§!: Storage World"
- decision_disable_build_extra_zones_for_storage_desc: "Build extra districts and specializations for storage silos, removing building limits. Current: §HEnabled§!"
 
  decision_enable_build_fe_clinic: "£building£ §rDisabled§!: Build More $building_fe_clinic_1$"
  decision_enable_build_fe_clinic_desc: "Build extra $building_fe_clinic_1$ per colony. Current: §HDisabled§!"
@@ -103,7 +80,7 @@ l_english:
  decision_disable_build_fe_clinic_desc: "Build extra $building_fe_clinic_1$ per colony. Current: §HEnabled§!"
 
  decision_enable_pre_build_rare_resource_buildings: "£building£ £exotic_gases£ £rare_crystals£ £volatile_motes£ §rDisabled§!: Rare Resource Building Pre-construction"
- decision_enable_pre_build_rare_resource_buildings_desc: "Pre-construct rare resource buildings before deficit occurs. Current: §HDisabled§!"
+ decision_enable_pre_build_rare_resource_buildings_desc: "Pre-construct rare resource buildings before a deficit occurs. Current: §HDisabled§!"
  decision_disable_pre_build_rare_resource_buildings: "£building£ £exotic_gases£ £rare_crystals£ £volatile_motes£ §GEnabled§!: Rare Resource Building Pre-construction"
  decision_disable_pre_build_rare_resource_buildings_desc: "Current: §HEnabled§!"
 
@@ -114,11 +91,12 @@ l_english:
  decision_bca_disable_arcology_project_candidate: "£district£ £decision£ Remove Arcology Project Candidate"
  decision_bca_disable_arcology_project_candidate_desc: "Remove the Arcology Project candidate mark from this planet."
 
-
-
  colony_automation_event.3.name: "Arcology Project Ready"
  colony_automation_event.3.desc: "[Root.GetName] has met the requirements for conversion into an Ecumenopolis. Shall we start the Arcology Project now?"
  colony_automation_event.3.a: "Start Arcology Project"
  colony_automation_event.3.b: "Maybe later"
 
-
+ colony_automation_event.102.name: "Arcology Project Ready"
+ colony_automation_event.102.desc: "[Root.GetName] has met the requirements for conversion into an Ecumenopolis. Shall we start the Arcology Project now?"
+ colony_automation_event.102.a: "Start Arcology Project"
+ colony_automation_event.102.b: "Maybe later"

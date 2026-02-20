@@ -446,8 +446,6 @@ if = {
 
     }
 
-
-    remove_planet_flag = bca_pf_advance_controller_order
     if = {
         limit = {
             check_variable = {
@@ -457,6 +455,13 @@ if = {
         }
         set_planet_flag = bca_pf_advance_controller_order
     }
+    clear_variable = bca_selected_index
+    clear_variable = bca_non_job_provider_priority_shift
+    clear_variable = bca_current_production
+    clear_variable = bca_test_construction_metric_max
+    clear_variable = bca_test_construction_metric_max_index
+    clear_variable = bca_num_free_city_zones
+
 }
 
 
@@ -902,8 +907,6 @@ else_if = {
 
     }
 
-
-    remove_planet_flag = bca_pf_advance_controller_order
     if = {
         limit = {
             check_variable = {
@@ -913,6 +916,13 @@ else_if = {
         }
         set_planet_flag = bca_pf_advance_controller_order
     }
+    clear_variable = bca_selected_index
+    clear_variable = bca_non_job_provider_priority_shift
+    clear_variable = bca_current_production
+    clear_variable = bca_test_construction_metric_max
+    clear_variable = bca_test_construction_metric_max_index
+    clear_variable = bca_num_free_city_zones
+
 }
 
 
@@ -1358,8 +1368,6 @@ else_if = {
 
     }
 
-
-    remove_planet_flag = bca_pf_advance_controller_order
     if = {
         limit = {
             check_variable = {
@@ -1369,6 +1377,13 @@ else_if = {
         }
         set_planet_flag = bca_pf_advance_controller_order
     }
+    clear_variable = bca_selected_index
+    clear_variable = bca_non_job_provider_priority_shift
+    clear_variable = bca_current_production
+    clear_variable = bca_test_construction_metric_max
+    clear_variable = bca_test_construction_metric_max_index
+    clear_variable = bca_num_free_city_zones
+
 }
 
 }
