@@ -17,38 +17,14 @@ bca_planet_max_districts_of = {
 # Other
 #---------------------------------
 
-bca_resource_designation_num_city_districts = {
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_city
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_hive
-		}
-		mode = add
-	}
-	complex_trigger_modifier = {
-		trigger = num_districts
-		parameters = {
-			type = district_nexus
-		}
-		mode = add
-	}
-}
-
 bca_production_inc_mult_from_urban_resource = {
 	base = 0.2
-	multiply = value:bca_resource_designation_num_city_districts
+	multiply = value:num_district_d0
 }
 
 bca_production_inc_jobs_from_zone= {
 	base = 100
-	multiply = value:bca_resource_designation_num_city_districts
+	multiply = value:num_district_d0
 }
 
 
@@ -124,15 +100,23 @@ bca_potential_energy_district_max_inc = {
 }
 
 bca_potential_district_max_add_energy = {
-	add = modifier:district_generator_max_add
-	add = modifier:district_hab_energy_max_add
-	add = modifier:district_photosynthesis_fields_max_add
+	set = value:bca_planet_max_districts_of|type|district_generator|
+
+	modifier = {
+		bca_can_build_district_hab_energy = yes
+		add = value:bca_planet_max_districts_of|type|district_hab_energy|
+	}
+	modifier = {
+		bca_can_build_district_photosynthesis_fields = yes
+		add = value:bca_planet_max_districts_of|type|district_photosynthesis_fields|
+	}
 	modifier = {
 		bca_can_build_building_generator_districts_1 = yes
 		add = value:bca_potential_energy_district_max_inc
 	}
 	modifier = {
 		OR = {
+			bca_can_build_district_geothermal = yes # geothermal district is uncapped
 			is_generator_district_uncapped = yes
 			bca_has_secondary_districts = yes
 		}
@@ -212,9 +196,15 @@ bca_potential_minerals_district_max_inc = {
 }
 
 bca_potential_district_max_add_minerals = {
-	add = modifier:district_mining_max_add
-	add = modifier:district_melting_max_add
-	add = modifier:district_hollow_mountains_max_add
+	set = value:bca_planet_max_districts_of|type|district_mining|
+	modifier = {
+		bca_can_build_district_hab_mining = yes
+		add = value:bca_planet_max_districts_of|type|district_hab_mining|
+	}
+	modifier = {
+		bca_can_build_district_melting = yes
+		add = value:bca_planet_max_districts_of|type|district_melting|
+	}
 	modifier = {
 		bca_can_build_building_mining_districts_1 = yes
 		add = value:bca_potential_minerals_district_max_inc
@@ -300,8 +290,11 @@ bca_potential_food_district_max_inc = {
 }
 
 bca_potential_district_max_add_food = {
-	add = modifier:district_farming_max_add
-	add = modifier:district_orchard_forests_max_add
+	set = value:bca_planet_max_districts_of|type|district_farming|
+	modifier = {
+		bca_can_build_district_orchard_forests = yes
+		add = value:bca_planet_max_districts_of|type|district_orchard_forests|
+	}
 	modifier = {
 		bca_can_build_building_farming_districts_1 = yes
 		add = value:bca_potential_food_district_max_inc

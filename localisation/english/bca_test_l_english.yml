@@ -1,4 +1,0 @@
-﻿l_english:
- test_event.1.x: "city energy need [This.bca_test_energy_need]"
- test_event.1.y: "city mineral need [This.bca_test_mineral_need]"
- test_event.1.z: "city food need [This.bca_test_food_need]"

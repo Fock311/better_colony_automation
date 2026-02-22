@@ -1,4 +1,4 @@
-namespace = test_event
+namespace = bca_debug_event
 
 {% set test_trigger = [
 'bca_auto_district_manage_enabled',
@@ -6,7 +6,6 @@ namespace = test_event
 'bca_district_d1_reach_planet_max',
 'bca_district_d2_reach_planet_max',
 'bca_district_d3_reach_planet_max',
-'bca_district_nearly_reach_planet_max = {type = district_generator}'
 ] %}
 {% set test_flags = [
 'bca_pf_advance_controller_order',
@@ -39,11 +38,11 @@ namespace = test_event
 
 
 planet_event = {
-	id = test_event.2
+	id = bca_debug_event.2
 
 	is_triggered_only = yes
 	title = "Test Event for Scripted Triggers"
-	desc = test_event.1.desc
+	desc = bca_debug_event.1.desc
 
     option = {
         name = 'exit'
@@ -53,7 +52,7 @@ planet_event = {
 		name = "add pop"
 		create_pop_group = { size = 1000  species = owner_main_species }
 		planet_event = {
-			id = test_event.2
+			id = bca_debug_event.2
 		}
 	}
 
@@ -78,7 +77,7 @@ planet_event = {
         remove_planet_flag = bca_pf_plan_remove_district_d2
         remove_planet_flag = bca_pf_plan_remove_district_d3
         planet_event = {
-			id = test_event.2
+			id = bca_debug_event.2
 		}
 	}
 
@@ -91,7 +90,7 @@ planet_event = {
             is_priority_district = no
         }
         planet_event = {
-			id = test_event.2
+			id = bca_debug_event.2
 		}
 	}
 
@@ -104,7 +103,7 @@ planet_event = {
             is_priority_district = yes
         }
         planet_event = {
-			id = test_event.2
+			id = bca_debug_event.2
 		}
     }
 
@@ -117,7 +116,7 @@ planet_event = {
             is_priority_district = no
         }
         planet_event = {
-			id = test_event.2
+			id = bca_debug_event.2
 		}
 	}
 
@@ -130,7 +129,7 @@ planet_event = {
             is_priority_district = yes
         }
         planet_event = {
-			id = test_event.2
+			id = bca_debug_event.2
 		}
     }
 
@@ -141,7 +140,7 @@ planet_event = {
             has_planet_flag = {{ flag }}
         }
         planet_event = {
-			id = test_event.2
+			id = bca_debug_event.2
 		}
     }
     {% endfor %}
@@ -153,7 +152,7 @@ planet_event = {
             {{ trigger }} = yes
         }
         planet_event = {
-			id = test_event.2
+			id = bca_debug_event.2
 		}
     }
     {% endfor %}
@@ -171,7 +170,7 @@ planet_event = {
             {% endfor %}
         }
         planet_event = {
-			id = test_event.2
+			id = bca_debug_event.2
 		}
 	}
 
@@ -186,7 +185,7 @@ planet_event = {
 {#            index = 1#}
 {#        }#}
 {#        planet_event = {#}
-{#			id = test_event.2#}
+{#			id = bca_debug_event.2#}
 {#		}#}
 {#    }#}
 

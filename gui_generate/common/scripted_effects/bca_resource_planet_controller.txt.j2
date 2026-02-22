@@ -5,28 +5,7 @@
 
 {% macro construction_list(resource,zone_type_set) -%}
 
-    if = {
-        limit = {
-            NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
-        }
-        {% for zone_slot in ['z3','z4','z5'] %}
-        if = {
-            limit = {
-                bca_has_secondary_districts = yes
-            }
-            set_variable = {
-                which = {{v.var_district_num_plan(zone_slot)}}
-                value = 1
-            }
-        }
-        else = {
-            set_variable = {
-                which = {{v.var_district_num_plan(zone_slot)}}
-                value = 0
-            }
-        }
-        {% endfor %}
-    }
+
     if = {
         limit = {
             requires_more_job = yes
@@ -41,6 +20,7 @@
                     {% endfor %}
                 }
             }
+            {# secondary zone #}
             {% for zone_type in zone_type_set %}
             remove_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(zone_type) }}
             if = {
@@ -54,6 +34,7 @@
                 set_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(zone_type) }}
             }
             {% endfor %}
+            {# secondary district #}
             if = {
                 limit = {
                     NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
@@ -81,10 +62,9 @@
         production = value:bca_potential_standard_{{ resource }}_production
         cost = 480
         priority_shift = bca_non_job_provider_priority_shift
-        index = 3
+        index = 2
     }
 
-    # zone_energy does not needed to test as it's first priority
     try_construct_zone_city = {
         zone = zone_urban_{{ resource }}
         zone_type = {{ zone_type_set[0] }}
@@ -192,6 +172,30 @@ bca_resource_planet_controller = {
     }
 
     bca_opti_district_estimation_{{ resource }} = yes
+
+    if = {
+        limit = {
+            NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
+        }
+        {% for zone_slot in ['z3','z4','z5'] %}
+        {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}
+        if = {
+            limit = {
+                bca_has_secondary_districts = yes
+            }
+            set_variable = {
+                which = {{v.var_district_num_plan(zone_slot)}}
+                value = 1
+            }
+        }
+        else = {
+            set_variable = {
+                which = {{v.var_district_num_plan(zone_slot)}}
+                value = 0
+            }
+        }
+        {% endfor %}
+    }
 
 	set_variable = {
 		which = bca_current_production

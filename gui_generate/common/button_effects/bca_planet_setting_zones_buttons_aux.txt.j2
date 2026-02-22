@@ -133,9 +133,11 @@ bca_planet_setting_secondary_zone_count_inc_{{ zone_slot }} = {
         bca_allow_manual_district_manage = yes
     }
     effect = {
-        add_variable = {
-            which = {{v.var_district_num_plan(zone_slot)}}
-            value = 1
+        hidden_effect = {
+            add_variable = {
+                which = {{v.var_district_num_plan(zone_slot)}}
+                value = 1
+            }
         }
     }
 
@@ -155,9 +157,11 @@ bca_planet_setting_secondary_zone_count_dec_{{ zone_slot }} = {
         bca_allow_manual_district_manage = yes
     }
     effect = {
-        subtract_variable = {
-            which = {{v.var_district_num_plan(zone_slot)}}
-            value = 1
+        hidden_effect = {
+            subtract_variable = {
+                which = {{v.var_district_num_plan(zone_slot)}}
+                value = 1
+            }
         }
     }
 }

@@ -1884,9 +1884,11 @@ bca_planet_setting_secondary_zone_count_inc_z3 = {
         bca_allow_manual_district_manage = yes
     }
     effect = {
-        add_variable = {
-            which = bca_ps_plan_district_count_z3
-            value = 1
+        hidden_effect = {
+            add_variable = {
+                which = bca_ps_plan_district_count_z3
+                value = 1
+            }
         }
     }
 
@@ -1906,9 +1908,11 @@ bca_planet_setting_secondary_zone_count_dec_z3 = {
         bca_allow_manual_district_manage = yes
     }
     effect = {
-        subtract_variable = {
-            which = bca_ps_plan_district_count_z3
-            value = 1
+        hidden_effect = {
+            subtract_variable = {
+                which = bca_ps_plan_district_count_z3
+                value = 1
+            }
         }
     }
 }
@@ -1937,9 +1941,11 @@ bca_planet_setting_secondary_zone_count_inc_z4 = {
         bca_allow_manual_district_manage = yes
     }
     effect = {
-        add_variable = {
-            which = bca_ps_plan_district_count_z4
-            value = 1
+        hidden_effect = {
+            add_variable = {
+                which = bca_ps_plan_district_count_z4
+                value = 1
+            }
         }
     }
 
@@ -1959,9 +1965,11 @@ bca_planet_setting_secondary_zone_count_dec_z4 = {
         bca_allow_manual_district_manage = yes
     }
     effect = {
-        subtract_variable = {
-            which = bca_ps_plan_district_count_z4
-            value = 1
+        hidden_effect = {
+            subtract_variable = {
+                which = bca_ps_plan_district_count_z4
+                value = 1
+            }
         }
     }
 }
@@ -1990,9 +1998,11 @@ bca_planet_setting_secondary_zone_count_inc_z5 = {
         bca_allow_manual_district_manage = yes
     }
     effect = {
-        add_variable = {
-            which = bca_ps_plan_district_count_z5
-            value = 1
+        hidden_effect = {
+            add_variable = {
+                which = bca_ps_plan_district_count_z5
+                value = 1
+            }
         }
     }
 
@@ -2012,9 +2022,11 @@ bca_planet_setting_secondary_zone_count_dec_z5 = {
         bca_allow_manual_district_manage = yes
     }
     effect = {
-        subtract_variable = {
-            which = bca_ps_plan_district_count_z5
-            value = 1
+        hidden_effect = {
+            subtract_variable = {
+                which = bca_ps_plan_district_count_z5
+                value = 1
+            }
         }
     }
 }

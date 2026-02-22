@@ -39,11 +39,6 @@ if = {
 
     bca_opti_district_estimation_energy = yes
 
-	set_variable = {
-		which = bca_current_production
-		value = value:bca_potential_standard_energy_production
-	}
-
     if = {
         limit = {
             NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
@@ -94,6 +89,12 @@ if = {
             }
         }
     }
+
+	set_variable = {
+		which = bca_current_production
+		value = value:bca_potential_standard_energy_production
+	}
+
     if = {
         limit = {
             requires_more_job = yes
@@ -247,10 +248,9 @@ if = {
         production = value:bca_potential_standard_energy_production
         cost = 480
         priority_shift = bca_non_job_provider_priority_shift
-        index = 3
+        index = 2
     }
 
-    # zone_energy does not needed to test as it's first priority
     try_construct_zone_city = {
         zone = zone_urban_energy
         zone_type = energy
@@ -287,56 +287,6 @@ if = {
         limit = { check_variable = { which = bca_selected_index value != -1 } }
         if = {
         limit = {
-            NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
-        }
-        if = {
-            limit = {
-                bca_has_secondary_districts = yes
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_z3
-                value = 1
-            }
-        }
-        else = {
-            set_variable = {
-                which = bca_ps_plan_district_count_z3
-                value = 0
-            }
-        }
-        if = {
-            limit = {
-                bca_has_secondary_districts = yes
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_z4
-                value = 1
-            }
-        }
-        else = {
-            set_variable = {
-                which = bca_ps_plan_district_count_z4
-                value = 0
-            }
-        }
-        if = {
-            limit = {
-                bca_has_secondary_districts = yes
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_z5
-                value = 1
-            }
-        }
-        else = {
-            set_variable = {
-                which = bca_ps_plan_district_count_z5
-                value = 0
-            }
-        }
-    }
-    if = {
-        limit = {
             requires_more_job = yes
         }
         if = {
@@ -488,10 +438,9 @@ if = {
         production = value:bca_potential_standard_energy_production
         cost = 480
         priority_shift = bca_non_job_provider_priority_shift
-        index = 3
+        index = 2
     }
 
-    # zone_energy does not needed to test as it's first priority
     try_construct_zone_city = {
         zone = zone_urban_energy
         zone_type = energy
@@ -574,11 +523,6 @@ else_if = {
 
     bca_opti_district_estimation_minerals = yes
 
-	set_variable = {
-		which = bca_current_production
-		value = value:bca_potential_standard_minerals_production
-	}
-
     if = {
         limit = {
             NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
@@ -629,6 +573,12 @@ else_if = {
             }
         }
     }
+
+	set_variable = {
+		which = bca_current_production
+		value = value:bca_potential_standard_minerals_production
+	}
+
     if = {
         limit = {
             requires_more_job = yes
@@ -782,10 +732,9 @@ else_if = {
         production = value:bca_potential_standard_minerals_production
         cost = 480
         priority_shift = bca_non_job_provider_priority_shift
-        index = 3
+        index = 2
     }
 
-    # zone_energy does not needed to test as it's first priority
     try_construct_zone_city = {
         zone = zone_urban_minerals
         zone_type = minerals
@@ -822,56 +771,6 @@ else_if = {
         limit = { check_variable = { which = bca_selected_index value != -1 } }
         if = {
         limit = {
-            NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
-        }
-        if = {
-            limit = {
-                bca_has_secondary_districts = yes
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_z3
-                value = 1
-            }
-        }
-        else = {
-            set_variable = {
-                which = bca_ps_plan_district_count_z3
-                value = 0
-            }
-        }
-        if = {
-            limit = {
-                bca_has_secondary_districts = yes
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_z4
-                value = 1
-            }
-        }
-        else = {
-            set_variable = {
-                which = bca_ps_plan_district_count_z4
-                value = 0
-            }
-        }
-        if = {
-            limit = {
-                bca_has_secondary_districts = yes
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_z5
-                value = 1
-            }
-        }
-        else = {
-            set_variable = {
-                which = bca_ps_plan_district_count_z5
-                value = 0
-            }
-        }
-    }
-    if = {
-        limit = {
             requires_more_job = yes
         }
         if = {
@@ -1023,10 +922,9 @@ else_if = {
         production = value:bca_potential_standard_minerals_production
         cost = 480
         priority_shift = bca_non_job_provider_priority_shift
-        index = 3
+        index = 2
     }
 
-    # zone_energy does not needed to test as it's first priority
     try_construct_zone_city = {
         zone = zone_urban_minerals
         zone_type = minerals
@@ -1109,11 +1007,6 @@ else_if = {
 
     bca_opti_district_estimation_food = yes
 
-	set_variable = {
-		which = bca_current_production
-		value = value:bca_potential_standard_food_production
-	}
-
     if = {
         limit = {
             NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
@@ -1164,6 +1057,12 @@ else_if = {
             }
         }
     }
+
+	set_variable = {
+		which = bca_current_production
+		value = value:bca_potential_standard_food_production
+	}
+
     if = {
         limit = {
             requires_more_job = yes
@@ -1317,10 +1216,9 @@ else_if = {
         production = value:bca_potential_standard_food_production
         cost = 480
         priority_shift = bca_non_job_provider_priority_shift
-        index = 3
+        index = 2
     }
 
-    # zone_energy does not needed to test as it's first priority
     try_construct_zone_city = {
         zone = zone_urban_food
         zone_type = food
@@ -1357,56 +1255,6 @@ else_if = {
         limit = { check_variable = { which = bca_selected_index value != -1 } }
         if = {
         limit = {
-            NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
-        }
-        if = {
-            limit = {
-                bca_has_secondary_districts = yes
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_z3
-                value = 1
-            }
-        }
-        else = {
-            set_variable = {
-                which = bca_ps_plan_district_count_z3
-                value = 0
-            }
-        }
-        if = {
-            limit = {
-                bca_has_secondary_districts = yes
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_z4
-                value = 1
-            }
-        }
-        else = {
-            set_variable = {
-                which = bca_ps_plan_district_count_z4
-                value = 0
-            }
-        }
-        if = {
-            limit = {
-                bca_has_secondary_districts = yes
-            }
-            set_variable = {
-                which = bca_ps_plan_district_count_z5
-                value = 1
-            }
-        }
-        else = {
-            set_variable = {
-                which = bca_ps_plan_district_count_z5
-                value = 0
-            }
-        }
-    }
-    if = {
-        limit = {
             requires_more_job = yes
         }
         if = {
@@ -1558,10 +1406,9 @@ else_if = {
         production = value:bca_potential_standard_food_production
         cost = 480
         priority_shift = bca_non_job_provider_priority_shift
-        index = 3
+        index = 2
     }
 
-    # zone_energy does not needed to test as it's first priority
     try_construct_zone_city = {
         zone = zone_urban_food
         zone_type = food
