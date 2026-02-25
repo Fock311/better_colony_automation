@@ -89,7 +89,7 @@ automate_mixed_zone_{{ item.types[0] }}_building_non_job = {
 
         {% if item.job_need_priority and not item.job_building_available_for_at_least_one_zone%}
         {% for building in item.job_need_priority %}
-        {{ loop.index0 + 20 }} = {
+        {{ loop.index0 + item.always|length }} = {
 {{building_config(building)}}
             available = { requires_more_job = yes }
         }
@@ -105,6 +105,7 @@ automate_mixed_zone_{{ item.types[0] }}_building_job_low_priority = {
 	emergency = yes
 	available = {
 		bca_has_minerals_to_build = yes
+		requires_more_job = yes
 		NOT = { has_planet_flag = bca_pf_advance_controller_order }
         OR = {
 		    {% for type in item.types %}
@@ -125,7 +126,6 @@ automate_mixed_zone_{{ item.types[0] }}_building_job_low_priority = {
         {% for building in item.job_need_priority %}
         {{ loop.index0 }} = {
 {{building_config(building)}}
-            available = { requires_more_job = yes }
         }
         {% endfor %}
 	}
