@@ -160,6 +160,14 @@ spriteTypes = {
 		texturefile = "gfx/interface/bca_districts/small/district_specialization_duelist.dds"
 	}
 	spriteType = {
+		name = "GFX_text_district_specialization_knight_commander_large"
+		texturefile = "gfx/interface/bca_districts/large/district_specialization_knight_commander.dds"
+	}
+    spriteType = {
+		name = "GFX_text_district_specialization_knight_commander_small"
+		texturefile = "gfx/interface/bca_districts/small/district_specialization_knight_commander.dds"
+	}
+	spriteType = {
 		name = "GFX_text_district_specialization_energy_large"
 		texturefile = "gfx/interface/bca_districts/large/district_specialization_energy.dds"
 	}
@@ -224,12 +232,44 @@ spriteTypes = {
 		texturefile = "gfx/interface/bca_districts/small/district_specialization_angler.dds"
 	}
 	spriteType = {
+		name = "GFX_text_district_specialization_agrarian_large"
+		texturefile = "gfx/interface/bca_districts/large/district_specialization_agrarian.dds"
+	}
+    spriteType = {
+		name = "GFX_text_district_specialization_agrarian_small"
+		texturefile = "gfx/interface/bca_districts/small/district_specialization_agrarian.dds"
+	}
+	spriteType = {
+		name = "GFX_text_district_specialization_hydroponics_large"
+		texturefile = "gfx/interface/bca_districts/large/district_specialization_hydroponics.dds"
+	}
+    spriteType = {
+		name = "GFX_text_district_specialization_hydroponics_small"
+		texturefile = "gfx/interface/bca_districts/small/district_specialization_hydroponics.dds"
+	}
+	spriteType = {
 		name = "GFX_text_district_specialization_spawning_large"
 		texturefile = "gfx/interface/bca_districts/large/district_specialization_spawning.dds"
 	}
     spriteType = {
 		name = "GFX_text_district_specialization_spawning_small"
 		texturefile = "gfx/interface/bca_districts/small/district_specialization_spawning.dds"
+	}
+	spriteType = {
+		name = "GFX_text_district_specialization_machine_replication_large"
+		texturefile = "gfx/interface/bca_districts/large/district_specialization_machine_replication.dds"
+	}
+    spriteType = {
+		name = "GFX_text_district_specialization_machine_replication_small"
+		texturefile = "gfx/interface/bca_districts/small/district_specialization_machine_replication.dds"
+	}
+	spriteType = {
+		name = "GFX_text_district_specialization_wilderness_urban_large"
+		texturefile = "gfx/interface/bca_districts/large/district_specialization_wilderness_urban.dds"
+	}
+    spriteType = {
+		name = "GFX_text_district_specialization_wilderness_urban_small"
+		texturefile = "gfx/interface/bca_districts/small/district_specialization_wilderness_urban.dds"
 	}
 	spriteType = {
 		name = "GFX_text_district_specialization_wilderness_foundry_large"

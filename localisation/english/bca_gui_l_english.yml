@@ -1,4 +1,5 @@
 ﻿l_english:
+ bca_district_gui_main: "Automation Settings Panel"
  AUTOMATION_ADVANCED_SETTINGS_TITLE: "Advanced Settings"
  BCA_PLANET_SETTING_PRECONSTRUCTION: "Early Construction"
  BCA_PLANET_SETTING_PRECONSTRUCTION_DESC: "Construct buildings in advance before colony population growth."

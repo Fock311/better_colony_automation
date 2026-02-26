@@ -359,9 +359,7 @@ bca_can_build_zone_resort_hunting_ground = {
         exists = owner
         owner = {
             is_wilderness_empire = no
-            NOT = {
-                is_xenophile = yes
-            }
+            is_xenophile = no
             NOT = {
                 has_zone = {
                     zone = zone_resort_hunting_ground
@@ -447,6 +445,9 @@ bca_can_build_zone_minerals = {
             }
         }
     }
+    owner = {
+        has_technology = tech_mineral_purification_1
+    }
 }
 
 bca_can_build_zone_betharian = {
@@ -462,6 +463,9 @@ bca_can_build_zone_betharian = {
             has_technology = tech_mine_betharian
         }
     }
+    owner = {
+        has_technology = tech_mine_betharian
+    }
 }
 
 bca_can_build_zone_rare_crystals = {
@@ -475,6 +479,20 @@ bca_can_build_zone_rare_crystals = {
         }
         owner = {
             has_technology = tech_mine_rare_crystals
+        }
+    }
+    owner = {
+        has_technology = tech_mine_rare_crystals
+    }
+}
+
+bca_can_build_zone_minerals_physics = {
+    AND = {
+        has_deposit = d_sky_mountain
+    }
+    AND = {
+        hidden_trigger = {
+            has_deposit = d_sky_mountain
         }
     }
 }
@@ -496,6 +514,9 @@ bca_can_build_zone_energy = {
             }
         }
     }
+    owner = {
+        has_technology = tech_power_hub_1
+    }
 }
 
 bca_can_build_zone_volatile_motes = {
@@ -510,6 +531,9 @@ bca_can_build_zone_volatile_motes = {
         owner = {
             has_technology = tech_mine_volatile_motes
         }
+    }
+    owner = {
+        has_technology = tech_mine_volatile_motes
     }
 }
 
@@ -552,6 +576,9 @@ bca_can_build_zone_food = {
             }
         }
     }
+    owner = {
+        has_technology = tech_food_processing_1
+    }
 }
 
 bca_can_build_zone_anglers = {
@@ -587,6 +614,9 @@ bca_can_build_zone_exotic_gases = {
         owner = {
             has_technology = tech_mine_exotic_gases
         }
+    }
+    owner = {
+        has_technology = tech_mine_exotic_gases
     }
 }
 
@@ -705,145 +735,6 @@ bca_can_build_zone_agrarian_anglers = {
 }
 
 bca_can_build_zone_cosmogenesis_default = { }
-
-bca_can_build_zone_food_biology = {
-    AND = {
-        hidden_trigger = {
-            exists = owner
-        }
-        owner = {
-            is_wilderness_empire = no
-            is_ai = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            exists = owner
-            owner = {
-                is_wilderness_empire = no
-            }
-        }
-        owner = {
-            has_technology = tech_society_2
-        }
-    }
-}
-
-bca_can_build_zone_minerals_engineering = {
-    AND = {
-        hidden_trigger = {
-            exists = owner
-        }
-        owner = {
-            is_wilderness_empire = no
-            is_ai = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            exists = owner
-            owner = {
-                is_wilderness_empire = no
-            }
-        }
-        owner = {
-            has_technology = tech_engineering_2
-        }
-    }
-}
-
-bca_can_build_zone_energy_physics = {
-    AND = {
-        hidden_trigger = {
-            exists = owner
-        }
-        owner = {
-            is_wilderness_empire = no
-            is_ai = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            exists = owner
-            owner = {
-                is_wilderness_empire = no
-            }
-        }
-        owner = {
-            has_technology = tech_physics_2
-        }
-    }
-}
-
-bca_can_build_zone_urban_energy = {
-    AND = {
-        hidden_trigger = {
-            exists = owner
-        }
-        owner = {
-            is_wilderness_empire = no
-            is_ai = no
-        }
-        NOT = {
-            is_planet_class = pc_city
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            exists = owner
-            owner = {
-                is_wilderness_empire = no
-            }
-        }
-    }
-}
-
-bca_can_build_zone_urban_minerals = {
-    AND = {
-        hidden_trigger = {
-            exists = owner
-        }
-        owner = {
-            is_wilderness_empire = no
-            is_ai = no
-        }
-        NOR = {
-            is_planet_class = pc_ringworld_habitable
-            is_planet_class = pc_city
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            exists = owner
-            owner = {
-                is_wilderness_empire = no
-            }
-        }
-    }
-}
-
-bca_can_build_zone_urban_food = {
-    AND = {
-        hidden_trigger = {
-            exists = owner
-        }
-        owner = {
-            is_wilderness_empire = no
-            is_ai = no
-        }
-        NOT = {
-            is_planet_class = pc_city
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            exists = owner
-            owner = {
-                is_wilderness_empire = no
-            }
-        }
-    }
-}
 
 bca_can_build_zone_habitat_knights = {
     AND = {
@@ -2382,7 +2273,7 @@ bca_can_build_zone_spawning_hive = {
 }
 
 bca_is_uncapped_district_cosmogenesis_goverment = {
-    always = yes
+    always = no
 }
 
 bca_can_build_district_cosmogenesis_goverment = {
@@ -3522,6 +3413,16 @@ bca_is_uncapped_district_mining_engineering = {
 }
 
 bca_can_build_district_mining_engineering = {
+    AND = {
+        always = no
+    }
+}
+
+bca_is_uncapped_district_mining_physics = {
+    always = yes
+}
+
+bca_can_build_district_mining_physics = {
     AND = {
         always = no
     }
@@ -5041,6 +4942,22 @@ bca_secondary_district_can_build_zone_rare_crystals = {
     }
 }
 
+bca_primary_district_can_build_zone_minerals_physics = {
+    always = no
+}
+
+bca_secondary_district_can_build_zone_minerals_physics = {
+    bca_can_build_zone_minerals_physics = yes
+    OR = {
+        bca_can_build_district_mining = yes
+        bca_can_build_district_mining_uncapped = yes
+        bca_can_build_district_farming_uncapped = yes
+        bca_can_build_district_melting = yes
+        bca_can_build_district_hollow_mountains = yes
+        bca_can_build_district_hollow_mountains_uncapped = yes
+    }
+}
+
 bca_primary_district_can_build_zone_energy = {
     always = no
 }
@@ -5254,193 +5171,6 @@ bca_secondary_district_can_build_zone_cosmogenesis_default = {
     bca_can_build_zone_cosmogenesis_default = yes
     OR = {
         bca_can_build_district_cosmogenesis_goverment = yes
-    }
-}
-
-bca_primary_district_can_build_zone_food_biology = {
-    bca_can_build_zone_food_biology = yes
-    OR = {
-        has_district = district_hab_housing
-        has_district = district_hab_housing
-    }
-}
-
-bca_secondary_district_can_build_zone_food_biology = {
-    bca_can_build_zone_food_biology = yes
-    OR = {
-        bca_can_build_district_farming = yes
-        bca_can_build_district_rw_farming = yes
-        bca_can_build_district_orchard_forests = yes
-        bca_can_build_district_orchard_forests_uncapped = yes
-    }
-}
-
-bca_primary_district_can_build_zone_minerals_engineering = {
-    bca_can_build_zone_minerals_engineering = yes
-    OR = {
-        has_district = district_hab_housing
-        has_district = district_hab_housing
-    }
-}
-
-bca_secondary_district_can_build_zone_minerals_engineering = {
-    bca_can_build_zone_minerals_engineering = yes
-    OR = {
-        bca_can_build_district_mining = yes
-        bca_can_build_district_mining_uncapped = yes
-        bca_can_build_district_farming_uncapped = yes
-        bca_can_build_district_melting = yes
-        bca_can_build_district_hollow_mountains = yes
-        bca_can_build_district_hollow_mountains_uncapped = yes
-    }
-}
-
-bca_primary_district_can_build_zone_energy_physics = {
-    bca_can_build_zone_energy_physics = yes
-    OR = {
-        has_district = district_hab_housing
-        has_district = district_hab_housing
-    }
-}
-
-bca_secondary_district_can_build_zone_energy_physics = {
-    bca_can_build_zone_energy_physics = yes
-    OR = {
-        bca_can_build_district_generator = yes
-        bca_can_build_district_generator_uncapped = yes
-        bca_can_build_district_geothermal = yes
-        bca_can_build_district_rw_generator = yes
-        bca_can_build_district_photosynthesis_fields = yes
-        bca_can_build_district_photosynthesis_fields_uncapped = yes
-    }
-}
-
-bca_primary_district_can_build_zone_urban_energy = {
-    bca_can_build_zone_urban_energy = yes
-    OR = {
-        has_district = district_mindlink
-        has_district = district_city
-        has_district = district_prison
-        has_district = district_slave
-        has_district = district_hive
-        has_district = district_nexus
-        has_district = district_prison_industrial
-        has_district = district_battle_thrall
-        has_district = district_arcology_housing
-        has_district = district_arcology_leisure
-        has_district = district_rw_city
-        has_district = district_rw_hive
-        has_district = district_rw_nexus
-        has_district = district_craglands
-        has_district = district_mindlink
-        has_district = district_city
-        has_district = district_prison
-        has_district = district_slave
-        has_district = district_hive
-        has_district = district_nexus
-        has_district = district_prison_industrial
-        has_district = district_battle_thrall
-        has_district = district_arcology_housing
-        has_district = district_arcology_leisure
-        has_district = district_rw_city
-        has_district = district_rw_hive
-        has_district = district_rw_nexus
-        has_district = district_craglands
-    }
-}
-
-bca_secondary_district_can_build_zone_urban_energy = {
-    bca_can_build_zone_urban_energy = yes
-    OR = {
-        bca_can_build_district_rw_science = yes
-        bca_can_build_district_srw_commercial = yes
-        bca_can_build_district_rw_commercial = yes
-    }
-}
-
-bca_primary_district_can_build_zone_urban_minerals = {
-    bca_can_build_zone_urban_minerals = yes
-    OR = {
-        has_district = district_mindlink
-        has_district = district_city
-        has_district = district_prison
-        has_district = district_slave
-        has_district = district_hive
-        has_district = district_nexus
-        has_district = district_prison_industrial
-        has_district = district_battle_thrall
-        has_district = district_arcology_housing
-        has_district = district_arcology_leisure
-        has_district = district_rw_city
-        has_district = district_rw_hive
-        has_district = district_rw_nexus
-        has_district = district_craglands
-        has_district = district_mindlink
-        has_district = district_city
-        has_district = district_prison
-        has_district = district_slave
-        has_district = district_hive
-        has_district = district_nexus
-        has_district = district_prison_industrial
-        has_district = district_battle_thrall
-        has_district = district_arcology_housing
-        has_district = district_arcology_leisure
-        has_district = district_rw_city
-        has_district = district_rw_hive
-        has_district = district_rw_nexus
-        has_district = district_craglands
-    }
-}
-
-bca_secondary_district_can_build_zone_urban_minerals = {
-    bca_can_build_zone_urban_minerals = yes
-    OR = {
-        bca_can_build_district_rw_science = yes
-        bca_can_build_district_srw_commercial = yes
-        bca_can_build_district_rw_commercial = yes
-    }
-}
-
-bca_primary_district_can_build_zone_urban_food = {
-    bca_can_build_zone_urban_food = yes
-    OR = {
-        has_district = district_mindlink
-        has_district = district_city
-        has_district = district_prison
-        has_district = district_slave
-        has_district = district_hive
-        has_district = district_nexus
-        has_district = district_prison_industrial
-        has_district = district_battle_thrall
-        has_district = district_arcology_housing
-        has_district = district_arcology_leisure
-        has_district = district_rw_city
-        has_district = district_rw_hive
-        has_district = district_rw_nexus
-        has_district = district_craglands
-        has_district = district_mindlink
-        has_district = district_city
-        has_district = district_prison
-        has_district = district_slave
-        has_district = district_hive
-        has_district = district_nexus
-        has_district = district_prison_industrial
-        has_district = district_battle_thrall
-        has_district = district_arcology_housing
-        has_district = district_arcology_leisure
-        has_district = district_rw_city
-        has_district = district_rw_hive
-        has_district = district_rw_nexus
-        has_district = district_craglands
-    }
-}
-
-bca_secondary_district_can_build_zone_urban_food = {
-    bca_can_build_zone_urban_food = yes
-    OR = {
-        bca_can_build_district_rw_science = yes
-        bca_can_build_district_srw_commercial = yes
-        bca_can_build_district_rw_commercial = yes
     }
 }
 

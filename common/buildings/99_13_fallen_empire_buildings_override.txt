@@ -1,8 +1,9 @@
 building_affluence_emporium = {
-	base_buildtime = @b2_time
+	base_buildtime = @b3_time
 	can_build = yes
 	can_demolish = yes
 	icon = building_affluence_emporium
+	planet_limit = 1
 
 	category = manufacturing
 
@@ -49,13 +50,13 @@ building_affluence_emporium = {
 	resources = {
 		category = planet_buildings
 		cost = {
-			alloys = @b3_minerals
-			rare_crystals = @fe_sr_cost
+			alloys = @fe_alloy_cost_1
+			sr_living_metal = @fe_rr_cost_1
 		}
 		upkeep = {
-			rare_crystals = 2
+			sr_living_metal = @fe_rr_upkeep_1
 			alloys = @b2_alloy_upkeep
-			energy = 15
+			energy = @fe_energy_upkeep_1
 		}
 		cost = {
 			trigger = {
@@ -80,6 +81,15 @@ building_affluence_emporium = {
 	inline_script = {
 		script = jobs/factory_add
 		AMOUNT = @fe_jobs
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_wilderness_empire = no }
+		}
+		job_artisan_automated_workforce_mult = @fe_automation_specialist_1
+		job_artisan_drone_automated_workforce_mult = @fe_automation_specialist_1
 	}
 
 	on_queued = {
@@ -128,9 +138,10 @@ building_affluence_emporium = {
 }
 
 building_affluence_center = {
-	base_buildtime = @b2_time
+	base_buildtime = @b4_time
 	can_build = no
 	icon = building_affluence_center
+	planet_limit = 1
 
 	category = manufacturing
 
@@ -168,6 +179,10 @@ building_affluence_center = {
 				}
 			}
 		}
+		custom_tooltip = {
+			fail_text = cosmogenesis_aborted_tt
+			NOT = { owner = { has_country_flag = cosmogenesis_aborted } }
+		}
 	}
 
 	destroy_trigger = {
@@ -180,13 +195,13 @@ building_affluence_center = {
 			consumer_goods = 35
 		}
 		cost = {
-			alloys = @b3_minerals
+			alloys = @fe_alloy_cost_2
+			sr_living_metal = @fe_rr_cost_2
 		}
 		upkeep = {
-			rare_crystals = 2
-			alloys = @b2_alloy_upkeep
-			minerals = 50
-			energy = 15
+			sr_living_metal = @fe_rr_upkeep_2
+			alloys = @b3_alloy_upkeep
+			energy = @fe_energy_upkeep_2
 		}
 		cost = {
 			trigger = {
@@ -216,6 +231,15 @@ building_affluence_center = {
 		script = jobs/factory_add
 		AMOUNT = @fe_jobs
 	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_wilderness_empire = no }
+		}
+		job_artisan_automated_workforce_mult = @fe_automation_specialist_2
+		job_artisan_drone_automated_workforce_mult = @fe_automation_specialist_2
+	}	
 
 	on_queued = {
 		if = { # kill on the same planet
@@ -259,9 +283,10 @@ building_affluence_center = {
 }
 
 building_micro_forge = {
-	base_buildtime = @b2_time
+	base_buildtime = @b3_time
 	can_build = yes
 	can_demolish = yes
+	planet_limit = 1
 
 	category = manufacturing
 
@@ -308,16 +333,26 @@ building_micro_forge = {
 		script = jobs/foundry_add
 		AMOUNT = @fe_jobs
 	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_wilderness_empire = no }
+		}
+		job_foundry_automated_workforce_mult = @fe_automation_specialist_1
+		job_fabricator_automated_workforce_mult = @fe_automation_specialist_1
+	}
 
 	resources = {
 		category = planet_buildings
 		cost = {
-			alloys = @b3_minerals
-			volatile_motes = @fe_sr_cost
+			alloys = @fe_alloy_cost_1
+			sr_living_metal = @fe_rr_cost_1
 		}
 		upkeep = {
-			volatile_motes = 2
-			energy = 30
+			sr_living_metal = @fe_rr_upkeep_1
+			alloys = @b2_alloy_upkeep
+			energy = @fe_energy_upkeep_1
 		}
 		cost = {
 			trigger = {
@@ -385,8 +420,9 @@ building_micro_forge = {
 }
 
 building_nano_forge = {
-	base_buildtime = @b2_time
+	base_buildtime = @b3_time
 	can_build = no
+	planet_limit = 1
 
 	category = manufacturing
 
@@ -424,6 +460,10 @@ building_nano_forge = {
 				}
 			}
 		}
+		custom_tooltip = {
+			fail_text = cosmogenesis_aborted_tt
+			NOT = { owner = { has_country_flag = cosmogenesis_aborted } }
+		}
 	}
 
 	destroy_trigger = {
@@ -438,6 +478,15 @@ building_nano_forge = {
 		script = jobs/foundry_add
 		AMOUNT = @fe_jobs
 	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_wilderness_empire = no }
+		}
+		job_foundry_automated_workforce_mult = @fe_automation_specialist_2
+		job_fabricator_automated_workforce_mult = @fe_automation_specialist_2
+	}
 
 	resources = {
 		category = planet_buildings
@@ -445,11 +494,13 @@ building_nano_forge = {
 			alloys = 25
 		}
 		cost = {
-			alloys = @b3_minerals
+			alloys = @fe_alloy_cost_2
+			sr_living_metal = @fe_rr_cost_2
 		}
 		upkeep = {
-			volatile_motes = 2
-			energy = 30
+			sr_living_metal = @fe_rr_upkeep_2
+			alloys = @b3_alloy_upkeep
+			energy = @fe_energy_upkeep_2
 		}
 		cost = {
 			trigger = {
@@ -513,9 +564,10 @@ building_nano_forge = {
 }
 
 building_fe_fortress = {
-	base_buildtime = @b2_time
+	base_buildtime = @b3_time
 	can_build = yes
 	can_demolish = yes
+	planet_limit = 1
 
 	category = army
 
@@ -561,17 +613,26 @@ building_fe_fortress = {
 		script = jobs/soldiers_add
 		AMOUNT = @fe_jobs
 	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_wilderness_empire = no }
+		}
+		job_soldier_automated_workforce_mult = @fe_automation_specialist_1
+		job_warrior_drone_automated_workforce_mult = @fe_automation_specialist_1
+	}
 
 	resources = {
 		category = planet_buildings
 		cost = {
-			alloys = @b2_minerals
-			volatile_motes = @fe_sr_cost
+			alloys = @fe_alloy_cost_1
+			volatile_motes = @fe_sr_cost_1
 		}
 		upkeep = {
-			alloys = @b2_alloy_upkeep
-			volatile_motes = 2
-			energy = 15
+			alloys = @b3_alloy_upkeep
+			energy = @fe_energy_upkeep_1
+			volatile_motes = @fe_sr_upkeep_1
 		}
 		cost = {
 			trigger = {
@@ -639,9 +700,10 @@ building_fe_fortress = {
 }
 
 building_fe_market_1 = {
-	base_buildtime = @b2_time
+	base_buildtime = @b3_time
 	can_build = yes
 	can_demolish = yes
+	planet_limit = 1
 
 	category = trade
 
@@ -691,13 +753,13 @@ building_fe_market_1 = {
 	resources = {
 		category = planet_buildings
 		cost = {
-			alloys = @b3_minerals
-			rare_crystals = @fe_sr_cost
+			alloys = @fe_alloy_cost_1
+			rare_crystals = @fe_sr_cost_1
 		}
 		upkeep = {
-			rare_crystals = 2
 			alloys = @b2_alloy_upkeep
-			energy = 15
+			energy = @fe_energy_upkeep_1
+			rare_crystals = @fe_sr_upkeep_1
 		}
 		cost = {
 			trigger = {
@@ -722,6 +784,15 @@ building_fe_market_1 = {
 	inline_script = {
 		script = "jobs/trader_add"
 		AMOUNT = @fe_jobs
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_wilderness_empire = no }
+		}
+		job_trader_automated_workforce_mult = @fe_automation_specialist_1
+		job_logistics_drone_automated_workforce_mult = @fe_automation_specialist_1
 	}
 
 	upgrades = {
@@ -770,8 +841,9 @@ building_fe_market_1 = {
 }
 
 building_fe_market_2 = {
-	base_buildtime = @b2_time
+	base_buildtime = @b3_time
 	can_build = no
+	planet_limit = 1
 
 	category = trade
 
@@ -807,6 +879,10 @@ building_fe_market_2 = {
 				}
 			}
 		}
+		custom_tooltip = {
+			fail_text = cosmogenesis_aborted_tt
+			NOT = { owner = { has_country_flag = cosmogenesis_aborted } }
+		}
 	}
 
 	destroy_trigger = {
@@ -821,12 +897,13 @@ building_fe_market_2 = {
 	resources = {
 		category = planet_buildings
 		cost = {
-			alloys = @b3_minerals
+			alloys = @fe_alloy_cost_2
+			rare_crystals = @fe_sr_cost_2
 		}
 		upkeep = {
-			rare_crystals = 2
-			alloys = @b2_alloy_upkeep
-			energy = 15
+			alloys = @b3_alloy_upkeep
+			energy = @fe_energy_upkeep_2
+			rare_crystals = @fe_sr_upkeep_2
 		}
 		cost = {
 			trigger = {
@@ -851,6 +928,15 @@ building_fe_market_2 = {
 	inline_script = {
 		script = "jobs/trader_add"
 		AMOUNT = 1200
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_wilderness_empire = no }
+		}
+		job_trader_automated_workforce_mult = @fe_automation_specialist_2
+		job_logistics_drone_automated_workforce_mult = @fe_automation_specialist_2
 	}
 
 	country_modifier = {
@@ -914,9 +1000,10 @@ building_fe_market_2 = {
 }
 
 building_fe_lab_1 = {
-	base_buildtime = @b2_time
+	base_buildtime = @b3_time
 	can_build = yes
 	can_demolish = yes
+	planet_limit = 1
 
 	category = research
 
@@ -965,13 +1052,13 @@ building_fe_lab_1 = {
 	resources = {
 		category = planet_buildings
 		cost = {
-			alloys = @b3_minerals
-			exotic_gases = @fe_sr_cost
+			alloys = @fe_alloy_cost_1
+			exotic_gases = @fe_sr_cost_1
 		}
 		upkeep = {
-			exotic_gases = 2
-			alloys = @b3_alloy_upkeep
-			energy = 30
+			alloys = @b2_alloy_upkeep
+			energy = @fe_energy_upkeep_1
+			exotic_gases = @fe_sr_upkeep_1
 		}
 		cost = {
 			trigger = {
@@ -996,6 +1083,31 @@ building_fe_lab_1 = {
 	inline_script = {
 		script = jobs/researchers_add
 		AMOUNT = @building_static_jobs
+	}
+		
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		
+		job_physicist_automated_workforce_mult = @fe_automation_specialist_1
+		job_biologist_automated_workforce_mult = @fe_automation_specialist_1
+		job_engineer_automated_workforce_mult = @fe_automation_specialist_1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = yes 
+				is_wilderness_empire = no
+			}
+		}
+		
+		job_calculator_physicist_automated_workforce_mult = @fe_automation_specialist_1
+		job_calculator_biologist_automated_workforce_mult = @fe_automation_specialist_1
+		job_calculator_engineer_automated_workforce_mult = @fe_automation_specialist_1
 	}
 
 	upgrades = {
@@ -1044,8 +1156,9 @@ building_fe_lab_1 = {
 }
 
 building_fe_lab_2 = {
-	base_buildtime = @b2_time
+	base_buildtime = @b3_time
 	can_build = no
+	planet_limit = 1
 
 	category = research
 
@@ -1085,6 +1198,10 @@ building_fe_lab_2 = {
 				}
 			}
 		}
+		custom_tooltip = {
+			fail_text = cosmogenesis_aborted_tt
+			NOT = { owner = { has_country_flag = cosmogenesis_aborted } }
+		}
 	}
 
 	destroy_trigger = {
@@ -1094,12 +1211,13 @@ building_fe_lab_2 = {
 	resources = {
 		category = planet_buildings
 		cost = {
-			alloys = @b3_minerals
+			alloys = @fe_alloy_cost_2
+			exotic_gases = @fe_sr_cost_2
 		}
 		upkeep = {
-			exotic_gases = 2
 			alloys = @b3_alloy_upkeep
-			energy = 30
+			energy = @fe_energy_upkeep_2
+			exotic_gases = @fe_sr_upkeep_2
 		}
 		cost = {
 			trigger = {
@@ -1128,6 +1246,31 @@ building_fe_lab_2 = {
 	inline_script = {
 		script = jobs/researchers_add
 		AMOUNT = @building_static_jobs_high
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		
+		job_physicist_automated_workforce_mult = @fe_automation_specialist_2
+		job_biologist_automated_workforce_mult = @fe_automation_specialist_2
+		job_engineer_automated_workforce_mult = @fe_automation_specialist_2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = yes 
+				is_wilderness_empire = no
+			}
+		}
+		
+		job_calculator_physicist_automated_workforce_mult = @fe_automation_specialist_2
+		job_calculator_biologist_automated_workforce_mult = @fe_automation_specialist_2
+		job_calculator_engineer_automated_workforce_mult = @fe_automation_specialist_2
 	}
 
 	on_queued = {

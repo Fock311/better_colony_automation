@@ -8,12 +8,8 @@
 import argparse
 import sys
 import os
+import yaml
 
-try:
-    import yaml
-except ImportError:
-    print("需要安装 pyyaml：pip install pyyaml", file=sys.stderr)
-    sys.exit(1)
 
 def group_zones(zones_list):
     order = []
@@ -35,19 +31,49 @@ def group_zones(zones_list):
             for ic in order]
 
 def main():
-    input_default = 'zones_info.yaml'
-    output_default = 'zones_by_icon.yaml'
+    input_default = 'zone_icon_list.yaml'
+    merge = 'manual_config/zone_type_fitness.yaml'
+    output_default = '../gui_generate/config/zone_config.yaml'
 
     with open(input_default, 'r', encoding='utf-8') as f:
         data = yaml.safe_load(f) or {}
 
-    zones = data.get('zones_info')
+    with open(merge, 'r', encoding='utf-8') as f:
+        zone_type_fitness_data = yaml.safe_load(f) or {}
+
+    zone_type_fitness = zone_type_fitness_data.get('zone_type_fitness')
+    zone_type_fitness_map = {item['type']: item for item in zone_type_fitness}
+
+    zones = data.get('zone_icon_list')
     grouped = {'icons_info': group_zones(zones)}
+    group_to_remove = []
+    # adding fitness_trigger(optional) and fitness(optional) to each group if no key raise error
+    for group in grouped['icons_info']:
+        type_ = group['type']
+        fitness_info = zone_type_fitness_map.get(type_)
+        if fitness_info:
+            if fitness_info.get('fitness_trigger'):
+                group['fitness_trigger'] = fitness_info.get('fitness_trigger')
+            if fitness_info.get('fitness'):
+                group['fitness'] = fitness_info.get('fitness')
+        else:
+            print(f"Warning: No fitness info found for type '{type_}'")
+            #remove group if no fitness info
+            group_to_remove.append(group)
+    for group in group_to_remove:
+        grouped['icons_info'].remove(group)
+
+    # reorder grouped['icons_info'] according to zone_type_fitness type order
+    type_order = [item['type'] for item in zone_type_fitness]
+    grouped['icons_info'].sort(key=lambda x: type_order.index(x['type']) if x['type'] in type_order else len(type_order))
+
+    # rename icons_info as zones_info
+    grouped['zones_info'] = grouped.pop('icons_info')
 
     with open(output_default, 'w', encoding='utf-8') as f:
         yaml.safe_dump(grouped, f, sort_keys=False, allow_unicode=True, default_flow_style=False)
 
-    print(f"Wrote {len(grouped['icons_info'])} groups to {output_default}")
+    print(f"Wrote {len(grouped['zones_info'])} groups to {output_default}")
 
 if __name__ == '__main__':
     main()

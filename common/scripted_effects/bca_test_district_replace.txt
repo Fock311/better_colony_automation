@@ -545,120 +545,9 @@ bca_remove_district_d3 = {
 
 
 
-bca_test_district_to_replace = {
-	if = {
-		limit = {
-            check_variable_arithmetic = {
-                which = value:num_district_$district_slot_replace_from$
-                value > 1
-            }
-			bca_district_$district_slot_replace_to$_reach_planet_max = no
-		}
-		bca_remove_district_$district_slot_replace_from$ = yes
-		bca_add_district_$district_slot_replace_to$ = yes
-		set_variable = {
-			which = bca_test_district_metric_1
-			value = $metric_value$
-		}
-		bca_remove_district_$district_slot_replace_to$ = yes
-		bca_add_district_$district_slot_replace_from$ = yes
-		if = {
-			limit = {
-                if = {
-                    limit = { always = $is_priority_district$ }
-                    check_variable = {
-                        which = bca_test_district_metric_1
-                        value >= bca_current_production
-                    }
-                }
-                else = {
-                    check_variable = {
-                        which = bca_test_district_metric_1
-                        value > bca_current_production
-                    }
-                }
-			}
-			set_planet_flag = bca_pf_plan_remove_district_$district_slot_replace_from$
-			set_planet_flag = bca_pf_plan_build_district_$district_slot_replace_to$
-			set_planet_flag = bca_pf_has_district_remove_plan
-			set_planet_flag = bca_pf_advance_controller_order
-		}
-
-	}
-}
-
-bca_test_district_to_replace_3ways = {
-	if = {
-		limit = {
-            always = yes # bound to replace
-		}
-        bca_remove_district_$district_slot_replace_from$ = yes
-		if = {
-		    limit = {
-		        bca_district_$district_slot_replace_to_primary$_reach_planet_max = no
-		    }
-            bca_add_district_$district_slot_replace_to_primary$ = yes
-            set_variable = {
-                which = bca_test_district_metric_1
-                value = $metric_value$
-            }
-            bca_remove_district_$district_slot_replace_to_primary$ = yes
-		}
-		else = {
-		    set_variable = {
-                which = bca_test_district_metric_1
-                value = bca_current_production
-            }
-		}
-		if = {
-		    limit = {
-		        bca_district_$district_slot_replace_to_secondary$_reach_planet_max = no
-		    }
-            bca_add_district_$district_slot_replace_to_secondary$ = yes
-            set_variable = {
-                which = bca_test_district_metric_2
-                value = $metric_value$
-            }
-            bca_remove_district_$district_slot_replace_to_secondary$ = yes
-		}
-		else = {
-		    set_variable = {
-                which = bca_test_district_metric_2
-                value = bca_current_production
-            }
-		}
-        bca_add_district_$district_slot_replace_from$ = yes
-
-		if = {
-			limit = {
-                check_variable = {
-                    which = bca_test_district_metric_1
-                    value >= bca_test_district_metric_2
-                }
-			}
-			set_planet_flag = bca_pf_plan_remove_district_$district_slot_replace_from$
-			set_planet_flag = bca_pf_plan_build_district_$district_slot_replace_to_primary$
-			set_planet_flag = bca_pf_has_district_remove_plan
-			set_planet_flag = bca_pf_advance_controller_order
-		}
-		else_if = {
-			limit = {
-                check_variable = {
-                    which = bca_test_district_metric_2
-                    value > bca_test_district_metric_1
-                }
-			}
-			set_planet_flag = bca_pf_plan_remove_district_$district_slot_replace_from$
-			set_planet_flag = bca_pf_plan_build_district_$district_slot_replace_to_secondary$
-			set_planet_flag = bca_pf_has_district_remove_plan
-			set_planet_flag = bca_pf_advance_controller_order
-		}
-	}
-
-}
 
 # Scope = Planet
-bca_test_primary_and_secondary_district_bidirectional_replace = {
+bca_resource_district_replace_controller = {
     optimize_memory
     if = {
         limit = {
@@ -672,10 +561,6 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
         limit = {
             has_generator_designation = yes
         }
-        set_variable = {
-            which = bca_current_production
-            value = value:bca_potential_standard_energy_production
-        }
         if = {
             limit = {
                 OR = {
@@ -683,52 +568,48 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
                     has_planet_flag = bca_pf_ps_selected_zone_type_z3_betharian
                     has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_energy
                 }
+
             }
             if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d2
-                        value > bca_ps_plan_district_count_z4
+                limit = { bca_district_d1_reach_planet_max = no }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d2
+                            value > bca_ps_plan_district_count_z4
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d2
+                    set_planet_flag = bca_pf_plan_build_district_d1
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d2
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d1
-                    metric_value = value:bca_potential_standard_energy_production
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d3
-                        value > bca_ps_plan_district_count_z5
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d3
+                            value > bca_ps_plan_district_count_z5
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d3
+                    set_planet_flag = bca_pf_plan_build_district_d1
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d3
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d1
-                    metric_value = value:bca_potential_standard_energy_production
-                }
-            }
-            if = {
-                limit = {
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d0
-                    district_slot_replace_to = d1
-                    metric_value = value:bca_potential_standard_energy_production
-                    is_priority_district = no
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d1
-                    district_slot_replace_to = d0
-                    metric_value = value:bca_potential_standard_energy_production
-                    is_priority_district = yes
+                if = {
+                    limit = {
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                        check_variable_arithmetic = {
+                            which = value:num_district_d0
+                            value > 1
+                        }
+                    }
+                    set_planet_flag = bca_pf_plan_remove_district_d0
+                    set_planet_flag = bca_pf_plan_build_district_d1
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
             }
         }
@@ -739,52 +620,48 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
                     has_planet_flag = bca_pf_ps_selected_zone_type_z4_betharian
                     has_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_energy
                 }
+
             }
             if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d1
-                        value > bca_ps_plan_district_count_z3
+                limit = { bca_district_d2_reach_planet_max = no }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d1
+                            value > bca_ps_plan_district_count_z3
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d1
+                    set_planet_flag = bca_pf_plan_build_district_d2
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d1
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d2
-                    metric_value = value:bca_potential_standard_energy_production
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d3
-                        value > bca_ps_plan_district_count_z5
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d3
+                            value > bca_ps_plan_district_count_z5
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d3
+                    set_planet_flag = bca_pf_plan_build_district_d2
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d3
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d2
-                    metric_value = value:bca_potential_standard_energy_production
-                }
-            }
-            if = {
-                limit = {
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d0
-                    district_slot_replace_to = d2
-                    metric_value = value:bca_potential_standard_energy_production
-                    is_priority_district = no
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d2
-                    district_slot_replace_to = d0
-                    metric_value = value:bca_potential_standard_energy_production
-                    is_priority_district = yes
+                if = {
+                    limit = {
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                        check_variable_arithmetic = {
+                            which = value:num_district_d0
+                            value > 1
+                        }
+                    }
+                    set_planet_flag = bca_pf_plan_remove_district_d0
+                    set_planet_flag = bca_pf_plan_build_district_d2
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
             }
         }
@@ -795,52 +672,48 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
                     has_planet_flag = bca_pf_ps_selected_zone_type_z5_betharian
                     has_planet_flag = bca_pf_ps_selected_zone_type_z5_wilderness_energy
                 }
+
             }
             if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d1
-                        value > bca_ps_plan_district_count_z3
+                limit = { bca_district_d3_reach_planet_max = no }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d1
+                            value > bca_ps_plan_district_count_z3
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d1
+                    set_planet_flag = bca_pf_plan_build_district_d3
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d1
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d3
-                    metric_value = value:bca_potential_standard_energy_production
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d2
-                        value > bca_ps_plan_district_count_z4
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d2
+                            value > bca_ps_plan_district_count_z4
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d2
+                    set_planet_flag = bca_pf_plan_build_district_d3
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d2
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d3
-                    metric_value = value:bca_potential_standard_energy_production
-                }
-            }
-            if = {
-                limit = {
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d0
-                    district_slot_replace_to = d3
-                    metric_value = value:bca_potential_standard_energy_production
-                    is_priority_district = no
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d3
-                    district_slot_replace_to = d0
-                    metric_value = value:bca_potential_standard_energy_production
-                    is_priority_district = yes
+                if = {
+                    limit = {
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                        check_variable_arithmetic = {
+                            which = value:num_district_d0
+                            value > 1
+                        }
+                    }
+                    set_planet_flag = bca_pf_plan_remove_district_d0
+                    set_planet_flag = bca_pf_plan_build_district_d3
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
             }
         }
@@ -849,62 +722,54 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
         limit = {
             has_mining_designation = yes
         }
-        set_variable = {
-            which = bca_current_production
-            value = value:bca_potential_standard_minerals_production
-        }
         if = {
             limit = {
                 OR = {
                     has_planet_flag = bca_pf_ps_selected_zone_type_z3_minerals
                     has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_minerals
                 }
+
             }
             if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d2
-                        value > bca_ps_plan_district_count_z4
+                limit = { bca_district_d1_reach_planet_max = no }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d2
+                            value > bca_ps_plan_district_count_z4
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d2
+                    set_planet_flag = bca_pf_plan_build_district_d1
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d2
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d1
-                    metric_value = value:bca_potential_standard_minerals_production
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d3
-                        value > bca_ps_plan_district_count_z5
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d3
+                            value > bca_ps_plan_district_count_z5
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d3
+                    set_planet_flag = bca_pf_plan_build_district_d1
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d3
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d1
-                    metric_value = value:bca_potential_standard_minerals_production
-                }
-            }
-            if = {
-                limit = {
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d0
-                    district_slot_replace_to = d1
-                    metric_value = value:bca_potential_standard_minerals_production
-                    is_priority_district = no
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d1
-                    district_slot_replace_to = d0
-                    metric_value = value:bca_potential_standard_minerals_production
-                    is_priority_district = yes
+                if = {
+                    limit = {
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                        check_variable_arithmetic = {
+                            which = value:num_district_d0
+                            value > 1
+                        }
+                    }
+                    set_planet_flag = bca_pf_plan_remove_district_d0
+                    set_planet_flag = bca_pf_plan_build_district_d1
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
             }
         }
@@ -914,52 +779,48 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
                     has_planet_flag = bca_pf_ps_selected_zone_type_z4_minerals
                     has_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_minerals
                 }
+
             }
             if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d1
-                        value > bca_ps_plan_district_count_z3
+                limit = { bca_district_d2_reach_planet_max = no }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d1
+                            value > bca_ps_plan_district_count_z3
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d1
+                    set_planet_flag = bca_pf_plan_build_district_d2
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d1
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d2
-                    metric_value = value:bca_potential_standard_minerals_production
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d3
-                        value > bca_ps_plan_district_count_z5
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d3
+                            value > bca_ps_plan_district_count_z5
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d3
+                    set_planet_flag = bca_pf_plan_build_district_d2
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d3
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d2
-                    metric_value = value:bca_potential_standard_minerals_production
-                }
-            }
-            if = {
-                limit = {
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d0
-                    district_slot_replace_to = d2
-                    metric_value = value:bca_potential_standard_minerals_production
-                    is_priority_district = no
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d2
-                    district_slot_replace_to = d0
-                    metric_value = value:bca_potential_standard_minerals_production
-                    is_priority_district = yes
+                if = {
+                    limit = {
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                        check_variable_arithmetic = {
+                            which = value:num_district_d0
+                            value > 1
+                        }
+                    }
+                    set_planet_flag = bca_pf_plan_remove_district_d0
+                    set_planet_flag = bca_pf_plan_build_district_d2
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
             }
         }
@@ -969,52 +830,48 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
                     has_planet_flag = bca_pf_ps_selected_zone_type_z5_minerals
                     has_planet_flag = bca_pf_ps_selected_zone_type_z5_wilderness_minerals
                 }
+
             }
             if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d1
-                        value > bca_ps_plan_district_count_z3
+                limit = { bca_district_d3_reach_planet_max = no }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d1
+                            value > bca_ps_plan_district_count_z3
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d1
+                    set_planet_flag = bca_pf_plan_build_district_d3
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d1
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d3
-                    metric_value = value:bca_potential_standard_minerals_production
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d2
-                        value > bca_ps_plan_district_count_z4
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d2
+                            value > bca_ps_plan_district_count_z4
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d2
+                    set_planet_flag = bca_pf_plan_build_district_d3
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d2
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d3
-                    metric_value = value:bca_potential_standard_minerals_production
-                }
-            }
-            if = {
-                limit = {
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d0
-                    district_slot_replace_to = d3
-                    metric_value = value:bca_potential_standard_minerals_production
-                    is_priority_district = no
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d3
-                    district_slot_replace_to = d0
-                    metric_value = value:bca_potential_standard_minerals_production
-                    is_priority_district = yes
+                if = {
+                    limit = {
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                        check_variable_arithmetic = {
+                            which = value:num_district_d0
+                            value > 1
+                        }
+                    }
+                    set_planet_flag = bca_pf_plan_remove_district_d0
+                    set_planet_flag = bca_pf_plan_build_district_d3
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
             }
         }
@@ -1023,62 +880,54 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
         limit = {
             has_farming_designation = yes
         }
-        set_variable = {
-            which = bca_current_production
-            value = value:bca_potential_standard_food_production
-        }
         if = {
             limit = {
                 OR = {
                     has_planet_flag = bca_pf_ps_selected_zone_type_z3_food
                     has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_food
                 }
+
             }
             if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d2
-                        value > bca_ps_plan_district_count_z4
+                limit = { bca_district_d1_reach_planet_max = no }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d2
+                            value > bca_ps_plan_district_count_z4
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d2
+                    set_planet_flag = bca_pf_plan_build_district_d1
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d2
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d1
-                    metric_value = value:bca_potential_standard_food_production
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d3
-                        value > bca_ps_plan_district_count_z5
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d3
+                            value > bca_ps_plan_district_count_z5
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d3
+                    set_planet_flag = bca_pf_plan_build_district_d1
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d3
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d1
-                    metric_value = value:bca_potential_standard_food_production
-                }
-            }
-            if = {
-                limit = {
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d0
-                    district_slot_replace_to = d1
-                    metric_value = value:bca_potential_standard_food_production
-                    is_priority_district = no
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d1
-                    district_slot_replace_to = d0
-                    metric_value = value:bca_potential_standard_food_production
-                    is_priority_district = yes
+                if = {
+                    limit = {
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                        check_variable_arithmetic = {
+                            which = value:num_district_d0
+                            value > 1
+                        }
+                    }
+                    set_planet_flag = bca_pf_plan_remove_district_d0
+                    set_planet_flag = bca_pf_plan_build_district_d1
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
             }
         }
@@ -1088,52 +937,48 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
                     has_planet_flag = bca_pf_ps_selected_zone_type_z4_food
                     has_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_food
                 }
+
             }
             if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d1
-                        value > bca_ps_plan_district_count_z3
+                limit = { bca_district_d2_reach_planet_max = no }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d1
+                            value > bca_ps_plan_district_count_z3
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d1
+                    set_planet_flag = bca_pf_plan_build_district_d2
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d1
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d2
-                    metric_value = value:bca_potential_standard_food_production
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d3
-                        value > bca_ps_plan_district_count_z5
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d3
+                            value > bca_ps_plan_district_count_z5
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d3
+                    set_planet_flag = bca_pf_plan_build_district_d2
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d3
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d2
-                    metric_value = value:bca_potential_standard_food_production
-                }
-            }
-            if = {
-                limit = {
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d0
-                    district_slot_replace_to = d2
-                    metric_value = value:bca_potential_standard_food_production
-                    is_priority_district = no
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d2
-                    district_slot_replace_to = d0
-                    metric_value = value:bca_potential_standard_food_production
-                    is_priority_district = yes
+                if = {
+                    limit = {
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                        check_variable_arithmetic = {
+                            which = value:num_district_d0
+                            value > 1
+                        }
+                    }
+                    set_planet_flag = bca_pf_plan_remove_district_d0
+                    set_planet_flag = bca_pf_plan_build_district_d2
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
             }
         }
@@ -1143,59 +988,52 @@ bca_test_primary_and_secondary_district_bidirectional_replace = {
                     has_planet_flag = bca_pf_ps_selected_zone_type_z5_food
                     has_planet_flag = bca_pf_ps_selected_zone_type_z5_wilderness_food
                 }
+
             }
             if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d1
-                        value > bca_ps_plan_district_count_z3
+                limit = { bca_district_d3_reach_planet_max = no }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d1
+                            value > bca_ps_plan_district_count_z3
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d1
+                    set_planet_flag = bca_pf_plan_build_district_d3
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d1
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d3
-                    metric_value = value:bca_potential_standard_food_production
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_district_d2
-                        value > bca_ps_plan_district_count_z4
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_district_d2
+                            value > bca_ps_plan_district_count_z4
+                        }
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
                     }
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                    set_planet_flag = bca_pf_plan_remove_district_d2
+                    set_planet_flag = bca_pf_plan_build_district_d3
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
-                bca_test_district_to_replace_3ways = {
-                    district_slot_replace_from = d2
-                    district_slot_replace_to_primary = d0
-                    district_slot_replace_to_secondary = d3
-                    metric_value = value:bca_potential_standard_food_production
-                }
-            }
-            if = {
-                limit = {
-                    NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d0
-                    district_slot_replace_to = d3
-                    metric_value = value:bca_potential_standard_food_production
-                    is_priority_district = no
-                }
-                bca_test_district_to_replace = {
-                    district_slot_replace_from = d3
-                    district_slot_replace_to = d0
-                    metric_value = value:bca_potential_standard_food_production
-                    is_priority_district = yes
+                if = {
+                    limit = {
+                        NOT = { has_planet_flag = bca_pf_has_district_remove_plan }
+                        check_variable_arithmetic = {
+                            which = value:num_district_d0
+                            value > 1
+                        }
+                    }
+                    set_planet_flag = bca_pf_plan_remove_district_d0
+                    set_planet_flag = bca_pf_plan_build_district_d3
+                    set_planet_flag = bca_pf_has_district_remove_plan
+                    set_planet_flag = bca_pf_advance_controller_order
                 }
             }
         }
     }
-    clear_variable = bca_current_production
-    clear_variable = bca_test_district_metric_1
-    clear_variable = bca_test_district_metric_2
 
 
 }

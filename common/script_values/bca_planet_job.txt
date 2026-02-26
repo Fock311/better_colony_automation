@@ -37,10 +37,6 @@ bca_base_minerals = {
 	}
 	modifier = {
 		add = -1
-		miner_is_mineral_diver_trigger = yes
-	}
-	modifier = {
-		add = -1
 		miner_is_turtle_miner_trigger = yes
 	}
 	modifier = {
@@ -81,16 +77,8 @@ bca_jobs_for_minerals = {
 bca_base_food_angler_add = {
 	base = 2
 	modifier = {
-		add =  @councilor_anglers_angler_food_bonus
-		has_councilor = { COUNCILOR = "councilor_anglers" }
-	}
-	modifier = {
 		mult = value:councilor_level|TYPE|councilor_anglers|
 		has_councilor = { COUNCILOR = "councilor_anglers" }
-	}
-	modifier = {
-		add =  @councilor_machine_anglers_angler_food_bonus
-		has_councilor = { COUNCILOR = "councilor_machine_anglers" }
 	}
 	modifier = {
 		mult = value:councilor_level|TYPE|councilor_machine_anglers|
@@ -159,17 +147,8 @@ bca_jobs_for_alloys = {
 
 bca_base_consumer_goods_pearl_diver = {
 	modifier = {
-		add = @councilor_anglers_pearl_diver_consumer_goods_bonus
-		has_councilor = { COUNCILOR = "councilor_anglers" }
-	}
-	modifier = {
 		mult = value:councilor_level|TYPE|councilor_anglers|
 		has_councilor = { COUNCILOR = "councilor_anglers" }
-	}
-	# possible vanilla bug councilor_machine_anglers apply for twice
-	modifier = {
-		add = @councilor_machine_anglers_pearl_diver_consumer_goods_bonus
-		has_councilor = { COUNCILOR = "councilor_machine_anglers" }
 	}
 	modifier = {
 		mult = value:councilor_level|TYPE|councilor_machine_anglers|

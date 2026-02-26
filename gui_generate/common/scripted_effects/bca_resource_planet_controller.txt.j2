@@ -2,6 +2,61 @@
 {% import 'component/planet_variable.j2' as v with context %}
 {% import 'component/conditions.j2' as cond with context %}
 
+{% set resource_boost_builds = {
+    'energy': ['building_energy_grid', 'building_energy_nexus'],
+    'minerals': ['building_mineral_purification_plant', 'building_mineral_purification_hub'],
+    'food': ['building_food_processing_facility', 'building_food_processing_center']
+} %}
+
+{% macro boost_building(resource) -%}
+    {% set b1 = resource_boost_builds[resource][0] %}
+    {% set b2 = resource_boost_builds[resource][1] %}
+
+    {% set index = 5 %}
+    {% set priority_shift = 'bca_non_job_provider_priority_shift' %}
+
+    {% set b1_cost = "b1_time" %}
+    {% set b1_inc_job = 0 %}
+    {% set b1_inc_add = "value:bca_production_add_" ~ resource ~ "_" ~ b1 %}
+    {% set b1_inc_mult = 0 %}
+
+    {% set b2_cost = "b2_time" %}
+    {% set b2_inc_job = 0 %}
+    {% set b2_inc_add = "value:bca_production_add_" ~ resource ~ "_" ~ b2 %}
+    {% set b2_inc_mult = 0 %}
+    {% set standard_production = "bca_potential_standard_" ~ resource ~ "_production" %}
+
+    if = {
+        limit = {
+            NOR = {
+                has_building = {{ b1 }}
+                has_building = {{ b2 }}
+            }
+        }
+
+        try_construct_building = {
+            building = {{ b1 }}
+            standard_production = {{ standard_production }}
+            INC_JOB = {{ b1_inc_job }}
+            INC_ADD = {{ b1_inc_add }}
+            INC_MULT = {{ b1_inc_mult }}
+            cost = @[{{ b1_cost }}]
+            priority_shift = {{ priority_shift }}
+            index = {{ index }}
+        }
+        # long-term planing compute for b2 but build b1
+        try_construct_building = {
+            building = {{ b1 }}
+            standard_production = {{ standard_production }}
+            INC_JOB = {{ b2_inc_job }}
+            INC_ADD = {{ b2_inc_add }}
+            INC_MULT = {{ b2_inc_mult }}
+            cost = @[{{ b1_cost }} + {{ b2_cost }}]
+            priority_shift = {{ priority_shift }}
+            index = {{ index }}
+        }
+    }
+{%- endmacro %}
 
 {% macro construction_list(resource,zone_type_set) -%}
 
@@ -74,58 +129,7 @@
         index = 4
     }
 
-    {% if resource == 'energy' %}
-    inline_script = {
-        script = bca_try_construct_unique_building_series_2
-        standard_production = bca_potential_standard_energy_production
-        building_1 = building_energy_grid
-        b1_inc_job = 0
-        b1_inc_add = 0
-        b1_inc_mult = 0.2
-        building_1_cost = @b1_time
-        building_2 = building_energy_nexus
-        b2_inc_job = 0
-        b2_inc_add = 2
-        b2_inc_mult = 0
-        building_2_cost = @b2_time
-        priority_shift = bca_non_job_provider_priority_shift
-        index = 5
-    }
-    {% elif resource == 'minerals' %}
-    inline_script = {
-        script = bca_try_construct_unique_building_series_2
-        standard_production = bca_potential_standard_minerals_production
-        building_1 = building_mineral_purification_plant
-        b1_inc_job = 0
-        b1_inc_add = 0
-        b1_inc_mult = 0.2
-        building_1_cost = @b1_time
-        building_2 = building_mineral_purification_hub
-        b2_inc_job = 0
-        b2_inc_add = 2
-        b2_inc_mult = 0
-        building_2_cost = @b2_time
-        priority_shift = bca_non_job_provider_priority_shift
-        index = 5
-    }
-    {% elif resource == 'food' %}
-    inline_script = {
-        script = bca_try_construct_unique_building_series_2
-        standard_production = bca_potential_standard_food_production
-        building_1 = building_food_processing_facility
-        b1_inc_job = 0
-        b1_inc_add = 0
-        b1_inc_mult = 0.2
-        building_1_cost = @b1_time
-        building_2 = building_food_processing_center
-        b2_inc_job = 0
-        b2_inc_add = 2
-        b2_inc_mult = 0
-        building_2_cost = @b2_time
-        priority_shift = bca_non_job_provider_priority_shift
-        index = 5
-    }
-    {% endif %}
+    {{ boost_building(resource) }}
 
 {%- endmacro %}
 
@@ -133,7 +137,141 @@
 {% set energy_zone_types = ['energy','wilderness_energy'] %}
 {% set minerals_zone_types = ['minerals','wilderness_minerals'] %}
 {% set food_zone_types = ['food','wilderness_food'] %}
-bca_resource_planet_controller = {
+{#bca_resource_planet_controller = {#}
+{#{% for i in range(3) %}#}
+{#{% set resource = ['energy','minerals','food'][i] %}#}
+{#{% set zone_type_set = [energy_zone_types, minerals_zone_types, food_zone_types][i] %}#}
+{##}
+{#{{ "if" if loop.first else "else_if" }} = {#}
+{#    limit = {#}
+{#        {{ ['has_generator_designation', 'has_mining_designation', 'has_farming_designation'][i] }} = yes#}
+{#    }#}
+{#    set_variable = {#}
+{#        which = bca_selected_index#}
+{#        value = -1#}
+{#    }#}
+{#    set_variable = {#}
+{#        which = bca_test_construction_metric_max#}
+{#        value = 0#}
+{#    }#}
+{#    set_variable = {#}
+{#        which = bca_test_construction_metric_max_index#}
+{#        value = -1#}
+{#    }#}
+{##}
+{#    if = {#}
+{#        limit = {#}
+{#            really_requires_more_job = no#}
+{#        }#}
+{#        set_variable = {#}
+{#            which = bca_non_job_provider_priority_shift#}
+{#            value = 100#}
+{#        }#}
+{#    }#}
+{#    else = {#}
+{#        set_variable = {#}
+{#            which = bca_non_job_provider_priority_shift#}
+{#            value = 0#}
+{#        }#}
+{#    }#}
+{##}
+{#    bca_opti_district_estimation_{{ resource }} = yes#}
+{##}
+{#    if = {#}
+{#        limit = {#}
+{#            NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }#}
+{#        }#}
+{#        {% for zone_slot in ['z3','z4','z5'] %}#}
+{#        {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}#}
+{#        if = {#}
+{#            limit = {#}
+{#                bca_has_advance_secondary_districts = yes#}
+{#            }#}
+{#            set_variable = {#}
+{#                which = {{v.var_district_num_plan(zone_slot)}}#}
+{#                value = 1#}
+{#            }#}
+{#        }#}
+{#        else = {#}
+{#            set_variable = {#}
+{#                which = {{v.var_district_num_plan(zone_slot)}}#}
+{#                value = 0#}
+{#            }#}
+{#        }#}
+{#        {% endfor %}#}
+{#    }#}
+{##}
+{#	set_variable = {#}
+{#		which = bca_current_production#}
+{#		value = value:bca_potential_standard_{{ resource }}_production#}
+{#	}#}
+{##}
+{#    {{ construction_list(resource,zone_type_set) }}#}
+{##}
+{#    set_variable = {#}
+{#        which = bca_selected_index#}
+{#        value = bca_test_construction_metric_max_index#}
+{#    }#}
+{##}
+{#    if = {#}
+{#        limit = { check_variable = { which = bca_selected_index value != -1 } }#}
+{#        {{ construction_list(resource,zone_type_set) }}#}
+{#    }#}
+{##}
+{#    if = {#}
+{#        limit = {#}
+{#            check_variable = {#}
+{#                which = bca_selected_index#}
+{#                value != -1#}
+{#            }#}
+{#        }#}
+{#        set_planet_flag = bca_pf_advance_controller_order#}
+{#    }#}
+{#    clear_variable = bca_selected_index#}
+{#    clear_variable = bca_non_job_provider_priority_shift#}
+{#    clear_variable = bca_current_production#}
+{#    clear_variable = bca_test_construction_metric_max#}
+{#    clear_variable = bca_test_construction_metric_max_index#}
+{#    clear_variable = bca_num_free_city_zones#}
+{##}
+{#}#}
+{##}
+{#{% endfor %}#}
+{#}#}
+
+
+bca_resource_planet_controller_district_only = {
+
+if = {
+    limit = {
+        bca_auto_district_manage_enabled = yes
+    }
+    if = {
+        limit = {
+            OR = {
+                has_planet_flag = bca_pf_can_build_extra_zones_for_storage
+                bca_has_advance_secondary_districts = yes
+            }
+        }
+        {% for zone_slot in ['z3','z4','z5'] %}
+        {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}
+        set_variable = {
+            which = {{v.var_district_num_plan(zone_slot)}}
+            value = 1
+        }
+        {% endfor %}
+    }
+    else = {
+        {% for zone_slot in ['z3','z4','z5'] %}
+        {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}
+        set_variable = {
+            which = {{v.var_district_num_plan(zone_slot)}}
+            value = 0
+        }
+        {% endfor %}
+    }
+}
+
 {% for i in range(3) %}
 {% set resource = ['energy','minerals','food'][i] %}
 {% set zone_type_set = [energy_zone_types, minerals_zone_types, food_zone_types][i] %}
@@ -142,94 +280,114 @@ bca_resource_planet_controller = {
     limit = {
         {{ ['has_generator_designation', 'has_mining_designation', 'has_farming_designation'][i] }} = yes
     }
-    set_variable = {
-        which = bca_selected_index
-        value = -1
-    }
-    set_variable = {
-        which = bca_test_construction_metric_max
-        value = 0
-    }
-    set_variable = {
-        which = bca_test_construction_metric_max_index
-        value = -1
-    }
 
     if = {
         limit = {
-            really_requires_more_job = no
+            requires_more_job = yes
         }
-        set_variable = {
-            which = bca_non_job_provider_priority_shift
-            value = 100
-        }
-    }
-    else = {
-        set_variable = {
-            which = bca_non_job_provider_priority_shift
-            value = 0
-        }
+        remove_all_zone_plan_flag = yes
     }
 
-    bca_opti_district_estimation_{{ resource }} = yes
-
-    if = {
+    {% for zone_slot in ['z3','z4','z5'] %}
+    {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}
+    {{ "if" if loop.first else "else_if" }} = {
         limit = {
-            NOT = { has_planet_flag = bca_pf_disable_auto_district_manage }
+            OR = {
+                {% for zone_type in zone_type_set %}
+                has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, zone_type) }}
+                {% endfor %}
+            }
         }
-        {% for zone_slot in ['z3','z4','z5'] %}
-        {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}
         if = {
             limit = {
-                bca_has_secondary_districts = yes
+                bca_auto_district_manage_enabled = yes
             }
             set_variable = {
                 which = {{v.var_district_num_plan(zone_slot)}}
-                value = 1
+                value = value:bca_potential_district_max_build_{{ district_slot }}
+            }
+            {% for other_zone_slot in ['z3','z4','z5'] %}
+            {% if other_zone_slot != zone_slot %}
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:bca_num_free_secondary_districts_plan
+                        value <= 0
+                    }
+                }
+                subtract_variable = {
+                    which = {{ v.var_district_num_plan(zone_slot) }}
+                    value = {{ v.var_district_num_plan(other_zone_slot) }}
+                }
+            }
+            {% endif %}
+            {% endfor %}
+        }
+        if = {
+            limit = {
+                requires_more_job = yes
+            }
+            {# secondary zone #}
+            # secondary zone
+            {% for zone_type in zone_type_set %}
+            {{ "if" if loop.first else "else_if" }} = {
+                limit = {
+                    has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, zone_type) }}
+                    check_variable_arithmetic = {
+                        which = value:num_district_{{ district_slot }}
+                        value > 0
+                    }
+                    check_variable_arithmetic = {
+                        which = value:num_secondary_zones_of_type_{{ zone_type }}
+                        value < value:num_secondary_zone_plan_of_type_{{ zone_type }}
+                    }
+                    OR = {
+                        {% for zone_group in zones_info %}
+                        {% if zone_group.type == zone_type %}
+                        {% for zone in zone_group.zones %}
+                        bca_can_build_{{ zone }} = yes
+                        {% endfor %}
+                        {% endif %}
+                        {% endfor %}
+                    }
+                }
+                set_planet_flag = {{ pf.flag_plan_build_secondary_zone_type(zone_type) }}
+                set_planet_flag = bca_plan_build_new_zone
+                set_planet_flag = bca_pf_advance_controller_order
+            }
+            {% endfor %}
+        }
+        {# secondary district #}
+        # secondary district
+        if = {
+            limit = {
+                bca_auto_district_manage_enabled = yes
+            }
+            if = {
+                limit = {
+                    free_district_slots > 0
+                    requires_more_job = yes
+                    NOT = { has_planet_flag = bca_pf_advance_controller_order }
+                }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_free_district_{{ district_slot }}
+                            value > 0
+                        }
+                    }
+                    set_planet_flag = {{ pf.flag_district_plan_build(district_slot) }}
+                    set_planet_flag = bca_pf_advance_controller_order
+                }
+                else = {
+                    set_planet_flag = {{ pf.flag_district_plan_build('d0') }}
+                }
             }
         }
-        else = {
-            set_variable = {
-                which = {{v.var_district_num_plan(zone_slot)}}
-                value = 0
-            }
-        }
-        {% endfor %}
+
+
     }
-
-	set_variable = {
-		which = bca_current_production
-		value = value:bca_potential_standard_{{ resource }}_production
-	}
-
-    {{ construction_list(resource,zone_type_set) }}
-
-    set_variable = {
-        which = bca_selected_index
-        value = bca_test_construction_metric_max_index
-    }
-
-    if = {
-        limit = { check_variable = { which = bca_selected_index value != -1 } }
-        {{ construction_list(resource,zone_type_set) }}
-    }
-
-    if = {
-        limit = {
-            check_variable = {
-                which = bca_selected_index
-                value != -1
-            }
-        }
-        set_planet_flag = bca_pf_advance_controller_order
-    }
-    clear_variable = bca_selected_index
-    clear_variable = bca_non_job_provider_priority_shift
-    clear_variable = bca_current_production
-    clear_variable = bca_test_construction_metric_max
-    clear_variable = bca_test_construction_metric_max_index
-    clear_variable = bca_num_free_city_zones
-
+    {% endfor %}
 }
 
 {% endfor %}

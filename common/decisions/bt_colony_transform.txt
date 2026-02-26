@@ -22,9 +22,6 @@ decision_colony_transform = {
 		remove_zone = { zone = zone_trade_arcology all = yes }
 
 		remove_zone = { zone = zone_urban all = yes }
-
-		remove_zone = { zone = zone_urban_energy all = yes }
-
 	}
 	ai_weight = {
 		weight = 0

@@ -45,8 +45,6 @@ bca_has_zone_plan = {
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_society
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_society
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_society
-        has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_society
-        has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_engineering
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_engineering
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_engineering
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_engineering
@@ -80,7 +78,7 @@ bca_has_zone_plan = {
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_trophy_hunter
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_healthcare
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_duelist
-        has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_energy
+        has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_knight_commander
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_energy
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_energy
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_energy
@@ -91,8 +89,6 @@ bca_has_zone_plan = {
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_minerals
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_minerals
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_minerals
-        has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_minerals
-        has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_food
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_food
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_food
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_food
@@ -106,8 +102,12 @@ bca_has_zone_plan = {
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_exotic_gases
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_exotic_gases
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_angler
+        has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_agrarian
+        has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_hydroponics
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_spawning
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_spawning
+        has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_machine_replication
+        has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_urban
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_foundry
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_research
         has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_unity
@@ -342,10 +342,6 @@ bca_designation_changed = {
         AND = {
             has_designation = col_penal
             NOT = { has_planet_flag = bca_pf_ps_designation_col_penal }
-        }
-        AND = {
-            has_designation = col_gestation
-            NOT = { has_planet_flag = bca_pf_ps_designation_col_gestation }
         }
         AND = {
             has_designation = col_pre_ftl_atomic
@@ -630,6 +626,15 @@ bca_has_any_planted_zone_of_type_duelist = {
         has_planet_flag = bca_pf_ps_selected_zone_type_z5_duelist
     }
 }
+bca_has_any_planted_zone_of_type_knight_commander = {
+    OR = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_knight_commander
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_knight_commander
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_knight_commander
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_knight_commander
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_knight_commander
+    }
+}
 bca_has_any_planted_zone_of_type_energy = {
     OR = {
         has_planet_flag = bca_pf_ps_selected_zone_type_z1_energy
@@ -702,6 +707,24 @@ bca_has_any_planted_zone_of_type_angler = {
         has_planet_flag = bca_pf_ps_selected_zone_type_z5_angler
     }
 }
+bca_has_any_planted_zone_of_type_agrarian = {
+    OR = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_agrarian
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_agrarian
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_agrarian
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_agrarian
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_agrarian
+    }
+}
+bca_has_any_planted_zone_of_type_hydroponics = {
+    OR = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_hydroponics
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_hydroponics
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_hydroponics
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_hydroponics
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_hydroponics
+    }
+}
 bca_has_any_planted_zone_of_type_spawning = {
     OR = {
         has_planet_flag = bca_pf_ps_selected_zone_type_z1_spawning
@@ -709,6 +732,24 @@ bca_has_any_planted_zone_of_type_spawning = {
         has_planet_flag = bca_pf_ps_selected_zone_type_z3_spawning
         has_planet_flag = bca_pf_ps_selected_zone_type_z4_spawning
         has_planet_flag = bca_pf_ps_selected_zone_type_z5_spawning
+    }
+}
+bca_has_any_planted_zone_of_type_machine_replication = {
+    OR = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_machine_replication
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_machine_replication
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_machine_replication
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_machine_replication
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_machine_replication
+    }
+}
+bca_has_any_planted_zone_of_type_wilderness_urban = {
+    OR = {
+        has_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_urban
+        has_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_urban
+        has_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_urban
+        has_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_urban
+        has_planet_flag = bca_pf_ps_selected_zone_type_z5_wilderness_urban
     }
 }
 bca_has_any_planted_zone_of_type_wilderness_foundry = {
@@ -834,528 +875,29 @@ bca_has_district_d3 = {
     }
 }
 
+
 bca_district_d0_reach_planet_max = {
-    if = {
-        limit = { has_district = district_mindlink }
-        bca_district_reach_planet_max = {
-            type = district_mindlink
-        }
-    }
-    else_if = {
-        limit = { has_district = district_city }
-        bca_district_reach_planet_max = {
-            type = district_city
-        }
-    }
-    else_if = {
-        limit = { has_district = district_resort }
-        bca_district_reach_planet_max = {
-            type = district_resort
-        }
-    }
-    else_if = {
-        limit = { has_district = district_prison }
-        bca_district_reach_planet_max = {
-            type = district_prison
-        }
-    }
-    else_if = {
-        limit = { has_district = district_slave }
-        bca_district_reach_planet_max = {
-            type = district_slave
-        }
-    }
-    else_if = {
-        limit = { has_district = district_hive }
-        bca_district_reach_planet_max = {
-            type = district_hive
-        }
-    }
-    else_if = {
-        limit = { has_district = district_nexus }
-        bca_district_reach_planet_max = {
-            type = district_nexus
-        }
-    }
-    else_if = {
-        limit = { has_district = district_prison_industrial }
-        bca_district_reach_planet_max = {
-            type = district_prison_industrial
-        }
-    }
-    else_if = {
-        limit = { has_district = district_battle_thrall }
-        bca_district_reach_planet_max = {
-            type = district_battle_thrall
-        }
-    }
-    else_if = {
-        limit = { has_district = district_arcology_housing }
-        bca_district_reach_planet_max = {
-            type = district_arcology_housing
-        }
-    }
-    else_if = {
-        limit = { has_district = district_arcology_leisure }
-        bca_district_reach_planet_max = {
-            type = district_arcology_leisure
-        }
-    }
-    else_if = {
-        limit = { has_district = district_hab_housing }
-        bca_district_reach_planet_max = {
-            type = district_hab_housing
-        }
-    }
-    else_if = {
-        limit = { has_district = district_rw_city }
-        bca_district_reach_planet_max = {
-            type = district_rw_city
-        }
-    }
-    else_if = {
-        limit = { has_district = district_rw_hive }
-        bca_district_reach_planet_max = {
-            type = district_rw_hive
-        }
-    }
-    else_if = {
-        limit = { has_district = district_rw_nexus }
-        bca_district_reach_planet_max = {
-            type = district_rw_nexus
-        }
-    }
-    else_if = {
-        limit = { has_district = district_craglands }
-        bca_district_reach_planet_max = {
-            type = district_craglands
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_mindlink = yes }
-        bca_district_reach_planet_max = {
-            type = district_mindlink
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_city = yes }
-        bca_district_reach_planet_max = {
-            type = district_city
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_resort = yes }
-        bca_district_reach_planet_max = {
-            type = district_resort
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_prison = yes }
-        bca_district_reach_planet_max = {
-            type = district_prison
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_slave = yes }
-        bca_district_reach_planet_max = {
-            type = district_slave
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_hive = yes }
-        bca_district_reach_planet_max = {
-            type = district_hive
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_nexus = yes }
-        bca_district_reach_planet_max = {
-            type = district_nexus
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_prison_industrial = yes }
-        bca_district_reach_planet_max = {
-            type = district_prison_industrial
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_battle_thrall = yes }
-        bca_district_reach_planet_max = {
-            type = district_battle_thrall
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_arcology_housing = yes }
-        bca_district_reach_planet_max = {
-            type = district_arcology_housing
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_arcology_leisure = yes }
-        bca_district_reach_planet_max = {
-            type = district_arcology_leisure
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_hab_housing = yes }
-        bca_district_reach_planet_max = {
-            type = district_hab_housing
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_rw_city = yes }
-        bca_district_reach_planet_max = {
-            type = district_rw_city
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_rw_hive = yes }
-        bca_district_reach_planet_max = {
-            type = district_rw_hive
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_rw_nexus = yes }
-        bca_district_reach_planet_max = {
-            type = district_rw_nexus
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_craglands = yes }
-        bca_district_reach_planet_max = {
-            type = district_craglands
-        }
+    check_variable_arithmetic = {
+        which = value:bca_planet_max_districts
+        value = value:num_primary_district
     }
 }
 bca_district_d1_reach_planet_max = {
-    if = {
-        limit = { has_district = district_resort_1 }
-        bca_district_reach_planet_max = {
-            type = district_resort_1
-        }
-    }
-    else_if = {
-        limit = { has_district = district_hive_1 }
-        bca_district_reach_planet_max = {
-            type = district_hive_1
-        }
-    }
-    else_if = {
-        limit = { has_district = district_nexus_1 }
-        bca_district_reach_planet_max = {
-            type = district_nexus_1
-        }
-    }
-    else_if = {
-        limit = { has_district = district_arcology_urban_1 }
-        bca_district_reach_planet_max = {
-            type = district_arcology_urban_1
-        }
-    }
-    else_if = {
-        limit = { has_district = district_rw_urban_1 }
-        bca_district_reach_planet_max = {
-            type = district_rw_urban_1
-        }
-    }
-    else_if = {
-        limit = { has_district = district_generator }
-        bca_district_reach_planet_max = {
-            type = district_generator
-        }
-    }
-    else_if = {
-        limit = { has_district = district_geothermal }
-        bca_district_reach_planet_max = {
-            type = district_geothermal
-        }
-    }
-    else_if = {
-        limit = { has_district = district_hab_energy }
-        bca_district_reach_planet_max = {
-            type = district_hab_energy
-        }
-    }
-    else_if = {
-        limit = { has_district = district_photosynthesis_fields }
-        bca_district_reach_planet_max = {
-            type = district_photosynthesis_fields
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_resort_1 = yes }
-        bca_district_reach_planet_max = {
-            type = district_resort_1
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_hive_1 = yes }
-        bca_district_reach_planet_max = {
-            type = district_hive_1
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_nexus_1 = yes }
-        bca_district_reach_planet_max = {
-            type = district_nexus_1
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_arcology_urban_1 = yes }
-        bca_district_reach_planet_max = {
-            type = district_arcology_urban_1
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_rw_urban_1 = yes }
-        bca_district_reach_planet_max = {
-            type = district_rw_urban_1
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_generator = yes }
-        bca_district_reach_planet_max = {
-            type = district_generator
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_geothermal = yes }
-        bca_district_reach_planet_max = {
-            type = district_geothermal
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_hab_energy = yes }
-        bca_district_reach_planet_max = {
-            type = district_hab_energy
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_photosynthesis_fields = yes }
-        bca_district_reach_planet_max = {
-            type = district_photosynthesis_fields
-        }
+    check_variable_arithmetic = {
+        which = value:num_district_d1
+        value = value:bca_district_max_add_d1
     }
 }
 bca_district_d2_reach_planet_max = {
-    if = {
-        limit = { has_district = district_resort_2 }
-        bca_district_reach_planet_max = {
-            type = district_resort_2
-        }
-    }
-    else_if = {
-        limit = { has_district = district_hive_2 }
-        bca_district_reach_planet_max = {
-            type = district_hive_2
-        }
-    }
-    else_if = {
-        limit = { has_district = district_nexus_2 }
-        bca_district_reach_planet_max = {
-            type = district_nexus_2
-        }
-    }
-    else_if = {
-        limit = { has_district = district_arcology_urban_2 }
-        bca_district_reach_planet_max = {
-            type = district_arcology_urban_2
-        }
-    }
-    else_if = {
-        limit = { has_district = district_rw_urban_2 }
-        bca_district_reach_planet_max = {
-            type = district_rw_urban_2
-        }
-    }
-    else_if = {
-        limit = { has_district = district_mining }
-        bca_district_reach_planet_max = {
-            type = district_mining
-        }
-    }
-    else_if = {
-        limit = { has_district = district_melting }
-        bca_district_reach_planet_max = {
-            type = district_melting
-        }
-    }
-    else_if = {
-        limit = { has_district = district_hab_mining }
-        bca_district_reach_planet_max = {
-            type = district_hab_mining
-        }
-    }
-    else_if = {
-        limit = { has_district = district_hollow_mountains }
-        bca_district_reach_planet_max = {
-            type = district_hollow_mountains
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_resort_2 = yes }
-        bca_district_reach_planet_max = {
-            type = district_resort_2
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_hive_2 = yes }
-        bca_district_reach_planet_max = {
-            type = district_hive_2
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_nexus_2 = yes }
-        bca_district_reach_planet_max = {
-            type = district_nexus_2
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_arcology_urban_2 = yes }
-        bca_district_reach_planet_max = {
-            type = district_arcology_urban_2
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_rw_urban_2 = yes }
-        bca_district_reach_planet_max = {
-            type = district_rw_urban_2
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_mining = yes }
-        bca_district_reach_planet_max = {
-            type = district_mining
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_melting = yes }
-        bca_district_reach_planet_max = {
-            type = district_melting
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_hab_mining = yes }
-        bca_district_reach_planet_max = {
-            type = district_hab_mining
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_hollow_mountains = yes }
-        bca_district_reach_planet_max = {
-            type = district_hollow_mountains
-        }
+    check_variable_arithmetic = {
+        which = value:num_district_d2
+        value = value:bca_district_max_add_d2
     }
 }
 bca_district_d3_reach_planet_max = {
-    if = {
-        limit = { has_district = district_resort_3 }
-        bca_district_reach_planet_max = {
-            type = district_resort_3
-        }
-    }
-    else_if = {
-        limit = { has_district = district_hive_3 }
-        bca_district_reach_planet_max = {
-            type = district_hive_3
-        }
-    }
-    else_if = {
-        limit = { has_district = district_nexus_3 }
-        bca_district_reach_planet_max = {
-            type = district_nexus_3
-        }
-    }
-    else_if = {
-        limit = { has_district = district_arcology_urban_3 }
-        bca_district_reach_planet_max = {
-            type = district_arcology_urban_3
-        }
-    }
-    else_if = {
-        limit = { has_district = district_rw_urban_3 }
-        bca_district_reach_planet_max = {
-            type = district_rw_urban_3
-        }
-    }
-    else_if = {
-        limit = { has_district = district_farming }
-        bca_district_reach_planet_max = {
-            type = district_farming
-        }
-    }
-    else_if = {
-        limit = { has_district = district_polytechnic }
-        bca_district_reach_planet_max = {
-            type = district_polytechnic
-        }
-    }
-    else_if = {
-        limit = { has_district = district_hab_science }
-        bca_district_reach_planet_max = {
-            type = district_hab_science
-        }
-    }
-    else_if = {
-        limit = { has_district = district_orchard_forests }
-        bca_district_reach_planet_max = {
-            type = district_orchard_forests
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_resort_3 = yes }
-        bca_district_reach_planet_max = {
-            type = district_resort_3
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_hive_3 = yes }
-        bca_district_reach_planet_max = {
-            type = district_hive_3
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_nexus_3 = yes }
-        bca_district_reach_planet_max = {
-            type = district_nexus_3
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_arcology_urban_3 = yes }
-        bca_district_reach_planet_max = {
-            type = district_arcology_urban_3
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_rw_urban_3 = yes }
-        bca_district_reach_planet_max = {
-            type = district_rw_urban_3
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_farming = yes }
-        bca_district_reach_planet_max = {
-            type = district_farming
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_polytechnic = yes }
-        bca_district_reach_planet_max = {
-            type = district_polytechnic
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_hab_science = yes }
-        bca_district_reach_planet_max = {
-            type = district_hab_science
-        }
-    }
-    else_if = {
-        limit = { bca_can_build_district_orchard_forests = yes }
-        bca_district_reach_planet_max = {
-            type = district_orchard_forests
-        }
+    check_variable_arithmetic = {
+        which = value:num_district_d3
+        value = value:bca_district_max_add_d3
     }
 }
 

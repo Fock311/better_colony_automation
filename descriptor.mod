@@ -1,4 +1,4 @@
-version="1.0.2"
+version="1.1.0"
 tags={
 	"Buildings"
 	"Fixes"
@@ -7,6 +7,6 @@ tags={
 	"Gameplay"
 }
 picture="thumbnail.png"
-name="[4.2] Better Colony Automation : Fix and Improve Colony Automation"
-supported_version="v4.2.*"
+name="[4.3] Better Colony Automation : Fix and Improve Colony Automation"
+supported_version="v4.3.*"
 remote_file_id="3601183337"

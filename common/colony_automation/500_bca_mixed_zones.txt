@@ -173,7 +173,6 @@ bca_mix_primary_zone_build_physics = {
 
 	prio_zones = {
 		zone_research_physics
-		zone_energy_physics
 	}
 }
 bca_mix_secondary_zone_build_physics = {
@@ -186,7 +185,7 @@ bca_mix_secondary_zone_build_physics = {
 
 	prio_zones = {
 		zone_research_physics
-		zone_energy_physics
+		zone_minerals_physics
 		zone_research_physics_arcology
 		zone_research_physics_ring_world
 		zone_research_physics_nexus
@@ -203,7 +202,6 @@ bca_mix_primary_zone_build_society = {
 
 	prio_zones = {
 		zone_research_society
-		zone_food_biology
 	}
 }
 bca_mix_secondary_zone_build_society = {
@@ -216,7 +214,6 @@ bca_mix_secondary_zone_build_society = {
 
 	prio_zones = {
 		zone_research_society
-		zone_food_biology
 		zone_research_society_arcology
 		zone_research_society_ring_world
 		zone_research_society_nexus
@@ -233,7 +230,6 @@ bca_mix_primary_zone_build_engineering = {
 
 	prio_zones = {
 		zone_research_engineering
-		zone_minerals_engineering
 	}
 }
 bca_mix_secondary_zone_build_engineering = {
@@ -246,7 +242,6 @@ bca_mix_secondary_zone_build_engineering = {
 
 	prio_zones = {
 		zone_research_engineering
-		zone_minerals_engineering
 		zone_research_engineering_arcology
 		zone_research_engineering_ring_world
 		zone_research_engineering_nexus
@@ -451,16 +446,16 @@ bca_mix_secondary_zone_build_duelist = {
 		zone_resort_proving_grounds
 	}
 }
-bca_mix_primary_zone_build_energy = {
+bca_mix_primary_zone_build_knight_commander = {
 	category = "planet_automation_designation_construction"
 
 	available = {
         bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_energy
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_knight_commander
 	}
 
 	prio_zones = {
-		zone_urban_energy
+		zone_habitat_knights
 	}
 }
 bca_mix_secondary_zone_build_energy = {
@@ -492,18 +487,6 @@ bca_mix_secondary_zone_build_betharian = {
 		zone_betharian_hive
 	}
 }
-bca_mix_primary_zone_build_minerals = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_minerals
-	}
-
-	prio_zones = {
-		zone_urban_minerals
-	}
-}
 bca_mix_secondary_zone_build_minerals = {
 	category = "planet_automation_designation_construction"
 
@@ -516,18 +499,6 @@ bca_mix_secondary_zone_build_minerals = {
 		zone_minerals
 		zone_minerals_nexus
 		zone_minerals_hive
-	}
-}
-bca_mix_primary_zone_build_food = {
-	category = "planet_automation_designation_construction"
-
-	available = {
-        bca_has_minerals_to_build = yes
-        has_planet_flag = bca_pf_plan_build_primary_zone_type_food
-	}
-
-	prio_zones = {
-		zone_urban_food
 	}
 }
 bca_mix_secondary_zone_build_food = {
@@ -598,6 +569,30 @@ bca_mix_secondary_zone_build_angler = {
 		zone_anglers
 	}
 }
+bca_mix_secondary_zone_build_agrarian = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_agrarian
+	}
+
+	prio_zones = {
+		zone_agrarian_urban
+	}
+}
+bca_mix_secondary_zone_build_hydroponics = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_secondary_zone_type_hydroponics
+	}
+
+	prio_zones = {
+		zone_habitat_hydroponics
+	}
+}
 bca_mix_primary_zone_build_spawning = {
 	category = "planet_automation_designation_construction"
 
@@ -620,6 +615,30 @@ bca_mix_secondary_zone_build_spawning = {
 
 	prio_zones = {
 		zone_spawning_hive
+	}
+}
+bca_mix_primary_zone_build_machine_replication = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_machine_replication
+	}
+
+	prio_zones = {
+		zone_machine_replication
+	}
+}
+bca_mix_primary_zone_build_wilderness_urban = {
+	category = "planet_automation_designation_construction"
+
+	available = {
+        bca_has_minerals_to_build = yes
+        has_planet_flag = bca_pf_plan_build_primary_zone_type_wilderness_urban
+	}
+
+	prio_zones = {
+		zone_urban_wilderness
 	}
 }
 bca_mix_primary_zone_build_wilderness_foundry = {

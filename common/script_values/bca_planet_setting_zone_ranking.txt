@@ -207,9 +207,17 @@ bca_planet_setting_zone_rank_duelist = {
         add = 500
     }
 }
-bca_planet_setting_zone_rank_energy = {
+bca_planet_setting_zone_rank_knight_commander = {
     base = 1000
     subtract = 20
+    modifier = {
+        always = yes
+        add = 250
+    }
+}
+bca_planet_setting_zone_rank_energy = {
+    base = 1000
+    subtract = 21
     modifier = {
         has_generator_designation = yes
         add = 1000
@@ -221,7 +229,7 @@ bca_planet_setting_zone_rank_energy = {
 }
 bca_planet_setting_zone_rank_betharian = {
     base = 1000
-    subtract = 21
+    subtract = 22
     modifier = {
         has_generator_designation = yes
         add = 1500
@@ -233,7 +241,7 @@ bca_planet_setting_zone_rank_betharian = {
 }
 bca_planet_setting_zone_rank_minerals = {
     base = 1000
-    subtract = 22
+    subtract = 23
     modifier = {
         has_mining_designation = yes
         add = 1000
@@ -245,7 +253,7 @@ bca_planet_setting_zone_rank_minerals = {
 }
 bca_planet_setting_zone_rank_food = {
     base = 1000
-    subtract = 23
+    subtract = 24
     modifier = {
         has_farming_designation = yes
         add = 1000
@@ -257,7 +265,7 @@ bca_planet_setting_zone_rank_food = {
 }
 bca_planet_setting_zone_rank_rare_crystals = {
     base = 1000
-    subtract = 24
+    subtract = 25
     modifier = {
         has_generator_designation = yes
         add = 600
@@ -269,7 +277,7 @@ bca_planet_setting_zone_rank_rare_crystals = {
 }
 bca_planet_setting_zone_rank_volatile_motes = {
     base = 1000
-    subtract = 25
+    subtract = 26
     modifier = {
         has_mining_designation = yes
         add = 600
@@ -281,7 +289,7 @@ bca_planet_setting_zone_rank_volatile_motes = {
 }
 bca_planet_setting_zone_rank_exotic_gases = {
     base = 1000
-    subtract = 26
+    subtract = 27
     modifier = {
         has_farming_designation = yes
         add = 600
@@ -293,7 +301,31 @@ bca_planet_setting_zone_rank_exotic_gases = {
 }
 bca_planet_setting_zone_rank_angler = {
     base = 1000
-    subtract = 27
+    subtract = 28
+    modifier = {
+        has_farming_designation = yes
+        add = 1000
+    }
+    modifier = {
+        bca_in_secondary_selector = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_agrarian = {
+    base = 1000
+    subtract = 29
+    modifier = {
+        has_farming_designation = yes
+        add = 1000
+    }
+    modifier = {
+        bca_in_secondary_selector = yes
+        add = 500
+    }
+}
+bca_planet_setting_zone_rank_hydroponics = {
+    base = 1000
+    subtract = 30
     modifier = {
         has_farming_designation = yes
         add = 1000
@@ -305,7 +337,7 @@ bca_planet_setting_zone_rank_angler = {
 }
 bca_planet_setting_zone_rank_spawning = {
     base = 1000
-    subtract = 28
+    subtract = 31
     modifier = {
         has_designation = col_hive
         add = 750
@@ -318,10 +350,30 @@ bca_planet_setting_zone_rank_spawning = {
         has_designation = col_hiv
         add = 800
     }
+    modifier = {
+        always = yes
+        add = 250
+    }
+}
+bca_planet_setting_zone_rank_machine_replication = {
+    base = 1000
+    subtract = 32
+    modifier = {
+        always = yes
+        add = 250
+    }
+}
+bca_planet_setting_zone_rank_wilderness_urban = {
+    base = 1000
+    subtract = 33
+    modifier = {
+        always = yes
+        add = -1000
+    }
 }
 bca_planet_setting_zone_rank_wilderness_foundry = {
     base = 1000
-    subtract = 29
+    subtract = 34
     modifier = {
         has_designation = col_wilderness_forge
         add = 1000
@@ -341,7 +393,7 @@ bca_planet_setting_zone_rank_wilderness_foundry = {
 }
 bca_planet_setting_zone_rank_wilderness_research = {
     base = 1000
-    subtract = 30
+    subtract = 35
     modifier = {
         has_designation = col_wilderness_tech
         add = 1000
@@ -357,7 +409,7 @@ bca_planet_setting_zone_rank_wilderness_research = {
 }
 bca_planet_setting_zone_rank_wilderness_unity = {
     base = 1000
-    subtract = 31
+    subtract = 36
     modifier = {
         has_designation = col_wilderness_capital
         add = 1000
@@ -373,7 +425,7 @@ bca_planet_setting_zone_rank_wilderness_unity = {
 }
 bca_planet_setting_zone_rank_wilderness_spawning = {
     base = 1000
-    subtract = 32
+    subtract = 37
     modifier = {
         has_designation = col_wilderness_nest
         add = 1000
@@ -393,7 +445,7 @@ bca_planet_setting_zone_rank_wilderness_spawning = {
 }
 bca_planet_setting_zone_rank_wilderness_trade = {
     base = 1000
-    subtract = 33
+    subtract = 38
     modifier = {
         has_designation = col_wilderness_capital
         add = 900
@@ -409,7 +461,7 @@ bca_planet_setting_zone_rank_wilderness_trade = {
 }
 bca_planet_setting_zone_rank_wilderness_fortress = {
     base = 1000
-    subtract = 34
+    subtract = 39
     modifier = {
         has_designation = col_wilderness_fortress
         add = 1000
@@ -425,7 +477,7 @@ bca_planet_setting_zone_rank_wilderness_fortress = {
 }
 bca_planet_setting_zone_rank_wilderness_minerals = {
     base = 1000
-    subtract = 35
+    subtract = 40
     modifier = {
         has_designation = col_wilderness_mining
         add = 1000
@@ -445,7 +497,7 @@ bca_planet_setting_zone_rank_wilderness_minerals = {
 }
 bca_planet_setting_zone_rank_wilderness_energy = {
     base = 1000
-    subtract = 36
+    subtract = 41
     modifier = {
         has_designation = col_wilderness_generator
         add = 1000
@@ -461,7 +513,7 @@ bca_planet_setting_zone_rank_wilderness_energy = {
 }
 bca_planet_setting_zone_rank_wilderness_food = {
     base = 1000
-    subtract = 37
+    subtract = 42
     modifier = {
         has_designation = col_wilderness_farming
         add = 1000

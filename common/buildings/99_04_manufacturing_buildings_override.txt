@@ -445,8 +445,8 @@ building_ministry_production = {
 	}
 
 	planet_modifier = {
-		planet_metallurgists_produces_mult = 0.15
-		planet_artisans_produces_mult = 0.15
+		planet_metallurgists_alloys_produces_add = 0.1
+		planet_artisans_consumer_goods_produces_add = 0.1
 	}
 
 	resources = {
@@ -517,17 +517,8 @@ building_production_center = {
 	}
 
 	planet_modifier = {
-		planet_metallurgists_produces_mult = 0.15
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			exists = owner
-			owner = {
-				country_uses_consumer_goods = yes
-			}
-		}
-		planet_artisans_produces_mult = 0.15
+		planet_metallurgists_alloys_produces_add = 0.1
+		planet_artisans_consumer_goods_produces_add = 0.1
 	}
 
 	resources = {
@@ -612,7 +603,7 @@ building_foundry_upkeep_1 = {
 	}
 
 	planet_modifier = {
-		planet_metallurgists_upkeep_mult = -0.20
+		planet_metallurgists_upkeep_mult = -0.10
 	}
 
 	ai_resource_production = {
@@ -709,26 +700,8 @@ building_foundry_efficiency_1 = {
 		tech_alloys_2
 	}
 
-	triggered_planet_modifier = {
-		potential = {
-			has_ringworld_output_boost = yes
-			industrial_jobs_are_catalytic_trigger = no
-		}
-		planet_metallurgists_alloys_produces_add = 1
-		planet_metallurgists_minerals_upkeep_add = 2
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			has_ringworld_output_boost = yes
-			industrial_jobs_are_catalytic_trigger = yes
-		}
-		planet_metallurgists_alloys_produces_add = 1.25
-		planet_metallurgists_food_upkeep_add = 3
-	}
-
 	planet_modifier = {
-		foundry_jobs_bonus_workforce_mult = 0.15
+		foundry_jobs_bonus_workforce_mult = 0.05
 	}
 
 	ai_resource_production = {
@@ -790,7 +763,7 @@ building_factory_upkeep_1 = {
 	}
 
 	planet_modifier = {
-		planet_artisans_upkeep_mult = -0.20
+		planet_artisans_upkeep_mult = -0.10
 	}
 
 	ai_resource_production = {
@@ -888,25 +861,7 @@ building_factory_efficiency_1 = {
 	}
 
 	planet_modifier = {
-		artisan_jobs_bonus_workforce_mult = 0.15
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			has_ringworld_output_boost = yes
-			industrial_jobs_are_catalytic_trigger = no
-		}
-		planet_artisans_consumer_goods_produces_add = 1
-		planet_artisans_minerals_upkeep_add = 1
-	}
-
-	triggered_planet_modifier = {
-		potential = {
-			has_ringworld_output_boost = yes
-			industrial_jobs_are_catalytic_trigger = yes
-		}
-		planet_artisans_consumer_goods_produces_add = 1.25
-		planet_artisans_food_upkeep_add = 1.5
+		artisan_jobs_bonus_workforce_mult = 0.05
 	}
 
 	ai_resource_production = {

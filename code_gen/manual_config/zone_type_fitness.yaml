@@ -1,0 +1,180 @@
+zone_type_fitness:
+- type: urban
+  fitness_trigger:
+    always: -200
+- type: trade
+  fitness_trigger:
+    has_trade_designation: 200
+- type: industrial
+  fitness_trigger:
+    has_industrial_designation: 200
+    has_factory_designation: 100
+    has_foundry_designation: 100
+- type: foundry
+  fitness_trigger:
+    has_foundry_designation: 200
+    has_industrial_designation: 150
+    has_factory_designation: 100
+- type: factory
+  fitness_trigger:
+    has_factory_designation: 200
+    has_industrial_designation: 150
+    has_foundry_designation: 100
+- type: research
+  fitness_trigger:
+    has_research_designation: 200
+- type: physics
+  fitness_trigger:
+    has_research_designation: 200
+- type: society
+  fitness_trigger:
+    has_research_designation: 200
+- type: engineering
+  fitness_trigger:
+    has_research_designation: 200
+- type: bureaucrat
+  fitness_trigger:
+    has_unity_designation: 150
+    has_research_designation: 150
+- type: unity
+  fitness_trigger:
+    has_unity_designation: 200
+- type: priest
+  fitness_trigger:
+    has_unity_designation: 200
+- type: fortress
+  fitness_trigger:
+    has_fortress_designation: 200
+- type: resort
+  fitness:
+    col_resort: 200
+    col_pleasure: 180
+    col_habitat_trade: 80
+- type: entertainer
+  fitness:
+    col_resort: 180
+    col_pleasure: 160
+- type: zoo
+  fitness:
+    col_resort: 150
+    col_trophy_machine: 120
+- type: culture_worker
+  fitness:
+    col_resort: 150
+- type: trophy_hunter
+  fitness:
+    col_trophy_machine: 180
+- type: healthcare
+  fitness:
+    col_resort: 120
+- type: duelist
+  fitness:
+    col_fortress: 80
+    col_resort: 100
+- type: knight_commander
+  fitness_trigger:
+    always: 50
+# secondary types
+- type: energy
+  fitness_trigger:
+    has_generator_designation: 200
+    bca_in_secondary_selector: 100
+- type: betharian
+  fitness_trigger:
+    has_generator_designation: 300
+    bca_in_secondary_selector: 100
+- type: minerals
+  fitness_trigger:
+    has_mining_designation: 200
+    bca_in_secondary_selector: 100
+- type: food
+  fitness_trigger:
+    has_farming_designation: 200
+    bca_in_secondary_selector: 100
+- type: rare_crystals
+  fitness_trigger:
+    has_generator_designation: 120
+    bca_in_secondary_selector: 100
+- type: volatile_motes
+  fitness_trigger:
+    has_mining_designation: 120
+    bca_in_secondary_selector: 100
+- type: exotic_gases
+  fitness_trigger:
+    has_farming_designation: 120
+    bca_in_secondary_selector: 100
+- type: angler
+  fitness_trigger:
+    has_farming_designation: 200
+    bca_in_secondary_selector: 100
+- type: agrarian
+  fitness_trigger:
+    has_farming_designation: 200
+    bca_in_secondary_selector: 100
+- type: hydroponics
+  fitness_trigger:
+    has_farming_designation: 200
+    bca_in_secondary_selector: 100
+# swarm types
+- type: spawning
+  fitness:
+    col_hive: 150
+    col_capital_hive: 180
+    col_hiv: 160
+  fitness_trigger:
+    always: 50
+- type: machine_replication
+  fitness_trigger:
+    always: 50
+# wilderness types
+- type: wilderness_urban
+  fitness_trigger:
+    always: -200
+- type: wilderness_foundry
+  fitness:
+    col_wilderness_forge: 200
+    col_wilderness_refinery: 180
+    col_wilderness_capital: 120
+    col_capital_foundry: 100
+- type: wilderness_research
+  fitness:
+    col_wilderness_tech: 200
+    col_wilderness_capital: 120
+    col_wilderness_unification: 100
+- type: wilderness_unity
+  fitness:
+    col_wilderness_capital: 200
+    col_bureau: 140
+    col_wilderness_nest: 120
+- type: wilderness_spawning
+  fitness:
+    col_wilderness_nest: 200
+    col_hive: 150
+    col_wilderness_capital: 120
+    col_capital_hive: 100
+- type: wilderness_trade
+  fitness:
+    col_wilderness_capital: 180
+    col_city: 140
+    col_wilderness_unification: 120
+- type: wilderness_fortress
+  fitness:
+    col_wilderness_fortress: 200
+    col_fortress: 150
+    col_wilderness_capital: 100
+- type: wilderness_minerals
+  fitness:
+    col_wilderness_mining: 200
+    col_mining: 150
+    col_wilderness_capital: 100
+    col_capital_extraction: 120
+- type: wilderness_energy
+  fitness:
+    col_wilderness_generator: 200
+    col_generator: 150
+    col_wilderness_capital: 100
+- type: wilderness_food
+  fitness:
+    col_wilderness_farming: 200
+    col_farming: 150
+    col_wilderness_capital: 100

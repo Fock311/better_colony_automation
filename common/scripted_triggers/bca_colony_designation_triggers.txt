@@ -84,7 +84,7 @@ has_any_unity_designation = {
 
 
 
-bca_has_secondary_districts = {
+bca_has_advance_secondary_districts = {
     OR = {
         uses_district_set = city_world
         uses_district_set = ring_world

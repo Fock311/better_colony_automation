@@ -290,9 +290,9 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals_physics
         }
         if = {
             limit = {
@@ -332,12 +332,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_society_arcology
@@ -371,12 +365,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -639,6 +627,18 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z1_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z1_energy
@@ -647,12 +647,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_energy
         }
         if = {
             limit = {
@@ -710,12 +704,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals_nexus
@@ -737,12 +725,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_food
         }
         if = {
             limit = {
@@ -843,6 +825,30 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z1_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z1_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z1_spawning
@@ -857,6 +863,30 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z1_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_wilderness
         }
     }
     if = {
@@ -1213,9 +1243,9 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals_physics
         }
         if = {
             limit = {
@@ -1255,12 +1285,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_society_arcology
@@ -1294,12 +1318,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -1562,6 +1580,18 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z2_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z2_energy
@@ -1570,12 +1600,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_energy
         }
         if = {
             limit = {
@@ -1633,12 +1657,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals_nexus
@@ -1660,12 +1678,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_food
         }
         if = {
             limit = {
@@ -1766,6 +1778,30 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z2_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z2_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z2_spawning
@@ -1780,6 +1816,30 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z2_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_wilderness
         }
     }
     if = {
@@ -2136,9 +2196,9 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_physics
         }
         if = {
             limit = {
@@ -2178,12 +2238,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_society_arcology
@@ -2217,12 +2271,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -2485,6 +2533,18 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z3_energy
@@ -2493,12 +2553,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_energy
         }
         if = {
             limit = {
@@ -2556,12 +2610,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_nexus
@@ -2583,12 +2631,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_food
         }
         if = {
             limit = {
@@ -2689,6 +2731,30 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z3_spawning
@@ -2703,6 +2769,30 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_wilderness
         }
     }
     if = {
@@ -3060,9 +3150,9 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_physics
         }
         if = {
             limit = {
@@ -3102,12 +3192,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_society_arcology
@@ -3141,12 +3225,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -3409,6 +3487,18 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z4_energy
@@ -3417,12 +3507,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_energy
         }
         if = {
             limit = {
@@ -3480,12 +3564,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_nexus
@@ -3507,12 +3585,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_food
         }
         if = {
             limit = {
@@ -3613,6 +3685,30 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z4_spawning
@@ -3627,6 +3723,30 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_wilderness
         }
     }
     if = {
@@ -3984,9 +4104,9 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_physics
         }
         if = {
             limit = {
@@ -4026,12 +4146,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_society_arcology
@@ -4065,12 +4179,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -4333,6 +4441,18 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z5_energy
@@ -4341,12 +4461,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_energy
         }
         if = {
             limit = {
@@ -4404,12 +4518,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_nexus
@@ -4431,12 +4539,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_food
         }
         if = {
             limit = {
@@ -4537,6 +4639,30 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z5_spawning
@@ -4551,6 +4677,30 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_wilderness
         }
     }
     if = {
@@ -4669,7 +4819,7 @@ planet_event = {
             }
             if = {
                 limit = {
-                    bca_has_secondary_districts = yes
+                    bca_has_advance_secondary_districts = yes
                 }
                 bca_set_zx_for_identical_secondary_zone_plan = yes
                 try_set_secondary_districts_plan_zero_to_one = yes
@@ -4970,9 +5120,9 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals_physics
         }
         if = {
             limit = {
@@ -5012,12 +5162,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_society_arcology
@@ -5051,12 +5195,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -5319,6 +5457,18 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z1_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z1_energy
@@ -5327,12 +5477,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_energy
         }
         if = {
             limit = {
@@ -5390,12 +5534,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_minerals_nexus
@@ -5417,12 +5555,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_food
         }
         if = {
             limit = {
@@ -5523,6 +5655,30 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z1_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z1_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z1_spawning
@@ -5537,6 +5693,30 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z1_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z1_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z1_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z1_zone_urban_wilderness
         }
     }
     if = {
@@ -5888,9 +6068,9 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals_physics
         }
         if = {
             limit = {
@@ -5930,12 +6110,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_society_arcology
@@ -5969,12 +6143,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -6237,6 +6405,18 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z2_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z2_energy
@@ -6245,12 +6425,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_energy
         }
         if = {
             limit = {
@@ -6308,12 +6482,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_minerals_nexus
@@ -6335,12 +6503,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_food
         }
         if = {
             limit = {
@@ -6441,6 +6603,30 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z2_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z2_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z2_spawning
@@ -6455,6 +6641,30 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z2_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z2_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z2_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z2_zone_urban_wilderness
         }
     }
     if = {
@@ -6806,9 +7016,9 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_physics
         }
         if = {
             limit = {
@@ -6848,12 +7058,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_society_arcology
@@ -6887,12 +7091,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -7155,6 +7353,18 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z3_energy
@@ -7163,12 +7373,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_energy
         }
         if = {
             limit = {
@@ -7226,12 +7430,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_nexus
@@ -7253,12 +7451,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_food
         }
         if = {
             limit = {
@@ -7359,6 +7551,30 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z3_spawning
@@ -7373,6 +7589,30 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_wilderness
         }
     }
     if = {
@@ -7725,9 +7965,9 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_physics
         }
         if = {
             limit = {
@@ -7767,12 +8007,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_society_arcology
@@ -7806,12 +8040,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -8074,6 +8302,18 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z4_energy
@@ -8082,12 +8322,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_energy
         }
         if = {
             limit = {
@@ -8145,12 +8379,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_nexus
@@ -8172,12 +8400,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_food
         }
         if = {
             limit = {
@@ -8278,6 +8500,30 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z4_spawning
@@ -8292,6 +8538,30 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_wilderness
         }
     }
     if = {
@@ -8644,9 +8914,9 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_physics
         }
         if = {
             limit = {
@@ -8686,12 +8956,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_society_arcology
@@ -8725,12 +8989,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -8993,6 +9251,18 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z5_energy
@@ -9001,12 +9271,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_energy
         }
         if = {
             limit = {
@@ -9064,12 +9328,6 @@ planet_event = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_nexus
@@ -9091,12 +9349,6 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_food
         }
         if = {
             limit = {
@@ -9197,6 +9449,30 @@ planet_event = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z5_spawning
@@ -9211,6 +9487,30 @@ planet_event = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_wilderness
         }
     }
     if = {
@@ -9328,7 +9628,7 @@ planet_event = {
 
         if = {
             limit = {
-                bca_has_secondary_districts = yes
+                bca_has_advance_secondary_districts = yes
             }
             bca_set_zx_for_identical_secondary_zone_plan = yes
             try_set_secondary_districts_plan_zero_to_one = yes

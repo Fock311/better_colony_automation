@@ -427,8 +427,7 @@ bca_can_build_building_machine_assembly_plant = {
                 is_individual_machine = yes
             }
         }
-        NOR = {
-            has_modifier = gestation_colony
+        NOT = {
             has_modifier = resort_colony
         }
     }
@@ -458,8 +457,7 @@ bca_can_build_building_machine_assembly_complex = {
                 is_individual_machine = yes
             }
         }
-        NOR = {
-            has_modifier = gestation_colony
+        NOT = {
             has_modifier = resort_colony
         }
     }
@@ -660,42 +658,12 @@ bca_can_build_building_posthumous_employment_center = {
     }
 }
 
-bca_can_build_building_toxic_bath_hive = {
+bca_can_build_building_automation_technician_1 = {
     AND = {
         owner = {
-            is_hive_empire = yes
             is_wilderness_empire = no
-            has_valid_civic = civic_hive_toxic_baths
+            is_tankbound_empire = no
         }
-    }
-}
-
-bca_can_build_building_toxic_bath_machine = {
-    AND = {
-        OR = {
-            AND = {
-                owner = {
-                    is_machine_empire = yes
-                }
-                owner = {
-                    has_toxic_baths = yes
-                }
-            }
-            AND = {
-                owner = {
-                    is_individual_machine = yes
-                }
-                owner = {
-                    has_toxic_baths = yes
-                }
-            }
-        }
-    }
-}
-
-bca_can_build_building_automation_1 = {
-    AND = {
-        always = no
     }
     AND = {
         hidden_trigger = {
@@ -711,6 +679,153 @@ bca_can_build_building_automation_1 = {
                 }
             }
         }
+    }
+    owner = {
+        has_technology = tech_assembly_pattern
+    }
+}
+
+bca_can_build_building_automation_technician_2 = {
+    AND = {
+        owner = {
+            is_wilderness_empire = no
+            is_tankbound_empire = no
+        }
+    }
+    AND = {
+        hidden_trigger = {
+            OR = {
+                owner = {
+                    is_ai = no
+                }
+                NAND = {
+                    free_district_slots = 0
+                    free_building_slots <= 1
+                    free_housing <= 0
+                    free_jobs <= 0
+                }
+            }
+        }
+    }
+    owner = {
+        has_technology = tech_construction_templates
+    }
+}
+
+bca_can_build_building_automation_miner_1 = {
+    AND = {
+        owner = {
+            is_wilderness_empire = no
+            is_tankbound_empire = no
+        }
+    }
+    AND = {
+        hidden_trigger = {
+            OR = {
+                owner = {
+                    is_ai = no
+                }
+                NAND = {
+                    free_district_slots = 0
+                    free_building_slots <= 1
+                    free_housing <= 0
+                    free_jobs <= 0
+                }
+            }
+        }
+    }
+    owner = {
+        has_technology = tech_assembly_pattern
+    }
+}
+
+bca_can_build_building_automation_miner_2 = {
+    AND = {
+        owner = {
+            is_wilderness_empire = no
+            is_tankbound_empire = no
+        }
+    }
+    AND = {
+        hidden_trigger = {
+            OR = {
+                owner = {
+                    is_ai = no
+                }
+                NAND = {
+                    free_district_slots = 0
+                    free_building_slots <= 1
+                    free_housing <= 0
+                    free_jobs <= 0
+                }
+            }
+        }
+    }
+    owner = {
+        has_technology = tech_construction_templates
+    }
+}
+
+bca_can_build_building_automation_farmer_1 = {
+    AND = {
+        owner = {
+            is_wilderness_empire = no
+            is_tankbound_empire = no
+        }
+    }
+    AND = {
+        hidden_trigger = {
+            OR = {
+                owner = {
+                    is_ai = no
+                }
+                NAND = {
+                    free_district_slots = 0
+                    free_building_slots <= 1
+                    free_housing <= 0
+                    free_jobs <= 0
+                }
+            }
+        }
+    }
+    owner = {
+        has_technology = tech_assembly_pattern
+    }
+}
+
+bca_can_build_building_automation_farmer_2 = {
+    AND = {
+        owner = {
+            is_wilderness_empire = no
+            is_tankbound_empire = no
+        }
+    }
+    AND = {
+        hidden_trigger = {
+            OR = {
+                owner = {
+                    is_ai = no
+                }
+                NAND = {
+                    free_district_slots = 0
+                    free_building_slots <= 1
+                    free_housing <= 0
+                    free_jobs <= 0
+                }
+            }
+        }
+    }
+    owner = {
+        has_technology = tech_construction_templates
+    }
+}
+
+bca_can_build_building_automation_1 = {
+    AND = {
+        always = no
+    }
+    AND = {
+        always = no
     }
     owner = {
         has_technology = tech_assembly_pattern
@@ -722,331 +837,7 @@ bca_can_build_building_automation_2 = {
         always = no
     }
     AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_construction_templates
-    }
-}
-
-bca_can_build_building_automation_city_1 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_assembly_pattern
-    }
-}
-
-bca_can_build_building_automation_city_2 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_construction_templates
-    }
-}
-
-bca_can_build_building_automation_urban_1 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_assembly_pattern
-    }
-}
-
-bca_can_build_building_automation_urban_2 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_construction_templates
-    }
-}
-
-bca_can_build_building_automation_generator_1 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_assembly_pattern
-    }
-}
-
-bca_can_build_building_automation_generator_2 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_construction_templates
-    }
-}
-
-bca_can_build_building_automation_mining_1 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_assembly_pattern
-    }
-}
-
-bca_can_build_building_automation_mining_2 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_construction_templates
-    }
-}
-
-bca_can_build_building_automation_farming_1 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_assembly_pattern
-    }
-}
-
-bca_can_build_building_automation_farming_2 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_construction_templates
-    }
-}
-
-bca_can_build_building_automation_urban_arcology_1 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
-    }
-    owner = {
-        has_technology = tech_assembly_pattern
-    }
-}
-
-bca_can_build_building_automation_urban_arcology_2 = {
-    AND = {
-        owner = {
-            is_wilderness_empire = no
-        }
-    }
-    AND = {
-        hidden_trigger = {
-            OR = {
-                owner = {
-                    is_ai = no
-                }
-                NAND = {
-                    free_district_slots = 0
-                    free_building_slots <= 1
-                    free_housing <= 0
-                    free_jobs <= 0
-                }
-            }
-        }
+        always = no
     }
     owner = {
         has_technology = tech_construction_templates
@@ -2850,15 +2641,13 @@ bca_can_build_building_paradise_dome = {
 
 bca_can_build_building_communal_housing = {
     AND = {
+        exists = owner
         OR = {
             NOT = {
                 is_planet_class = pc_habitat
             }
-            AND = {
-                exists = owner
-                owner = {
-                    is_void_dweller_empire = yes
-                }
+            owner = {
+                is_void_dweller_empire = yes
             }
         }
         OR = {
@@ -2873,7 +2662,6 @@ bca_can_build_building_communal_housing = {
             has_modifier = slave_colony
             has_modifier = penal_colony
         }
-        exists = owner
         owner = {
             is_regular_empire = yes
             has_valid_civic = civic_shared_burden
@@ -2883,6 +2671,7 @@ bca_can_build_building_communal_housing = {
 
 bca_can_build_building_communal_housing_large = {
     AND = {
+        exists = owner
         has_building = building_communal_housing
         owner = {
             is_regular_empire = yes
@@ -2892,11 +2681,8 @@ bca_can_build_building_communal_housing_large = {
             NOT = {
                 is_planet_class = pc_habitat
             }
-            AND = {
-                exists = owner
-                owner = {
-                    is_void_dweller_empire = yes
-                }
+            owner = {
+                is_void_dweller_empire = yes
             }
         }
         NOR = {
@@ -2961,6 +2747,7 @@ bca_can_build_building_hive_warren = {
 
 bca_can_build_building_expanded_warren = {
     AND = {
+        exists = owner
         has_building = building_hive_warren
         owner = {
             is_wilderness_empire = no
@@ -2976,6 +2763,7 @@ bca_can_build_building_expanded_warren = {
 
 bca_can_build_building_holo_theatres = {
     AND = {
+        exists = owner
         NOR = {
             has_modifier = slave_colony
             has_modifier = penal_colony
@@ -3010,6 +2798,7 @@ bca_can_build_building_hyper_entertainment_forum = {
 
 bca_can_build_building_medical_1 = {
     AND = {
+        exists = owner
         NOR = {
             has_modifier = slave_colony
             has_modifier = penal_colony
@@ -3082,6 +2871,7 @@ bca_can_build_building_medical_2 = {
 
 bca_can_build_building_medical_3 = {
     AND = {
+        exists = owner
         has_upgraded_capital = yes
         OR = {
             owner = {
@@ -3121,16 +2911,42 @@ bca_can_build_building_overseer_homes = {
 
 bca_can_build_building_toxic_bath = {
     AND = {
+        exists = owner
         NOT = {
             has_modifier = slave_colony
         }
         owner = {
-            is_regular_empire = yes
+            is_toxic_baths_empire = yes
             OR = {
-                has_valid_civic = civic_toxic_baths
-                has_valid_civic = civic_corporate_toxic_baths
+                AND = {
+                    is_regular_empire = yes
+                    is_individual_machine = no
+                }
+                has_valid_civic = civic_machine_servitor
             }
-            is_individual_machine = no
+        }
+    }
+}
+
+bca_can_build_building_toxic_bath_hive = {
+    AND = {
+        owner = {
+            is_hive_empire = yes
+            is_wilderness_empire = no
+            is_toxic_baths_empire = yes
+        }
+    }
+}
+
+bca_can_build_building_toxic_bath_machine = {
+    AND = {
+        exists = owner
+        owner = {
+            is_toxic_baths_empire = yes
+            is_synthetic_empire = yes
+            NOT = {
+                has_valid_civic = civic_machine_servitor
+            }
         }
     }
 }
@@ -4755,6 +4571,14 @@ bca_can_build_building_affluence_center = {
                 }
             }
         }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
+                }
+            }
+        }
     }
 }
 
@@ -4855,6 +4679,14 @@ bca_can_build_building_dimensional_replicator = {
                 }
             }
         }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
+                }
+            }
+        }
     }
 }
 
@@ -4886,6 +4718,14 @@ bca_can_build_building_dimensional_fabricator = {
                     }
                     is_fallen_empire = yes
                     has_technology = tech_fe_fabricator_2
+                }
+            }
+        }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
                 }
             }
         }
@@ -5023,6 +4863,14 @@ bca_can_build_building_nano_forge = {
                 }
             }
         }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
+                }
+            }
+        }
     }
 }
 
@@ -5155,6 +5003,14 @@ bca_can_build_building_fe_stronghold = {
                 }
             }
         }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
+                }
+            }
+        }
     }
 }
 
@@ -5222,6 +5078,14 @@ bca_can_build_building_fe_administration_2 = {
                     }
                     is_fallen_empire = yes
                     has_technology = tech_fe_administration_2
+                }
+            }
+        }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
                 }
             }
         }
@@ -5334,6 +5198,14 @@ bca_can_build_building_fe_administration_machine_1 = {
                 }
             }
         }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
+                }
+            }
+        }
     }
 }
 
@@ -5366,6 +5238,14 @@ bca_can_build_building_fe_administration_machine_2 = {
                     }
                     is_fallen_empire = yes
                     has_technology = tech_fe_administration_2
+                }
+            }
+        }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
                 }
             }
         }
@@ -5434,6 +5314,14 @@ bca_can_build_building_fe_temple_2 = {
                     }
                     is_fallen_empire = yes
                     has_technology = tech_fe_administration_2
+                }
+            }
+        }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
                 }
             }
         }
@@ -5566,6 +5454,14 @@ bca_can_build_building_fe_assembly_2 = {
                 }
             }
         }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
+                }
+            }
+        }
     }
 }
 
@@ -5637,6 +5533,14 @@ bca_can_build_building_fe_clinic_2 = {
                     }
                     is_fallen_empire = yes
                     has_technology = tech_fe_clinic_2
+                }
+            }
+        }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
                 }
             }
         }
@@ -5767,6 +5671,14 @@ bca_can_build_building_fe_market_2 = {
                     }
                     is_fallen_empire = yes
                     has_technology = tech_fe_market_2
+                }
+            }
+        }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
                 }
             }
         }
@@ -5971,6 +5883,14 @@ bca_can_build_building_fe_lab_2 = {
                     }
                     is_fallen_empire = yes
                     has_technology = tech_fe_lab_2
+                }
+            }
+        }
+        custom_tooltip = {
+            fail_text = cosmogenesis_aborted_tt
+            NOT = {
+                owner = {
+                    has_country_flag = cosmogenesis_aborted
                 }
             }
         }
@@ -6933,40 +6853,6 @@ bca_can_build_holding_sacrificial_shrine = {
     }
 }
 
-bca_can_build_holding_toxic_bath = {
-    AND = {
-        owner.overlord = {
-            has_toxic_baths = yes
-        }
-        owner = {
-            is_gestalt = no
-        }
-    }
-}
-
-bca_can_build_holding_toxic_bath_hive = {
-    AND = {
-        owner.overlord = {
-            has_toxic_baths = yes
-        }
-        owner = {
-            is_hive_empire = yes
-            is_wilderness_empire = no
-        }
-    }
-}
-
-bca_can_build_holding_toxic_bath_machine = {
-    AND = {
-        owner.overlord = {
-            has_toxic_baths = yes
-        }
-        owner = {
-            is_machine_empire = yes
-        }
-    }
-}
-
 bca_can_build_holding_knight_commandery = {
     AND = {
         owner = {
@@ -7249,6 +7135,9 @@ bca_can_build_building_storm_resistant_production = {
         exists = owner
         owner = {
             is_wilderness_empire = no
+            NOT = {
+                has_origin = origin_storm_chasers
+            }
         }
         OR = {
             owner = {
@@ -7268,7 +7157,12 @@ bca_can_build_building_advanced_storm_resistant_production = {
     AND = {
         exists = owner
         owner = {
-            is_wilderness_empire = no
+            OR = {
+                is_wilderness_empire = no
+                NOT = {
+                    has_origin = origin_storm_chasers
+                }
+            }
         }
         if = {
             limit = {
@@ -7830,6 +7724,7 @@ bca_can_build_building_augmentation_center = {
             OR = {
                 has_country_flag = augmentation_center_available
                 has_active_tradition = tr_cybernetics_augmentation_centers
+                has_active_tradition = tr_cybernetics_assimilator_augmentation_centers
             }
         }
     }
@@ -7925,11 +7820,13 @@ bca_can_build_galactic_history_holomuseum = {
 bca_can_build_wildlife_ranch = {
     AND = {
         owner = {
-            OR = {
-                has_wrangler_job = yes
-                has_rancher_job = yes
-                has_drone_wrangler_job = yes
-            }
+            has_origin = origin_primal_calling
+        }
+        NOR = {
+            has_building = hunting_grounds
+            has_building = wildlife_sanctuary
+            has_building = primal_arena
+            has_building = symbiosis_nexus
         }
     }
 }

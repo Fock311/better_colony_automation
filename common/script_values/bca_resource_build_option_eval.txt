@@ -1,0 +1,45 @@
+
+bca_production_add_food_building_food_processing_facility = {
+    base = 0.25
+}
+
+bca_production_add_food_building_food_processing_center = {
+    base = 0.5
+    modifier = {
+        has_ringworld_output_boost = yes
+        add = 0.25
+    }
+}
+
+bca_production_add_minerals_building_mineral_purification_plant = {
+    base = 0.25
+}
+
+bca_production_add_minerals_building_mineral_purification_hub = {
+    base = 0.5
+    modifier = {
+        OR = {
+            has_ringworld_output_boost = yes
+            is_planet_class = pc_shattered_ring_habitable
+        }
+        add = 0.25
+    }
+}
+
+# building_energy_grid
+bca_production_add_energy_building_energy_grid = {
+    base = 0.25
+}
+# building_energy_nexus
+bca_production_add_energy_building_energy_nexus = {
+    base = 0.5
+    modifier = {
+        has_ringworld_output_boost = yes
+        add = 0.25
+    }
+}
+
+bca_production_add_diff = {
+    set = bca_production_add_$b2$
+    subtract = bca_production_add_$b1$
+}

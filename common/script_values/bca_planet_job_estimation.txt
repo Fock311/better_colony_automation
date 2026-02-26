@@ -118,7 +118,7 @@ bca_potential_district_max_add_energy = {
 		OR = {
 			bca_can_build_district_geothermal = yes # geothermal district is uncapped
 			is_generator_district_uncapped = yes
-			bca_has_secondary_districts = yes
+			bca_has_advance_secondary_districts = yes
 		}
 		set = value:bca_planet_max_districts
 	}
@@ -212,7 +212,7 @@ bca_potential_district_max_add_minerals = {
 	modifier = {
 		OR = {
 			is_mining_district_uncapped = yes
-			bca_has_secondary_districts = yes
+			bca_has_advance_secondary_districts = yes
 		}
 		set = value:bca_planet_max_districts
 	}
@@ -302,7 +302,7 @@ bca_potential_district_max_add_food = {
 	modifier = {
 		OR = {
 			is_farming_district_uncapped = yes
-			bca_has_secondary_districts = yes
+			bca_has_advance_secondary_districts = yes
 		}
 		set = value:bca_planet_max_districts
 	}

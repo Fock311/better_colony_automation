@@ -163,7 +163,7 @@ bca_primary_district_update_zone_options_interloop = {
             }
             OR = {
                     bca_primary_district_can_build_zone_research_physics = yes
-                    bca_primary_district_can_build_zone_energy_physics = yes
+                    bca_primary_district_can_build_zone_minerals_physics = yes
                     bca_primary_district_can_build_zone_research_physics_arcology = yes
                     bca_primary_district_can_build_zone_research_physics_ring_world = yes
                     bca_primary_district_can_build_zone_research_physics_nexus = yes
@@ -188,7 +188,6 @@ bca_primary_district_update_zone_options_interloop = {
             }
             OR = {
                     bca_primary_district_can_build_zone_research_society = yes
-                    bca_primary_district_can_build_zone_food_biology = yes
                     bca_primary_district_can_build_zone_research_society_arcology = yes
                     bca_primary_district_can_build_zone_research_society_ring_world = yes
                     bca_primary_district_can_build_zone_research_society_nexus = yes
@@ -213,7 +212,6 @@ bca_primary_district_update_zone_options_interloop = {
             }
             OR = {
                     bca_primary_district_can_build_zone_research_engineering = yes
-                    bca_primary_district_can_build_zone_minerals_engineering = yes
                     bca_primary_district_can_build_zone_research_engineering_arcology = yes
                     bca_primary_district_can_build_zone_research_engineering_ring_world = yes
                     bca_primary_district_can_build_zone_research_engineering_nexus = yes
@@ -466,6 +464,26 @@ bca_primary_district_update_zone_options_interloop = {
     if = {
         limit = {
             NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_knight_commander
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_knight_commander
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_knight_commander
+            }
+            OR = {
+                    bca_primary_district_can_build_zone_habitat_knights = yes
+            }
+        }
+
+        set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_knight_commander
+        }
+    }
+    if = {
+        limit = {
+            NOR = {
                 has_planet_flag = bca_pf_ps_zone_option_elected_energy
                 has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_energy
             }
@@ -475,7 +493,6 @@ bca_primary_district_update_zone_options_interloop = {
             }
             OR = {
                     bca_primary_district_can_build_zone_energy = yes
-                    bca_primary_district_can_build_zone_urban_energy = yes
                     bca_primary_district_can_build_zone_energy_ring_world = yes
                     bca_primary_district_can_build_zone_energy_nexus = yes
                     bca_primary_district_can_build_zone_energy_hive = yes
@@ -521,7 +538,6 @@ bca_primary_district_update_zone_options_interloop = {
             }
             OR = {
                     bca_primary_district_can_build_zone_minerals = yes
-                    bca_primary_district_can_build_zone_urban_minerals = yes
                     bca_primary_district_can_build_zone_minerals_nexus = yes
                     bca_primary_district_can_build_zone_minerals_hive = yes
             }
@@ -544,7 +560,6 @@ bca_primary_district_update_zone_options_interloop = {
             }
             OR = {
                     bca_primary_district_can_build_zone_food = yes
-                    bca_primary_district_can_build_zone_urban_food = yes
                     bca_primary_district_can_build_zone_food_ring_world = yes
                     bca_primary_district_can_build_zone_food_hive = yes
             }
@@ -644,6 +659,46 @@ bca_primary_district_update_zone_options_interloop = {
     if = {
         limit = {
             NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_agrarian
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_agrarian
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_agrarian
+            }
+            OR = {
+                    bca_primary_district_can_build_zone_agrarian_urban = yes
+            }
+        }
+
+        set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_agrarian
+        }
+    }
+    if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_hydroponics
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_hydroponics
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_hydroponics
+            }
+            OR = {
+                    bca_primary_district_can_build_zone_habitat_hydroponics = yes
+            }
+        }
+
+        set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_hydroponics
+        }
+    }
+    if = {
+        limit = {
+            NOR = {
                 has_planet_flag = bca_pf_ps_zone_option_elected_spawning
                 has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_spawning
             }
@@ -660,6 +715,46 @@ bca_primary_district_update_zone_options_interloop = {
         set_variable = {
             which = rank_zone_max
             value = value:bca_planet_setting_zone_rank_spawning
+        }
+    }
+    if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_machine_replication
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_machine_replication
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_machine_replication
+            }
+            OR = {
+                    bca_primary_district_can_build_zone_machine_replication = yes
+            }
+        }
+
+        set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_wilderness_urban
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_urban
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_wilderness_urban
+            }
+            OR = {
+                    bca_primary_district_can_build_zone_urban_wilderness = yes
+            }
+        }
+
+        set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_wilderness_urban
         }
     }
     if = {
@@ -1300,11 +1395,11 @@ bca_primary_district_update_zone_options_interloop = {
         }
         else_if = {
             limit = {
-                bca_primary_district_can_build_zone_energy_physics = yes
+                bca_primary_district_can_build_zone_minerals_physics = yes
             }
             set_planet_flag = bca_pf_ps_zone_option_elected_physics
             set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_physics
-            set_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+            set_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             add_variable = {
                 which = zone_selector_options_count
                 value = 1
@@ -1384,18 +1479,6 @@ bca_primary_district_update_zone_options_interloop = {
         }
         else_if = {
             limit = {
-                bca_primary_district_can_build_zone_food_biology = yes
-            }
-            set_planet_flag = bca_pf_ps_zone_option_elected_society
-            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_society
-            set_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            add_variable = {
-                which = zone_selector_options_count
-                value = 1
-            }
-        }
-        else_if = {
-            limit = {
                 bca_primary_district_can_build_zone_research_society_arcology = yes
             }
             set_planet_flag = bca_pf_ps_zone_option_elected_society
@@ -1461,18 +1544,6 @@ bca_primary_district_update_zone_options_interloop = {
             set_planet_flag = bca_pf_ps_zone_option_elected_engineering
             set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_engineering
             set_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
-            add_variable = {
-                which = zone_selector_options_count
-                value = 1
-            }
-        }
-        else_if = {
-            limit = {
-                bca_primary_district_can_build_zone_minerals_engineering = yes
-            }
-            set_planet_flag = bca_pf_ps_zone_option_elected_engineering
-            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_engineering
-            set_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
             add_variable = {
                 which = zone_selector_options_count
                 value = 1
@@ -1998,6 +2069,30 @@ bca_primary_district_update_zone_options_interloop = {
     else_if = {
         limit = {
             NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_knight_commander
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_knight_commander
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_knight_commander
+            }
+        }
+        if = {
+            limit = {
+                bca_primary_district_can_build_zone_habitat_knights = yes
+            }
+            set_planet_flag = bca_pf_ps_zone_option_elected_knight_commander
+            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_knight_commander
+            set_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            NOR = {
                 has_planet_flag = bca_pf_ps_zone_option_elected_energy
                 has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_energy
             }
@@ -2013,18 +2108,6 @@ bca_primary_district_update_zone_options_interloop = {
             set_planet_flag = bca_pf_ps_zone_option_elected_energy
             set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_energy
             set_planet_flag = bca_pf_ps_option_map_energy_zone_energy
-            add_variable = {
-                which = zone_selector_options_count
-                value = 1
-            }
-        }
-        else_if = {
-            limit = {
-                bca_primary_district_can_build_zone_urban_energy = yes
-            }
-            set_planet_flag = bca_pf_ps_zone_option_elected_energy
-            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_energy
-            set_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
             add_variable = {
                 which = zone_selector_options_count
                 value = 1
@@ -2140,18 +2223,6 @@ bca_primary_district_update_zone_options_interloop = {
         }
         else_if = {
             limit = {
-                bca_primary_district_can_build_zone_urban_minerals = yes
-            }
-            set_planet_flag = bca_pf_ps_zone_option_elected_minerals
-            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_minerals
-            set_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            add_variable = {
-                which = zone_selector_options_count
-                value = 1
-            }
-        }
-        else_if = {
-            limit = {
                 bca_primary_district_can_build_zone_minerals_nexus = yes
             }
             set_planet_flag = bca_pf_ps_zone_option_elected_minerals
@@ -2193,18 +2264,6 @@ bca_primary_district_update_zone_options_interloop = {
             set_planet_flag = bca_pf_ps_zone_option_elected_food
             set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_food
             set_planet_flag = bca_pf_ps_option_map_food_zone_food
-            add_variable = {
-                which = zone_selector_options_count
-                value = 1
-            }
-        }
-        else_if = {
-            limit = {
-                bca_primary_district_can_build_zone_urban_food = yes
-            }
-            set_planet_flag = bca_pf_ps_zone_option_elected_food
-            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_food
-            set_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
             add_variable = {
                 which = zone_selector_options_count
                 value = 1
@@ -2406,6 +2465,54 @@ bca_primary_district_update_zone_options_interloop = {
     else_if = {
         limit = {
             NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_agrarian
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_agrarian
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_agrarian
+            }
+        }
+        if = {
+            limit = {
+                bca_primary_district_can_build_zone_agrarian_urban = yes
+            }
+            set_planet_flag = bca_pf_ps_zone_option_elected_agrarian
+            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_agrarian
+            set_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_hydroponics
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_hydroponics
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_hydroponics
+            }
+        }
+        if = {
+            limit = {
+                bca_primary_district_can_build_zone_habitat_hydroponics = yes
+            }
+            set_planet_flag = bca_pf_ps_zone_option_elected_hydroponics
+            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_hydroponics
+            set_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            NOR = {
                 has_planet_flag = bca_pf_ps_zone_option_elected_spawning
                 has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_spawning
             }
@@ -2433,6 +2540,54 @@ bca_primary_district_update_zone_options_interloop = {
             set_planet_flag = bca_pf_ps_zone_option_elected_spawning
             set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_spawning
             set_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_machine_replication
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_machine_replication
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_machine_replication
+            }
+        }
+        if = {
+            limit = {
+                bca_primary_district_can_build_zone_machine_replication = yes
+            }
+            set_planet_flag = bca_pf_ps_zone_option_elected_machine_replication
+            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_machine_replication
+            set_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_wilderness_urban
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_urban
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_wilderness_urban
+            }
+        }
+        if = {
+            limit = {
+                bca_primary_district_can_build_zone_urban_wilderness = yes
+            }
+            set_planet_flag = bca_pf_ps_zone_option_elected_wilderness_urban
+            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_wilderness_urban
+            set_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
             add_variable = {
                 which = zone_selector_options_count
                 value = 1
@@ -2769,21 +2924,19 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_option_map_research_zone_research_hive
     remove_planet_flag = bca_pf_ps_zone_option_elected_physics
     remove_planet_flag = bca_pf_ps_option_map_physics_zone_research_physics
-    remove_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+    remove_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
     remove_planet_flag = bca_pf_ps_option_map_physics_zone_research_physics_arcology
     remove_planet_flag = bca_pf_ps_option_map_physics_zone_research_physics_ring_world
     remove_planet_flag = bca_pf_ps_option_map_physics_zone_research_physics_nexus
     remove_planet_flag = bca_pf_ps_option_map_physics_zone_research_physics_hive
     remove_planet_flag = bca_pf_ps_zone_option_elected_society
     remove_planet_flag = bca_pf_ps_option_map_society_zone_research_society
-    remove_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
     remove_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
     remove_planet_flag = bca_pf_ps_option_map_society_zone_research_society_ring_world
     remove_planet_flag = bca_pf_ps_option_map_society_zone_research_society_nexus
     remove_planet_flag = bca_pf_ps_option_map_society_zone_research_society_hive
     remove_planet_flag = bca_pf_ps_zone_option_elected_engineering
     remove_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
-    remove_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
     remove_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering_arcology
     remove_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering_ring_world
     remove_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering_nexus
@@ -2827,9 +2980,10 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_option_map_healthcare_zone_resort_restoration_enclave
     remove_planet_flag = bca_pf_ps_zone_option_elected_duelist
     remove_planet_flag = bca_pf_ps_option_map_duelist_zone_resort_proving_grounds
+    remove_planet_flag = bca_pf_ps_zone_option_elected_knight_commander
+    remove_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
     remove_planet_flag = bca_pf_ps_zone_option_elected_energy
     remove_planet_flag = bca_pf_ps_option_map_energy_zone_energy
-    remove_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
     remove_planet_flag = bca_pf_ps_option_map_energy_zone_energy_ring_world
     remove_planet_flag = bca_pf_ps_option_map_energy_zone_energy_nexus
     remove_planet_flag = bca_pf_ps_option_map_energy_zone_energy_hive
@@ -2839,12 +2993,10 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_option_map_betharian_zone_betharian_hive
     remove_planet_flag = bca_pf_ps_zone_option_elected_minerals
     remove_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals
-    remove_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
     remove_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
     remove_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_hive
     remove_planet_flag = bca_pf_ps_zone_option_elected_food
     remove_planet_flag = bca_pf_ps_option_map_food_zone_food
-    remove_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
     remove_planet_flag = bca_pf_ps_option_map_food_zone_food_ring_world
     remove_planet_flag = bca_pf_ps_option_map_food_zone_food_hive
     remove_planet_flag = bca_pf_ps_zone_option_elected_rare_crystals
@@ -2861,9 +3013,17 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_option_map_exotic_gases_zone_exotic_gases_hive
     remove_planet_flag = bca_pf_ps_zone_option_elected_angler
     remove_planet_flag = bca_pf_ps_option_map_angler_zone_anglers
+    remove_planet_flag = bca_pf_ps_zone_option_elected_agrarian
+    remove_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+    remove_planet_flag = bca_pf_ps_zone_option_elected_hydroponics
+    remove_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_spawning
     remove_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning
     remove_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
+    remove_planet_flag = bca_pf_ps_zone_option_elected_machine_replication
+    remove_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_wilderness_urban
+    remove_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
     remove_planet_flag = bca_pf_ps_zone_option_elected_wilderness_foundry
     remove_planet_flag = bca_pf_ps_option_map_wilderness_foundry_zone_foundry_wilderness
     remove_planet_flag = bca_pf_ps_zone_option_elected_wilderness_research
@@ -2902,6 +3062,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_minerals
@@ -2910,7 +3071,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_unity
@@ -2940,6 +3105,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s2_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_minerals
@@ -2948,7 +3114,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s2_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s2_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s2_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s2_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s2_wilderness_unity
@@ -2978,6 +3148,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s3_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_minerals
@@ -2986,7 +3157,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s3_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s3_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s3_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s3_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s3_wilderness_unity
@@ -3016,6 +3191,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s4_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_minerals
@@ -3024,7 +3200,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s4_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s4_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s4_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s4_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s4_wilderness_unity
@@ -3054,6 +3234,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s5_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_minerals
@@ -3062,7 +3243,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s5_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s5_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s5_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s5_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s5_wilderness_unity
@@ -3092,6 +3277,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s6_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_minerals
@@ -3100,7 +3286,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s6_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s6_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s6_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s6_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s6_wilderness_unity
@@ -3130,6 +3320,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s7_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_minerals
@@ -3138,7 +3329,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s7_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s7_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s7_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s7_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s7_wilderness_unity
@@ -3168,6 +3363,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s8_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_minerals
@@ -3176,7 +3372,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s8_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s8_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s8_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s8_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s8_wilderness_unity
@@ -3206,6 +3406,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s9_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_minerals
@@ -3214,7 +3415,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s9_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s9_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s9_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s9_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s9_wilderness_unity
@@ -3244,6 +3449,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s10_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_minerals
@@ -3252,7 +3458,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s10_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s10_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s10_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s10_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s10_wilderness_unity
@@ -3282,6 +3492,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s11_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_minerals
@@ -3290,7 +3501,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s11_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s11_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s11_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s11_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s11_wilderness_unity
@@ -3320,6 +3535,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s12_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_minerals
@@ -3328,7 +3544,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s12_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s12_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s12_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s12_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s12_wilderness_unity
@@ -3358,6 +3578,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s13_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_minerals
@@ -3366,7 +3587,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s13_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s13_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s13_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s13_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s13_wilderness_unity
@@ -3396,6 +3621,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s14_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_minerals
@@ -3404,7 +3630,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s14_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s14_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s14_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s14_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s14_wilderness_unity
@@ -3434,6 +3664,7 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_trophy_hunter
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_healthcare
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_duelist
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s15_knight_commander
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_energy
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_betharian
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_minerals
@@ -3442,7 +3673,11 @@ bca_clean_flags_zone_selector = {
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_volatile_motes
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_exotic_gases
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_angler
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s15_agrarian
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s15_hydroponics
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_spawning
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s15_machine_replication
+    remove_planet_flag = bca_pf_ps_zone_option_elected_s15_wilderness_urban
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_wilderness_foundry
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_wilderness_research
     remove_planet_flag = bca_pf_ps_zone_option_elected_s15_wilderness_unity
@@ -4722,11 +4957,11 @@ bca_secondary_district_update_zone_options_interloop = {
                     }
                 }
                 AND = {
-                    bca_can_build_zone_energy_physics = yes
+                    bca_can_build_zone_minerals_physics = yes
                     OR = {
-                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_generator
-                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_geothermal
-                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_photosynthesis_fields
+                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_mining
+                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_melting
+                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_hollow_mountains
                     }
                 }
                 AND = {
@@ -4788,13 +5023,6 @@ bca_secondary_district_update_zone_options_interloop = {
                     }
                 }
                 AND = {
-                    bca_can_build_zone_food_biology = yes
-                    OR = {
-                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_farming
-                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_orchard_forests
-                    }
-                }
-                AND = {
                     bca_can_build_zone_research_society_arcology = yes
                     OR = {
                         has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_arcology_urban_1
@@ -4850,14 +5078,6 @@ bca_secondary_district_update_zone_options_interloop = {
                     OR = {
                         has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_hab_science
                         has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_polytechnic
-                    }
-                }
-                AND = {
-                    bca_can_build_zone_minerals_engineering = yes
-                    OR = {
-                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_mining
-                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_melting
-                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_hollow_mountains
                     }
                 }
                 AND = {
@@ -5316,6 +5536,30 @@ bca_secondary_district_update_zone_options_interloop = {
     if = {
         limit = {
             NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_knight_commander
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_knight_commander
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_knight_commander
+            }
+            # any zone of this typeset is available on the districts and can be built
+            OR = {
+                AND = {
+                    bca_can_build_zone_habitat_knights = yes
+                    OR = {
+                    }
+                }
+            }
+        }
+         set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_knight_commander
+        }
+    }
+    if = {
+        limit = {
+            NOR = {
                 has_planet_flag = bca_pf_ps_zone_option_elected_energy
                 has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_energy
             }
@@ -5332,11 +5576,6 @@ bca_secondary_district_update_zone_options_interloop = {
                         has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_geothermal
                         has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_photosynthesis_fields
                         has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_hab_energy
-                    }
-                }
-                AND = {
-                    bca_can_build_zone_urban_energy = yes
-                    OR = {
                     }
                 }
                 AND = {
@@ -5435,11 +5674,6 @@ bca_secondary_district_update_zone_options_interloop = {
                     }
                 }
                 AND = {
-                    bca_can_build_zone_urban_minerals = yes
-                    OR = {
-                    }
-                }
-                AND = {
                     bca_can_build_zone_minerals_nexus = yes
                     OR = {
                         has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_nexus_1
@@ -5479,11 +5713,6 @@ bca_secondary_district_update_zone_options_interloop = {
                     OR = {
                         has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_farming
                         has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_orchard_forests
-                    }
-                }
-                AND = {
-                    bca_can_build_zone_urban_food = yes
-                    OR = {
                     }
                 }
                 AND = {
@@ -5666,6 +5895,57 @@ bca_secondary_district_update_zone_options_interloop = {
     if = {
         limit = {
             NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_agrarian
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_agrarian
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_agrarian
+            }
+            # any zone of this typeset is available on the districts and can be built
+            OR = {
+                AND = {
+                    bca_can_build_zone_agrarian_urban = yes
+                    OR = {
+                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_farming
+                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_orchard_forests
+                    }
+                }
+            }
+        }
+         set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_agrarian
+        }
+    }
+    if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_hydroponics
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_hydroponics
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_hydroponics
+            }
+            # any zone of this typeset is available on the districts and can be built
+            OR = {
+                AND = {
+                    bca_can_build_zone_habitat_hydroponics = yes
+                    OR = {
+                        has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_hab_energy
+                    }
+                }
+            }
+        }
+         set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_hydroponics
+        }
+    }
+    if = {
+        limit = {
+            NOR = {
                 has_planet_flag = bca_pf_ps_zone_option_elected_spawning
                 has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_spawning
             }
@@ -5693,6 +5973,54 @@ bca_secondary_district_update_zone_options_interloop = {
          set_variable = {
             which = rank_zone_max
             value = value:bca_planet_setting_zone_rank_spawning
+        }
+    }
+    if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_machine_replication
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_machine_replication
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_machine_replication
+            }
+            # any zone of this typeset is available on the districts and can be built
+            OR = {
+                AND = {
+                    bca_can_build_zone_machine_replication = yes
+                    OR = {
+                    }
+                }
+            }
+        }
+         set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_wilderness_urban
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_urban
+            }
+            check_variable = {
+                which = rank_zone_max
+                value < value:bca_planet_setting_zone_rank_wilderness_urban
+            }
+            # any zone of this typeset is available on the districts and can be built
+            OR = {
+                AND = {
+                    bca_can_build_zone_urban_wilderness = yes
+                    OR = {
+                    }
+                }
+            }
+        }
+         set_variable = {
+            which = rank_zone_max
+            value = value:bca_planet_setting_zone_rank_wilderness_urban
         }
     }
     if = {
@@ -6509,16 +6837,16 @@ bca_secondary_district_update_zone_options_interloop = {
         }
         else_if = {
             limit = {
-                bca_can_build_zone_energy_physics = yes
+                bca_can_build_zone_minerals_physics = yes
                 OR = {
-                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_generator
-                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_geothermal
-                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_photosynthesis_fields
+                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_mining
+                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_melting
+                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_hollow_mountains
                 }
             }
             set_planet_flag = bca_pf_ps_zone_option_elected_physics
             set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_physics
-            set_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+            set_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             add_variable = {
                 which = zone_selector_options_count
                 value = 1
@@ -6622,22 +6950,6 @@ bca_secondary_district_update_zone_options_interloop = {
         }
         else_if = {
             limit = {
-                bca_can_build_zone_food_biology = yes
-                OR = {
-                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_farming
-                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_orchard_forests
-                }
-            }
-            set_planet_flag = bca_pf_ps_zone_option_elected_society
-            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_society
-            set_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            add_variable = {
-                which = zone_selector_options_count
-                value = 1
-            }
-        }
-        else_if = {
-            limit = {
                 bca_can_build_zone_research_society_arcology = yes
                 OR = {
                     has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_arcology_urban_1
@@ -6727,23 +7039,6 @@ bca_secondary_district_update_zone_options_interloop = {
             set_planet_flag = bca_pf_ps_zone_option_elected_engineering
             set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_engineering
             set_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
-            add_variable = {
-                which = zone_selector_options_count
-                value = 1
-            }
-        }
-        else_if = {
-            limit = {
-                bca_can_build_zone_minerals_engineering = yes
-                OR = {
-                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_mining
-                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_melting
-                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_hollow_mountains
-                }
-            }
-            set_planet_flag = bca_pf_ps_zone_option_elected_engineering
-            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_engineering
-            set_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
             add_variable = {
                 which = zone_selector_options_count
                 value = 1
@@ -7410,6 +7705,32 @@ bca_secondary_district_update_zone_options_interloop = {
     else_if = {
         limit = {
             NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_knight_commander
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_knight_commander
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_knight_commander
+            }
+        }
+        if = {
+            limit = {
+                bca_can_build_zone_habitat_knights = yes
+                OR = {
+                }
+            }
+            set_planet_flag = bca_pf_ps_zone_option_elected_knight_commander
+            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_knight_commander
+            set_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            NOR = {
                 has_planet_flag = bca_pf_ps_zone_option_elected_energy
                 has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_energy
             }
@@ -7431,20 +7752,6 @@ bca_secondary_district_update_zone_options_interloop = {
             set_planet_flag = bca_pf_ps_zone_option_elected_energy
             set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_energy
             set_planet_flag = bca_pf_ps_option_map_energy_zone_energy
-            add_variable = {
-                which = zone_selector_options_count
-                value = 1
-            }
-        }
-        else_if = {
-            limit = {
-                bca_can_build_zone_urban_energy = yes
-                OR = {
-                }
-            }
-            set_planet_flag = bca_pf_ps_zone_option_elected_energy
-            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_energy
-            set_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
             add_variable = {
                 which = zone_selector_options_count
                 value = 1
@@ -7596,20 +7903,6 @@ bca_secondary_district_update_zone_options_interloop = {
         }
         else_if = {
             limit = {
-                bca_can_build_zone_urban_minerals = yes
-                OR = {
-                }
-            }
-            set_planet_flag = bca_pf_ps_zone_option_elected_minerals
-            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_minerals
-            set_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            add_variable = {
-                which = zone_selector_options_count
-                value = 1
-            }
-        }
-        else_if = {
-            limit = {
                 bca_can_build_zone_minerals_nexus = yes
                 OR = {
                     has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_nexus_1
@@ -7665,20 +7958,6 @@ bca_secondary_district_update_zone_options_interloop = {
             set_planet_flag = bca_pf_ps_zone_option_elected_food
             set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_food
             set_planet_flag = bca_pf_ps_option_map_food_zone_food
-            add_variable = {
-                which = zone_selector_options_count
-                value = 1
-            }
-        }
-        else_if = {
-            limit = {
-                bca_can_build_zone_urban_food = yes
-                OR = {
-                }
-            }
-            set_planet_flag = bca_pf_ps_zone_option_elected_food
-            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_food
-            set_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
             add_variable = {
                 which = zone_selector_options_count
                 value = 1
@@ -7938,6 +8217,61 @@ bca_secondary_district_update_zone_options_interloop = {
     else_if = {
         limit = {
             NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_agrarian
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_agrarian
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_agrarian
+            }
+        }
+        if = {
+            limit = {
+                bca_can_build_zone_agrarian_urban = yes
+                OR = {
+                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_farming
+                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_orchard_forests
+                }
+            }
+            set_planet_flag = bca_pf_ps_zone_option_elected_agrarian
+            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_agrarian
+            set_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_hydroponics
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_hydroponics
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_hydroponics
+            }
+        }
+        if = {
+            limit = {
+                bca_can_build_zone_habitat_hydroponics = yes
+                OR = {
+                    has_planet_flag = bca_pf_ps_zone_district_$ZONE_SLOT$_district_hab_energy
+                }
+            }
+            set_planet_flag = bca_pf_ps_zone_option_elected_hydroponics
+            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_hydroponics
+            set_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            NOR = {
                 has_planet_flag = bca_pf_ps_zone_option_elected_spawning
                 has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_spawning
             }
@@ -7972,6 +8306,58 @@ bca_secondary_district_update_zone_options_interloop = {
             set_planet_flag = bca_pf_ps_zone_option_elected_spawning
             set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_spawning
             set_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_machine_replication
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_machine_replication
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_machine_replication
+            }
+        }
+        if = {
+            limit = {
+                bca_can_build_zone_machine_replication = yes
+                OR = {
+                }
+            }
+            set_planet_flag = bca_pf_ps_zone_option_elected_machine_replication
+            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_machine_replication
+            set_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            add_variable = {
+                which = zone_selector_options_count
+                value = 1
+            }
+        }
+    }
+    else_if = {
+        limit = {
+            NOR = {
+                has_planet_flag = bca_pf_ps_zone_option_elected_wilderness_urban
+                has_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_urban
+            }
+            check_variable = {
+                which = rank_zone_max
+                value = value:bca_planet_setting_zone_rank_wilderness_urban
+            }
+        }
+        if = {
+            limit = {
+                bca_can_build_zone_urban_wilderness = yes
+                OR = {
+                }
+            }
+            set_planet_flag = bca_pf_ps_zone_option_elected_wilderness_urban
+            set_planet_flag = bca_pf_ps_zone_option_elected_$SELECTOR_SLOT$_wilderness_urban
+            set_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
             add_variable = {
                 which = zone_selector_options_count
                 value = 1
@@ -8334,21 +8720,19 @@ bca_planet_setting_remove_current_selected_zone = {
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_hive
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_physics
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_physics
-    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_energy_physics
+    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_minerals_physics
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_physics_arcology
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_physics_ring_world
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_physics_nexus
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_physics_hive
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_society
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_society
-    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_food_biology
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_society_arcology
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_society_ring_world
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_society_nexus
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_society_hive
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_engineering
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_engineering
-    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_minerals_engineering
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_engineering_arcology
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_engineering_ring_world
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_research_engineering_nexus
@@ -8392,9 +8776,10 @@ bca_planet_setting_remove_current_selected_zone = {
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_resort_restoration_enclave
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_duelist
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_resort_proving_grounds
+    remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_knight_commander
+    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_habitat_knights
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_energy
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_energy
-    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_urban_energy
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_energy_ring_world
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_energy_nexus
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_energy_hive
@@ -8404,12 +8789,10 @@ bca_planet_setting_remove_current_selected_zone = {
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_betharian_hive
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_minerals
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_minerals
-    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_urban_minerals
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_minerals_nexus
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_minerals_hive
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_food
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_food
-    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_urban_food
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_food_ring_world
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_food_hive
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_rare_crystals
@@ -8426,9 +8809,17 @@ bca_planet_setting_remove_current_selected_zone = {
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_exotic_gases_hive
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_angler
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_anglers
+    remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_agrarian
+    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_agrarian_urban
+    remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_hydroponics
+    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_habitat_hydroponics
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_spawning
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_spawning
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_spawning_hive
+    remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_machine_replication
+    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_machine_replication
+    remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_urban
+    remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_urban_wilderness
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_foundry
     remove_planet_flag = bca_pf_ps_selected_zone_$ZONE_SLOT$_zone_foundry_wilderness
     remove_planet_flag = bca_pf_ps_selected_zone_type_$ZONE_SLOT$_wilderness_research
@@ -8703,9 +9094,9 @@ bca_secondary_district_auto_select_default = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_physics
         }
         if = {
             limit = {
@@ -8745,12 +9136,6 @@ bca_secondary_district_auto_select_default = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_society_arcology
@@ -8784,12 +9169,6 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -9052,6 +9431,18 @@ bca_secondary_district_auto_select_default = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z3_energy
@@ -9060,12 +9451,6 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_energy
         }
         if = {
             limit = {
@@ -9123,12 +9508,6 @@ bca_secondary_district_auto_select_default = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_nexus
@@ -9150,12 +9529,6 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_food
         }
         if = {
             limit = {
@@ -9256,6 +9629,30 @@ bca_secondary_district_auto_select_default = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z3_spawning
@@ -9270,6 +9667,30 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z3_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z3_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z3_zone_urban_wilderness
         }
     }
     if = {
@@ -9622,9 +10043,9 @@ bca_secondary_district_auto_select_default = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_physics
         }
         if = {
             limit = {
@@ -9664,12 +10085,6 @@ bca_secondary_district_auto_select_default = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_society_arcology
@@ -9703,12 +10118,6 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -9971,6 +10380,18 @@ bca_secondary_district_auto_select_default = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z4_energy
@@ -9979,12 +10400,6 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_energy
         }
         if = {
             limit = {
@@ -10042,12 +10457,6 @@ bca_secondary_district_auto_select_default = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_minerals_nexus
@@ -10069,12 +10478,6 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_food
         }
         if = {
             limit = {
@@ -10175,6 +10578,30 @@ bca_secondary_district_auto_select_default = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z4_spawning
@@ -10189,6 +10616,30 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z4_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z4_zone_urban_wilderness
         }
     }
     if = {
@@ -10541,9 +10992,9 @@ bca_secondary_district_auto_select_default = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_physics_zone_energy_physics
+                has_planet_flag = bca_pf_ps_option_map_physics_zone_minerals_physics
             }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy_physics
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_physics
         }
         if = {
             limit = {
@@ -10583,12 +11034,6 @@ bca_secondary_district_auto_select_default = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_society_zone_food_biology
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_food_biology
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_society_zone_research_society_arcology
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_society_arcology
@@ -10622,12 +11067,6 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_engineering_zone_research_engineering
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_research_engineering
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_engineering_zone_minerals_engineering
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_engineering
         }
         if = {
             limit = {
@@ -10890,6 +11329,18 @@ bca_secondary_district_auto_select_default = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_knight_commander
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_knight_commander
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_knight_commander_zone_habitat_knights
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_habitat_knights
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_energy
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z5_energy
@@ -10898,12 +11349,6 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_energy_zone_energy
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_energy
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_energy_zone_urban_energy
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_energy
         }
         if = {
             limit = {
@@ -10961,12 +11406,6 @@ bca_secondary_district_auto_select_default = {
         }
         if = {
             limit = {
-                has_planet_flag = bca_pf_ps_option_map_minerals_zone_urban_minerals
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_minerals
-        }
-        if = {
-            limit = {
                 has_planet_flag = bca_pf_ps_option_map_minerals_zone_minerals_nexus
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_minerals_nexus
@@ -10988,12 +11427,6 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_food_zone_food
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_food
-        }
-        if = {
-            limit = {
-                has_planet_flag = bca_pf_ps_option_map_food_zone_urban_food
-            }
-            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_food
         }
         if = {
             limit = {
@@ -11094,6 +11527,30 @@ bca_secondary_district_auto_select_default = {
     }
     if = {
         limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_agrarian
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_agrarian
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_agrarian_zone_agrarian_urban
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_agrarian_urban
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_hydroponics
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_hydroponics
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_hydroponics_zone_habitat_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_habitat_hydroponics
+        }
+    }
+    if = {
+        limit = {
             has_planet_flag = bca_pf_ps_zone_option_elected_s1_spawning
         }
         set_planet_flag = bca_pf_ps_selected_zone_type_z5_spawning
@@ -11108,6 +11565,30 @@ bca_secondary_district_auto_select_default = {
                 has_planet_flag = bca_pf_ps_option_map_spawning_zone_spawning_hive
             }
             set_planet_flag = bca_pf_ps_selected_zone_z5_zone_spawning_hive
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_machine_replication
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_machine_replication
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_machine_replication_zone_machine_replication
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_machine_replication
+        }
+    }
+    if = {
+        limit = {
+            has_planet_flag = bca_pf_ps_zone_option_elected_s1_wilderness_urban
+        }
+        set_planet_flag = bca_pf_ps_selected_zone_type_z5_wilderness_urban
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_option_map_wilderness_urban_zone_urban_wilderness
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_z5_zone_urban_wilderness
         }
     }
     if = {
@@ -11225,7 +11706,7 @@ bca_secondary_district_auto_select_default = {
 
     if = {
         limit = {
-            bca_has_secondary_districts = yes
+            bca_has_advance_secondary_districts = yes
         }
         bca_set_zx_for_identical_secondary_zone_plan = yes
     }

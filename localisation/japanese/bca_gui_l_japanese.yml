@@ -1,4 +1,5 @@
 ﻿l_japanese:
+ bca_district_gui_main: "自動化設定パネル"
  AUTOMATION_ADVANCED_SETTINGS_TITLE: "高度な設定"
  BCA_PLANET_SETTING_PRECONSTRUCTION: "事前建設"
  BCA_PLANET_SETTING_PRECONSTRUCTION_DESC: "コロニーの人口増加前に建物を事前に建設します。"

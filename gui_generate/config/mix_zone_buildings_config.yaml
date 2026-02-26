@@ -166,6 +166,7 @@ mixed_zone_buildings:
 
    - types:
         - energy
+        - hydroponics
      job_building_available_for_at_least_one_zone: true
      job_need_priority:
         - building_class_3_singularity
@@ -182,6 +183,7 @@ mixed_zone_buildings:
         - building_mineral_purification_plant
    - types:
         - food
+        - agrarian
      job_building_available_for_at_least_one_zone: true
      job_need_priority:
         - building_nourishment_complex

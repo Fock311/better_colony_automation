@@ -5,9 +5,10 @@ automate_mining_planet_building_district = {
 	available = {
 		bca_has_minerals_to_build = yes
 		has_mining_designation = yes
+		# bca_district_reach_planet_max = { type = district_mining }
 		OR = {
-			bca_district_reach_planet_max = { type = district_mining }
-			bca_district_reach_planet_max = { type = district_melting }
+			num_free_districts = { type = district_mining value = 0 }
+			num_free_districts = { type = district_melting value = 0 }
 		}
 	}
 
@@ -26,8 +27,12 @@ automate_mining_planet_building_order = {
 	available = {
 		bca_has_minerals_to_build = yes
 		OR = {
-			bca_has_build_plan = { type = building_mineral_purification_plant }
-			NOT = { has_planet_flag = bca_pf_advance_controller_order }
+			really_requires_more_job = no
+			# bca_district_reach_planet_max = { type = district_mining }
+			OR = {
+				num_free_districts = { type = district_mining value = 0 }
+				num_free_districts = { type = district_melting value = 0 }
+			}
 		}
 	}
 
@@ -40,23 +45,3 @@ automate_mining_planet_building_order = {
 }
 
 
-automate_mining_planet_housing = {
-	category = "planet_automation_housing"
-
-	emergency = yes
-	available = {
-		free_housing < 0
-        bca_has_minerals_to_build = yes
-		has_mining_designation = yes
-		num_districts = {
-			type = district_mining
-			value < bca_opti_count_secondary_district
-		}
-	}
-
-	prio_districts = {
-		district_mining
-		district_hab_mining
-		district_melting
-	}
-}

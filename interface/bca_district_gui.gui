@@ -13,7 +13,7 @@ guiTypes = {
 				alwaysTransparent = yes
 			}
             instantTextBoxType = {
-            name = f1title
+            name = "f1title"
             font = "font_text_14"
             text = PRIMARY_DISTRICT_SETTINGS
             position = { x = 0 y = 5 }
@@ -121,7 +121,7 @@ guiTypes = {
         effectButtonType = {
             name = "function3"
             quadTextureSprite = "GFX_interface_list_dark"
-			size = { width = 285 height = 178 }
+			size = { x = 285 y = 178 }
 			position = { x = -285 y = 0 }
             effect = "bca_planet_setting_secondary_zone_show_up"
             alwaysTransparent = yes
@@ -138,8 +138,6 @@ guiTypes = {
             font = "font_text_14"
             buttonText = "SECONDARY_DISTRICT_SETTINGS"
             quadTextureSprite = "GFX_tiled_window_transparent"
-            maxWidth = 285
-            maxHeight = 25
             format = center
             vertical_alignment = center
             alwaysTransparent = yes
@@ -166,7 +164,7 @@ guiTypes = {
             effectButtonType = {
                 name = "z1_district_icon_mask"
                 position = { x = 185.25 y = 40 }
-                size = { width = 50 height = 50 }
+                size = { x = 50 y = 50 }
                 quadTextureSprite = "GFX_dark_area"
                 alwaysTransparent = yes
                 effect = "bca_planet_setting_zone_select_toggle_z1_icon"
@@ -216,7 +214,7 @@ effectButtonType = {
             effectButtonType = {
                 name = "z2_district_icon_mask"
                 position = { x = 185.25 y = 105 }
-                size = { width = 50 height = 50 }
+                size = { x = 50 y = 50 }
                 quadTextureSprite = "GFX_dark_area"
                 alwaysTransparent = yes
                 effect = "bca_planet_setting_zone_select_toggle_z2_icon"
@@ -380,7 +378,7 @@ effectButtonType = {
             effectButtonType = {
                 name = "z345_district_icon_mask"
                 position = { x = 375.25 y = 40 }
-                size = { width = 50 height = 50 }
+                size = { x = 50 y = 50 }
                 quadTextureSprite = "GFX_dark_area"
                 alwaysTransparent = yes
                 effect = "bca_planet_setting_zone_select_toggle_zx_icon"
@@ -1044,7 +1042,7 @@ effectButtonType = {
             effectButtonType = {
                 name = "z3_district_icon_mask"
                 position = { x = 613.5 y = 40 }
-                size = { width = 50 height = 50 }
+                size = { x = 50 y = 50 }
                 quadTextureSprite = "GFX_dark_area"
                 alwaysTransparent = yes
                 effect = "bca_planet_setting_zone_select_toggle_z3_icon"
@@ -1110,7 +1108,7 @@ effectButtonType = {
             effectButtonType = {
                 name = "z4_district_icon_mask"
                 position = { x = 693.5 y = 40 }
-                size = { width = 50 height = 50 }
+                size = { x = 50 y = 50 }
                 quadTextureSprite = "GFX_dark_area"
                 alwaysTransparent = yes
                 effect = "bca_planet_setting_zone_select_toggle_z4_icon"
@@ -1176,7 +1174,7 @@ effectButtonType = {
             effectButtonType = {
                 name = "z5_district_icon_mask"
                 position = { x = 773.5 y = 40 }
-                size = { width = 50 height = 50 }
+                size = { x = 50 y = 50 }
                 quadTextureSprite = "GFX_dark_area"
                 alwaysTransparent = yes
                 effect = "bca_planet_setting_zone_select_toggle_z5_icon"
@@ -2849,7 +2847,7 @@ effectButtonType = {
         effectButtonType = {
             name = 'on_designation_change_mask12'
             quadTextureSprite = "GFX_dark_area"
-			size = { width = 570 height = 178 }
+			size = { x = 570 y = 178 }
 			position = { x = 0 y = 0 }
             effect = "bca_planet_setting_show_up_on_designation_changed"
             alwaysTransparent = no
@@ -2858,7 +2856,7 @@ effectButtonType = {
         effectButtonType = {
             name = 'on_designation_change_mask3'
             quadTextureSprite = "GFX_dark_area"
-			size = { width = 285 height = 178 }
+			size = { x = 285 y = 178 }
 			position = { x = -285 y = 0 }
             effect = "bca_planet_setting_show_up_on_designation_changed"
             alwaysTransparent = no

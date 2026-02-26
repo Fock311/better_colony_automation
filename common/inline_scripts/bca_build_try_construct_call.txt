@@ -1,7 +1,0 @@
-$CONSTRUCT_CALL$ = {
-	building = $building_1$
-	production = value:$standard_production$|INC_JOB|$INC_JOB$|INC_ADD|$INC_ADD$|INC_MULT|$INC_MULT$|
-	cost = $building_1_cost$
-	priority_shift = $priority_shift$
-	index = $index$
-}

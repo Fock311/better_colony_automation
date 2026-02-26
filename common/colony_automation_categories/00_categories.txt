@@ -15,11 +15,14 @@ planet_automation_pop_assembly = {}
 
 planet_automation_robot_assembly = {
 	available = {
-		can_assemble_robot = yes
 		exists = owner
 		owner = {
+			is_regular_empire = yes
 			is_machine_empire = no
-			NOT = { has_ascension_perk = ap_engineered_evolution }
+			OR = {
+				is_materialist = yes
+				NOT = { has_ascension_perk = ap_engineered_evolution }
+			}
 			NOT = { has_policy_flag = robots_outlawed }
 		}
 	}

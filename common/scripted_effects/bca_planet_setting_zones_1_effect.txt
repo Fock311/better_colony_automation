@@ -54,7 +54,6 @@ bca_clear_designation_flag = {
     remove_planet_flag = bca_pf_ps_designation_col_resort
     remove_planet_flag = bca_pf_ps_designation_col_pleasure
     remove_planet_flag = bca_pf_ps_designation_col_penal
-    remove_planet_flag = bca_pf_ps_designation_col_gestation
     remove_planet_flag = bca_pf_ps_designation_col_pre_ftl_atomic
     remove_planet_flag = bca_pf_ps_designation_col_pre_ftl_stone
     remove_planet_flag = bca_pf_ps_designation_col_pre_ftl_bronze
@@ -303,10 +302,6 @@ bca_designation_sync_with_system = {
     else_if = {
         limit = {  has_designation = col_penal }
         set_planet_flag = bca_pf_ps_designation_col_penal
-    }
-    else_if = {
-        limit = {  has_designation = col_gestation }
-        set_planet_flag = bca_pf_ps_designation_col_gestation
     }
     else_if = {
         limit = {  has_designation = col_pre_ftl_atomic }
@@ -630,10 +625,6 @@ bca_designation_sync_with_prev = {
     else_if = {
         limit = {  has_planet_flag = bca_pf_ps_designation_col_penal }
         set_colony_type = col_penal
-    }
-    else_if = {
-        limit = {  has_planet_flag = bca_pf_ps_designation_col_gestation }
-        set_colony_type = col_gestation
     }
     else_if = {
         limit = {  has_planet_flag = bca_pf_ps_designation_col_pre_ftl_atomic }
@@ -1559,29 +1550,29 @@ hidden_effect = {
             if = {
                 limit = {
                     check_variable_arithmetic = {
-                        which = value:num_zones_of_zone_energy_physics
+                        which = value:num_zones_of_zone_minerals_physics
                         value > 0
                     }
                 }
                 export_trigger_value_to_variable = {
                     trigger = num_zones
-                    parameters = { type = zone_energy_physics }
+                    parameters = { type = zone_minerals_physics }
                     variable = temp_num_zones
                 }
                 bca_secondary_zone_setting_set_by_current_zones_helper = {
                     TYPE = physics
-                    ZONE = zone_energy_physics
-                    DISTRICT = district_generator
+                    ZONE = zone_minerals_physics
+                    DISTRICT = district_mining
                 }
                 bca_secondary_zone_setting_set_by_current_zones_helper = {
                     TYPE = physics
-                    ZONE = zone_energy_physics
-                    DISTRICT = district_geothermal
+                    ZONE = zone_minerals_physics
+                    DISTRICT = district_melting
                 }
                 bca_secondary_zone_setting_set_by_current_zones_helper = {
                     TYPE = physics
-                    ZONE = zone_energy_physics
-                    DISTRICT = district_photosynthesis_fields
+                    ZONE = zone_minerals_physics
+                    DISTRICT = district_hollow_mountains
                 }
             }
             if = {
@@ -1730,29 +1721,6 @@ hidden_effect = {
             if = {
                 limit = {
                     check_variable_arithmetic = {
-                        which = value:num_zones_of_zone_food_biology
-                        value > 0
-                    }
-                }
-                export_trigger_value_to_variable = {
-                    trigger = num_zones
-                    parameters = { type = zone_food_biology }
-                    variable = temp_num_zones
-                }
-                bca_secondary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = society
-                    ZONE = zone_food_biology
-                    DISTRICT = district_farming
-                }
-                bca_secondary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = society
-                    ZONE = zone_food_biology
-                    DISTRICT = district_orchard_forests
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
                         which = value:num_zones_of_zone_research_society_arcology
                         value > 0
                     }
@@ -1891,34 +1859,6 @@ hidden_effect = {
                     TYPE = engineering
                     ZONE = zone_research_engineering
                     DISTRICT = district_polytechnic
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_zones_of_zone_minerals_engineering
-                        value > 0
-                    }
-                }
-                export_trigger_value_to_variable = {
-                    trigger = num_zones
-                    parameters = { type = zone_minerals_engineering }
-                    variable = temp_num_zones
-                }
-                bca_secondary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = engineering
-                    ZONE = zone_minerals_engineering
-                    DISTRICT = district_mining
-                }
-                bca_secondary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = engineering
-                    ZONE = zone_minerals_engineering
-                    DISTRICT = district_melting
-                }
-                bca_secondary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = engineering
-                    ZONE = zone_minerals_engineering
-                    DISTRICT = district_hollow_mountains
                 }
             }
             if = {
@@ -3462,6 +3402,63 @@ hidden_effect = {
         if = {
             limit = {
                 check_variable_arithmetic = {
+                    which = value:num_secondary_zones_of_type_agrarian
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_zones_of_zone_agrarian_urban
+                        value > 0
+                    }
+                }
+                export_trigger_value_to_variable = {
+                    trigger = num_zones
+                    parameters = { type = zone_agrarian_urban }
+                    variable = temp_num_zones
+                }
+                bca_secondary_zone_setting_set_by_current_zones_helper = {
+                    TYPE = agrarian
+                    ZONE = zone_agrarian_urban
+                    DISTRICT = district_farming
+                }
+                bca_secondary_zone_setting_set_by_current_zones_helper = {
+                    TYPE = agrarian
+                    ZONE = zone_agrarian_urban
+                    DISTRICT = district_orchard_forests
+                }
+            }
+        }
+        if = {
+            limit = {
+                check_variable_arithmetic = {
+                    which = value:num_secondary_zones_of_type_hydroponics
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_zones_of_zone_habitat_hydroponics
+                        value > 0
+                    }
+                }
+                export_trigger_value_to_variable = {
+                    trigger = num_zones
+                    parameters = { type = zone_habitat_hydroponics }
+                    variable = temp_num_zones
+                }
+                bca_secondary_zone_setting_set_by_current_zones_helper = {
+                    TYPE = hydroponics
+                    ZONE = zone_habitat_hydroponics
+                    DISTRICT = district_hab_energy
+                }
+            }
+        }
+        if = {
+            limit = {
+                check_variable_arithmetic = {
                     which = value:num_secondary_zones_of_type_spawning
                     value > 0
                 }
@@ -3828,18 +3825,6 @@ hidden_effect = {
                     ZONE = zone_research_physics
                 }
             }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_zones_of_zone_energy_physics
-                        value > 0
-                    }
-                }
-                bca_primary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = physics
-                    ZONE = zone_energy_physics
-                }
-            }
         }
         if = {
             limit = {
@@ -3860,18 +3845,6 @@ hidden_effect = {
                     ZONE = zone_research_society
                 }
             }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_zones_of_zone_food_biology
-                        value > 0
-                    }
-                }
-                bca_primary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = society
-                    ZONE = zone_food_biology
-                }
-            }
         }
         if = {
             limit = {
@@ -3890,18 +3863,6 @@ hidden_effect = {
                 bca_primary_zone_setting_set_by_current_zones_helper = {
                     TYPE = engineering
                     ZONE = zone_research_engineering
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_zones_of_zone_minerals_engineering
-                        value > 0
-                    }
-                }
-                bca_primary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = engineering
-                    ZONE = zone_minerals_engineering
                 }
             }
         }
@@ -4052,60 +4013,20 @@ hidden_effect = {
         if = {
             limit = {
                 check_variable_arithmetic = {
-                    which = value:num_primary_zones_of_type_energy
+                    which = value:num_primary_zones_of_type_knight_commander
                     value > 0
                 }
             }
             if = {
                 limit = {
                     check_variable_arithmetic = {
-                        which = value:num_zones_of_zone_urban_energy
+                        which = value:num_zones_of_zone_habitat_knights
                         value > 0
                     }
                 }
                 bca_primary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = energy
-                    ZONE = zone_urban_energy
-                }
-            }
-        }
-        if = {
-            limit = {
-                check_variable_arithmetic = {
-                    which = value:num_primary_zones_of_type_minerals
-                    value > 0
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_zones_of_zone_urban_minerals
-                        value > 0
-                    }
-                }
-                bca_primary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = minerals
-                    ZONE = zone_urban_minerals
-                }
-            }
-        }
-        if = {
-            limit = {
-                check_variable_arithmetic = {
-                    which = value:num_primary_zones_of_type_food
-                    value > 0
-                }
-            }
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = value:num_zones_of_zone_urban_food
-                        value > 0
-                    }
-                }
-                bca_primary_zone_setting_set_by_current_zones_helper = {
-                    TYPE = food
-                    ZONE = zone_urban_food
+                    TYPE = knight_commander
+                    ZONE = zone_habitat_knights
                 }
             }
         }
@@ -4126,6 +4047,46 @@ hidden_effect = {
                 bca_primary_zone_setting_set_by_current_zones_helper = {
                     TYPE = spawning
                     ZONE = zone_spawning
+                }
+            }
+        }
+        if = {
+            limit = {
+                check_variable_arithmetic = {
+                    which = value:num_primary_zones_of_type_machine_replication
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_zones_of_zone_machine_replication
+                        value > 0
+                    }
+                }
+                bca_primary_zone_setting_set_by_current_zones_helper = {
+                    TYPE = machine_replication
+                    ZONE = zone_machine_replication
+                }
+            }
+        }
+        if = {
+            limit = {
+                check_variable_arithmetic = {
+                    which = value:num_primary_zones_of_type_wilderness_urban
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    check_variable_arithmetic = {
+                        which = value:num_zones_of_zone_urban_wilderness
+                        value > 0
+                    }
+                }
+                bca_primary_zone_setting_set_by_current_zones_helper = {
+                    TYPE = wilderness_urban
+                    ZONE = zone_urban_wilderness
                 }
             }
         }
@@ -4469,9 +4430,9 @@ bca_set_zx_for_identical_secondary_zone_plan = {
             }
             if = {
                 limit = {
-                    has_planet_flag = bca_pf_ps_selected_zone_z3_zone_energy_physics
+                    has_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_physics
                 }
-                set_planet_flag = bca_pf_ps_selected_zone_zx_zone_energy_physics
+                set_planet_flag = bca_pf_ps_selected_zone_zx_zone_minerals_physics
             }
             if = {
                 limit = {
@@ -4513,12 +4474,6 @@ bca_set_zx_for_identical_secondary_zone_plan = {
             }
             if = {
                 limit = {
-                    has_planet_flag = bca_pf_ps_selected_zone_z3_zone_food_biology
-                }
-                set_planet_flag = bca_pf_ps_selected_zone_zx_zone_food_biology
-            }
-            if = {
-                limit = {
                     has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_society_arcology
                 }
                 set_planet_flag = bca_pf_ps_selected_zone_zx_zone_research_society_arcology
@@ -4554,12 +4509,6 @@ bca_set_zx_for_identical_secondary_zone_plan = {
                     has_planet_flag = bca_pf_ps_selected_zone_z3_zone_research_engineering
                 }
                 set_planet_flag = bca_pf_ps_selected_zone_zx_zone_research_engineering
-            }
-            if = {
-                limit = {
-                    has_planet_flag = bca_pf_ps_selected_zone_z3_zone_minerals_engineering
-                }
-                set_planet_flag = bca_pf_ps_selected_zone_zx_zone_minerals_engineering
             }
             if = {
                 limit = {
@@ -5008,6 +4957,34 @@ bca_set_zx_for_identical_secondary_zone_plan = {
                     has_planet_flag = bca_pf_ps_selected_zone_z3_zone_anglers
                 }
                 set_planet_flag = bca_pf_ps_selected_zone_zx_zone_anglers
+            }
+        }
+        else_if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z3_agrarian
+                has_planet_flag = bca_pf_ps_selected_zone_type_z4_agrarian
+                has_planet_flag = bca_pf_ps_selected_zone_type_z5_agrarian
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_type_zx_agrarian
+            if = {
+                limit = {
+                    has_planet_flag = bca_pf_ps_selected_zone_z3_zone_agrarian_urban
+                }
+                set_planet_flag = bca_pf_ps_selected_zone_zx_zone_agrarian_urban
+            }
+        }
+        else_if = {
+            limit = {
+                has_planet_flag = bca_pf_ps_selected_zone_type_z3_hydroponics
+                has_planet_flag = bca_pf_ps_selected_zone_type_z4_hydroponics
+                has_planet_flag = bca_pf_ps_selected_zone_type_z5_hydroponics
+            }
+            set_planet_flag = bca_pf_ps_selected_zone_type_zx_hydroponics
+            if = {
+                limit = {
+                    has_planet_flag = bca_pf_ps_selected_zone_z3_zone_habitat_hydroponics
+                }
+                set_planet_flag = bca_pf_ps_selected_zone_zx_zone_habitat_hydroponics
             }
         }
         else_if = {

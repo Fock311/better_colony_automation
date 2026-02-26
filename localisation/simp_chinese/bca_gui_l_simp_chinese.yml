@@ -1,4 +1,5 @@
 ﻿l_simp_chinese:
+ bca_district_gui_main: "自动化设置面板"
  AUTOMATION_ADVANCED_SETTINGS_TITLE: "高级设置"
  BCA_PLANET_SETTING_PRECONSTRUCTION: "提前建造"
  BCA_PLANET_SETTING_PRECONSTRUCTION_DESC: "在殖民地人口增长前提前建造建筑物。"
@@ -53,3 +54,5 @@
 
 BCA_BUG_REPORT: "£click_to_edit£"
 BCA_BUG_REPORT_DESC: "如果遇到了任何问题，或者有任何建议，欢迎前来交流 QQ:§Y153870310§!\n或者你可以在§1Github§!上提交问题以及你的修复。"
+
+bca_tt_auto_district_manage_fail: "4.3移除了一产资源的市区增益，已不再需要自动区划管理功能。"

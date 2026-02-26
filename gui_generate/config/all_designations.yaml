@@ -54,7 +54,6 @@ all_designations:
   - col_resort
   - col_pleasure
   - col_penal
-  - col_gestation
   - col_pre_ftl_atomic
   - col_pre_ftl_stone
   - col_pre_ftl_bronze

@@ -33,10 +33,6 @@ secondary_districts_for_zone:
   - district_nexus_1
   - district_nexus_2
   - district_nexus_3
-  zone_energy_physics:
-  - district_generator
-  - district_geothermal
-  - district_photosynthesis_fields
   zone_energy_ring_world:
   - district_rw_urban_1
   - district_rw_urban_2
@@ -73,9 +69,6 @@ secondary_districts_for_zone:
   - district_rw_urban_2
   - district_rw_urban_3
   zone_food:
-  - district_farming
-  - district_orchard_forests
-  zone_food_biology:
   - district_farming
   - district_orchard_forests
   zone_food_hive:
@@ -148,10 +141,6 @@ secondary_districts_for_zone:
   - district_melting
   - district_hollow_mountains
   - district_hab_mining
-  zone_minerals_engineering:
-  - district_mining
-  - district_melting
-  - district_hollow_mountains
   zone_minerals_hive:
   - district_hive_1
   - district_hive_2
@@ -160,6 +149,10 @@ secondary_districts_for_zone:
   - district_nexus_1
   - district_nexus_2
   - district_nexus_3
+  zone_minerals_physics:
+  - district_mining
+  - district_melting
+  - district_hollow_mountains
   zone_minerals_wilderness:
   - district_mining
   - district_melting

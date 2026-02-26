@@ -84,11 +84,15 @@ for zone, zone_sets in zone_zone_slot_mapping.items():
             zone_district_mapping.setdefault(zone, []).extend(districts)
 
 
-def template(zone:ObjectNode, zone_potential:BlockNode, zone_unlock:BlockNode):
+def template(zone:ObjectNode, zone_potential:BlockNode, zone_unlock:BlockNode, show_in_tech:ASTNode):
     template_code = r"""
 bca_can_build_$ZONE$ = {
     AND = {$potential$}
     AND = {$UNLOCK$}
+    owner = {
+        $show_in_tech$
+        has_technology = xx
+    }
 }
 """
     template_ast = parse(template_code)
@@ -112,6 +116,14 @@ bca_can_build_$ZONE$ = {
                     remove_from_block(parent)
                     return
                 parent.statements = zone_unlock.statements
+            elif param_name == "show_in_tech":
+                if not show_in_tech:
+                    remove_from_block(parent)
+                    return
+                temp1:PropertyNode = parent.statements[1]
+                parent.statements.clear()
+                temp1.value = show_in_tech
+                parent.statements.append(temp1)
             # elif param_name == "zone_sets":
             #     temp1:PropertyNode = parent.statements[1]
             #     parent.statements.clear()
@@ -134,13 +146,16 @@ bca_can_build_$ZONE$ = {
 for name, zone in ast['common/zones'].items():
     potential = None
     zone_unlock = None
+    show_in_tech = None
     for stat in zone.body.statements:
         if not isinstance(stat, PropertyNode): continue
         if str(stat.key) == 'potential':
             potential = stat.value
         elif str(stat.key) == 'unlock':
             zone_unlock = stat.value
-    out_file.statements.append(template(zone, potential, zone_unlock))
+        elif str(stat.key) == 'show_in_tech':
+            show_in_tech = stat.value
+    out_file.statements.append(template(zone, potential, zone_unlock, show_in_tech))
 
 
 def template_can_build_district(name:str, potential:BlockNode, allow:BlockNode):
@@ -175,6 +190,8 @@ bca_can_build_district = {
     replace_macro(obj, None)
     return obj
 
+always_uncapped_districts = []
+
 def template_is_uncapped(name:str, is_uncapped:BlockNode):
     template_code = r"""
 bca_is_uncapped = {
@@ -203,6 +220,8 @@ for name, districts in ast['common/districts'].items():
             allow = stat.value
         elif str(stat.key) == 'is_uncapped':
             is_uncapped = stat.value
+    if not is_uncapped:
+        always_uncapped_districts.append(name)
     out_file.statements.append(template_is_uncapped(name, is_uncapped))
     out_file.statements.append(template_can_build_district(name, potential, allow))
 
@@ -328,3 +347,24 @@ zone_district_mapping_multi = {zone: [d for d in districts if district_type_mapp
 zone_district_mapping_multi = {zone: districts for zone, districts in zone_district_mapping_multi.items() if len(districts) > 0}
 with open("./primary_districts_for_zone.yaml", "w", encoding="utf-8") as f:
     yaml.dump({"primary_districts_for_zone": zone_district_mapping_multi}, f, allow_unicode=True)
+
+zone_icon_list = []
+for name, zone in ast['common/zones'].items():
+    icon = None
+    for stat in zone.body.statements:
+        if not isinstance(stat, PropertyNode): continue
+        if str(stat.key) == 'icon':
+            icon = stat.value
+
+    icon = str(icon) if icon else None
+    # icon may with "", remove them
+    if icon and icon.startswith('"') and icon.endswith('"'):
+        icon = icon[1:-1]
+    zone_icon_list.append({"id": name, "icon": icon if icon else ""})
+
+with open("./zone_icon_list.yaml", "w", encoding="utf-8") as f:
+    yaml.dump({"zone_icon_list": zone_icon_list}, f, allow_unicode=True)
+
+
+with open("./always_uncapped_districts.yaml", "w", encoding="utf-8") as f:
+    yaml.dump({"always_uncapped_districts": always_uncapped_districts}, f, allow_unicode=True)

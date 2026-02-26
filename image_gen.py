@@ -22,8 +22,8 @@ def resize_dds_batch(input_folder, output_folder, length = 50):
                 print(f"已处理: {filename} -> {new_size}")
 
 
-INPUT_DIR = r"C:\Users\Estelle\Documents\Paradox Interactive\Stellaris\mod\better_colony_manage\gfx\interface\bca_districts\origin"
-OUTPUT_DIR_50 = r"C:\Users\Estelle\Documents\Paradox Interactive\Stellaris\mod\better_colony_manage\gfx\interface\bca_districts\50"
-OUTPUT_DIR_25 = r"C:\Users\Estelle\Documents\Paradox Interactive\Stellaris\mod\better_colony_manage\gfx\interface\bca_districts\25"
+INPUT_DIR = r"D:\SteamLibrary\steamapps\common\Stellaris\gfx\interface\icons\districts\district_specialization_icons"
+OUTPUT_DIR_50 = r"C:\Users\Estelle\Documents\Paradox Interactive\Stellaris\mod\better_colony_manage\gfx\interface\bca_districts\large"
+OUTPUT_DIR_25 = r"C:\Users\Estelle\Documents\Paradox Interactive\Stellaris\mod\better_colony_manage\gfx\interface\bca_districts\small"
 resize_dds_batch(INPUT_DIR, OUTPUT_DIR_50, length=50)
 resize_dds_batch(INPUT_DIR, OUTPUT_DIR_25, length=25)

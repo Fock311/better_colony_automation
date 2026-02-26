@@ -151,7 +151,7 @@ bca_planet_setting_auto_destruction_enable_zones = {
 
 bca_planet_setting_storage_world_icon = {
     potential = {
-        bca_has_secondary_districts = no
+        bca_has_advance_secondary_districts = no
     }
     allow = {
         always = yes
@@ -160,7 +160,7 @@ bca_planet_setting_storage_world_icon = {
 
 bca_planet_setting_storage_world_enable = {
     potential = {
-        bca_has_secondary_districts = no
+        bca_has_advance_secondary_districts = no
 		NOT = { has_planet_flag = bca_pf_can_build_extra_zones_for_storage }
     }
     allow = {
@@ -175,7 +175,7 @@ bca_planet_setting_storage_world_enable = {
 
 bca_planet_setting_storage_world_disable = {
     potential = {
-        bca_has_secondary_districts = no
+        bca_has_advance_secondary_districts = no
         has_planet_flag = bca_pf_can_build_extra_zones_for_storage
     }
     allow = {
@@ -190,7 +190,7 @@ bca_planet_setting_storage_world_disable = {
 
 bca_planet_setting_world_transform_candidate_arcology_project = {
     potential = {
-        bca_has_secondary_districts = no
+        bca_has_advance_secondary_districts = no
 		exists = owner
 		NOT = { has_modifier = bca_pm_arcology_project_candidate }
 		is_artificial = no
@@ -266,7 +266,7 @@ bca_planet_setting_world_transform_candidate_cancel = {
 
 bca_planet_setting_detailed_secondary_districts_regular_enable = {
     potential = {
-        bca_has_secondary_districts = no
+        bca_has_advance_secondary_districts = no
         NOT = { has_planet_flag = bca_pf_ps_show_detailed_secondary_districts }
     }
 
@@ -282,7 +282,7 @@ bca_planet_setting_detailed_secondary_districts_regular_enable = {
 
 bca_planet_setting_detailed_secondary_districts_regular_disable = {
     potential = {
-        bca_has_secondary_districts = no
+        bca_has_advance_secondary_districts = no
         has_planet_flag = bca_pf_ps_show_detailed_secondary_districts
     }
 
@@ -299,7 +299,7 @@ bca_planet_setting_detailed_secondary_districts_regular_disable = {
 
 bca_planet_setting_detailed_secondary_districts_advanced_enable = {
     potential = {
-        bca_has_secondary_districts = yes
+        bca_has_advance_secondary_districts = yes
         NOT = { has_planet_flag = bca_pf_ps_show_detailed_secondary_districts }
     }
 
@@ -318,7 +318,7 @@ bca_planet_setting_detailed_secondary_districts_advanced_enable = {
 
 bca_planet_setting_detailed_secondary_districts_advanced_disable = {
     potential = {
-        bca_has_secondary_districts = yes
+        bca_has_advance_secondary_districts = yes
         has_planet_flag = bca_pf_ps_show_detailed_secondary_districts
     }
 

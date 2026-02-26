@@ -21,82 +21,154 @@ planet_event = {
 		}
 	}
 
+	option = {
+	    name = "test_effect"
+	    test_effect = yes
+	}
 
+	option = {
+	    name = "test_call"
+        bca_resource_planet_controller_district_only = yes
+	}
+
+    option = {
+        name = "test minerals zone building"
+        allow = {
+            check_variable_arithmetic = {
+                which = value:num_secondary_zones_of_type_minerals
+                value < value:num_secondary_zone_plan_of_type_minerals
+            }
+        }
+        if = {
+            limit = {
+                requires_more_job = yes
+            }
+            set_planet_flag = debug_2_zone_path_minerals_z4
+            # secondary zone
+            if = {
+                limit = {
+                    has_planet_flag = bca_pf_ps_selected_zone_type_z4_minerals
+                }
+                set_planet_flag = debug_3_zone_path_minerals_z4_minerals
+                # debug check_variable_arithmetic condition
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_secondary_zones_of_type_minerals
+                            value < value:num_secondary_zone_plan_of_type_minerals
+                        }
+                    }
+                    set_planet_flag = debug_check_variable_arithmetic_minerals_z4_minerals
+                }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_secondary_zones_of_type_minerals
+                            value = 0
+                        }
+                    }
+                    set_planet_flag = debug_check_variable_arithmetic_num_secondary_zones_of_type_minerals_eq_0
+                }
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_secondary_zone_plan_of_type_minerals
+                            value = 0
+                        }
+                    }
+                    set_planet_flag = debug_check_variable_arithmetic_num_secondary_zone_plan_of_type_minerals_eq_0
+                }
+            }
+
+            else_if = {
+                limit = {
+                    has_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_minerals
+                }
+                set_planet_flag = debug_3_zone_path_minerals_z4_wilderness_minerals
+                # debug check_variable_arithmetic condition
+                if = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_secondary_zones_of_type_wilderness_minerals
+                            value < value:num_secondary_zone_plan_of_type_wilderness_minerals
+                        }
+                    }
+                    set_planet_flag = debug_check_variable_arithmetic_minerals_z4_wilderness_minerals
+                }
+            }
+
+            if = {
+                limit = {
+                    has_planet_flag = bca_pf_ps_selected_zone_type_z4_minerals
+                    check_variable_arithmetic = {
+                        which = value:num_secondary_zones_of_type_minerals
+                        value < value:num_secondary_zone_plan_of_type_minerals
+                    }
+                    OR = {
+                        bca_can_build_zone_minerals = yes
+                        bca_can_build_zone_minerals_nexus = yes
+                        bca_can_build_zone_minerals_hive = yes
+                    }
+                }
+                set_planet_flag = bca_pf_plan_build_secondary_zone_type_minerals
+                set_planet_flag = bca_plan_build_new_zone
+                set_planet_flag = bca_pf_advance_controller_order
+                set_planet_flag = debug_zone_path_minerals_z4_minerals
+            }
+            else_if = {
+                limit = {
+                    has_planet_flag = bca_pf_ps_selected_zone_type_z4_wilderness_minerals
+                    check_variable_arithmetic = {
+                        which = value:num_secondary_zones_of_type_wilderness_minerals
+                        value < value:num_secondary_zone_plan_of_type_wilderness_minerals
+                    }
+                    OR = {
+                        bca_can_build_zone_minerals_wilderness = yes
+                    }
+                }
+                set_planet_flag = bca_pf_plan_build_secondary_zone_type_wilderness_minerals
+                set_planet_flag = bca_plan_build_new_zone
+                set_planet_flag = bca_pf_advance_controller_order
+                set_planet_flag = debug_zone_path_minerals_z4_wilderness_minerals
+            }
+        }
+        # secondary district
+        if = {
+            limit = {
+                bca_auto_district_manage_enabled = yes
+            }
+            set_variable = {
+                which = bca_ps_plan_district_count_z4
+                value = value:bca_potential_district_max_build_d2
+            }
+            if = {
+                limit = {
+                    free_district_slots > 0
+                    requires_more_job = yes
+                }
+                if = {
+                    limit = {
+                        NOT = { has_planet_flag = bca_pf_advance_controller_order }
+                        check_variable_arithmetic = {
+                            which = value:num_free_district_d2
+                            value > 0
+                        }
+                    }
+                    set_planet_flag = bca_pf_plan_build_district_d2
+                    set_planet_flag = bca_pf_advance_controller_order
+                    set_planet_flag = debug_district_path_minerals_d2
+                }
+                else = {
+                    set_planet_flag = bca_pf_plan_build_district_d0
+                }
+            }
+        }
+    }
 
 	immediate = {
 
 	}
 
-	option = {
-	    name = "remove_flags"
-        remove_planet_flag = debug_tested_d0_to_d2
-        remove_planet_flag = debug_test_passed_d0_to_d2
-        remove_planet_flag = debug_tested_d2_to_d0
-        remove_planet_flag = debug_test_passed_d2_to_d0
-        remove_planet_flag = bca_pf_plan_build_district_d0
-        remove_planet_flag = bca_pf_plan_build_district_d1
-        remove_planet_flag = bca_pf_plan_build_district_d2
-        remove_planet_flag = bca_pf_plan_build_district_d3
-        remove_planet_flag = bca_pf_plan_remove_district_d0
-        remove_planet_flag = bca_pf_plan_remove_district_d1
-        remove_planet_flag = bca_pf_plan_remove_district_d2
-        remove_planet_flag = bca_pf_plan_remove_district_d3
-        planet_event = {
-			id = bca_debug_event.2
-		}
-	}
-
-    option = {
-	    name = "test_d0_to_d1"
-        bca_test_district_to_replace = {
-            district_slot_replace_from = d0
-            district_slot_replace_to = d1
-            metric_value = value:bca_potential_standard_energy_production
-            is_priority_district = no
-        }
-        planet_event = {
-			id = bca_debug_event.2
-		}
-	}
-
-	option = {
-        name = "test_d1_to_d0"
-        bca_test_district_to_replace = {
-            district_slot_replace_from = d1
-            district_slot_replace_to = d0
-            metric_value = value:bca_potential_standard_energy_production
-            is_priority_district = yes
-        }
-        planet_event = {
-			id = bca_debug_event.2
-		}
-    }
-
-	option = {
-	    name = "test_d0_to_d2"
-        bca_test_district_to_replace = {
-            district_slot_replace_from = d0
-            district_slot_replace_to = d2
-            metric_value = value:bca_potential_standard_minerals_production
-            is_priority_district = no
-        }
-        planet_event = {
-			id = bca_debug_event.2
-		}
-	}
-
-	option = {
-        name = "test_d2_to_d0"
-        bca_test_district_to_replace = {
-            district_slot_replace_from = d2
-            district_slot_replace_to = d0
-            metric_value = value:bca_potential_standard_minerals_production
-            is_priority_district = yes
-        }
-        planet_event = {
-			id = bca_debug_event.2
-		}
-    }
 
     option = {
         name = "bca_pf_advance_controller_order"
@@ -228,28 +300,12 @@ planet_event = {
 	option = {
 		name = "var_test"
 		set_variable = {
-			which = bca_future_planed_zone_urban_energy
-			value = value:bca_future_planed_zone_urban_energy
+			which = num_secondary_zones_of_type_minerals
+			value = value:num_secondary_zones_of_type_minerals
 		}
 		set_variable = {
-			which = bca_future_planed_zone_urban_minerals
-			value = value:bca_future_planed_zone_urban_minerals
-		}
-		set_variable = {
-			which = bca_future_planed_zone_urban_food
-			value = value:bca_future_planed_zone_urban_food
-		}
-		set_variable = {
-			which = bca_potential_district_max_add_energy
-			value = value:bca_potential_district_max_add_energy
-		}
-		set_variable = {
-			which = bca_potential_district_max_add_minerals
-			value = value:bca_potential_district_max_add_minerals
-		}
-		set_variable = {
-			which = bca_potential_district_max_add_food
-			value = value:bca_potential_district_max_add_food
+			which = num_secondary_zone_plan_of_type_minerals
+			value = value:num_secondary_zone_plan_of_type_minerals
 		}
 		set_variable = {
 			which = bca_planet_max_districts
@@ -268,36 +324,57 @@ planet_event = {
 			value = value:num_free_district_d3
 		}
 		set_variable = {
-			which = bca_num_districts_value|TYPE|district_city|
-			value = value:bca_num_districts_value|TYPE|district_city|
+			which = bca_district_max_add_d1
+			value = value:bca_district_max_add_d1
 		}
 		set_variable = {
-			which = bca_potential_standard_energy_production|INC_MULT|value:bca_production_inc_mult_from_urban_resource|
-			value = value:bca_potential_standard_energy_production|INC_MULT|value:bca_production_inc_mult_from_urban_resource|
+			which = bca_district_max_add_d2
+			value = value:bca_district_max_add_d2
 		}
 		set_variable = {
-			which = bca_potential_standard_minerals_production|INC_MULT|value:bca_production_inc_mult_from_urban_resource|
-			value = value:bca_potential_standard_minerals_production|INC_MULT|value:bca_production_inc_mult_from_urban_resource|
+			which = bca_district_max_add_d3
+			value = value:bca_district_max_add_d3
 		}
 		set_variable = {
-			which = bca_potential_standard_food_production|INC_MULT|value:bca_production_inc_mult_from_urban_resource|
-			value = value:bca_potential_standard_food_production|INC_MULT|value:bca_production_inc_mult_from_urban_resource|
+			which = bca_potential_district_max_add_d1
+			value = value:bca_potential_district_max_add_d1
+		}
+		set_variable = {
+			which = bca_potential_district_max_add_d2
+			value = value:bca_potential_district_max_add_d2
+		}
+		set_variable = {
+			which = bca_potential_district_max_add_d3
+			value = value:bca_potential_district_max_add_d3
+		}
+		set_variable = {
+			which = bca_potential_district_max_build_d1
+			value = value:bca_potential_district_max_build_d1
+		}
+		set_variable = {
+			which = bca_potential_district_max_build_d2
+			value = value:bca_potential_district_max_build_d2
+		}
+		set_variable = {
+			which = bca_potential_district_max_build_d3
+			value = value:bca_potential_district_max_build_d3
 		}
 		hidden_effect = {
-            clear_variable = bca_future_planed_zone_urban_energy
-            clear_variable = bca_future_planed_zone_urban_minerals
-            clear_variable = bca_future_planed_zone_urban_food
-            clear_variable = bca_potential_district_max_add_energy
-            clear_variable = bca_potential_district_max_add_minerals
-            clear_variable = bca_potential_district_max_add_food
+            clear_variable = num_secondary_zones_of_type_minerals
+            clear_variable = num_secondary_zone_plan_of_type_minerals
             clear_variable = bca_planet_max_districts
             clear_variable = num_free_district_d1
             clear_variable = num_free_district_d2
             clear_variable = num_free_district_d3
-            clear_variable = bca_num_districts_value|TYPE|district_city|
-            clear_variable = bca_potential_standard_energy_production|INC_MULT|value:bca_production_inc_mult_from_urban_resource|
-            clear_variable = bca_potential_standard_minerals_production|INC_MULT|value:bca_production_inc_mult_from_urban_resource|
-            clear_variable = bca_potential_standard_food_production|INC_MULT|value:bca_production_inc_mult_from_urban_resource|
+            clear_variable = bca_district_max_add_d1
+            clear_variable = bca_district_max_add_d2
+            clear_variable = bca_district_max_add_d3
+            clear_variable = bca_potential_district_max_add_d1
+            clear_variable = bca_potential_district_max_add_d2
+            clear_variable = bca_potential_district_max_add_d3
+            clear_variable = bca_potential_district_max_build_d1
+            clear_variable = bca_potential_district_max_build_d2
+            clear_variable = bca_potential_district_max_build_d3
         }
         planet_event = {
 			id = bca_debug_event.2
