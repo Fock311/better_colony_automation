@@ -1189,15 +1189,17 @@ try_set_secondary_districts_plan_one_to_zero = {
 }
 
 bca_set_district_plan_by_ratio = {
-    set_variable = {
-        which = new_num_main_districts_plan_diff
-        value = value:bca_num_main_districts_from_ratio|RATIO|$RATIO$|
+    hidden_effect = {
+        set_variable = {
+            which = new_num_main_districts_plan_diff
+            value = value:bca_num_main_districts_from_ratio|RATIO|$RATIO$|
+        }
+        subtract_variable = {
+             which = new_num_main_districts_plan_diff
+             value = value:bca_num_primary_districts_plan
+        }
+        bca_set_district_plan_by_diff = yes
     }
-    subtract_variable = {
-         which = new_num_main_districts_plan_diff
-         value = value:bca_num_primary_districts_plan
-    }
-    bca_set_district_plan_by_diff = yes
 }
 
 bca_set_district_plan_inc_1 = {
@@ -1217,14 +1219,15 @@ bca_set_district_plan_dec_1 = {
 }
 
 bca_set_district_plan_by_diff = {
-
     while = {
-         limit = {
-             check_variable = {
-                 which = new_num_main_districts_plan_diff
-                 value > 0
-             }
-         }
+        limit = {
+            check_variable = {
+                which = new_num_main_districts_plan_diff
+                value > 0
+            }
+            NOT = { has_planet_flag = bca_no_more_planed_secondary_district }
+        }
+        set_planet_flag = bca_no_more_planed_secondary_district
         if = {
             limit = {
                 check_variable = {
@@ -1244,6 +1247,7 @@ bca_set_district_plan_by_diff = {
                 which = new_num_main_districts_plan_diff
                 value = 1
             }
+            remove_planet_flag = bca_no_more_planed_secondary_district
         }
         if = {
             limit = {
@@ -1264,6 +1268,7 @@ bca_set_district_plan_by_diff = {
                 which = new_num_main_districts_plan_diff
                 value = 1
             }
+            remove_planet_flag = bca_no_more_planed_secondary_district
         }
         if = {
             limit = {
@@ -1284,32 +1289,129 @@ bca_set_district_plan_by_diff = {
                 which = new_num_main_districts_plan_diff
                 value = 1
             }
+            remove_planet_flag = bca_no_more_planed_secondary_district
         }
     }
-    while = {
-         limit = {
-             check_variable = {
-                 which = new_num_main_districts_plan_diff
-                 value < 0
-             }
-         }
-        if = {
+    if = {
+        limit = {
+            has_planet_flag = bca_no_more_planed_secondary_district
+            NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_district }
+        }
+        remove_planet_flag = bca_no_more_planed_secondary_district
+        while = {
             limit = {
-                check_variable_arithmetic = {
-                    which = value:bca_num_free_secondary_districts_plan
+                check_variable = {
+                    which = new_num_main_districts_plan_diff
                     value > 0
                 }
-                 check_variable = {
-                     which = new_num_main_districts_plan_diff
-                     value < 0
-                 }
-                 OR = {
+                NOT = { has_planet_flag = bca_no_more_planed_secondary_district }
+            }
+            set_planet_flag = bca_no_more_planed_secondary_district
+            if = {
+                limit = {
+                    check_variable = {
+                        which = bca_ps_plan_district_count_z3
+                        value > 0
+                    }
+                     check_variable = {
+                         which = new_num_main_districts_plan_diff
+                         value > 0
+                     }
+                }
+                subtract_variable = {
+                    which = bca_ps_plan_district_count_z3
+                    value = 1
+                }
+                subtract_variable = {
+                    which = new_num_main_districts_plan_diff
+                    value = 1
+                }
+                remove_planet_flag = bca_no_more_planed_secondary_district
+            }
+            if = {
+                limit = {
+                    check_variable = {
+                        which = bca_ps_plan_district_count_z4
+                        value > 0
+                    }
+                     check_variable = {
+                         which = new_num_main_districts_plan_diff
+                         value > 0
+                     }
+                }
+                subtract_variable = {
+                    which = bca_ps_plan_district_count_z4
+                    value = 1
+                }
+                subtract_variable = {
+                    which = new_num_main_districts_plan_diff
+                    value = 1
+                }
+                remove_planet_flag = bca_no_more_planed_secondary_district
+            }
+            if = {
+                limit = {
+                    check_variable = {
+                        which = bca_ps_plan_district_count_z5
+                        value > 0
+                    }
+                     check_variable = {
+                         which = new_num_main_districts_plan_diff
+                         value > 0
+                     }
+                }
+                subtract_variable = {
+                    which = bca_ps_plan_district_count_z5
+                    value = 1
+                }
+                subtract_variable = {
+                    which = new_num_main_districts_plan_diff
+                    value = 1
+                }
+                remove_planet_flag = bca_no_more_planed_secondary_district
+            }
+        }
+    }
+    remove_planet_flag = bca_no_more_planed_secondary_district
+
+    while = {
+        limit = {
+            check_variable = {
+                which = new_num_main_districts_plan_diff
+                value < 0
+            }
+            NOT = { has_planet_flag = bca_no_more_free_secondary_district }
+        }
+        set_planet_flag = bca_no_more_free_secondary_district
+        if = {
+            limit = {
+                check_variable = {
+                    which = bca_ps_plan_district_count_z3
+                    value < value:bca_potential_district_max_add_d1
+                }
+                check_variable = {
+                    which = new_num_main_districts_plan_diff
+                    value < 0
+                }
+                OR = {
                     bca_has_advance_secondary_districts = yes
                     AND = {
-                       has_farming_designation = no
-                       has_mining_designation = no
+                        OR = {
+                             has_mining_designation = no
+                             check_variable = {
+                                which = bca_ps_plan_district_count_z4
+                                value >= value:bca_potential_district_max_add_d2
+                            }
+                        }
+                        OR = {
+                             has_farming_designation = no
+                             check_variable = {
+                                which = bca_ps_plan_district_count_z5
+                                value >= value:bca_potential_district_max_add_d3
+                            }
+                        }
                     }
-                 }
+                }
             }
             add_variable = {
                 which = bca_ps_plan_district_count_z3
@@ -1319,24 +1421,37 @@ bca_set_district_plan_by_diff = {
                 which = new_num_main_districts_plan_diff
                 value = 1
             }
+            remove_planet_flag = bca_no_more_free_secondary_district
         }
         if = {
             limit = {
-                check_variable_arithmetic = {
-                    which = value:bca_num_free_secondary_districts_plan
-                    value > 0
+                check_variable = {
+                    which = bca_ps_plan_district_count_z4
+                    value < value:bca_potential_district_max_add_d2
                 }
-                 check_variable = {
-                     which = new_num_main_districts_plan_diff
-                     value < 0
-                 }
-                 OR = {
+                check_variable = {
+                    which = new_num_main_districts_plan_diff
+                    value < 0
+                }
+                OR = {
                     bca_has_advance_secondary_districts = yes
                     AND = {
-                       has_generator_designation = no
-                       has_farming_designation = no
+                        OR = {
+                             has_generator_designation = no
+                             check_variable = {
+                                which = bca_ps_plan_district_count_z3
+                                value >= value:bca_potential_district_max_add_d1
+                            }
+                        }
+                        OR = {
+                             has_farming_designation = no
+                             check_variable = {
+                                which = bca_ps_plan_district_count_z5
+                                value >= value:bca_potential_district_max_add_d3
+                            }
+                        }
                     }
-                 }
+                }
             }
             add_variable = {
                 which = bca_ps_plan_district_count_z4
@@ -1346,24 +1461,37 @@ bca_set_district_plan_by_diff = {
                 which = new_num_main_districts_plan_diff
                 value = 1
             }
+            remove_planet_flag = bca_no_more_free_secondary_district
         }
         if = {
             limit = {
-                check_variable_arithmetic = {
-                    which = value:bca_num_free_secondary_districts_plan
-                    value > 0
+                check_variable = {
+                    which = bca_ps_plan_district_count_z5
+                    value < value:bca_potential_district_max_add_d3
                 }
-                 check_variable = {
-                     which = new_num_main_districts_plan_diff
-                     value < 0
-                 }
-                 OR = {
+                check_variable = {
+                    which = new_num_main_districts_plan_diff
+                    value < 0
+                }
+                OR = {
                     bca_has_advance_secondary_districts = yes
                     AND = {
-                       has_generator_designation = no
-                       has_mining_designation = no
+                        OR = {
+                             has_generator_designation = no
+                             check_variable = {
+                                which = bca_ps_plan_district_count_z3
+                                value >= value:bca_potential_district_max_add_d1
+                            }
+                        }
+                        OR = {
+                             has_mining_designation = no
+                             check_variable = {
+                                which = bca_ps_plan_district_count_z4
+                                value >= value:bca_potential_district_max_add_d2
+                            }
+                        }
                     }
-                 }
+                }
             }
             add_variable = {
                 which = bca_ps_plan_district_count_z5
@@ -1373,9 +1501,10 @@ bca_set_district_plan_by_diff = {
                 which = new_num_main_districts_plan_diff
                 value = 1
             }
+            remove_planet_flag = bca_no_more_free_secondary_district
         }
     }
-
+    remove_planet_flag = bca_no_more_free_secondary_district
     clear_variable = new_num_main_districts_plan_diff
 
 

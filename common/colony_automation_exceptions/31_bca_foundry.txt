@@ -1,28 +1,6 @@
-# 合金自动化
-better_automate_foundry_planet = {
-	category = "planet_automation_designation_construction"
 
-	emergency = yes
-	available = {
-		has_foundry_designation = yes
-		really_requires_more_job = yes
-		bca_has_minerals_to_build = yes
-	}
 
-	buildings = {
-		5 = {
-			building = building_micro_forge
-			available = { free_building_slots > 3 }
-		}
-
-		6 = {
-			building = building_foundry_1
-			available = { free_building_slots > 3 }
-		}
-	}
-}
-
-better_automate_foundry_planet_building_non_job = {
+better_automate_foundry_planet_building = {
 	category = "planet_automation_designation_construction"
 
 	emergency = yes
@@ -44,19 +22,24 @@ better_automate_foundry_planet_building_non_job = {
 			building = building_foundry_efficiency_1
 		}
 				
-        # 合金回收厂
-		# 4 = {
-		# 	building = building_foundry_upkeep_1
-		# }
+		4 = {
+			building = building_foundry_upkeep_1
+		}
 
 		5 = {
 			building = building_micro_forge
-			available = { requires_more_job = yes }
+			available = {
+				requires_more_job = yes
+				free_district_slots = 0
+			}
 		}
 
 		6 = {
 			building = building_foundry_1
-			available = { requires_more_job = yes }
+			available = {
+				requires_more_job = yes
+				free_district_slots = 0
+			}
 		}
 	}
 }

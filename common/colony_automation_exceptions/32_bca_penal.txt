@@ -4,9 +4,7 @@ automate_penal_planet = {
 	emergency = yes
 	available = {
 		has_designation = col_penal
-        requires_more_job = yes
         bca_has_minerals_to_build = yes
-
 	}
 
 	buildings = {

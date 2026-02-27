@@ -64,7 +64,7 @@ bca_planet_setting_auto_destruction_disable = {
     }
 }
 
-bca_planet_setting_auto_destruction_disable_buidlings = {
+bca_planet_setting_auto_destruction_buildings_disable = {
     potential = {
         exists = owner
         NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_building }
@@ -78,7 +78,7 @@ bca_planet_setting_auto_destruction_disable_buidlings = {
     }
 }
 
-bca_planet_setting_auto_destruction_enable_buidlings = {
+bca_planet_setting_auto_destruction_buildings_enable = {
     potential = {
         exists = owner
         has_planet_flag = bca_pf_disable_planet_auto_destruction_building
@@ -92,7 +92,7 @@ bca_planet_setting_auto_destruction_enable_buidlings = {
     }
 }
 
-bca_planet_setting_auto_destruction_disable_districts = {
+bca_planet_setting_auto_destruction_districts_disable = {
     potential = {
         exists = owner
         NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_district }
@@ -106,7 +106,7 @@ bca_planet_setting_auto_destruction_disable_districts = {
     }
 }
 
-bca_planet_setting_auto_destruction_enable_districts = {
+bca_planet_setting_auto_destruction_districts_enable = {
     potential = {
         exists = owner
         has_planet_flag = bca_pf_disable_planet_auto_destruction_district
@@ -120,7 +120,7 @@ bca_planet_setting_auto_destruction_enable_districts = {
     }
 }
 
-bca_planet_setting_auto_destruction_disable_zones = {
+bca_planet_setting_auto_destruction_zones_disable = {
     potential = {
         exists = owner
         NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_zone }
@@ -134,7 +134,7 @@ bca_planet_setting_auto_destruction_disable_zones = {
     }
 }
 
-bca_planet_setting_auto_destruction_enable_zones = {
+bca_planet_setting_auto_destruction_zones_enable = {
     potential = {
         exists = owner
         has_planet_flag = bca_pf_disable_planet_auto_destruction_zone

@@ -28,8 +28,10 @@ bca_num_free_secondary_districts_plan = {
 }
 
 bca_num_free_primary_districts_plan = {
-    set = value:bca_potential_max_districts
-    subtract = value:bca_num_secondary_districts_plan
+    add = bca_ps_plan_district_count_z3
+    add = bca_ps_plan_district_count_z4
+    add = bca_ps_plan_district_count_z5
+    subtract = value:num_secondary_district
 }
 
 bca_num_primary_districts_plan = {
@@ -50,6 +52,7 @@ bca_num_main_districts_from_ratio = {
     set = value:bca_potential_max_districts
     multiply = $RATIO$
     round = yes
+    min = 1
 }
 bca_built_primary_districts_to_ratio = {
     set = value:num_primary_district

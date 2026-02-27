@@ -16,55 +16,57 @@
 {%- endmacro %}
 
 {% for item in mixed_zone_buildings %}
-{% if item.job_need_priority%}
-automate_mixed_zone_{{ item.types[0] }}_building_job = {
-	category = "planet_automation_designation_construction"
 
-	emergency = yes
-	available = {
-	    {% if item.always %}
-	    really_requires_more_job = yes
-	    {% else %}
-        requires_more_job = yes
-        {% endif %}
-		bca_has_minerals_to_build = yes
-		NOT = { has_planet_flag = bca_pf_advance_controller_order }
-		{% if item.job_building_available_for_at_least_one_zone %}
-		OR = {
-		    {% for type in item.types %}
-            {% for zone_slot in ['z1','z2','z3','z4','z5'] %}
-            AND = {
-                has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, type) }}
-                check_variable = {
-                    which = {{v.var_district_num_plan(zone_slot)}}
-                    value > 0
-                }
-            }
-            {% endfor %}
-            {% endfor %}
-		}
-		{% else %}
-        OR = {
-		    {% for type in item.types %}
-		    {% for zone_slot in ['z1','z2','z3','z4','z5'] %}
-	        has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, type) }}
-		    {% endfor %}
-		    {% endfor %}
-		}
-		{% endif %}
-	}
+{#{% if item.job_need_priority%}#}
+{#automate_mixed_zone_{{ item.types[0] }}_building_job = {#}
+{#	category = "planet_automation_designation_construction"#}
+{##}
+{#	emergency = yes#}
+{#	available = {#}
+{#	    {% if item.always %}#}
+{#	    really_requires_more_job = yes#}
+{#	    {% else %}#}
+{#        requires_more_job = yes#}
+{#        {% endif %}#}
+{#		bca_has_minerals_to_build = yes#}
+{#		NOT = { has_planet_flag = bca_pf_advance_controller_order }#}
+{#		{% if item.job_building_available_for_at_least_one_zone %}#}
+{#		OR = {#}
+{#		    {% for type in item.types %}#}
+{#            {% for zone_slot in ['z1','z2','z3','z4','z5'] %}#}
+{#            AND = {#}
+{#                has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, type) }}#}
+{#                check_variable = {#}
+{#                    which = {{v.var_district_num_plan(zone_slot)}}#}
+{#                    value > 0#}
+{#                }#}
+{#            }#}
+{#            {% endfor %}#}
+{#            {% endfor %}#}
+{#		}#}
+{#		{% else %}#}
+{#        OR = {#}
+{#		    {% for type in item.types %}#}
+{#		    {% for zone_slot in ['z1','z2','z3','z4','z5'] %}#}
+{#	        has_planet_flag = {{ pf.flag_selected_zone_type(zone_slot, type) }}#}
+{#		    {% endfor %}#}
+{#		    {% endfor %}#}
+{#		}#}
+{#		{% endif %}#}
+{#	}#}
+{##}
+{#	buildings = {#}
+{#        {% for building in item.job_need_priority %}#}
+{#	    {{ loop.index0 }} = {#}
+{#{{building_config(building)}}#}
+{#	    }#}
+{#        {% endfor %}#}
+{#	}#}
+{#}#}
+{#{% endif %}#}
 
-	buildings = {
-        {% for building in item.job_need_priority %}
-	    {{ loop.index0 }} = {
-{{building_config(building)}}
-	    }
-        {% endfor %}
-	}
-}
-{% endif %}
 {% if item.always %}
-automate_mixed_zone_{{ item.types[0] }}_building_non_job = {
+automate_mixed_zone_{{ item.types[0] }}_building = {
 	category = "planet_automation_designation_construction"
 
 	emergency = yes
@@ -83,15 +85,18 @@ automate_mixed_zone_{{ item.types[0] }}_building_non_job = {
 	buildings = {
         {% for building in item.always %}
 	    {{ loop.index0 }} = {
-{{building_config(building)}}
+            {#  #}{{building_config(building)}}{#  #}
 	    }
         {% endfor %}
 
         {% if item.job_need_priority and not item.job_building_available_for_at_least_one_zone%}
         {% for building in item.job_need_priority %}
         {{ loop.index0 + item.always|length }} = {
-{{building_config(building)}}
-            available = { requires_more_job = yes }
+            {#  #}{{building_config(building)}}{#  #}
+            available = {
+                requires_more_job = yes
+                free_district_slots = 0
+            }
         }
         {% endfor %}
 	    {% endif %}
@@ -106,6 +111,7 @@ automate_mixed_zone_{{ item.types[0] }}_building_job_low_priority = {
 	available = {
 		bca_has_minerals_to_build = yes
 		requires_more_job = yes
+		free_district_slots = 0
 		NOT = { has_planet_flag = bca_pf_advance_controller_order }
         OR = {
 		    {% for type in item.types %}
@@ -125,7 +131,7 @@ automate_mixed_zone_{{ item.types[0] }}_building_job_low_priority = {
 	buildings = {
         {% for building in item.job_need_priority %}
         {{ loop.index0 }} = {
-{{building_config(building)}}
+            {#  #}{{building_config(building)}}{#  #}
         }
         {% endfor %}
 	}

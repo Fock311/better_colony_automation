@@ -68,7 +68,7 @@ automate_crime_management = {
 			}
 
 			job = enforcer
-			amount = -1
+			amount = -10
 		}
 
 		enforcer_increase = {
@@ -115,7 +115,7 @@ automate_crime_management_gestalt = {
 			}
 
 			job = patrol_drone
-			amount = -1
+			amount = -10
 		}
 
 		job_patrol_drone_add_increase = {

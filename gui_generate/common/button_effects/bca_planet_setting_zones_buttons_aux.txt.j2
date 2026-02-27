@@ -63,45 +63,37 @@ bca_planet_setting_slider_{{ func }}_{{ index }} = {
     }
     allow = {
         bca_allow_manual_district_manage = yes
+        {% if func == 'primary_district_built' or func == 'secondary_district_built' %}
+        custom_tooltip = {
+            fail_text = "BCA_DISTRICT_AUTO_DESTRUCTION_NOT_ALLOW"
+            NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_district }
+        }
+        {% endif %}
     }
     effect = {
-        hidden_effect = {
-            {% if func == 'primary_district_plan' or func == 'secondary_district_plan' %}
+        {% if func == 'primary_district_plan' or func == 'secondary_district_plan' %}
+        bca_set_district_plan_by_ratio = {
+            RATIO = {{ setting_ratio }}
+        }
+        {% elif func == 'primary_district_built' %}
+        if = {
+            limit = {
+                NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_district }
+            }
             bca_set_district_plan_by_ratio = {
                 RATIO = {{ setting_ratio }}
             }
-            {% elif func == 'primary_district_built' %}
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = {{ setting_ratio }}
-                        value = value:bca_built_primary_districts_to_ratio
-                    }
-                }
-                bca_set_district_plan_by_ratio = {
-                    RATIO = {{ setting_ratio }}
-                }
-            }
-            else = {
-
-            }
-            {% elif func == 'secondary_district_plan' %}
-            if = {
-                limit = {
-                    check_variable_arithmetic = {
-                        which = {{ reverse_setting_ratio }}
-                        value = value:bca_built_secondary_districts_to_ratio
-                    }
-                }
-                bca_set_district_plan_by_ratio = {
-                    RATIO = {{ setting_ratio }}
-                }
-            }
-            else = {
-
-            }
-            {% endif %}
         }
+        {% elif func == 'secondary_district_built' %}
+        if = {
+            limit = {
+                NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_district }
+            }
+            bca_set_district_plan_by_ratio = {
+                RATIO = {{ setting_ratio }}
+            }
+        }
+        {% endif %}
     }
 }
 {% endfor %}
@@ -148,10 +140,24 @@ bca_planet_setting_secondary_zone_count_dec_{{ zone_slot }} = {
         has_planet_flag = bca_pf_ps_show_detailed_secondary_districts
     }
     allow = {
-        hidden_trigger = {
-            check_variable = {
-                which = {{v.var_district_num_plan(zone_slot)}}
-                value > value:num_district_{{ zone_slot_district_slot_mapping[zone_slot] }}
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_disable_planet_auto_destruction_district
+            }
+            custom_tooltip = {
+                fail_text = "BCA_DISTRICT_AUTO_DESTRUCTION_NOT_ALLOW"
+                check_variable = {
+                    which = {{v.var_district_num_plan(zone_slot)}}
+                    value > value:num_district_{{ zone_slot_district_slot_mapping[zone_slot] }}
+                }
+            }
+        }
+        else = {
+            hidden_trigger = {
+                check_variable_arithmetic = {
+                    which = {{v.var_district_num_plan(zone_slot)}}
+                    value > 0
+                }
             }
         }
         bca_allow_manual_district_manage = yes
@@ -180,10 +186,25 @@ bca_planet_setting_primary_district_count_dec = {
         always = yes
     }
     allow = {
-        hidden_trigger = {
-            check_variable_arithmetic = {
-                which = value:bca_num_primary_districts_plan
-                value > value:num_primary_district
+
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_disable_planet_auto_destruction_district
+            }
+            custom_tooltip = {
+                fail_text = "BCA_DISTRICT_AUTO_DESTRUCTION_NOT_ALLOW"
+                check_variable_arithmetic = {
+                    which = value:bca_num_primary_districts_plan
+                    value > value:num_primary_district
+                }
+            }
+        }
+        else = {
+            hidden_trigger = {
+                check_variable_arithmetic = {
+                    which = value:bca_num_primary_districts_plan
+                    value > 1
+                }
             }
         }
         bca_allow_manual_district_manage = yes
@@ -192,7 +213,6 @@ bca_planet_setting_primary_district_count_dec = {
         hidden_effect = {
             bca_set_district_plan_dec_1 = yes
         }
-
     }
 }
 
@@ -201,10 +221,25 @@ bca_planet_setting_primary_district_count_inc = {
         always = yes
     }
     allow = {
-        hidden_trigger = {
-            check_variable_arithmetic = {
-                which = value:bca_num_free_primary_districts_plan
-                value > 0
+
+        if = {
+            limit = {
+                has_planet_flag = bca_pf_disable_planet_auto_destruction_district
+            }
+            custom_tooltip = {
+                fail_text = "BCA_DISTRICT_AUTO_DESTRUCTION_NOT_ALLOW"
+                check_variable_arithmetic = {
+                    which = value:bca_num_free_primary_districts_plan
+                    value > 0
+                }
+            }
+        }
+        else = {
+            hidden_trigger = {
+                check_variable_arithmetic = {
+                    which = value:num_district_d0
+                    value < value:bca_potential_max_districts
+                }
             }
         }
         bca_allow_manual_district_manage = yes

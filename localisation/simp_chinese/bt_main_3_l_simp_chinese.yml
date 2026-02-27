@@ -37,6 +37,23 @@
  RESERVE_INFLUENCE_500_desc: "预留 500 影响力"
  bca_reserve_influence_amount: "预留影响力数量"
 
+ policy_bca_reserve_job: "岗位预留"
+ policy_bca_reserve_job_desc: "当可用岗位低于预留数值时，进行建设以提供更多岗位。"
+ RESERVE_JOB_RESERVATION_0: "0"
+ RESERVE_JOB_RESERVATION_0_desc: "预留 0 岗位"
+ RESERVE_JOB_RESERVATION_50: "50"
+ RESERVE_JOB_RESERVATION_50_desc: "预留 50 岗位"
+ RESERVE_JOB_RESERVATION_100: "100"
+ RESERVE_JOB_RESERVATION_100_desc: "预留 100 岗位"
+ RESERVE_JOB_RESERVATION_200: "200"
+ RESERVE_JOB_RESERVATION_200_desc: "预留 200 岗位"
+ RESERVE_JOB_RESERVATION_300: "300"
+ RESERVE_JOB_RESERVATION_300_desc: "预留 300 岗位"
+ RESERVE_JOB_RESERVATION_400: "400"
+ RESERVE_JOB_RESERVATION_400_desc: "预留 400 岗位"
+ bca_reserve_job_amount: "预留岗位数量"
+
+
  policy_bac_building_destroy: "自动建筑拆除"
  policy_bac_building_destroy_desc: "不满足行星规划的建筑将在无可用建筑槽位时自动拆除"
  disable_bac_building_destroy: "禁用自动建筑拆除"
@@ -74,7 +91,6 @@
 
  decision_colony_transform: "§R~BCA~:去城市化§!"
  decision_colony_transform_desc: "§R难道我是个很坏的人吗？§!"
-
 
  decision_enable_build_fe_clinic: "£building£ §r已禁用§!：建造更多$building_fe_clinic_1$"
  decision_enable_build_fe_clinic_desc: "为殖民地建造额外的$building_fe_clinic_1$。当前：§H禁止§!"

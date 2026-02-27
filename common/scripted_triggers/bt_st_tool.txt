@@ -9,16 +9,22 @@ any_owned_pop_group = {
 requires_more_job = {
 	OR = {
 		has_planet_flag = bca_pf_planet_pre_construction
-		free_jobs <= 0
+		free_jobs <= owner.bca_reserve_job_amount
 	}
 }
 really_requires_more_job = {
-	free_jobs <= 0
+	free_jobs <= owner.bca_reserve_job_amount
 }
 
 bca_has_minerals_to_build = {
-	owner = {
-		resource_stockpile_compare = {resource = minerals value >= bca_reserve_minerals_amount}
+	if = {
+		limit = { is_scope_type = planet }
+		owner = {
+			resource_stockpile_compare = { resource = minerals value >= bca_reserve_minerals_amount }
+		}
+	}
+	else = {
+		resource_stockpile_compare = { resource = minerals value >= bca_reserve_minerals_amount }
 	}
 }
 

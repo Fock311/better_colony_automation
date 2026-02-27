@@ -5,14 +5,16 @@ mixed_zone_buildings:
         - trade
         - urban
      job_need_priority:
+        - building_commercial_zone
      always:
         - building_fe_market_1
         - building_galactic_stock_exchange
         - building_commercial_megaplex
-        - building_commercial_zone
    - types:
         - industrial
      job_need_priority:
+       - building_micro_forge
+       - building_affluence_emporium
      always:
         - building_ministry_production
         - building_production_center
@@ -58,6 +60,13 @@ mixed_zone_buildings:
         - bureaucrat
         - priest
      job_need_priority:
+        - building_bureaucratic_1
+        - building_temple
+        - building_sacrificial_temple_1
+        - building_uplink_node
+        - building_hive_node
+        - building_organic_sanctuary
+     always:
         - building_autochthon_monument
         - building_corporate_monument
         - building_simulation_1
@@ -67,22 +76,15 @@ mixed_zone_buildings:
         - building_citadel_of_faith
         - building_corporate_vault
         - building_alpha_hub
-        - building_bureaucratic_1
-        - building_temple
-        - building_sacrificial_temple_1
-        - building_uplink_node
-        - building_hive_node
-        - building_organic_sanctuary
-     always:
    - types:
         - fortress
      job_need_priority:
-        - building_dread_encampment
-        - building_military_academy
         - building_fe_fortress
-        - building_planetary_shield_generator
         - building_stronghold
      always:
+        - building_dread_encampment
+        - building_military_academy
+        - building_planetary_shield_generator
 
 #   - types:
 #

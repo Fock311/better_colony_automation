@@ -85,8 +85,9 @@
 
             font = "cg_16b"
             buttonText = "{{ text }}"
+            {% if tooltip %}
             tooltipText = "{{ tooltip }}"
-
+            {% endif %}
 
             quadTextureSprite = "{{ tex_prefix }}_disabled"
             effect = "{{ effect_prefix }}_enable"
@@ -98,7 +99,9 @@
 
             font = "cg_16b"
             buttonText = "{{ text }}"
+            {% if tooltip %}
             tooltipText = "{{ tooltip }}"
+            {% endif %}
 
             quadTextureSprite = "{{ tex_prefix }}_enabled"
             effect = "{{ effect_prefix }}_disable"

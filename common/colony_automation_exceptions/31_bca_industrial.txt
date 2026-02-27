@@ -4,17 +4,6 @@ automate_industrial_planet = {
 	emergency = yes
 	available = {
 		has_industrial_designation = yes
-        requires_more_job = yes
-        bca_has_minerals_to_build = yes
-	}
-}
-
-automate_industrial_planet_non_job = {
-	category = "planet_automation_designation_construction"
-
-	emergency = yes
-	available = {
-		has_industrial_designation = yes
 		bca_has_minerals_to_build = yes
 	}
 
@@ -35,12 +24,44 @@ automate_industrial_planet_non_job = {
 			building = building_factory_efficiency_1
 		}
 		
-		# 5 = {
-		# 	building = building_foundry_upkeep_1
-		# }
+		5 = {
+			building = building_foundry_upkeep_1
+		}
 		
-		# 6 = {
-		# 	building = building_factory_upkeep_1
-		# }
+		6 = {
+			building = building_factory_upkeep_1
+		}
+
+		7_foundry = {
+			building = building_micro_forge
+			available = {
+				requires_more_job = yes
+				free_district_slots = 0
+			}
+		}
+
+		7_factory = {
+            building = building_affluence_emporium
+			available = {
+				requires_more_job = yes
+				free_district_slots = 0
+			}
+        }
+
+		8_foundry = {
+			building = building_foundry_1
+			available = {
+				requires_more_job = yes
+				free_district_slots = 0
+			}
+		}
+
+		8_factory = {
+			building = building_factory_1
+			available = {
+				requires_more_job = yes
+				free_district_slots = 0
+			}
+		}
 	}
 }

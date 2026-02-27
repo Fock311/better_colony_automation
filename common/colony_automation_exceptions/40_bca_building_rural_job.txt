@@ -6,6 +6,7 @@ automate_generator_planet_building_job = {
 		bca_has_minerals_to_build = yes
 		has_generator_designation = yes
 		requires_more_job = yes
+		free_district_slots = 0
 		NOT = { has_planet_flag = bca_pf_advance_controller_order }
 	}
 
@@ -27,6 +28,7 @@ automate_mining_planet_building_job = {
 		bca_has_minerals_to_build = yes
 		has_mining_designation = yes
 		requires_more_job = yes
+		free_district_slots = 0
 		NOT = { has_planet_flag = bca_pf_advance_controller_order }
 	}
 
@@ -48,6 +50,7 @@ automate_farming_planet_building_job = {
 		bca_has_minerals_to_build = yes
 		has_farming_designation = yes
 		requires_more_job = yes
+		free_district_slots = 0
 		NOT = { has_planet_flag = bca_pf_advance_controller_order }
 	}
 

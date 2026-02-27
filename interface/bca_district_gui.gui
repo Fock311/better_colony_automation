@@ -29,7 +29,7 @@ guiTypes = {
             effectButtonType = {
             name = "auto_demolish_enable"
             orientation = upper_left
-            position = { x = 15 y = 47.5 }
+            position = { x = 15 y = 40 }
             size = { x = 35 y = 35 }
             scale = 1.1666666666666667
             quadTextureSprite = "GFX_bca_button_demolish_disabled"
@@ -38,7 +38,7 @@ guiTypes = {
         effectButtonType = {
             name = "auto_demolish_disable"
             orientation = upper_left
-            position = { x = 15 y = 47.5 }
+            position = { x = 15 y = 40 }
             size = { x = 35 y = 35 }
             scale = 1.1666666666666667
             quadTextureSprite = "GFX_bca_button_demolish_enabled"
@@ -47,20 +47,19 @@ guiTypes = {
 
             effectButtonType = {
             name = "auto_demolish_text_enable"
-            position = { x = 50 y = 47.5 }
+            position = { x = 50 y = 40 }
             size = { x = 120 y = 35 }
 
             font = "cg_16b"
             buttonText = "BCA_PLANET_SETTING_AUTO_DESTRUCTION"
             tooltipText = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_DESC"
 
-
             quadTextureSprite = "GFX_bca_button_standard_disabled"
             effect = "bca_planet_setting_auto_destruction_enable"
         }
         effectButtonType = {
             name = "auto_demolish_text_disable"
-            position = { x = 50 y = 47.5 }
+            position = { x = 50 y = 40 }
             size = { x = 120 y = 35 }
 
             font = "cg_16b"
@@ -72,9 +71,76 @@ guiTypes = {
         }
 
             effectButtonType = {
+            name = "auto_demolish_building_enable"
+            position = { x = 50 y = 75 }
+            size = { x = 40.0 y = 35 }
+
+            font = "cg_16b"
+            buttonText = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_BUILDING"
+
+            quadTextureSprite = "GFX_bca_button_standard_disabled"
+            effect = "bca_planet_setting_auto_destruction_buildings_enable"
+        }
+        effectButtonType = {
+            name = "auto_demolish_building_disable"
+            position = { x = 50 y = 75 }
+            size = { x = 40.0 y = 35 }
+
+            font = "cg_16b"
+            buttonText = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_BUILDING"
+
+            quadTextureSprite = "GFX_bca_button_standard_enabled"
+            effect = "bca_planet_setting_auto_destruction_buildings_disable"
+        }
+            effectButtonType = {
+            name = "auto_demolish_district_enable"
+            position = { x = 90.0 y = 75 }
+            size = { x = 40.0 y = 35 }
+
+            font = "cg_16b"
+            buttonText = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_DISTRICT"
+
+            quadTextureSprite = "GFX_bca_button_standard_disabled"
+            effect = "bca_planet_setting_auto_destruction_districts_enable"
+        }
+        effectButtonType = {
+            name = "auto_demolish_district_disable"
+            position = { x = 90.0 y = 75 }
+            size = { x = 40.0 y = 35 }
+
+            font = "cg_16b"
+            buttonText = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_DISTRICT"
+
+            quadTextureSprite = "GFX_bca_button_standard_enabled"
+            effect = "bca_planet_setting_auto_destruction_districts_disable"
+        }
+            effectButtonType = {
+            name = "auto_demolish_zone_enable"
+            position = { x = 130.0 y = 75 }
+            size = { x = 40.0 y = 35 }
+
+            font = "cg_16b"
+            buttonText = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_ZONE"
+
+            quadTextureSprite = "GFX_bca_button_standard_disabled"
+            effect = "bca_planet_setting_auto_destruction_zones_enable"
+        }
+        effectButtonType = {
+            name = "auto_demolish_zone_disable"
+            position = { x = 130.0 y = 75 }
+            size = { x = 40.0 y = 35 }
+
+            font = "cg_16b"
+            buttonText = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_ZONE"
+
+            quadTextureSprite = "GFX_bca_button_standard_enabled"
+            effect = "bca_planet_setting_auto_destruction_zones_disable"
+        }
+
+            effectButtonType = {
             name = "auto_prebuild_enable"
             orientation = upper_left
-            position = { x = 15 y = 112.5 }
+            position = { x = 15 y = 120 }
             size = { x = 35 y = 35 }
             scale = 1.1666666666666667
             quadTextureSprite = "GFX_bca_button_preconstruction_disabled"
@@ -83,7 +149,7 @@ guiTypes = {
         effectButtonType = {
             name = "auto_prebuild_disable"
             orientation = upper_left
-            position = { x = 15 y = 112.5 }
+            position = { x = 15 y = 120 }
             size = { x = 35 y = 35 }
             scale = 1.1666666666666667
             quadTextureSprite = "GFX_bca_button_preconstruction_enabled"
@@ -91,20 +157,19 @@ guiTypes = {
         }
             effectButtonType = {
             name = "auto_prebuild_text_enable"
-            position = { x = 50 y = 112.5 }
+            position = { x = 50 y = 120 }
             size = { x = 120 y = 35 }
 
             font = "cg_16b"
             buttonText = "BCA_PLANET_SETTING_PRECONSTRUCTION"
             tooltipText = "BCA_PLANET_SETTING_PRECONSTRUCTION_DESC"
 
-
             quadTextureSprite = "GFX_bca_button_standard_disabled"
             effect = "bca_planet_setting_preconstruction_enable"
         }
         effectButtonType = {
             name = "auto_prebuild_text_disable"
-            position = { x = 50 y = 112.5 }
+            position = { x = 50 y = 120 }
             size = { x = 120 y = 35 }
 
             font = "cg_16b"
@@ -406,7 +471,6 @@ effectButtonType = {
             buttonText = "BCA_PLANET_SETTING_AUTO_DISTRICT_MANAGEMENT"
             tooltipText = "BCA_PLANET_SETTING_AUTO_DISTRICT_MANAGEMENT_DESC"
 
-
             quadTextureSprite = "GFX_bca_button_standard_disabled"
             effect = "bca_planet_setting_auto_district_management_enable"
         }
@@ -601,146 +665,6 @@ effectButtonType = {
             effect = "bca_planet_setting_slider_primary_district_built_20"
         }
         effectButtonType = {
-            name = "main_zone_slider_bar_0_2"
-            position = { x = 7.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_1"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_1_2"
-            position = { x = 15.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_2"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_2_2"
-            position = { x = 23.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_3"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_3_2"
-            position = { x = 31.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_4"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_4_2"
-            position = { x = 39.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_5"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_5_2"
-            position = { x = 47.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_6"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_6_2"
-            position = { x = 55.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_7"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_7_2"
-            position = { x = 63.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_8"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_8_2"
-            position = { x = 71.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_9"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_9_2"
-            position = { x = 79.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_10"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_10_2"
-            position = { x = 87.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_11"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_11_2"
-            position = { x = 95.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_12"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_12_2"
-            position = { x = 103.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_13"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_13_2"
-            position = { x = 111.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_14"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_14_2"
-            position = { x = 119.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_15"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_15_2"
-            position = { x = 127.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_16"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_16_2"
-            position = { x = 135.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_17"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_17_2"
-            position = { x = 143.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_18"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_18_2"
-            position = { x = 151.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_19"
-        }
-        effectButtonType = {
-            name = "main_zone_slider_bar_19_2"
-            position = { x = 159.5 y = 3 }
-            size = { x = 8.0 y = 19.0 }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_20"
-        }
-        effectButtonType = {
             name = "main_zone_slider_bar_0_3"
             position = { x = 7.5 y = 3 }
             size = { x = 8.0 y = 19.0 }
@@ -879,6 +803,146 @@ effectButtonType = {
             size = { x = 8.0 y = 19.0 }
             quadTextureSprite = "GFX_secondary_district_bar_built"
             effect = "bca_planet_setting_slider_secondary_district_built_20"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_0_2"
+            position = { x = 7.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_1"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_1_2"
+            position = { x = 15.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_2"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_2_2"
+            position = { x = 23.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_3"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_3_2"
+            position = { x = 31.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_4"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_4_2"
+            position = { x = 39.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_5"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_5_2"
+            position = { x = 47.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_6"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_6_2"
+            position = { x = 55.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_7"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_7_2"
+            position = { x = 63.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_8"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_8_2"
+            position = { x = 71.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_9"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_9_2"
+            position = { x = 79.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_10"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_10_2"
+            position = { x = 87.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_11"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_11_2"
+            position = { x = 95.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_12"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_12_2"
+            position = { x = 103.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_13"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_13_2"
+            position = { x = 111.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_14"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_14_2"
+            position = { x = 119.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_15"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_15_2"
+            position = { x = 127.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_16"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_16_2"
+            position = { x = 135.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_17"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_17_2"
+            position = { x = 143.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_18"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_18_2"
+            position = { x = 151.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_19"
+        }
+        effectButtonType = {
+            name = "main_zone_slider_bar_19_2"
+            position = { x = 159.5 y = 3 }
+            size = { x = 8.0 y = 19.0 }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_20"
         }
         effectButtonType = {
             name = "main_zone_slider_bar_04"

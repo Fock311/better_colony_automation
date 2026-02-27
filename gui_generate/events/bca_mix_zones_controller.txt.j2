@@ -5,6 +5,28 @@
 
 namespace = colony_automation_event
 
+# flag clear
+country_event = {
+	id = colony_automation_event.112
+	hide_window = yes
+	is_triggered_only = yes
+
+	trigger = {
+		is_ai = no
+	}
+	immediate = {
+	    every_owned_planet = {
+			limit = {
+			    has_building_construction = no
+			}
+            {% for district_slot in ['d0','d1','d2','d3'] %}
+            remove_planet_flag = {{ pf.flag_district_plan_remove(district_slot) }}
+			{% endfor %}
+            remove_all_zone_plan_flag = yes
+        }
+	}
+}
+
 country_event = {
 	id = colony_automation_event.20
 	hide_window = yes
@@ -24,7 +46,20 @@ country_event = {
 				NOT = { has_planet_flag = bca_pf_advance_controller_order }
 			}
 
-			remove_all_zone_plan_flag = yes
+            {% for item in zones_info %}
+                {% set type = item.type %}
+                {% if cond.contain_any_zones_of(item.zones, primary_districts_for_zone)|int %}
+                {{ "if" if loop.first else "else_if" }} = {
+                    limit = {
+                        check_variable_arithmetic = {
+                            which = value:num_primary_zones_of_type_{{ type }}
+                            value > value:num_primary_zone_plan_of_type_{{ type }}
+                        }
+                    }
+                    set_planet_flag = bca_has_zone_to_replace
+                }
+                {% endif %}
+            {% endfor %}
 
            {# set build command to builder #}
             {% for item in zones_info %}
@@ -37,19 +72,28 @@ country_event = {
                             value < value:num_primary_zone_plan_of_type_{{ type }}
                         }
                     }
-                    {# avoid primary zones build on secondary districts #}
-                    bca_get_num_free_city_zones = yes
+                    {# ensure has slot to build avoid primary zones build on secondary districts #}
                     if = {
                         limit = {
-                            check_variable = {
-                                which = bca_num_free_city_zones
-                                value > 0
-                            }
+                            has_planet_flag = bca_has_zone_to_replace
                         }
                         set_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
                         set_planet_flag = bca_plan_build_new_zone
                     }
-                    clear_variable = bca_num_free_city_zones
+                    else = {
+                        bca_get_num_free_city_zones = yes
+                        if = {
+                            limit = {
+                                check_variable = {
+                                    which = bca_num_free_city_zones
+                                    value > 0
+                                }
+                            }
+                            set_planet_flag = {{ pf.flag_plan_build_primary_zone_type(type) }}
+                            set_planet_flag = bca_plan_build_new_zone
+                        }
+                        clear_variable = bca_num_free_city_zones
+                    }
                 }
                 {% endif %}
             {% endfor %}
@@ -79,6 +123,7 @@ country_event = {
             {% endfor %}
             }
         }
+        remove_planet_flag = bca_has_zone_to_replace
     }
 }
 
@@ -138,3 +183,4 @@ planet_event = {
         remove_all_zone_plan_flag = yes
 	}
 }
+

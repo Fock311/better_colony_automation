@@ -49,15 +49,17 @@ try_set_secondary_districts_plan_one_to_zero = {
 }
 
 bca_set_district_plan_by_ratio = {
-    set_variable = {
-        which = new_num_main_districts_plan_diff
-        value = value:bca_num_main_districts_from_ratio|RATIO|$RATIO$|
+    hidden_effect = {
+        set_variable = {
+            which = new_num_main_districts_plan_diff
+            value = value:bca_num_main_districts_from_ratio|RATIO|$RATIO$|
+        }
+        subtract_variable = {
+             which = new_num_main_districts_plan_diff
+             value = value:bca_num_primary_districts_plan
+        }
+        bca_set_district_plan_by_diff = yes
     }
-    subtract_variable = {
-         which = new_num_main_districts_plan_diff
-         value = value:bca_num_primary_districts_plan
-    }
-    bca_set_district_plan_by_diff = yes
 }
 
 bca_set_district_plan_inc_1 = {
@@ -77,14 +79,16 @@ bca_set_district_plan_dec_1 = {
 }
 
 bca_set_district_plan_by_diff = {
-
+    {# planed district reduce #}
     while = {
-         limit = {
-             check_variable = {
-                 which = new_num_main_districts_plan_diff
-                 value > 0
-             }
-         }
+        limit = {
+            check_variable = {
+                which = new_num_main_districts_plan_diff
+                value > 0
+            }
+            NOT = { has_planet_flag = bca_no_more_planed_secondary_district }
+        }
+        set_planet_flag = bca_no_more_planed_secondary_district
         {% for i in range(3,6) %}
         {% set zone_slot = "z"~(i) %}
         if = {
@@ -106,43 +110,115 @@ bca_set_district_plan_by_diff = {
                 which = new_num_main_districts_plan_diff
                 value = 1
             }
+            remove_planet_flag = bca_no_more_planed_secondary_district
         }
         {% endfor %}
     }
-    while = {
-         limit = {
-             check_variable = {
-                 which = new_num_main_districts_plan_diff
-                 value < 0
-             }
-         }
-        {% for i in range(3,6) %}
-        {% set zone_slot = "z"~(i) %}
-        if = {
+    {# built secondary district reduce #}
+    if = {
+        limit = {
+            has_planet_flag = bca_no_more_planed_secondary_district
+            NOT = { has_planet_flag = bca_pf_disable_planet_auto_destruction_district }
+        }
+        remove_planet_flag = bca_no_more_planed_secondary_district
+        while = {
             limit = {
-                check_variable_arithmetic = {
-                    which = value:bca_num_free_secondary_districts_plan
+                check_variable = {
+                    which = new_num_main_districts_plan_diff
                     value > 0
                 }
-                 check_variable = {
-                     which = new_num_main_districts_plan_diff
-                     value < 0
-                 }
-                 OR = {
+                NOT = { has_planet_flag = bca_no_more_planed_secondary_district }
+            }
+            set_planet_flag = bca_no_more_planed_secondary_district
+            {% for i in range(3,6) %}
+            {% set zone_slot = "z"~(i) %}
+            if = {
+                limit = {
+                    check_variable = {
+                        which = {{v.var_district_num_plan(zone_slot)}}
+                        value > 0
+                    }
+                     check_variable = {
+                         which = new_num_main_districts_plan_diff
+                         value > 0
+                     }
+                }
+                subtract_variable = {
+                    which = {{v.var_district_num_plan(zone_slot)}}
+                    value = 1
+                }
+                subtract_variable = {
+                    which = new_num_main_districts_plan_diff
+                    value = 1
+                }
+                remove_planet_flag = bca_no_more_planed_secondary_district
+            }
+            {% endfor %}
+        }
+    }
+    remove_planet_flag = bca_no_more_planed_secondary_district
+
+    {# secondary district increment #}
+    while = {
+        limit = {
+            check_variable = {
+                which = new_num_main_districts_plan_diff
+                value < 0
+            }
+            NOT = { has_planet_flag = bca_no_more_free_secondary_district }
+        }
+        set_planet_flag = bca_no_more_free_secondary_district
+        {% for i in range(3,6) %}
+        {% set zone_slot = "z"~(i) %}
+        {% set district_slot = zone_slot_district_slot_mapping[zone_slot] %}
+        if = {
+            limit = {
+                check_variable = {
+                    which = {{v.var_district_num_plan(zone_slot)}}
+                    value < value:bca_potential_district_max_add_{{ district_slot }}
+                }
+                check_variable = {
+                    which = new_num_main_districts_plan_diff
+                    value < 0
+                }
+                OR = {
                     bca_has_advance_secondary_districts = yes
                     AND = {
-                       {% if zone_slot == 'z3' %}
-                       has_farming_designation = no
-                       has_mining_designation = no
-                       {% elif zone_slot == 'z4' %}
-                       has_generator_designation = no
-                       has_farming_designation = no
-                       {% elif zone_slot == 'z5' %}
-                       has_generator_designation = no
-                       has_mining_designation = no
-                       {% endif %}
+                        {% set generator_zone_slot = 'z3' %}
+                        {% set mining_zone_slot = 'z4' %}
+                        {% set farming_zone_slot = 'z5' %}
+                        {% set generator_district_slot = zone_slot_district_slot_mapping[generator_zone_slot] %}
+                        {% set mining_district_slot = zone_slot_district_slot_mapping[mining_zone_slot] %}
+                        {% set farming_district_slot = zone_slot_district_slot_mapping[farming_zone_slot] %}
+                        {% if zone_slot == farming_zone_slot or zone_slot == mining_zone_slot %}
+                        OR = {
+                             has_generator_designation = no
+                             check_variable = {
+                                which = {{v.var_district_num_plan(generator_zone_slot)}}
+                                value >= value:bca_potential_district_max_add_{{ generator_district_slot }}
+                            }
+                        }
+                        {% endif %}
+                        {% if zone_slot == generator_zone_slot or zone_slot == farming_zone_slot %}
+                        OR = {
+                             has_mining_designation = no
+                             check_variable = {
+                                which = {{v.var_district_num_plan(mining_zone_slot)}}
+                                value >= value:bca_potential_district_max_add_{{ mining_district_slot }}
+                            }
+                        }
+                        {% endif %}
+                        {% if zone_slot == generator_zone_slot or zone_slot == mining_zone_slot %}
+                        OR = {
+                             has_farming_designation = no
+                             check_variable = {
+                                which = {{v.var_district_num_plan(farming_zone_slot)}}
+                                value >= value:bca_potential_district_max_add_{{ farming_district_slot }}
+                            }
+                        }
+                        {% endif %}
                     }
-                 }
+                }
             }
             add_variable = {
                 which = {{v.var_district_num_plan(zone_slot)}}
@@ -152,10 +228,11 @@ bca_set_district_plan_by_diff = {
                 which = new_num_main_districts_plan_diff
                 value = 1
             }
+            remove_planet_flag = bca_no_more_free_secondary_district
         }
         {% endfor %}
     }
-
+    remove_planet_flag = bca_no_more_free_secondary_district
     clear_variable = new_num_main_districts_plan_diff
 
 

@@ -53,12 +53,6 @@ if = {
         has_generator_designation = yes
     }
 
-    if = {
-        limit = {
-            requires_more_job = yes
-        }
-        remove_all_zone_plan_flag = yes
-    }
 
     if = {
         limit = {
@@ -156,7 +150,6 @@ if = {
                 limit = {
                     free_district_slots > 0
                     requires_more_job = yes
-                    NOT = { has_planet_flag = bca_pf_advance_controller_order }
                 }
                 if = {
                     limit = {
@@ -311,7 +304,6 @@ if = {
                 limit = {
                     free_district_slots > 0
                     requires_more_job = yes
-                    NOT = { has_planet_flag = bca_pf_advance_controller_order }
                 }
                 if = {
                     limit = {
@@ -466,7 +458,6 @@ if = {
                 limit = {
                     free_district_slots > 0
                     requires_more_job = yes
-                    NOT = { has_planet_flag = bca_pf_advance_controller_order }
                 }
                 if = {
                     limit = {
@@ -533,12 +524,6 @@ else_if = {
         has_mining_designation = yes
     }
 
-    if = {
-        limit = {
-            requires_more_job = yes
-        }
-        remove_all_zone_plan_flag = yes
-    }
 
     if = {
         limit = {
@@ -635,7 +620,6 @@ else_if = {
                 limit = {
                     free_district_slots > 0
                     requires_more_job = yes
-                    NOT = { has_planet_flag = bca_pf_advance_controller_order }
                 }
                 if = {
                     limit = {
@@ -789,7 +773,6 @@ else_if = {
                 limit = {
                     free_district_slots > 0
                     requires_more_job = yes
-                    NOT = { has_planet_flag = bca_pf_advance_controller_order }
                 }
                 if = {
                     limit = {
@@ -943,7 +926,6 @@ else_if = {
                 limit = {
                     free_district_slots > 0
                     requires_more_job = yes
-                    NOT = { has_planet_flag = bca_pf_advance_controller_order }
                 }
                 if = {
                     limit = {
@@ -1010,12 +992,6 @@ else_if = {
         has_farming_designation = yes
     }
 
-    if = {
-        limit = {
-            requires_more_job = yes
-        }
-        remove_all_zone_plan_flag = yes
-    }
 
     if = {
         limit = {
@@ -1112,7 +1088,6 @@ else_if = {
                 limit = {
                     free_district_slots > 0
                     requires_more_job = yes
-                    NOT = { has_planet_flag = bca_pf_advance_controller_order }
                 }
                 if = {
                     limit = {
@@ -1266,7 +1241,6 @@ else_if = {
                 limit = {
                     free_district_slots > 0
                     requires_more_job = yes
-                    NOT = { has_planet_flag = bca_pf_advance_controller_order }
                 }
                 if = {
                     limit = {
@@ -1420,7 +1394,6 @@ else_if = {
                 limit = {
                     free_district_slots > 0
                     requires_more_job = yes
-                    NOT = { has_planet_flag = bca_pf_advance_controller_order }
                 }
                 if = {
                     limit = {

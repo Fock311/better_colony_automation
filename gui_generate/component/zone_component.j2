@@ -396,20 +396,20 @@ containerWindowType = {
     {% endfor %}
     {% for i in range(count) %}
         effectButtonType = {
-            name = "{{ name }}_bar_{{ i }}_2"
-            position = { x = {{ button_begin_x + i * button_len }} y = {{ button_begin_y }} }
-            size = { x = {{ button_len }} y = {{ button_height }} }
-            quadTextureSprite = "GFX_primary_district_bar_plan"
-            effect = "bca_planet_setting_slider_primary_district_plan_{{ i + 1 }}"
-        }
-    {% endfor %}
-    {% for i in range(count) %}
-        effectButtonType = {
             name = "{{ name }}_bar_{{ i }}_3"
             position = { x = {{ button_begin_x + i * button_len }} y = {{ button_begin_y }} }
             size = { x = {{ button_len }} y = {{ button_height }} }
             quadTextureSprite = "GFX_secondary_district_bar_built"
             effect = "bca_planet_setting_slider_secondary_district_built_{{ i + 1 }}"
+        }
+    {% endfor %}
+    {% for i in range(count) %}
+        effectButtonType = {
+            name = "{{ name }}_bar_{{ i }}_2"
+            position = { x = {{ button_begin_x + i * button_len }} y = {{ button_begin_y }} }
+            size = { x = {{ button_len }} y = {{ button_height }} }
+            quadTextureSprite = "GFX_primary_district_bar_plan"
+            effect = "bca_planet_setting_slider_primary_district_plan_{{ i + 1 }}"
         }
     {% endfor %}
     {% for i in range(count) %}

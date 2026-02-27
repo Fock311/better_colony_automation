@@ -41,6 +41,7 @@
  BCA_ZONE_USE_UNIFORM_SECONDARY_DISTRICT_DESC: "すべての二次地区が同じ設定を使用します"
 
  BCA_MANUAL_DISTRICT_MANAGE_NOT_ALLOW: "§R自動地区管理が有効です§!"
+ BCA_DISTRICT_AUTO_DESTRUCTION_NOT_ALLOW: "£district£§R自動地区解体が無効です§!"
 
  bca_planet_setting_auto_district_management_mining: "£鉱物£"
  bca_planet_setting_auto_district_management_farming: "£食料£"

@@ -82,7 +82,7 @@ building_affluence_emporium = {
 		script = jobs/factory_add
 		AMOUNT = @fe_jobs
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -231,7 +231,7 @@ building_affluence_center = {
 		script = jobs/factory_add
 		AMOUNT = @fe_jobs
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -239,7 +239,7 @@ building_affluence_center = {
 		}
 		job_artisan_automated_workforce_mult = @fe_automation_specialist_2
 		job_artisan_drone_automated_workforce_mult = @fe_automation_specialist_2
-	}	
+	}
 
 	on_queued = {
 		if = { # kill on the same planet
@@ -333,7 +333,7 @@ building_micro_forge = {
 		script = jobs/foundry_add
 		AMOUNT = @fe_jobs
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -478,7 +478,7 @@ building_nano_forge = {
 		script = jobs/foundry_add
 		AMOUNT = @fe_jobs
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -613,7 +613,7 @@ building_fe_fortress = {
 		script = jobs/soldiers_add
 		AMOUNT = @fe_jobs
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -785,7 +785,7 @@ building_fe_market_1 = {
 		script = "jobs/trader_add"
 		AMOUNT = @fe_jobs
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -929,7 +929,7 @@ building_fe_market_2 = {
 		script = "jobs/trader_add"
 		AMOUNT = 1200
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
@@ -1084,27 +1084,27 @@ building_fe_lab_1 = {
 		script = jobs/researchers_add
 		AMOUNT = @building_static_jobs
 	}
-		
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = { is_gestalt = no }
 		}
-		
+
 		job_physicist_automated_workforce_mult = @fe_automation_specialist_1
 		job_biologist_automated_workforce_mult = @fe_automation_specialist_1
 		job_engineer_automated_workforce_mult = @fe_automation_specialist_1
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
-				is_gestalt = yes 
+			owner = {
+				is_gestalt = yes
 				is_wilderness_empire = no
 			}
 		}
-		
+
 		job_calculator_physicist_automated_workforce_mult = @fe_automation_specialist_1
 		job_calculator_biologist_automated_workforce_mult = @fe_automation_specialist_1
 		job_calculator_engineer_automated_workforce_mult = @fe_automation_specialist_1
@@ -1247,27 +1247,27 @@ building_fe_lab_2 = {
 		script = jobs/researchers_add
 		AMOUNT = @building_static_jobs_high
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
 			owner = { is_gestalt = no }
 		}
-		
+
 		job_physicist_automated_workforce_mult = @fe_automation_specialist_2
 		job_biologist_automated_workforce_mult = @fe_automation_specialist_2
 		job_engineer_automated_workforce_mult = @fe_automation_specialist_2
 	}
-	
+
 	triggered_planet_modifier = {
 		potential = {
 			exists = owner
-			owner = { 
-				is_gestalt = yes 
+			owner = {
+				is_gestalt = yes
 				is_wilderness_empire = no
 			}
 		}
-		
+
 		job_calculator_physicist_automated_workforce_mult = @fe_automation_specialist_2
 		job_calculator_biologist_automated_workforce_mult = @fe_automation_specialist_2
 		job_calculator_engineer_automated_workforce_mult = @fe_automation_specialist_2

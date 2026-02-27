@@ -24,9 +24,13 @@ automate_machine_assembly = {
 	category = "planet_automation_pop_assembly"
 
 	buildings = {
-		assembly = {
+		1 = {
+			building = building_fe_assembly_1
+		}
+		2 = {
 			building = building_machine_assembly_plant
 		}
+
 	}
 }
 
@@ -43,7 +47,10 @@ automate_robotic_pop_assembly = {
 	category = "planet_automation_robot_assembly"
 
 	buildings = {
-		assembly = {
+		1 = {
+			building = building_fe_assembly_1
+		}
+		2 = {
 			building = building_robot_assembly_plant
 		}
 	}

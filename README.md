@@ -6,7 +6,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 [4.2旧版本](https://steamcommunity.com/sharedfiles/filedetails/?id=3601183337)
 
-由于罪恶的P社在4.0更新后一直没修复自动托管的bug，导致每到中后期的游戏体验极差，最后还得是自己来解决P社的bug
+对原版自动托管进行完全重做
 
 反馈与交流：QQ 153870310
 
@@ -164,6 +164,12 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 - 优化增益建筑的建造逻辑，其在存在岗位空余时也会被建造。
 - 重写一产专精星球的建筑建设逻辑。现在一产专精会根据建造收益自动选择最优建造选项。并且几乎支持了所有类型星球。
 
+哇噗 **26-02-27 v1.2.0**：
+- 添加岗位预留政策，可设置预留岗位数量，当可用岗位低于该数量时就开始建设。
+- 现在可通过UI界面进行区划替换管理。
+- 细化自动拆除设置：现在可以独立设置建筑、区划、区划特化的自动拆除选项。
+- 修复错误建设区划的问题。
+- 修复若干BUG。
 ---
 ## 为此mod贡献 / Contribute to this mod
 

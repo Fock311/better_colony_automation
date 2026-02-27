@@ -44,6 +44,9 @@ bca_reserve_influence = {
         on_enabled = {
             set_variable = { which = bca_reserve_influence_amount value = 100 }
         }
+        ai_weight = {
+            factor = 100
+        }
     }
     option = {
         name = "RESERVE_INFLUENCE_300"
@@ -55,6 +58,50 @@ bca_reserve_influence = {
         name = "RESERVE_INFLUENCE_500"
         on_enabled = {
             set_variable = { which = bca_reserve_influence_amount value = 500 }
+        }
+    }
+}
+
+bca_reserve_job = {
+    allow = { always = yes }
+    potential = { always = yes }
+    option = {
+        name = "RESERVE_JOB_RESERVATION_0"
+        on_enabled = {
+            set_variable = { which = bca_reserve_job_amount value = 0 }
+        }
+    }
+    option = {
+        name = "RESERVE_JOB_RESERVATION_50"
+        on_enabled = {
+            set_variable = { which = bca_reserve_job_amount value = 50 }
+        }
+        ai_weight = {
+            factor = 100
+        }
+    }
+    option = {
+        name = "RESERVE_JOB_RESERVATION_100"
+        on_enabled = {
+            set_variable = { which = bca_reserve_job_amount value = 100 }
+        }
+    }
+    option = {
+        name = "RESERVE_JOB_RESERVATION_200"
+        on_enabled = {
+            set_variable = { which = bca_reserve_job_amount value = 200 }
+        }
+    }
+    option = {
+        name = "RESERVE_JOB_RESERVATION_300"
+        on_enabled = {
+            set_variable = { which = bca_reserve_job_amount value = 300 }
+        }
+    }
+    option = {
+        name = "RESERVE_JOB_RESERVATION_400"
+        on_enabled = {
+            set_variable = { which = bca_reserve_job_amount value = 400 }
         }
     }
 }

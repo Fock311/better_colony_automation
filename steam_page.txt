@@ -6,11 +6,11 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3601183337]4.2旧版本[/url]
 
-由于罪恶的P社在4.0更新后一直没修复自动托管的bug，导致每到中后期的游戏体验极差，最后还得是自己来解决P社的bug
+对原版自动托管进行完全重做
 
 反馈与交流：QQ 153870310
 
-快速链接 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825]Stellar AI 兼容性模组[/url]
+快速链接 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3674208064]Stellar AI 兼容性模组[/url]
 
 [h2]快速开始[/h2]
 
@@ -89,19 +89,19 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 [h3]兼容性 MOD[/h3]
 
-[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3669715825]Stellar AI 兼容性模组[/url]
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3674208064]Stellar AI 兼容性模组[/url]
 
 
 [hr][/hr]
 
 [h2]最近更新日志[/h2]
 
-哇噗 [b]26-02-20 - v1.0.0[/b]：
-[b]·[/b] 制作了GUI界面来设置混合规划和区划建造，移除了之前的混合规划星球类型。
-[b]·[/b] 混合规划星球可自动建造/替换区划以及建造对应建筑。
-[b]·[/b] 优化增益建筑的建造逻辑，其在存在岗位空余时也会被建造。
-[b]·[/b] 重写一产专精星球的建筑建设逻辑。现在一产专精会根据建造收益自动选择最优建造选项。并且几乎支持了所有类型星球。
-
+哇噗 [b]26-02-27 v1.2.0[/b]：
+[b]·[/b] 添加岗位预留政策，可设置预留岗位数量，当可用岗位低于该数量时就开始建设。
+[b]·[/b] 现在可通过UI界面进行区划替换管理。
+[b]·[/b] 细化自动拆除设置：现在可以独立设置建筑、区划、区划特化的自动拆除选项。
+[b]·[/b] 修复错误建设区划的问题。
+[b]·[/b] 修复若干BUG。
 [hr][/hr]
 
 完整更新日志见 GitHub

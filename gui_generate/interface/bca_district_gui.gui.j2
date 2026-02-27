@@ -30,8 +30,16 @@ guiTypes = {
             {% set panel_x = 15 %}
             {% set button_len = 120 %}
             {% set button_height = 35 %}
-            {% set panel_y1 = 40 + 50/2 - button_height/2 %}
-            {% set panel_y2 = 40 + 50 + 15 + 50/2 - button_height/2 %}
+            {% set panel_y1 = 40 %}
+            {% set panel_y2 = 40 + 50 + 15 + 50 - button_height %}
+            {% set suboption_x = panel_x + button_height %}
+            {% set suboption_y = panel_y1 + button_height %}
+            {% set suboption_gap = 0 %}
+            {% set suboption_width = (button_len - suboption_gap*2)/3 %}
+            {% set suboption_height = button_height%}
+            {% set suboption_x1 = suboption_x %}
+            {% set suboption_x2 = suboption_x + suboption_width + suboption_gap %}
+            {% set suboption_x3 = suboption_x + (suboption_width + suboption_gap)*2 %}
             {{
             p.toggle_button(
                 name = "auto_demolish",
@@ -50,6 +58,37 @@ guiTypes = {
                 tooltip = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_DESC",
                 tex_prefix = "GFX_bca_button_standard",
                 effect_prefix = "bca_planet_setting_auto_destruction"
+            )
+            }}
+
+            {{
+            p.toggle_button_text(
+                name = "auto_demolish_building",
+                x = suboption_x1, y = suboption_y,
+                sx = suboption_width, sy = suboption_height,
+                text = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_BUILDING",
+                tex_prefix = "GFX_bca_button_standard",
+                effect_prefix = "bca_planet_setting_auto_destruction_buildings"
+            )
+            }}
+            {{
+            p.toggle_button_text(
+                name = "auto_demolish_district",
+                x = suboption_x2, y = suboption_y,
+                sx = suboption_width, sy = suboption_height,
+                text = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_DISTRICT",
+                tex_prefix = "GFX_bca_button_standard",
+                effect_prefix = "bca_planet_setting_auto_destruction_districts"
+            )
+            }}
+            {{
+            p.toggle_button_text(
+                name = "auto_demolish_zone",
+                x = suboption_x3, y = suboption_y,
+                sx = suboption_width, sy = suboption_height,
+                text = "BCA_PLANET_SETTING_AUTO_DESTRUCTION_ZONE",
+                tex_prefix = "GFX_bca_button_standard",
+                effect_prefix = "bca_planet_setting_auto_destruction_zones"
             )
             }}
 
