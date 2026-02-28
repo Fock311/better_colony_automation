@@ -1,0 +1,559 @@
+
+bca_auto_building_destruction_entry = {
+    if = {
+        limit = {
+            bca_can_remove_building = yes
+            free_building_slots = 0
+        }
+        if = {
+            limit = {
+                bca_can_remove_building_reasearch = yes
+                num_buildings = {
+                    type = any
+                    category = research
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    has_building = building_research_lab_1
+                }
+                remove_building = building_research_lab_1
+            }
+            if = {
+                limit = {
+                    has_building = building_research_lab_2
+                }
+                remove_building = building_research_lab_2
+            }
+            if = {
+                limit = {
+                    has_building = building_research_lab_3
+                }
+                remove_building = building_research_lab_3
+            }
+            if = {
+                limit = {
+                    has_building = building_institute
+                }
+                remove_building = building_institute
+            }
+            if = {
+                limit = {
+                    has_building = building_supercomputer
+                }
+                remove_building = building_supercomputer
+            }
+            if = {
+                limit = {
+                    has_building = building_shroud_observatory_1
+                }
+                remove_building = building_shroud_observatory_1
+            }
+            if = {
+                limit = {
+                    has_building = building_shroud_observatory_2
+                }
+                remove_building = building_shroud_observatory_2
+            }
+            if = {
+                limit = {
+                    has_building = building_shroud_observatory_3
+                }
+                remove_building = building_shroud_observatory_3
+            }
+            if = {
+                limit = {
+                    has_building = building_archaeostudies_faculty
+                }
+                remove_building = building_archaeostudies_faculty
+            }
+            if = {
+                limit = {
+                    has_building = building_vultaum_reality_computer
+                }
+                remove_building = building_vultaum_reality_computer
+            }
+            if = {
+                limit = {
+                    has_building = building_physics_lab_1
+                }
+                remove_building = building_physics_lab_1
+            }
+            if = {
+                limit = {
+                    has_building = building_physics_lab_2
+                }
+                remove_building = building_physics_lab_2
+            }
+            if = {
+                limit = {
+                    has_building = building_physics_lab_3
+                }
+                remove_building = building_physics_lab_3
+            }
+            if = {
+                limit = {
+                    has_building = building_biolab_1
+                }
+                remove_building = building_biolab_1
+            }
+            if = {
+                limit = {
+                    has_building = building_biolab_2
+                }
+                remove_building = building_biolab_2
+            }
+            if = {
+                limit = {
+                    has_building = building_biolab_3
+                }
+                remove_building = building_biolab_3
+            }
+            if = {
+                limit = {
+                    has_building = building_engineering_facility_1
+                }
+                remove_building = building_engineering_facility_1
+            }
+            if = {
+                limit = {
+                    has_building = building_engineering_facility_2
+                }
+                remove_building = building_engineering_facility_2
+            }
+            if = {
+                limit = {
+                    has_building = building_engineering_facility_3
+                }
+                remove_building = building_engineering_facility_3
+            }
+            if = {
+                limit = {
+                    has_building = building_ranger_lodge
+                }
+                remove_building = building_ranger_lodge
+            }
+            if = {
+                limit = {
+                    has_building = building_research_upkeep_1
+                }
+                remove_building = building_research_upkeep_1
+            }
+            if = {
+                limit = {
+                    has_building = building_research_efficiency_1
+                }
+                remove_building = building_research_efficiency_1
+            }
+            if = {
+                limit = {
+                    has_building = building_fe_lab_1
+                }
+                remove_building = building_fe_lab_1
+            }
+            if = {
+                limit = {
+                    has_building = building_fe_lab_2
+                }
+                remove_building = building_fe_lab_2
+            }
+        }
+        if = {
+            limit = {
+                bca_advanced_research_building_replace = yes
+            }
+            if = {
+                limit = {
+                    has_building = building_research_lab_1
+                }
+                remove_building = building_research_lab_1
+            }
+            if = {
+                limit = {
+                    has_building = building_research_lab_2
+                }
+                remove_building = building_research_lab_2
+            }
+            if = {
+                limit = {
+                    has_building = building_research_lab_3
+                }
+                remove_building = building_research_lab_3
+            }
+        }
+        if = {
+            limit = {
+                bca_can_remove_building_factory = yes
+                num_buildings = {
+                    type = any
+                    category = manufacturing
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    has_building = building_factory_1
+                }
+                remove_building = building_factory_1
+            }
+            if = {
+                limit = {
+                    has_building = building_factory_2
+                }
+                remove_building = building_factory_2
+            }
+            if = {
+                limit = {
+                    has_building = building_factory_3
+                }
+                remove_building = building_factory_3
+            }
+            if = {
+                limit = {
+                    has_building = building_factory_upkeep_1
+                }
+                remove_building = building_factory_upkeep_1
+            }
+            if = {
+                limit = {
+                    has_building = building_factory_efficiency_1
+                }
+                remove_building = building_factory_efficiency_1
+            }
+            if = {
+                limit = {
+                    has_building = building_affluence_emporium
+                }
+                remove_building = building_affluence_emporium
+            }
+            if = {
+                limit = {
+                    has_building = building_affluence_center
+                }
+                remove_building = building_affluence_center
+            }
+        }
+        if = {
+            limit = {
+                bca_advanced_factory_building_replace = yes
+            }
+            if = {
+                limit = {
+                    has_building = building_factory_1
+                }
+                remove_building = building_factory_1
+            }
+            if = {
+                limit = {
+                    has_building = building_factory_2
+                }
+                remove_building = building_factory_2
+            }
+            if = {
+                limit = {
+                    has_building = building_factory_3
+                }
+                remove_building = building_factory_3
+            }
+        }
+        if = {
+            limit = {
+                bca_can_remove_building_foundry = yes
+                num_buildings = {
+                    type = any
+                    category = manufacturing
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    has_building = building_foundry_1
+                }
+                remove_building = building_foundry_1
+            }
+            if = {
+                limit = {
+                    has_building = building_foundry_2
+                }
+                remove_building = building_foundry_2
+            }
+            if = {
+                limit = {
+                    has_building = building_foundry_3
+                }
+                remove_building = building_foundry_3
+            }
+            if = {
+                limit = {
+                    has_building = building_foundry_efficiency_1
+                }
+                remove_building = building_foundry_efficiency_1
+            }
+            if = {
+                limit = {
+                    has_building = building_foundry_upkeep_1
+                }
+                remove_building = building_foundry_upkeep_1
+            }
+            if = {
+                limit = {
+                    has_building = building_micro_forge
+                }
+                remove_building = building_micro_forge
+            }
+            if = {
+                limit = {
+                    has_building = building_nano_forge
+                }
+                remove_building = building_nano_forge
+            }
+        }
+        if = {
+            limit = {
+                bca_advanced_foundry_building_replace = yes
+            }
+            if = {
+                limit = {
+                    has_building = building_foundry_1
+                }
+                remove_building = building_foundry_1
+            }
+            if = {
+                limit = {
+                    has_building = building_foundry_2
+                }
+                remove_building = building_foundry_2
+            }
+            if = {
+                limit = {
+                    has_building = building_foundry_3
+                }
+                remove_building = building_foundry_3
+            }
+        }
+        if = {
+            limit = {
+                bca_can_remove_building_industry = yes
+                num_buildings = {
+                    type = any
+                    category = manufacturing
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    has_building = building_ministry_production
+                }
+                remove_building = building_ministry_production
+            }
+            if = {
+                limit = {
+                    has_building = building_production_center
+                }
+                remove_building = building_production_center
+            }
+            if = {
+                limit = {
+                    has_building = building_archaeo_refinery
+                }
+                remove_building = building_archaeo_refinery
+            }
+            if = {
+                limit = {
+                    has_building = building_crystal_plant
+                }
+                remove_building = building_crystal_plant
+            }
+            if = {
+                limit = {
+                    has_building = building_chemical_plant
+                }
+                remove_building = building_chemical_plant
+            }
+            if = {
+                limit = {
+                    has_building = building_refinery
+                }
+                remove_building = building_refinery
+            }
+        }
+        if = {
+            limit = {
+                bca_advanced_rare_resource_building_replace = yes
+            }
+            if = {
+                limit = {
+                    has_building = building_crystal_plant
+                }
+                remove_building = building_crystal_plant
+            }
+            if = {
+                limit = {
+                    has_building = building_chemical_plant
+                }
+                remove_building = building_chemical_plant
+            }
+            if = {
+                limit = {
+                    has_building = building_refinery
+                }
+                remove_building = building_refinery
+            }
+        }
+        if = {
+            limit = {
+                bca_can_remove_building_trade = yes
+                num_buildings = {
+                    type = any
+                    category = trade
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    has_building = building_fe_market_1
+                }
+                remove_building = building_fe_market_1
+            }
+            if = {
+                limit = {
+                    has_building = building_fe_market_2
+                }
+                remove_building = building_fe_market_2
+            }
+            if = {
+                limit = {
+                    has_building = building_galactic_stock_exchange
+                }
+                remove_building = building_galactic_stock_exchange
+            }
+            if = {
+                limit = {
+                    has_building = building_commercial_megaplex
+                }
+                remove_building = building_commercial_megaplex
+            }
+            if = {
+                limit = {
+                    has_building = building_commercial_zone
+                }
+                remove_building = building_commercial_zone
+            }
+        }
+        if = {
+            limit = {
+                bca_advanced_trade_building_replace = yes
+            }
+            if = {
+                limit = {
+                    has_building = building_commercial_zone
+                }
+                remove_building = building_commercial_zone
+            }
+        }
+        if = {
+            limit = {
+                bca_can_remove_pop_assemble = yes
+                num_buildings = {
+                    type = any
+                    category = pop_assembly
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    has_building = building_robot_assembly_plant
+                }
+                remove_building = building_robot_assembly_plant
+            }
+            if = {
+                limit = {
+                    has_building = building_robot_assembly_complex
+                }
+                remove_building = building_robot_assembly_complex
+            }
+            if = {
+                limit = {
+                    has_building = building_machine_assembly_plant
+                }
+                remove_building = building_machine_assembly_plant
+            }
+            if = {
+                limit = {
+                    has_building = building_machine_assembly_complex
+                }
+                remove_building = building_machine_assembly_complex
+            }
+            if = {
+                limit = {
+                    has_building = building_clone_vats
+                }
+                remove_building = building_clone_vats
+            }
+            if = {
+                limit = {
+                    has_building = building_posthumous_employment_center
+                }
+                remove_building = building_posthumous_employment_center
+            }
+            if = {
+                limit = {
+                    has_building = building_spawning_pool
+                }
+                remove_building = building_spawning_pool
+            }
+            if = {
+                limit = {
+                    has_building = building_offspring_nest
+                }
+                remove_building = building_offspring_nest
+            }
+        }
+        if = {
+            limit = {
+                bca_can_remove_building_fortress = yes
+                num_buildings = {
+                    type = any
+                    category = army
+                    value > 0
+                }
+            }
+            if = {
+                limit = {
+                    has_building = building_dread_encampment
+                }
+                remove_building = building_dread_encampment
+            }
+            if = {
+                limit = {
+                    has_building = building_military_academy
+                }
+                remove_building = building_military_academy
+            }
+            if = {
+                limit = {
+                    has_building = building_stronghold
+                }
+                remove_building = building_stronghold
+            }
+            if = {
+                limit = {
+                    has_building = building_fe_fortress
+                }
+                remove_building = building_fe_fortress
+            }
+        }
+        if = {
+            limit = {
+                bca_can_remove_building_resource = yes
+            }
+            if = {
+                limit = {
+                    has_building = building_hydroponics_farm
+                }
+                remove_building = building_hydroponics_farm
+            }
+        }
+    }
+}

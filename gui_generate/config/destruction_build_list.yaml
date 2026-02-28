@@ -82,6 +82,12 @@ destruction_build_list:
       - building_chemical_plant
       - building_refinery
   - trigger:
+      - bca_advanced_rare_resource_building_replace
+    building:
+      - building_crystal_plant
+      - building_chemical_plant
+      - building_refinery
+  - trigger:
       - bca_can_remove_building_trade
     category_filter:
       - trade

@@ -106,6 +106,75 @@ bca_reserve_job = {
     }
 }
 
+bca_expect_output_rare_resource = {
+    allow = { always = yes }
+    potential = { always = yes }
+    # 0
+    option = {
+        name = "expect_output_rare_resource_0"
+        on_enabled = {
+            set_variable = { which = bca_expect_output_rare_crystals value = 0 }
+            set_variable = { which = bca_expect_output_volatile_motes value = 0 }
+            set_variable = { which = bca_expect_output_exotic_gases value = 0 }
+        }
+    }
+    # 20
+    option = {
+        name = "expect_output_rare_resource_20"
+        on_enabled = {
+            set_variable = { which = bca_expect_output_rare_crystals value = 20 }
+            set_variable = { which = bca_expect_output_volatile_motes value = 20 }
+            set_variable = { which = bca_expect_output_exotic_gases value = 20 }
+        }
+        ai_weight = {
+            factor = 100
+        }
+    }
+    # 50
+    option = {
+        name = "expect_output_rare_resource_50"
+        on_enabled = {
+            set_variable = { which = bca_expect_output_rare_crystals value = 50 }
+            set_variable = { which = bca_expect_output_volatile_motes value = 50 }
+            set_variable = { which = bca_expect_output_exotic_gases value = 50 }
+        }
+    }
+    # 100
+    option = {
+        name = "expect_output_rare_resource_100"
+        on_enabled = {
+            set_variable = { which = bca_expect_output_rare_crystals value = 100 }
+            set_variable = { which = bca_expect_output_volatile_motes value = 100 }
+            set_variable = { which = bca_expect_output_exotic_gases value = 100 }
+        }
+    }
+}
+
+bca_retain_low_level_rare_resource_buildings = {
+    potential = {
+        has_technology = tech_archaeo_refinery
+    }
+    allow = { always = yes }
+    option = {
+        name = "bca_option_remove_low_level_rare_resource_buildings"
+        on_enabled = {
+            remove_country_flag = bca_retain_low_level_rare_resource_buildings
+        }
+        ai_weight = {
+            factor = 1
+        }
+    }
+    option = {
+        name = "bca_option_retain_low_level_rare_resource_buildings"
+        on_enabled = {
+            set_country_flag = bca_retain_low_level_rare_resource_buildings
+        }
+        ai_weight = {
+            factor = 0
+        }
+    }
+}
+
 bac_remove_pop_assemble_buildings = {
     allow = { always = yes }
     potential = { always = yes }

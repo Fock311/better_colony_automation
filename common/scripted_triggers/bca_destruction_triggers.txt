@@ -168,3 +168,29 @@ bca_advanced_trade_building_replace = {
 		}
 	}
 }
+
+low_rare_resource_income = {
+	OR = {
+		has_monthly_income = { resource = rare_crystals value < bca_expect_output_rare_crystals }
+		has_monthly_income = { resource = volatile_motes value < bca_expect_output_volatile_motes }
+		has_monthly_income = { resource = exotic_gases value < bca_expect_output_exotic_gases }
+	}
+}
+
+bca_advanced_rare_resource_building_replace = {
+	owner = {
+		not = {
+			has_country_flag = bca_retain_low_level_rare_resource_buildings
+		}
+	}
+	has_any_industrial_designation = yes
+	OR = {
+		AND = {
+			low_rare_resource_income = yes
+			bca_unique_building_potential = {
+				building1 = building_archaeo_refinery
+			}
+		}
+		has_building =  building_archaeo_refinery
+	}
+}

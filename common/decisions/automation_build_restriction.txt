@@ -36,41 +36,41 @@
 # 	}
 # }
 
-decision_enable_pre_build_rare_resource_buildings = {
-	sound = event_administrative_work
-	icon = default
-
-	resources = {
-		category = decisions
-	}
-
-	potential = {
-		exists = owner
-		NOT = { has_planet_flag = bca_pf_pre_build_rare_resource_buildings }
-		has_any_industrial_designation = yes
-	}
-
-	effect = {
-		set_planet_flag = bca_pf_pre_build_rare_resource_buildings
-	}
-}
-
-decision_disable_pre_build_rare_resource_buildings = {
-	sound = event_administrative_work
-	icon = default
-
-	resources = {
-		category = decisions
-	}
-
-	potential = {
-		exists = owner
-		has_planet_flag = bca_pf_pre_build_rare_resource_buildings
-		has_any_industrial_designation = yes
-	}
-
-	effect = {
-		remove_planet_flag = bca_pf_pre_build_rare_resource_buildings
-	}
-}
+# decision_enable_pre_build_rare_resource_buildings = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		NOT = { has_planet_flag = bca_pf_pre_build_rare_resource_buildings }
+# 		has_any_industrial_designation = yes
+# 	}
+#
+# 	effect = {
+# 		set_planet_flag = bca_pf_pre_build_rare_resource_buildings
+# 	}
+# }
+#
+# decision_disable_pre_build_rare_resource_buildings = {
+# 	sound = event_administrative_work
+# 	icon = default
+#
+# 	resources = {
+# 		category = decisions
+# 	}
+#
+# 	potential = {
+# 		exists = owner
+# 		has_planet_flag = bca_pf_pre_build_rare_resource_buildings
+# 		has_any_industrial_designation = yes
+# 	}
+#
+# 	effect = {
+# 		remove_planet_flag = bca_pf_pre_build_rare_resource_buildings
+# 	}
+# }
 
