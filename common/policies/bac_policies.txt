@@ -111,7 +111,7 @@ bca_expect_output_rare_resource = {
     potential = { always = yes }
     # 0
     option = {
-        name = "expect_output_rare_resource_0"
+        name = "EXPECT_OUTPUT_RARE_RESOURCE_0"
         on_enabled = {
             set_variable = { which = bca_expect_output_rare_crystals value = 0 }
             set_variable = { which = bca_expect_output_volatile_motes value = 0 }
@@ -120,7 +120,7 @@ bca_expect_output_rare_resource = {
     }
     # 20
     option = {
-        name = "expect_output_rare_resource_20"
+        name = "EXPECT_OUTPUT_RARE_RESOURCE_20"
         on_enabled = {
             set_variable = { which = bca_expect_output_rare_crystals value = 20 }
             set_variable = { which = bca_expect_output_volatile_motes value = 20 }
@@ -132,7 +132,7 @@ bca_expect_output_rare_resource = {
     }
     # 50
     option = {
-        name = "expect_output_rare_resource_50"
+        name = "EXPECT_OUTPUT_RARE_RESOURCE_50"
         on_enabled = {
             set_variable = { which = bca_expect_output_rare_crystals value = 50 }
             set_variable = { which = bca_expect_output_volatile_motes value = 50 }
@@ -141,7 +141,7 @@ bca_expect_output_rare_resource = {
     }
     # 100
     option = {
-        name = "expect_output_rare_resource_100"
+        name = "EXPECT_OUTPUT_RARE_RESOURCE_100"
         on_enabled = {
             set_variable = { which = bca_expect_output_rare_crystals value = 100 }
             set_variable = { which = bca_expect_output_volatile_motes value = 100 }
@@ -229,7 +229,3 @@ bac_allow_deurbanization = {
         }
     }
 }
-
-
-
-
