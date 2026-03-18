@@ -6,7 +6,7 @@
  MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n$MESSAGE_BCA_UPDATE_desc_important$\n$MESSAGE_BCA_STARTUP_desc_log$"
  MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§!がv1.0にアップデートされました"
  MESSAGE_BCA_UPDATE_desc_important: "£community_in_breach£ このMODのワークショップ購読は§K4.2§!バージョン用として保持されます。今後の更新は新しいワークショップのリンクを購読してください（このMODのワークショップページにリダイレクトリンクがあります）\n§H注意§!: このMODは最近多くのアップデートを受けています。詳細はワークショップページをご覧ください。\n§R注意§!: このMODは現在 §1UI Overhaul Dynamic§! を前提MODとして必要とします。"
- MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v101$\n$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v130$\n$MESSAGE_BCA_STARTUP_desc_log_v120$\n$MESSAGE_BCA_STARTUP_desc_log_v110$\n$MESSAGE_BCA_STARTUP_desc_log_v102$\n$MESSAGE_BCA_STARTUP_desc_log_v101$\n$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
 
  MESSAGE_BCA_STARTUP_desc_log_v101: "\n§Y2026-2-20 - v1.0.1§!: \n\t- 区画の建設が職位の要件を無視する問題を修正しました。\n\t- 一部の区画が設定上限通りに建設されない問題を修正しました。\n\t- 区画が満杯のときに都市区画が資源特化区画に置換できない問題を修正しました。\n\t- 資源建物のハイブリッド計画建設をサポートしました。"
  MESSAGE_BCA_STARTUP_desc_log_v100: "\n§Y2026-2-20 - v1.0§!: \n\t§Y主な更新§!:\n\t- ハイブリッド計画と区画建設を設定するGUIを作成し、以前のハイブリッド計画惑星タイプを削除しました。\n\t- ハイブリッド計画の惑星は区画の自動建設/置換および対応する建造物の建設を行います。\n\t- ブースト建造物の建設ロジックを最適化し、空き職がある場合でも建設されるようになりました。\n\t- 主要特化惑星の建造ロジックを再実装しました。主要特化は建設収益に基づいて最適な建設オプションを自動的に選択するようになり、ほとんどすべてのタイプの惑星をサポートします。"
@@ -17,6 +17,14 @@
  MESSAGE_BCA_STARTUP_desc_log_v052: "\n§Y2026-1-25 - v0.5.2§!: \n\tレア資源建造物の自動化ロジックを修正・改善：考古学精製所の建設後、他のレア資源建造物は建設されなくなります。 \n\tロボットが違法化されている場合や遺伝子進化が取得されている場合でも、ロボット組立オプションが表示される問題を修正しました。"
  MESSAGE_BCA_STARTUP_desc_log_v051: "\n§Y2026-1-25 - v0.5.1§!: \n\tエネルギー出力計算のエラーを修正し、都市区域の比率が低すぎる問題を解決しました。 \n\tブースト区域変換時にブースト特化が削除されない問題を修正しました。"
  MESSAGE_BCA_STARTUP_desc_log_v05: "\n§Y2026-1-24 - v0.5§!: \n\t§H農村区域の建設と解体§!ロジックを書き直しました。農村ブースト特化が存在する場合、MODは都市区域と農村区域を自動的に再バランスして出力を最大化します"
+
+ MESSAGE_BCA_STARTUP_desc_log_v102: "\n§Y2026-2-22 - v1.0.2§!：\n\t- §C自動区域管理§!が有効な£energy£ £minerals£ £food£の特化では、§R他の農村区域が置換されます§!（デフォルトで有効）\n\t- 職位がない場合の都市区域と主要区域の建設優先度を調整\n\t- 火山または荒野の惑星で農村区域が過剰に建設される問題を修正\n\t- 一部の古いローカライズを削除しました"
+
+ MESSAGE_BCA_STARTUP_desc_log_v110: "\n§Y2026-2-26 - v1.1§!：\n\t- 4.3への対応\n\t- 4.3で都市資源区域が削除されたため、関連ロジックが大幅に簡略化されました\n\t- 設計区域の建設と解体に関するいくつかの問題を修正しました"
+
+ MESSAGE_BCA_STARTUP_desc_log_v120: "\n§Y2026-2-27 - v1.2§!：\n\t- 仕事を提供する建造物の建築優先度を最適化。これらの建造物は区域スロットがない場合にのみ建設されるようになりました\n\t- モニュメントタイプ建造物の建設リストを修正し、惑星制限が1の建造物のみを建設するようにしました\n\t- UI設定による区域の解体をサポート\n\t- 自動解体オプションを細分化し、建造物、区域、ブースト特化の個別オプションを追加\n\t- 誤って建設される特化の問題を修正\n\t- 複数の区域計画が利用可能な場合、常に同じ区域を優先するのではなくランダム選択を行うように変更\n\t- 植民インターフェースでコントロールパネルが表示される問題を修正"
+
+ MESSAGE_BCA_STARTUP_desc_log_v130: "\n§Y2026-2-28 - v1.3§!：\n\t- 性能最適化を実施\n\t- 自動建造物解体の書き直し。これにより原版建造物の改変に依存しなくなり、原版建造物を改変するMODとの競合が減少します\n\t- 研究ラボ等、職を提供する建造物を利用して高レベル建造物のためのスロットを確保するサポートを追加\n\t- 特化建設が停止する事例を修正しました"
 
  concept_bca_prev_update_log: "以前の更新ログ"
  concept_bca_prev_update_log_desc: "$MESSAGE_BCA_STARTUP_desc_log_v055$\n$MESSAGE_BCA_STARTUP_desc_log_v054$\n$MESSAGE_BCA_STARTUP_desc_log_v053$\n$MESSAGE_BCA_STARTUP_desc_log_v052$\n$MESSAGE_BCA_STARTUP_desc_log_v051$\n$MESSAGE_BCA_STARTUP_desc_log_v05$"

@@ -123,16 +123,6 @@
  decision_colony_transform: "§R~BCA~:去城市化§!"
  decision_colony_transform_desc: "§R难道我是个很坏的人吗？§!"
 
- decision_enable_build_fe_clinic: "£building£ §r已禁用§!：建造更多$building_fe_clinic_1$"
- decision_enable_build_fe_clinic_desc: "为殖民地建造额外的$building_fe_clinic_1$。当前：§H禁止§!"
- decision_disable_build_fe_clinic: "£building£ §G已启用§!：建造更多$building_fe_clinic_1$"
- decision_disable_build_fe_clinic_desc: "为殖民地建造额外的$building_fe_clinic_1$。当前：§H允许§!"
-
- decision_enable_pre_build_rare_resource_buildings: "£building£ £exotic_gases£ £rare_crystals£ £volatile_motes£ §r已禁用§!：稀有资源建筑预建造"
- decision_enable_pre_build_rare_resource_buildings_desc: "在无财政赤字时提前建造稀有资源建筑。当前：§H禁止§!"
- decision_disable_pre_build_rare_resource_buildings: "£building£ £exotic_gases£ £rare_crystals£ £volatile_motes£ §G已启用§!：稀有资源建筑预建造"
- decision_disable_pre_build_rare_resource_buildings_desc: "当前：§H允许§!"
-
  bca_pm_arcology_project_candidate: "理想城计划候选"
  bca_pm_arcology_project_candidate_desc: "将自动替换资源区划为城市区划并在合适时开启理想城计划。"
 
