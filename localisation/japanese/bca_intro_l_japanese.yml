@@ -2,11 +2,11 @@
   MESSAGE_BCA_STARTUP: "Better Colony Automation 通知"
   MESSAGE_BCA_STARTUP_desc: "§YBetter Colony Automation§! by 哇噗 & 红塵渡者\n\nこのMODは植民地の自動化を修正・改善します。['concept_colony']の['concept_planet_automation']、惑星['concept_decision']、帝国['concept_policies']から動作を設定できます。\n\n§H主な機能:§!\n- §Yスマート計画:§! 惑星の指定に基づいて、目標収量を最大化するよう自動的に区画を計画・建設します\n- §Y自動解体:§! 必要に応じて不要な£building£['concept_buildings']、£district£['concept_district']、£zone£['concept_district_specialization']を自動的に削除します\n- §Yその他:§! 詳細はワークショップページをご覧ください。\n\n§H注意§!: §Y自動解体§!は['concept_planet_automation']とは独立しており、デフォルトで有効です。UIから切り替えることができます。\n\nMOD作者はバニラ市民権以外の政府でのプレイ経験が限られています。フィードバックとバグ報告を歓迎します！"
 
-  MESSAGE_BCA_UPDATE: "Better Colony Automation アップデート"
-  MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n$MESSAGE_BCA_UPDATE_desc_important$\n$MESSAGE_BCA_STARTUP_desc_log$"
-  MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§!がv1.0にアップデートされました"
-  MESSAGE_BCA_UPDATE_desc_important: "£community_in_breach£ このMODのワークショップ購読は§K4.2§!バージョン用として保持されます。今後の更新は新しいワークショップのリンクを購読してください（このMODのワークショップページにリダイレクトリンクがあります）\n§H注意§!: このMODは最近多くのアップデートを受けています。詳細はワークショップページをご覧ください。\n§R注意§!: このMODは現在 §1UI Overhaul Dynamic§! を前提MODとして必要とします。"
-  MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v101$\n$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
+ MESSAGE_BCA_UPDATE: "Better Colony Automation アップデート"
+ MESSAGE_BCA_UPDATE_desc: "$MESSAGE_BCA_UPDATE_desc_verson$\n$MESSAGE_BCA_UPDATE_desc_important$\n$MESSAGE_BCA_STARTUP_desc_log$"
+ MESSAGE_BCA_UPDATE_desc_verson: "§YBetter Colony Automation§!がv1.0にアップデートされました"
+ MESSAGE_BCA_UPDATE_desc_important: "£community_in_breach£ このMODのワークショップ購読は§K4.2§!バージョン用として保持されます。今後の更新は新しいワークショップのリンクを購読してください（このMODのワークショップページにリダイレクトリンクがあります）\n§H注意§!: このMODは最近多くのアップデートを受けています。詳細はワークショップページをご覧ください。\n§R注意§!: このMODは現在 §1UI Overhaul Dynamic§! を前提MODとして必要とします。"
+ MESSAGE_BCA_STARTUP_desc_log: "$MESSAGE_BCA_STARTUP_desc_log_v130$\n$MESSAGE_BCA_STARTUP_desc_log_v120$\n$MESSAGE_BCA_STARTUP_desc_log_v110$\n$MESSAGE_BCA_STARTUP_desc_log_v102$\n$MESSAGE_BCA_STARTUP_desc_log_v101$\n$MESSAGE_BCA_STARTUP_desc_log_v100$\n\n['concept_bca_prev_update_log']"
 
   MESSAGE_BCA_STARTUP_desc_log_v130: "\n§Y2026-2-28 - v1.3§!:\n\t- §Gパフォーマンスを最適化§!\n\t- 自動建物解体を書き直し、バニラの建物を改変することなく解体できるようになりました。§Gバニラの建物を改変するMODとの競合がなくなりました§!\n\t- 高度な建物の建設のために、職位のみを提供する建物（例：研究所）の解体をサポートしました\n\t- 特化建設が特定の状況で停止する問題を修正しました"
   MESSAGE_BCA_STARTUP_desc_log_v120: "\n§Y2026-2-27 - v1.2§!:\n\t- 職位を提供する建造物の建設優先度を最適化しました。これらの建造物は区域スロットが利用できない場合のみ建設されるようになりました\n\t- モニュメント型建造物の建設リストを修正しました。惑星制限が1の建造物のみ建設します\n\t- UI設定から設定された区域の解体をサポートしました\n\t- 自動解体オプションを詳細化し、建造物、区域、ブースト区域の独立したオプションを追加しました\n\t- 誤って建設された特化の問題を修正しました\n\t- 複数の区域計画が建設可能な場合、常に同じ区域を優先するのではなくランダム選択を行うようになりました\n\t- 植民化インターフェースでコントロールパネルが表示される問題を修正しました"
@@ -22,5 +22,13 @@
   MESSAGE_BCA_STARTUP_desc_log_v051: "\n§Y2026-1-25 - v0.5.1§!: \n\tエネルギー出力計算のエラーを修正し、都市区域の比率が低すぎる問題を解決しました。 \n\tブースト区域変換時にブースト特化が削除されない問題を修正しました。"
   MESSAGE_BCA_STARTUP_desc_log_v05: "\n§Y2026-1-24 - v0.5§!: \n\t§H農村区域の建設と解体§!ロジックを書き直しました。農村ブースト特化が存在する場合、MODは都市区域と農村区域を自動的に再バランスして出力を最大化します"
 
-  concept_bca_prev_update_log: "以前の更新ログ"
-  concept_bca_prev_update_log_desc: "$MESSAGE_BCA_STARTUP_desc_log_v055$\n$MESSAGE_BCA_STARTUP_desc_log_v054$\n$MESSAGE_BCA_STARTUP_desc_log_v053$\n$MESSAGE_BCA_STARTUP_desc_log_v052$\n$MESSAGE_BCA_STARTUP_desc_log_v051$\n$MESSAGE_BCA_STARTUP_desc_log_v05$"
+ MESSAGE_BCA_STARTUP_desc_log_v102: "\n§Y2026-2-22 - v1.0.2§!：\n\t- §C自動区域管理§!が有効な£energy£ £minerals£ £food£の特化では、§R他の農村区域が置換されます§!（デフォルトで有効）\n\t- 職位がない場合の都市区域と主要区域の建設優先度を調整\n\t- 火山または荒野の惑星で農村区域が過剰に建設される問題を修正\n\t- 一部の古いローカライズを削除しました"
+
+ MESSAGE_BCA_STARTUP_desc_log_v110: "\n§Y2026-2-26 - v1.1§!：\n\t- 4.3への対応\n\t- 4.3で都市資源区域が削除されたため、関連ロジックが大幅に簡略化されました\n\t- 設計区域の建設と解体に関するいくつかの問題を修正しました"
+
+ MESSAGE_BCA_STARTUP_desc_log_v120: "\n§Y2026-2-27 - v1.2§!：\n\t- 仕事を提供する建造物の建築優先度を最適化。これらの建造物は区域スロットがない場合にのみ建設されるようになりました\n\t- モニュメントタイプ建造物の建設リストを修正し、惑星制限が1の建造物のみを建設するようにしました\n\t- UI設定による区域の解体をサポート\n\t- 自動解体オプションを細分化し、建造物、区域、ブースト特化の個別オプションを追加\n\t- 誤って建設される特化の問題を修正\n\t- 複数の区域計画が利用可能な場合、常に同じ区域を優先するのではなくランダム選択を行うように変更\n\t- 植民インターフェースでコントロールパネルが表示される問題を修正"
+
+ MESSAGE_BCA_STARTUP_desc_log_v130: "\n§Y2026-2-28 - v1.3§!：\n\t- 性能最適化を実施\n\t- 自動建造物解体の書き直し。これにより原版建造物の改変に依存しなくなり、原版建造物を改変するMODとの競合が減少します\n\t- 研究ラボ等、職を提供する建造物を利用して高レベル建造物のためのスロットを確保するサポートを追加\n\t- 特化建設が停止する事例を修正しました"
+
+ concept_bca_prev_update_log: "以前の更新ログ"
+ concept_bca_prev_update_log_desc: "$MESSAGE_BCA_STARTUP_desc_log_v055$\n$MESSAGE_BCA_STARTUP_desc_log_v054$\n$MESSAGE_BCA_STARTUP_desc_log_v053$\n$MESSAGE_BCA_STARTUP_desc_log_v052$\n$MESSAGE_BCA_STARTUP_desc_log_v051$\n$MESSAGE_BCA_STARTUP_desc_log_v05$"
