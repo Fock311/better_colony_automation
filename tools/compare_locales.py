@@ -2,8 +2,15 @@ import io
 import os
 
 files = [
-    ("localisation/simp_chinese/bt_main_3_l_simp_chinese.yml", "localisation/english/bt_main_3_l_english.yml", "localisation/japanese/bt_main_3_l_japanese.yml"),
-    ("localisation/simp_chinese/bca_intro_l_simp_chinese.yml", "localisation/english/bca_intro_l_english.yml", "localisation/japanese/bca_intro_l_japanese.yml"),
+    ("localisation/simp_chinese/bt_main_3_l_simp_chinese.yml",
+     "localisation/english/bt_main_3_l_english.yml",
+     "localisation/japanese/bt_main_3_l_japanese.yml"),
+    ("localisation/simp_chinese/bca_intro_l_simp_chinese.yml",
+     "localisation/english/bca_intro_l_english.yml",
+     "localisation/japanese/bca_intro_l_japanese.yml"),
+    ("localisation/simp_chinese/bca_gui_l_simp_chinese.yml",
+        "localisation/english/bca_gui_l_english.yml",
+        "localisation/japanese/bca_gui_l_japanese.yml"),
 ]
 
 root = os.path.dirname(os.path.dirname(__file__))
