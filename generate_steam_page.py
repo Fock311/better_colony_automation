@@ -61,7 +61,7 @@ def keep_latest_changelog_entries(md_content, keep=1, section_title="## 最近�
 
 def generate_steam_page():
     root_path = os.path.dirname(os.path.abspath(__file__))
-    zh_path = os.path.join(root_path, 'README.md')
+    zh_path = os.path.join(root_path, 'steam_page_cn.md')
     output_path = os.path.join(root_path, 'steam_page.txt')
 
     with open(zh_path, 'r', encoding='utf-8') as f:
@@ -72,6 +72,15 @@ def generate_steam_page():
 
     with open(output_path, 'w', encoding='utf-8') as f:
         f.write(final_content)
+
+    en_path = os.path.join(root_path, 'steam_page_en.md')
+    with open(en_path, 'r', encoding='utf-8') as f:
+        en_content = f.read()
+    en_trimmed = keep_latest_changelog_entries(en_content)
+    final_en_content = markdown_to_steam(en_trimmed)
+
+    with open(os.path.join(root_path, 'steam_page_en.txt'), 'w', encoding='utf-8') as f:
+        f.write(final_en_content)
     
     print(f"Success! Steam page content generated at: {output_path}")
 

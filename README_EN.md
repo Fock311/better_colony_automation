@@ -1,20 +1,5 @@
 # Better Colony Automation (BCA) - Colony Automation Overhaul (4.3)
 
-https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
-
-Since Paradox never fixed planetary automation bugs after the 4.0 update, late-game automation has been frustrating. This mod fully reworks vanilla planetary automation, fixes many issues and adds improved controls.
-
-Feedback / Contact: QQ 153870310
-
-Quick link: [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3674208064)
-
-## Quick Start
-
-1. **Global Settings**: Set the **Mineral Reserve Policy** in the \[Policies\] menu.
-2. **Enable Automation**: Toggle \[Planetary Automation\] on the planet UI and configure automation categories.
-3. **Hybrid Planning & District Build Settings**: A planet UI is provided to configure hybrid planning and district build preferences.
-4. **Misc Settings**: Some options (e.g., Revitalization spamming) remain controlled via Planetary Decisions.
-
 ## Overview
 
 ### Construction Features
@@ -74,13 +59,11 @@ Quick link: [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfile
 
 ## Compatibility
 
+**It's advised to load this mod in the end of mod list**
+
 - **Building Demolition** previously modified vanilla building files and could conflict with mods changing the same files. The mod has been rewritten so automatic demolition no longer depends on modifying vanilla building files, reducing conflicts.
 - Mods that change AI behavior may conflict; load order recommendations may apply.
 - Currently supports only vanilla buildings and districts.
-
-## Compatible Mods
-
-- [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfiles/filedetails/?id=3674208064)
 
 ## Changelog
 
@@ -160,8 +143,7 @@ Quick link: [Stellar AI Compatibility Mod](https://steamcommunity.com/sharedfile
 
 ## Contribute
 
-This mod currently supports common vanilla buildings and districts. To add support for other modded buildings/districts, contribute via:
-
-https://github.com/StellarWarp/better_colony_automation
+Currently, this mod only supports commonly used vanilla buildings and districts.
+Co-authors are welcome!
 
 This project is licensed under GNU GPLv3.

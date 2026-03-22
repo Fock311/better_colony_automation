@@ -2,22 +2,7 @@
 
 https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
-# Better Colony Automation (BCA) - 殖民地自动化改良 (4.3)
-
-[4.2旧版本](https://steamcommunity.com/sharedfiles/filedetails/?id=3601183337)
-
-对原版自动托管进行完全重做
-
-反馈与交流：QQ 153870310
-
-## 快速开始
-
-1. **全局设置**：在【政策】中设置**自动建造矿物预留**。
-2. **开启自动化**：在行星界面开启【行星自动化】以及对相关自动化选项进行配置。
-3. **混合规划与区划建造设置** 现在已提供行星 UI 界面来设置混合规划和区划建造。
-4. **杂项设置** 目前仍有部分设置需要通过行星决策来调整，例如焕活的建设限制。
-
-## 总览
+## 核心机制
 
 ### 建造功能
 
@@ -31,11 +16,10 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 - **文化丰碑**：自动建造凝聚力产出建筑。
 - **资源仓储**：自动建造仓库。
 - **人口管理细化**：（非机械帝国）可独立管理机器人组装厂的建设。
-- 移除了“避免财政赤字”的选项，若不手动关闭会经常卡住建筑建设。
 
 #### 混合规划管理
 
-之前的混合规划星球类型被移除，现在采用GUI界面来进行混合规划设置
+通过UI界面设置计划建造或转型的特化。
 
 注意（次要区划混合规划设置），本MOD在存在相同的次要区划（理想城/机械世界/蜂巢星球/环世界）时无法保证实际特化的槽位和设置的槽位对应，需要手动调整设置来使其与实际建设的特化对应。否则会导致区划建设数量和图标不对应。
 
@@ -47,7 +31,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 #### 区划建设
 
-可通过GUI界面设置相关建设规划，模组会根据设置自动进行区划建设以达到规划要求。（暂时没做拆除，因为手动替换的差别不大）
+可通过UI界面设置相关建设规划，模组会根据设置自动进行区划建设以达到规划要求。（暂时没做拆除，因为手动替换的差别不大）
 
 ### 拆除功能
 
@@ -63,7 +47,7 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 #### 区划特化拆除
 
-**不在GUI界面规划内的特化均会被拆除**
+区划特化会根据行星 UI 界面设置的规划进行拆除，以满足规划要求。（目前还没做替换，转型时会顺带把上面的建筑拆除，可在 UI 界面中单独关闭区划特化拆除的拆除功能手动替换）
 
 ### 高级建设计划
 
@@ -73,12 +57,6 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 
 - **理想城候选规划设置**：当可以进行理想城建设时可开启此设置，允许提前规划理想城的建设。开启后将自动拆除一产区划，并在满足建设条件时提示玩家是否正式开启项目。
 - **去城市化决策**：测试用途。
-
-## 兼容性
-
-- 本模组的对原版的修改集中于自动化逻辑。理论上不会和**不修改原版自动化**的MOD发生冲突。（现在建筑删除已不依赖于修改原版建筑）
-- 本模组只支持原版建筑和区划的自动托管，暂不支持任何来自其他模组的建筑和区划。
-- 不支持**更多区划特化数量**以及增加更多的**区划类型**的MOD，但是增加建筑槽位的MOD是兼容的
 
 ---
 
@@ -169,9 +147,6 @@ https://github.com/StellarWarp/better_colony_automation/blob/master/README_EN.md
 ---
 ## 为此mod贡献 / Contribute to this mod
 
-当前的 mod 只对常用的原版建筑和区划进行了支持。如果你希望添加对其他模组建筑和区划的支持，欢迎访问以下链接提交你的贡献（添加规则其实很简单的喵）
-Contribute support for additional mod buildings and districts by visiting:
-
-https://github.com/StellarWarp/better_colony_automation
+当前的 mod 只对常用的原版建筑和区划进行了支持。欢迎共同作者来添加对其他模组建筑和区划的支持以及兼容性优化。
 
 This project is under the GNU GPLv3 license.
